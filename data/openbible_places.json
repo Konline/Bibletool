@@ -1,0 +1,3516 @@
+{
+    "Leshem": {
+        "chinese_name": "利善", 
+        "lat": "33.248659",
+        "lon": "35.652483", 
+        "notes": "Now Tel Dan",
+        "verses": [
+            "JOS 19:47"
+        ]
+    }, 
+    "Laish": {
+        "chinese_name": "拉億", 
+        "lat": "33.248659",
+        "lon": "35.652483", 
+        "notes": "Now Laish",
+        "verses": [
+            "JUG 18:29"
+        ]
+    }, 
+    "Dan": {
+        "chinese_name": "但", 
+        "lat": "33.248659",
+        "lon": "35.652483", 
+        "notes": "Now Tel Dan",
+        "verses": [
+            "JOS 19:47"
+        ]
+    }, 
+    "Abana": {
+        "chinese_name": "亞罷拿", 
+        "lat": "33.545097", 
+        "lon": "36.224661", 
+        "notes": "Now Barada River", 
+        "verses": [
+            "2KI 5:12"
+        ]
+    }, 
+    "Abdon": {
+        "chinese_name": "押頓", 
+        "lat": "33.046264", 
+        "lon": "35.172513", 
+        "notes": "", 
+        "verses": [
+            "JOS 21:30", 
+            "1CH 6:74"
+        ]
+    }, 
+    "Abel-keramim": {
+        "chinese_name": "亞備勒基拉明", 
+        "lat": "32.02425", 
+        "lon": "35.82352", 
+        "notes": "", 
+        "verses": [
+            "JUG 11:33"
+        ]
+    }, 
+    "Abel-meholah": {
+        "chinese_name": "亞伯米何拉", 
+        "lat": "32.356010", 
+        "lon": "35.536929", 
+        "notes": "", 
+        "verses": [
+            "JUG 7:22", 
+            "1KI 4:12", 
+            "1KI 19:16"
+        ]
+    }, 
+    "Abilene": {
+        "chinese_name": "亞比利尼", 
+        "lat": "33.587300", 
+        "lon": "36.091710", 
+        "notes": "", 
+        "verses": [
+            "LUK 3:1"
+        ]
+    }, 
+    "Achzib 1": {
+        "chinese_name": "亞革悉", 
+        "lat": "31.700000", 
+        "lon": "35.000000", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:44", 
+            "MIC 1:14"
+        ]
+    }, 
+    "Adadah": {
+        "chinese_name": "亞大達", 
+        "lat": "31.1858", 
+        "lon": "34.96745", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:22"
+        ]
+    }, 
+    "Adami-nekeb": {
+        "chinese_name": "亞大米尼吉",
+        "lat": "32.610500", 
+        "lon": "35.542890", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:33"
+        ]
+    }, 
+    "Addar": {
+        "chinese_name": "亞達珥", 
+        "lat": "30.9522", 
+        "lon": "34.7187", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:3"
+        ]
+    }, 
+    "Adithaim": {
+        "chinese_name": "亞底他音", 
+        "lat": "31.7001", 
+        "lon": "34.89532", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:36"
+        ]
+    }, 
+    "Adramyttium": {
+        "chinese_name": "亞大米田", 
+        "lat": "39.574800", 
+        "lon": "26.936700", 
+        "notes": "", 
+        "verses": [
+            "ACT 27:2"
+        ]
+    }, 
+    "Adriatic Sea": {
+        "chinese_name": "亞底亞", 
+        "lat": "42.415000", 
+        "lon": "16.373500", 
+        "notes": "water", 
+        "verses": [
+            "ACT 27:27"
+        ]
+    }, 
+    "Adullam": {
+        "chinese_name": "亞杜蘭", 
+        "lat": "31.650000", 
+        "lon": "35.000000", 
+        "notes": "", 
+        "verses": [
+            "JOS 12:15", 
+            "JOS 15:35", 
+            "1SA 22:1", 
+            "2SA 23:13", 
+            "1CH 11:15", 
+            "2CH 11:7", 
+            "NEH 11:30", 
+            "MIC 1:15"
+        ]
+    }, 
+    "Adummim": {
+        "chinese_name": "亞都冥", 
+        "lat": "31.817585", 
+        "lon": "35.361646", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:7", 
+            "JOS 18:17"
+        ]
+    }, 
+    "Aenon": {
+        "chinese_name": "哀嫩", 
+        "lat": "32.398936", 
+        "lon": "35.543510", 
+        "notes": "", 
+        "verses": [
+            "JHN 3:23"
+        ]
+    }, 
+    "Ahava": {
+        "chinese_name": "亞哈瓦", 
+        "lat": "33.625197", 
+        "lon": "42.786647", 
+        "notes": "", 
+        "verses": [
+            "EZR 8:15", 
+            "EZR 8:21", 
+            "EZR 8:31"
+        ]
+    }, 
+    "Ain 1": {
+        "chinese_name": "亞延", 
+        "lat": "34.353071", 
+        "lon": "36.385705", 
+        "notes": "", 
+        "verses": [
+            "NUM 34:11"
+        ]
+    }, 
+    "Ain 2": {
+        "chinese_name": "亞因", 
+        "lat": "31.370835", 
+        "lon": "34.860665", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:32", 
+            "JOS 19:7", 
+            "JOS 21:16", 
+            "1CH 4:32"
+        ]
+    }, 
+    "Akrabbim": {
+        "chinese_name": "亞克拉濱", 
+        "lat": "30.688292", 
+        "lon": "35.263182", 
+        "notes": "", 
+        "verses": [
+            "NUM 34:4", 
+            "JOS 15:3", 
+            "JUG 1:36"
+        ]
+    }, 
+    "Alemeth": {
+        "chinese_name": "阿勒篾", 
+        "lat": "31.828406", 
+        "lon": "35.287637", 
+        "notes": "", 
+        "verses": [
+            "1CH 6:60"
+        ]
+    }, 
+    "Allammelech": {
+        "chinese_name": "亞拉米勒", 
+        "lat": "32.97829", 
+        "lon": "35.182915", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:26"
+        ]
+    }, 
+    "Amad": {
+        "chinese_name": "亞末", 
+        "lat": "33.019337", 
+        "lon": "35.173644", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:26"
+        ]
+    }, 
+    "Amana": {
+        "chinese_name": "亞瑪拿", 
+        "lat": "33.681370", 
+        "lon": "36.055039", 
+        "notes": "", 
+        "verses": [
+            "SON 4:8"
+        ]
+    }, 
+    "Ammah": {
+        "chinese_name": "亞瑪", 
+        "lat": "31.869005", 
+        "lon": "35.343177", 
+        "notes": "", 
+        "verses": [
+            "2SA 2:24"
+        ]
+    }, 
+    "Anab": {
+        "chinese_name": "亞拿伯", 
+        "lat": "31.403888", 
+        "lon": "34.944185", 
+        "notes": "", 
+        "verses": [
+            "JOS 11:21", 
+            "JOS 15:50"
+        ]
+    }, 
+    "Anaharath": {
+        "chinese_name": "亞拿哈拉", 
+        "lat": "32.607039", 
+        "lon": "35.397389", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:19"
+        ]
+    }, 
+    "Anim": {
+        "chinese_name": "亞念", 
+        "lat": "31.373521", 
+        "lon": "35.074552", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:50"
+        ]
+    }, 
+    "Aphek 1": {
+        "chinese_name": "亞弗", 
+        "lat": "34.066067", 
+        "lon": "35.865801", 
+        "notes": "http://www.traveljournals.net/explore/lebanon/map/m1170262/hamul.html", 
+        "verses": [
+            "JOS 13:4", 
+            "JOS 19:30"
+        ]
+    }, 
+    "Arab": {
+        "chinese_name": "亞拉", 
+        "lat": "31.450746", 
+        "lon": "35.045648", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:52"
+        ]
+    }, 
+    "Arabah": {
+        "chinese_name": "亞拉巴", 
+        "lat": "32.029676", 
+        "lon": "35.520995", 
+        "notes": "", 
+        "verses": [
+            "DEU 1:1", 
+            "DEU 1:7", 
+            "DEU 2:8", 
+            "DEU 3:17", 
+            "DEU 4:49", 
+            "DEU 11:30", 
+            "JOS 8:14", 
+            "JOS 11:2", 
+            "JOS 11:16", 
+            "JOS 12:1", 
+            "JOS 12:3", 
+            "JOS 12:8", 
+            "JOS 18:18", 
+            "1SA 23:24", 
+            "2SA 2:29", 
+            "2SA 4:7", 
+            "2KI 25:4", 
+            "JER 39:4", 
+            "JER 52:7", 
+            "EZE 47:8"
+        ]
+    }, 
+    "Aram": {
+        "chinese_name": "亞蘭", 
+        "lat": "34.85", 
+        "lon": "39.12", 
+        "notes": "", 
+        "verses": [
+            "NUM 23:7", 
+            "2SA 8:6", 
+            "2SA 15:8", 
+            "1CH 2:23", 
+            "HOS 12:12"
+        ]
+    }, 
+    "Aram-maacah": {
+        "chinese_name": "亞蘭瑪迦", 
+        "lat": "33.2", 
+        "lon": "36.5", 
+        "notes": "", 
+        "verses": [
+            "1CH 19:6"
+        ]
+    }, 
+    "Argob": {
+        "chinese_name": "亞珥歌伯", 
+        "lat": "33.144", 
+        "lon": "36.136", 
+        "notes": "", 
+        "verses": [
+            "DEU 3:4", 
+            "DEU 3:13", 
+            "DEU 3:14", 
+            "1KI 4:13"
+        ]
+    }, 
+    "Arnon": {
+        "chinese_name": "亞嫩", 
+        "lat": "31.428800", 
+        "lon": "35.677009", 
+        "notes": "Now Wadi Mojib", 
+        "verses": [
+            "NUM 21:13", 
+            "NUM 21:14", 
+            "NUM 21:24", 
+            "NUM 21:26", 
+            "NUM 21:28", 
+            "NUM 22:36", 
+            "JUG 11:13", 
+            "JUG 11:18", 
+            "JUG 11:22", 
+            "JUG 11:26", 
+            "ISA 16:2", 
+            "JER 48:20"
+        ]
+    }, 
+    "Aroer 2": {
+        "chinese_name": "亞羅珥", 
+        "lat": "31.9617", 
+        "lon": "35.9115", 
+        "notes": "Guess (near Rabbah)", 
+        "verses": [
+            "NUM 32:34", 
+            "JOS 13:25", 
+            "JUG 11:33", 
+            "2SA 24:5", 
+            "1CH 5:8", 
+            "ISA 17:2"
+        ]
+    }, 
+    "Arumah": {
+        "chinese_name": "亞魯瑪", 
+        "lat": "32.154887", 
+        "lon": "35.318192", 
+        "notes": "", 
+        "verses": [
+            "JUG 9:41"
+        ]
+    }, 
+    "Arvad": {
+        "chinese_name": "亞發", 
+        "lat": "34.856082", 
+        "lon": "35.858485", 
+        "notes": "", 
+        "verses": [
+            "EZE 27:8", 
+            "EZE 27:11"
+        ]
+    }, 
+    "Ashkenaz": {
+        "chinese_name": "亞實基拿", 
+        "lat": "40.6", 
+        "lon": "44.6", 
+        "notes": "", 
+        "verses": [
+            "JER 51:27"
+        ]
+    }, 
+    "Ashnah": {
+        "chinese_name": "亞實拿", 
+        "lat": "31.8099", 
+        "lon": "34.9365", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:33", 
+            "JOS 15:43"
+        ]
+    }, 
+    "Azmon": {
+        "chinese_name": "押們", 
+        "lat": "30.958506", 
+        "lon": "34.380500", 
+        "notes": "", 
+        "verses": [
+            "NUM 34:4", 
+            "NUM 34:5", 
+            "JOS 15:4"
+        ]
+    }, 
+    "Baal-hazor": {
+        "chinese_name": "巴力夏瑣", 
+        "lat": "31.979434", 
+        "lon": "35.279229", 
+        "notes": "", 
+        "verses": [
+            "2SA 13:23"
+        ]
+    }, 
+    "Baal-meon": {
+        "chinese_name": "巴力免", 
+        "lat": "31.679454", 
+        "lon": "35.734892", 
+        "notes": "", 
+        "verses": [
+            "NUM 32:38", 
+            "1CH 5:8", 
+            "EZE 25:9"
+        ]
+    }, 
+    "Baalath 1": {
+        "chinese_name": "巴拉", 
+        "lat": "31.927451", 
+        "lon": "35.055378", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:44"
+        ]
+    }, 
+    "Baalath-beer": {
+        "chinese_name": "巴拉比珥", 
+        "lat": "32.049953", 
+        "lon": "35.733402", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:8"
+        ]
+    }, 
+    "Bahurim": {
+        "chinese_name": "巴戶琳", 
+        "lat": "31.824736", 
+        "lon": "35.388486", 
+        "notes": "", 
+        "verses": [
+            "2SA 3:16", 
+            "2SA 16:5", 
+            "2SA 17:18", 
+            "2SA 19:16", 
+            "2SA 23:31", 
+            "1KI 2:8"
+        ]
+    }, 
+    "Bene-berak": {
+        "chinese_name": "比尼比拉", 
+        "lat": "32.035782", 
+        "lon": "34.827108", 
+        "notes": "uk.geocities.com/jonpartin/joshua4.html", 
+        "verses": [
+            "JOS 19:45"
+        ]
+    }, 
+    "Berothah": {
+        "chinese_name": "比羅他", 
+        "lat": "33.931480", 
+        "lon": "36.152049", 
+        "notes": "", 
+        "verses": [
+            "EZE 47:16"
+        ]
+    }, 
+    "Besor": {
+        "chinese_name": "比梭", 
+        "lat": "31.398056", 
+        "lon": "34.436667", 
+        "notes": "wadi esh sheria", 
+        "verses": [
+            "1SA 30:9", 
+            "1SA 30:10", 
+            "1SA 30:21"
+        ]
+    }, 
+    "Beten": {
+        "chinese_name": "比田", 
+        "lat": "32.934736", 
+        "lon": "35.270799", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:25"
+        ]
+    }, 
+    "Beth-anath": {
+        "chinese_name": "伯亞納", 
+        "lat": "33.146864", 
+        "lon": "35.427134", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:38", 
+            "JUG 1:33"
+        ]
+    }, 
+    "Beth-anoth": {
+        "chinese_name": "伯亞諾", 
+        "lat": "31.558456", 
+        "lon": "35.124483", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:59"
+        ]
+    }, 
+    "Beth-arabah": {
+        "chinese_name": "瑪哈尼但", 
+        "lat": "31.843320", 
+        "lon": "35.506490", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:6", 
+            "JOS 15:61", 
+            "JOS 18:18", 
+            "JOS 18:22"
+        ]
+    }, 
+    "Beth-azmaveth": {
+        "chinese_name": "伯亞斯瑪弗", 
+        "lat": "31.834203", 
+        "lon": "35.260706", 
+        "notes": "", 
+        "verses": [
+            "NEH 7:28"
+        ]
+    }, 
+    "Beth-dagon 1": {
+        "chinese_name": "伯大袞", 
+        "lat": "31.908", 
+        "lon": "34.775", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:41"
+        ]
+    }, 
+    "Beth-dagon 2": {
+        "chinese_name": "伯大袞", 
+        "lat": "32.899561", 
+        "lon": "35.107928", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:27"
+        ]
+    }, 
+    "Beth-emek": {
+        "chinese_name": "伯以墨", 
+        "lat": "32.978855", 
+        "lon": "35.167096", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:27"
+        ]
+    }, 
+    "Beth-gamul": {
+        "chinese_name": "伯迦末", 
+        "lat": "31.519692", 
+        "lon": "35.844714", 
+        "notes": "", 
+        "verses": [
+            "JER 48:23"
+        ]
+    }, 
+    "Beth-haccherem": {
+        "chinese_name": "伯哈基琳", 
+        "lat": "31.665911", 
+        "lon": "35.241516", 
+        "notes": "", 
+        "verses": [
+            "NEH 3:14", 
+            "JER 6:1"
+        ]
+    }, 
+    "Beth-haram": {
+        "chinese_name": "伯亞蘭", 
+        "lat": "31.816667", 
+        "lon": "35.583333", 
+        "notes": "", 
+        "verses": [
+            "JOS 13:27"
+        ]
+    }, 
+    "Beth-hoglah": {
+        "chinese_name": "伯曷拉", 
+        "lat": "31.837062", 
+        "lon": "35.513151", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:6", 
+            "JOS 18:19", 
+            "JOS 18:21"
+        ]
+    }, 
+    "Beth-nimrah": {
+        "chinese_name": "伯寧拉", 
+        "lat": "31.900811", 
+        "lon": "35.625693", 
+        "notes": "now Beth-Nimrah", 
+        "verses": [
+            "NUM 32:36", 
+            "JOS 13:27"
+        ]
+    }, 
+    "Beth-peor": {
+        "chinese_name": "伯毘珥", 
+        "lat": "31.656099", 
+        "lon": "35.711870", 
+        "notes": "", 
+        "verses": [
+            "DEU 3:29", 
+            "DEU 4:46", 
+            "DEU 34:6", 
+            "JOS 13:20"
+        ]
+    }, 
+    "Beth-rehob": {
+        "chinese_name": "伯利合", 
+        "lat": "33.219354", 
+        "lon": "35.544122", 
+        "notes": "", 
+        "verses": [
+            "JUG 18:28", 
+            "2SA 10:6"
+        ]
+    }, 
+    "Beth-shemesh 2": {
+        "chinese_name": "伯示麥", 
+        "lat": "32.406430", 
+        "lon": "35.504628", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:22"
+        ]
+    }, 
+    "Beth-shittah": {
+        "chinese_name": "伯哈示他", 
+        "lat": "32.552496", 
+        "lon": "35.438257", 
+        "notes": "", 
+        "verses": [
+            "JUG 7:22"
+        ]
+    }, 
+    "Beth-tappuah": {
+        "chinese_name": "伯他普亞", 
+        "lat": "31.529730", 
+        "lon": "35.050377", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:53"
+        ]
+    }, 
+    "Beth-zur": {
+        "chinese_name": "伯夙", 
+        "lat": "31.596107", 
+        "lon": "35.102620", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:58", 
+            "2CH 11:7", 
+            "NEH 3:16"
+        ]
+    }, 
+    "Bethlehem 2": {
+        "chinese_name": "伯利恆", 
+        "lat": "32.735379", 
+        "lon": "35.189704", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:15"
+        ]
+    }, 
+    "Betonim": {
+        "chinese_name": "比多寧", 
+        "lat": "32.010500", 
+        "lon": "35.706297", 
+        "notes": "", 
+        "verses": [
+            "JOS 13:26"
+        ]
+    }, 
+    "Bezek 1": {
+        "chinese_name": "比利洗", 
+        "lat": "31.898029", 
+        "lon": "34.952878", 
+        "notes": "", 
+        "verses": [
+            "JUG 1:4", 
+            "JUG 1:5"
+        ]
+    }, 
+    "Bozrah 1": {
+        "chinese_name": "波斯拉", 
+        "lat": "30.734691", 
+        "lon": "35.606250", 
+        "notes": "", 
+        "verses": [
+            "GEN 36:33", 
+            "1CH 1:44", 
+            "ISA 34:6", 
+            "ISA 63:1", 
+            "JER 49:13", 
+            "JER 49:22", 
+            "AMO 1:12"
+        ]
+    }, 
+    "Brook of Egypt": {
+        "chinese_name": "埃及小河", 
+        "lat": "31.032047", 
+        "lon": "33.854957", 
+        "notes": "river: now Wadi al Arish; http://en.wikipedia.org/wiki/Brook_of_Egypt", 
+        "verses": [
+            "NUM 34:5", 
+            "JOS 15:4", 
+            "JOS 15:47", 
+            "1KI 8:65", 
+            "2KI 24:7", 
+            "2CH 7:8", 
+            "ISA 27:12", 
+            "EZE 47:19", 
+            "EZE 48:28"
+        ]
+    }, 
+    "Cabul 1": {
+        "chinese_name": "迦步勒", 
+        "lat": "32.865661", 
+        "lon": "35.211814", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:27"
+        ]
+    }, 
+    "Calah": {
+        "chinese_name": "迦拉", 
+        "lat": "36.142884", 
+        "lon": "43.312178", 
+        "notes": "?", 
+        "verses": [
+            "GEN 10:11", 
+            "GEN 10:12"
+        ]
+    }, 
+    "Calneh": {
+        "chinese_name": "甲尼", 
+        "lat": "32.127213", 
+        "lon": "45.229995", 
+        "notes": "", 
+        "verses": [
+            "GEN 10:10", 
+            "AMO 6:2"
+        ]
+    }, 
+    "Cauda": {
+        "chinese_name": "高大", 
+        "lat": "34.843510", 
+        "lon": "24.091671", 
+        "notes": "island; now Gavdos; http://www.creteisland.gr/english/chania/selino/gavdos/", 
+        "verses": [
+            "ACT 27:16"
+        ]
+    }, 
+    "Chebar": {
+        "chinese_name": "迦巴魯", 
+        "lat": "33.159129", 
+        "lon": "44.062930", 
+        "notes": "; now Nehardea; http://www.hebrewhistory.info/factpapers/fp031_iraq.htm", 
+        "verses": [
+            "EZE 1:1", 
+            "EZE 1:3", 
+            "EZE 3:15", 
+            "EZE 3:23", 
+            "EZE 10:15", 
+            "EZE 10:20", 
+            "EZE 10:22", 
+            "EZE 43:3"
+        ]
+    }, 
+    "Chephar-ammoni": {
+        "chinese_name": "基法阿摩尼", 
+        "lat": "31.966667", 
+        "lon": "35.250000", 
+        "notes": "?; now Khirbat Kafr Ana", 
+        "verses": [
+            "JOS 18:24"
+        ]
+    }, 
+    "Chephirah": {
+        "chinese_name": "基非拉", 
+        "lat": "31.836401", 
+        "lon": "35.095272", 
+        "notes": "now Kirbat el Kafira", 
+        "verses": [
+            "JOS 9:17", 
+            "JOS 18:26", 
+            "EZR 2:25", 
+            "NEH 7:29"
+        ]
+    }, 
+    "Chesalon": {
+        "chinese_name": "基撒崙", 
+        "lat": "31.781049", 
+        "lon": "35.051130", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:10"
+        ]
+    }, 
+    "Chesulloth": {
+        "chinese_name": "基蘇律", 
+        "lat": "32.683231", 
+        "lon": "35.324694", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:18"
+        ]
+    }, 
+    "Chios": {
+        "chinese_name": "基阿", 
+        "lat": "38.444840", 
+        "lon": "26.063302", 
+        "notes": "now Chios", 
+        "verses": [
+            "ACT 20:15"
+        ]
+    }, 
+    "Crete": {
+        "chinese_name": "革哩底", 
+        "lat": "35.171239", 
+        "lon": "25.007204", 
+        "notes": "island", 
+        "verses": [
+            "ACT 27:7", 
+            "ACT 27:12", 
+            "ACT 27:13", 
+            "ACT 27:21", 
+            "TIT 1:5"
+        ]
+    }, 
+    "Cuth": {
+        "chinese_name": "古他", 
+        "lat": "32.733333", 
+        "lon": "44.666667", 
+        "notes": "http://en.wikipedia.org/wiki/Kutha", 
+        "verses": [
+            "2KI 17:30"
+        ]
+    }, 
+    "Cyprus": {
+        "chinese_name": "他施", 
+        "lat": "35.018306", 
+        "lon": "33.207693", 
+        "notes": "island", 
+        "verses": [
+            "ISA 23:1", 
+            "ISA 23:12", 
+            "JER 2:10", 
+            "EZE 27:6", 
+            "ACT 4:36", 
+            "ACT 11:19", 
+            "ACT 11:20", 
+            "ACT 13:4", 
+            "ACT 15:39", 
+            "ACT 21:3", 
+            "ACT 21:16", 
+            "ACT 27:4"
+        ]
+    }, 
+    "Cyrene": {
+        "chinese_name": "古利奈", 
+        "lat": "32.824979", 
+        "lon": "21.858301", 
+        "notes": "http://en.wikipedia.org/wiki/Cyrene%2C_Libya", 
+        "verses": [
+            "MAT 27:32", 
+            "MAK 15:21", 
+            "LUK 23:26", 
+            "ACT 2:10", 
+            "ACT 11:20", 
+            "ACT 13:1"
+        ]
+    }, 
+    "Dabbesheth": {
+        "chinese_name": "大巴設", 
+        "lat": "33.000000", 
+        "lon": "35.266682", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:11"
+        ]
+    }, 
+    "Dannah": {
+        "chinese_name": "大拿", 
+        "lat": "31.561025", 
+        "lon": "34.975472", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:49"
+        ]
+    }, 
+    "Debir 2": {
+        "chinese_name": "底璧", 
+        "lat": "31.816662", 
+        "lon": "35.349994", 
+        "notes": "now Ed Dhaherie", 
+        "verses": [
+            "JOS 15:7"
+        ]
+    }, 
+    "Dedan": {
+        "chinese_name": "底但", 
+        "lat": "26.625139", 
+        "lon": "37.919663", 
+        "notes": "http://en.wikipedia.org/wiki/Al-%27Ula", 
+        "verses": [
+            "JER 25:23", 
+            "JER 49:8", 
+            "EZE 25:13", 
+            "EZE 27:15", 
+            "EZE 27:20", 
+            "EZE 38:13"
+        ]
+    }, 
+    "Dimnah": {
+        "chinese_name": "丁拿", 
+        "lat": "32.781808", 
+        "lon": "35.321364", 
+        "notes": "", 
+        "verses": [
+            "JOS 21:35"
+        ]
+    }, 
+    "Dizahab": {
+        "chinese_name": "底撒哈", 
+        "lat": "28.507836", 
+        "lon": "34.516339", 
+        "notes": "", 
+        "verses": [
+            "DEU 1:1"
+        ]
+    }, 
+    "Dophkah": {
+        "chinese_name": "脫加", 
+        "lat": "28.770015", 
+        "lon": "33.400460", 
+        "notes": "", 
+        "verses": [
+            "NUM 33:12", 
+            "NUM 33:13"
+        ]
+    }, 
+    "Dumah 1": {
+        "chinese_name": "度瑪", 
+        "lat": "31.438270", 
+        "lon": "34.982762", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:52"
+        ]
+    }, 
+    "Ebez": {
+        "chinese_name": "亞別", 
+        "lat": "32.261621", 
+        "lon": "35.328129", 
+        "notes": "now Al-Bathan", 
+        "verses": [
+            "JOS 19:20"
+        ]
+    }, 
+    "Ecbatana": {
+        "chinese_name": "亞馬他", 
+        "lat": "34.798311", 
+        "lon": "48.514966", 
+        "notes": "", 
+        "verses": [
+            "EZR 6:2"
+        ]
+    }, 
+    "Elath": {
+        "chinese_name": "以拉", 
+        "lat": "29.528502", 
+        "lon": "35.005732", 
+        "notes": "", 
+        "verses": [
+            "DEU 2:8", 
+            "2KI 14:22", 
+            "2KI 16:6"
+        ]
+    }, 
+    "Elealeh": {
+        "chinese_name": "以利亞利", 
+        "lat": "31.813796", 
+        "lon": "35.824275", 
+        "notes": "", 
+        "verses": [
+            "NUM 32:3", 
+            "NUM 32:37", 
+            "ISA 15:4", 
+            "ISA 16:9", 
+            "JER 48:34"
+        ]
+    }, 
+    "Elim": {
+        "chinese_name": "以琳", 
+        "lat": "29.306194", 
+        "lon": "32.980924", 
+        "notes": "", 
+        "verses": [
+            "EXO 15:27", 
+            "EXO 16:1", 
+            "NUM 33:9", 
+            "NUM 33:10"
+        ]
+    }, 
+    "Elon": {
+        "chinese_name": "以倫", 
+        "lat": "31.973818", 
+        "lon": "35.116531", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:43"
+        ]
+    }, 
+    "Elonbeth-hanan": {
+        "chinese_name": "以倫伯哈南", 
+        "lat": "31.852593", 
+        "lon": "35.109078", 
+        "notes": "", 
+        "verses": [
+            "1KI 4:9"
+        ]
+    }, 
+    "Eltekeh": {
+        "chinese_name": "伊利提基", 
+        "lat": "31.869521", 
+        "lon": "35.066880", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:44"
+        ]
+    }, 
+    "Eltekon": {
+        "chinese_name": "伊勒提君", 
+        "lat": "31.660570", 
+        "lon": "34.995406", 
+        "notes": "from tyndale", 
+        "verses": [
+            "JOS 15:59"
+        ]
+    }, 
+    "En-gannim 1": {
+        "chinese_name": "隱干寧", 
+        "lat": "31.750000", 
+        "lon": "34.950106", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:34"
+        ]
+    }, 
+    "En-haddah": {
+        "chinese_name": "隱哈大", 
+        "lat": "32.478425", 
+        "lon": "35.254452", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:21"
+        ]
+    }, 
+    "En-hazor": {
+        "chinese_name": "隱夏瑣", 
+        "lat": "33.100000", 
+        "lon": "35.350000", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:37"
+        ]
+    }, 
+    "En-rogel": {
+        "chinese_name": "隱羅結", 
+        "lat": "31.767775", 
+        "lon": "35.234408", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:7", 
+            "JOS 18:16", 
+            "2SA 17:17", 
+            "1KI 1:9"
+        ]
+    }, 
+    "En-shemesh": {
+        "chinese_name": "隱示麥", 
+        "lat": "31.774020", 
+        "lon": "35.270231", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:7", 
+            "JOS 18:17"
+        ]
+    }, 
+    "Enam": {
+        "chinese_name": "以楠", 
+        "lat": "32.15", 
+        "lon": "35.1260", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:34"
+        ]
+    }, 
+    "Eneglaim": {
+        "chinese_name": "隱以革蓮", 
+        "lat": "30.998062", 
+        "lon": "35.498547", 
+        "notes": "", 
+        "verses": [
+            "EZE 47:10"
+        ]
+    }, 
+    "Ephes-dammim": {
+        "chinese_name": "以弗大憫", 
+        "lat": "31.691186", 
+        "lon": "34.944496", 
+        "notes": "", 
+        "verses": [
+            "1SA 17:1"
+        ]
+    }, 
+    "Erech": {
+        "chinese_name": "以力", 
+        "lat": "32.322222", 
+        "lon": "45.636111", 
+        "notes": "now Uruk", 
+        "verses": [
+            "GEN 10:10", 
+            "EZR 4:9"
+        ]
+    }, 
+    "Eshan": {
+        "chinese_name": "以珊", 
+        "lat": "31.420175", 
+        "lon": "35.033537", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:52"
+        ]
+    }, 
+    "Eshtaol": {
+        "chinese_name": "以實陶", 
+        "lat": "31.782429", 
+        "lon": "35.009012", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:33", 
+            "JOS 19:41", 
+            "JUG 13:25", 
+            "JUG 16:31", 
+            "JUG 18:2", 
+            "JUG 18:8", 
+            "JUG 18:11"
+        ]
+    }, 
+    "Etam 1": {
+        "chinese_name": "以坦", 
+        "lat": "31.736294", 
+        "lon": "35.054850", 
+        "notes": "http://www.tiuli.com/english/Judean_Mountains/Judean_Mountains.asp", 
+        "verses": [
+            "JUG 15:8", 
+            "JUG 15:11"
+        ]
+    }, 
+    "Etam 3": {
+        "chinese_name": "以坦", 
+        "lat": "31.686465", 
+        "lon": "35.174740", 
+        "notes": "now Khirbet el Khokh; palestine-family.net/index.php?nav=8-18&cid=17&did=193", 
+        "verses": [
+            "2CH 11:6"
+        ]
+    }, 
+    "Etham": {
+        "chinese_name": "以倘", 
+        "lat": "30.467511", 
+        "lon": "32.282767", 
+        "notes": "", 
+        "verses": [
+            "EXO 13:20", 
+            "NUM 33:6", 
+            "NUM 33:7", 
+            "NUM 33:8"
+        ]
+    }, 
+    "Euphrates": {
+        "chinese_name": "伯拉河", 
+        "lat": "35.090577", 
+        "lon": "40.427780", 
+        "notes": "river", 
+        "verses": [
+            "GEN 2:14", 
+            "GEN 15:18", 
+            "GEN 31:21", 
+            "GEN 36:37", 
+            "EXO 23:31", 
+            "DEU 1:7", 
+            "DEU 11:24", 
+            "JOS 1:4", 
+            "JOS 24:2", 
+            "2SA 8:3", 
+            "2SA 10:16", 
+            "1KI 4:21", 
+            "1KI 4:24", 
+            "1KI 14:15", 
+            "2KI 23:29", 
+            "2KI 24:7", 
+            "1CH 1:48", 
+            "1CH 5:9", 
+            "1CH 18:3", 
+            "1CH 19:16", 
+            "2CH 9:26", 
+            "2CH 35:20", 
+            "ISA 27:12", 
+            "JER 2:18", 
+            "JER 13:4", 
+            "JER 13:5", 
+            "JER 13:6", 
+            "JER 13:7", 
+            "JER 46:2", 
+            "JER 46:6", 
+            "JER 46:10", 
+            "JER 51:63", 
+            "REV 9:14", 
+            "REV 16:12"
+        ]
+    }, 
+    "Forum of Appius": {
+        "chinese_name": "亞比烏市", 
+        "lat": "41.468706", 
+        "lon": "12.993929", 
+        "notes": "http://gnswww.nga.mil/geonames/Gazetteer/Search/Results.jsp?Feature__Unique_Feature_ID=-117178&Diacritics=Yes&reload=1", 
+        "verses": [
+            "ACT 28:15"
+        ]
+    }, 
+    "Gallim": {
+        "chinese_name": "迦琳", 
+        "lat": "31.816667", 
+        "lon": "35.250000", 
+        "notes": "; from tyndale", 
+        "verses": [
+            "1SA 25:44", 
+            "ISA 10:30"
+        ]
+    }, 
+    "Gebim": {
+        "chinese_name": "基柄", 
+        "lat": "31.800000", 
+        "lon": "35.250000", 
+        "notes": "", 
+        "verses": [
+            "ISA 10:31"
+        ]
+    }, 
+    "Gederah": {
+        "chinese_name": "基底拉", 
+        "lat": "31.823337", 
+        "lon": "34.777779", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:36", 
+            "1CH 4:23", 
+            "1CH 12:4"
+        ]
+    }, 
+    "Gedor 1": {
+        "chinese_name": "基突", 
+        "lat": "31.633330", 
+        "lon": "35.083333", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:58", 
+            "1CH 12:7"
+        ]
+    }, 
+    "Geshur": {
+        "chinese_name": "基述", 
+        "lat": "33.000000", 
+        "lon": "36.416670", 
+        "notes": "; now Leja", 
+        "verses": [
+            "JOS 13:13", 
+            "2SA 3:3", 
+            "2SA 13:37", 
+            "2SA 13:38", 
+            "2SA 14:23", 
+            "2SA 14:32", 
+            "2SA 15:8", 
+            "1CH 2:23", 
+            "1CH 3:2"
+        ]
+    }, 
+    "Gibbethon": {
+        "chinese_name": "基比頓", 
+        "lat": "31.976623", 
+        "lon": "35.004896", 
+        "notes": "now Qibya", 
+        "verses": [
+            "JOS 19:44", 
+            "JOS 21:23", 
+            "1KI 15:27", 
+            "1KI 16:15", 
+            "1KI 16:17"
+        ]
+    }, 
+    "Gihon 2": {
+        "chinese_name": "基訓", 
+        "lat": "31.773116", 
+        "lon": "35.237186", 
+        "notes": "", 
+        "verses": [
+            "1KI 1:33", 
+            "1KI 1:38", 
+            "1KI 1:45", 
+            "2CH 32:30", 
+            "2CH 33:14"
+        ]
+    }, 
+    "Gilboa": {
+        "chinese_name": "基利波", 
+        "lat": "32.516667", 
+        "lon": "35.400000", 
+        "notes": "", 
+        "verses": [
+            "1SA 28:4", 
+            "2SA 1:21", 
+            "2SA 21:12"
+        ]
+    }, 
+    "Gilgal 2": {
+        "chinese_name": "吉甲", 
+        "lat": "32.029737", 
+        "lon": "35.222604", 
+        "notes": "", 
+        "verses": [
+            "2KI 2:1", 
+            "2KI 4:38"
+        ]
+    }, 
+    "Giloh": {
+        "chinese_name": "基羅", 
+        "lat": "31.616667", 
+        "lon": "35.083333", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:51", 
+            "2SA 15:12"
+        ]
+    }, 
+    "Gimzo": {
+        "chinese_name": "瑾鎖", 
+        "lat": "31.928659", 
+        "lon": "34.943219", 
+        "notes": "", 
+        "verses": [
+            "2CH 28:18"
+        ]
+    }, 
+    "Goshen 2": {
+        "chinese_name": "歌珊", 
+        "lat": "31.450000", 
+        "lon": "34.916667", 
+        "notes": "; from harper", 
+        "verses": [
+            "JOS 10:41", 
+            "JOS 11:16", 
+            "JOS 15:51"
+        ]
+    }, 
+    "Gozan": {
+        "chinese_name": "歌散", 
+        "lat": "36.840013", 
+        "lon": "40.068890", 
+        "notes": "from harper", 
+        "verses": [
+            "2KI 17:6", 
+            "2KI 18:11", 
+            "2KI 19:12", 
+            "1CH 5:26", 
+            "ISA 37:12"
+        ]
+    }, 
+    "Habor": {
+        "chinese_name": "哈博", 
+        "lat": "36.344972", 
+        "lon": "40.789333", 
+        "notes": "river", 
+        "verses": [
+            "2KI 17:6", 
+            "2KI 18:11", 
+            "1CH 5:26"
+        ]
+    }, 
+    "Hachilah": {
+        "chinese_name": "哈基拉", 
+        "lat": "31.466604", 
+        "lon": "35.216691", 
+        "notes": "?; now Zahrat al Kula", 
+        "verses": [
+            "1SA 23:19", 
+            "1SA 26:1", 
+            "1SA 26:3"
+        ]
+    }, 
+    "Hadad-rimmon": {
+        "chinese_name": "哈達臨門", 
+        "lat": "32.524106", 
+        "lon": "35.205136", 
+        "notes": "now Rommanah", 
+        "verses": [
+            "ZEC 12:11"
+        ]
+    }, 
+    "Hadashah": {
+        "chinese_name": "哈大沙", 
+        "lat": "31.679512", 
+        "lon": "34.695903", 
+        "notes": "now Ibdis", 
+        "verses": [
+            "JOS 15:37"
+        ]
+    }, 
+    "Hadid": {
+        "chinese_name": "哈第", 
+        "lat": "31.963575", 
+        "lon": "34.952536", 
+        "notes": "", 
+        "verses": [
+            "EZR 2:33", 
+            "NEH 7:37", 
+            "NEH 11:34"
+        ]
+    }, 
+    "Haeleph": {
+        "chinese_name": "以利弗", 
+        "lat": "31.792733", 
+        "lon": "35.196862", 
+        "notes": "now Lifta", 
+        "verses": [
+            "JOS 18:28"
+        ]
+    }, 
+    "Halhul": {
+        "chinese_name": "哈忽", 
+        "lat": "31.579549", 
+        "lon": "35.099103", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:58"
+        ]
+    }, 
+    "Hamath": {
+        "chinese_name": "哈馬", 
+        "lat": "35.136204", 
+        "lon": "36.749488", 
+        "notes": "", 
+        "verses": [
+            "2SA 8:9", 
+            "2KI 14:28", 
+            "2KI 17:24", 
+            "2KI 17:30", 
+            "2KI 18:34", 
+            "2KI 19:13", 
+            "2KI 23:33", 
+            "2KI 25:21", 
+            "1CH 18:9", 
+            "2CH 8:4", 
+            "ISA 10:9", 
+            "ISA 11:11", 
+            "ISA 36:19", 
+            "ISA 37:13", 
+            "JER 39:5", 
+            "JER 49:23", 
+            "JER 52:9", 
+            "JER 52:27", 
+            "EZE 47:16", 
+            "EZE 47:17", 
+            "EZE 48:1", 
+            "AMO 6:2", 
+            "ZEC 9:2"
+        ]
+    }, 
+    "Hammath": {
+        "chinese_name": "哈末", 
+        "lat": "33.125828", 
+        "lon": "35.165000", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:35", 
+            "1CH 2:55"
+        ]
+    }, 
+    "Hanes": {
+        "chinese_name": "哈內斯", 
+        "lat": "29.085425", 
+        "lon": "30.934402", 
+        "notes": "http://www.digitalegypt.ucl.ac.uk/ehnasya/index.html", 
+        "verses": [
+            "ISA 30:4"
+        ]
+    }, 
+    "Hannathon": {
+        "chinese_name": "哈拿頓", 
+        "lat": "32.916002", 
+        "lon": "35.426637", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:14"
+        ]
+    }, 
+    "Harod": {
+        "chinese_name": "哈律", 
+        "lat": "32.549638", 
+        "lon": "35.355647", 
+        "notes": "now Ein Harod", 
+        "verses": [
+            "JUG 7:1", 
+            "2SA 23:25", 
+            "1CH 11:27"
+        ]
+    }, 
+    "Harosheth-hagoyim": {
+        "chinese_name": "夏羅設", 
+        "lat": "32.691177", 
+        "lon": "35.110039", 
+        "notes": "", 
+        "verses": [
+            "JUG 4:2", 
+            "JUG 4:13", 
+            "JUG 4:16"
+        ]
+    }, 
+    "Hazar-enan": {
+        "chinese_name": "哈薩以難", 
+        "lat": "34.229499", 
+        "lon": "37.240077", 
+        "notes": "now Al Qaryatayn", 
+        "verses": [
+            "NUM 34:9", 
+            "NUM 34:10", 
+            "EZE 47:17", 
+            "EZE 48:1"
+        ]
+    }, 
+    "Hazar-shual": {
+        "chinese_name": "哈薩書亞", 
+        "lat": "31.215418", 
+        "lon": "34.942986", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:28", 
+            "JOS 19:3", 
+            "1CH 4:28", 
+            "NEH 11:27"
+        ]
+    }, 
+    "Hazeroth": {
+        "chinese_name": "哈洗錄", 
+        "lat": "28.916667", 
+        "lon": "34.500000", 
+        "notes": "", 
+        "verses": [
+            "NUM 11:35", 
+            "NUM 12:16", 
+            "NUM 33:17", 
+            "NUM 33:18", 
+            "DEU 1:1"
+        ]
+    }, 
+    "Hazor 4": {
+        "chinese_name": "夏瑣", 
+        "lat": "31.833333", 
+        "lon": "35.20000", 
+        "notes": "", 
+        "verses": [
+            "NEH 11:33"
+        ]
+    }, 
+    "Helbon": {
+        "chinese_name": "黑本", 
+        "lat": "33.664912", 
+        "lon": "36.248576", 
+        "notes": "now Halbon", 
+        "verses": [
+            "EZE 27:18"
+        ]
+    }, 
+    "Heleph": {
+        "chinese_name": "希利弗", 
+        "lat": "33.134416", 
+        "lon": "35.332157", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:33"
+        ]
+    }, 
+    "Helkath": {
+        "chinese_name": "黑甲", 
+        "lat": "32.955448", 
+        "lon": "35.211971", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:25", 
+            "JOS 21:31"
+        ]
+    }, 
+    "Helkath-hazzurim": {
+        "chinese_name": "希利甲哈素林", 
+        "lat": "31.880126", 
+        "lon": "35.280188", 
+        "notes": "", 
+        "verses": [
+            "2SA 2:16"
+        ]
+    }, 
+    "Hena": {
+        "chinese_name": "希拿", 
+        "lat": "34.467725", 
+        "lon": "41.964955", 
+        "notes": "", 
+        "verses": [
+            "2KI 18:34", 
+            "2KI 19:13", 
+            "ISA 37:13"
+        ]
+    }, 
+    "Hereth": {
+        "chinese_name": "哈列", 
+        "lat": "31.621492", 
+        "lon": "35.029273", 
+        "notes": "", 
+        "verses": [
+            "1SA 22:5"
+        ]
+    }, 
+    "Hethlon": {
+        "chinese_name": "希特倫", 
+        "lat": "34.737990", 
+        "lon": "36.340918", 
+        "notes": "", 
+        "verses": [
+            "EZE 47:15", 
+            "EZE 48:1"
+        ]
+    }, 
+    "Hierapolis": {
+        "chinese_name": "希拉波立", 
+        "lat": "37.924517", 
+        "lon": "29.124525", 
+        "notes": "", 
+        "verses": [
+            "COL 4:13"
+        ]
+    }, 
+    "Hobah": {
+        "chinese_name": "何把", 
+        "lat": "33.500000", 
+        "lon": "36.466667", 
+        "notes": "", 
+        "verses": [
+            "GEN 14:15"
+        ]
+    }, 
+    "Holon 1": {
+        "chinese_name": "何倫", 
+        "lat": "31.583333", 
+        "lon": "34.950000", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:51", 
+            "JOS 21:15"
+        ]
+    }, 
+    "Horem": {
+        "chinese_name": "和璉", 
+        "lat": "33.166667", 
+        "lon": "35.433333", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:38"
+        ]
+    }, 
+    "Horonaim": {
+        "chinese_name": "何羅念", 
+        "lat": "31.288056", 
+        "lon": "35.515000", 
+        "notes": "", 
+        "verses": [
+            "ISA 15:5", 
+            "JER 48:3", 
+            "JER 48:5", 
+            "JER 48:34"
+        ]
+    }, 
+    "Hosah": {
+        "chinese_name": "何薩", 
+        "lat": "32.178502", 
+        "lon": "35.227580", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:29"
+        ]
+    }, 
+    "Hukkok": {
+        "chinese_name": "戶割", 
+        "lat": "32.882153", 
+        "lon": "35.496694", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:34"
+        ]
+    }, 
+    "Idalah": {
+        "chinese_name": "以大拉", 
+        "lat": "32.733333", 
+        "lon": "35.166667", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:15"
+        ]
+    }, 
+    "Irpeel": {
+        "chinese_name": "伊利毘勒", 
+        "lat": "31.869343", 
+        "lon": "35.197712", 
+        "notes": "", 
+        "verses": [
+            "JOS 18:27"
+        ]
+    }, 
+    "Ithlah": {
+        "chinese_name": "伊提拉", 
+        "lat": "31.823593", 
+        "lon": "35.075769", 
+        "notes": "Now Bayt Thul", 
+        "verses": [
+            "JOS 19:42"
+        ]
+    }, 
+    "Jabbok": {
+        "chinese_name": "雅博", 
+        "lat": "32.193237", 
+        "lon": "35.676305", 
+        "notes": "", 
+        "verses": [
+            "GEN 32:22", 
+            "NUM 21:24", 
+            "DEU 2:37", 
+            "DEU 3:16", 
+            "JOS 12:2", 
+            "JUG 11:13", 
+            "JUG 11:22"
+        ]
+    }, 
+    "Jabneel 1": {
+        "chinese_name": "雅比聶", 
+        "lat": "31.865518", 
+        "lon": "34.746856", 
+        "notes": "now Yavneh", 
+        "verses": [
+            "JOS 15:11"
+        ]
+    }, 
+    "Jabneel 2": {
+        "chinese_name": "雅比聶", 
+        "lat": "32.700000", 
+        "lon": "35.500000", 
+        "notes": "now Yavneel", 
+        "verses": [
+            "JOS 19:33"
+        ]
+    }, 
+    "Janim": {
+        "chinese_name": "雅農", 
+        "lat": "31.516667", 
+        "lon": "35.166667", 
+        "notes": "now Bani Naim", 
+        "verses": [
+            "JOS 15:53"
+        ]
+    }, 
+    "Janoah 1": {
+        "chinese_name": "雅挪哈", 
+        "lat": "33.260246", 
+        "lon": "35.302915", 
+        "notes": "now Yanouh", 
+        "verses": [
+            "JOS 16:6", 
+            "JOS 16:7"
+        ]
+    }, 
+    "Janoah 2": {
+        "chinese_name": "亞挪", 
+        "lat": "32.155895", 
+        "lon": "35.361606", 
+        "notes": "", 
+        "verses": [
+            "2KI 15:29"
+        ]
+    }, 
+    "Japhia": {
+        "chinese_name": "雅非亞", 
+        "lat": "32.691633", 
+        "lon": "35.274955", 
+        "notes": "now Yafa", 
+        "verses": [
+            "JOS 19:12"
+        ]
+    }, 
+    "Jehud": {
+        "chinese_name": "伊胡得", 
+        "lat": "32.033636", 
+        "lon": "34.889599", 
+        "notes": "now Yehud", 
+        "verses": [
+            "JOS 19:45"
+        ]
+    }, 
+    "Jerusalem": {
+        "chinese_name": "耶路撒冷", 
+        "lat": "31.777444", 
+        "lon": "35.234935", 
+        "notes": "", 
+        "verses": [
+            "JOS 10:1", 
+            "JUG 1:7", 
+            "JUG 19:10", 
+            "1SA 17:54", 
+            "2SA 5:5", 
+            "1KI 2:11", 
+            "2KI 8:17", 
+            "1CH 3:4", 
+            "2CH 1:4", 
+            "EZR 1:2", 
+            "NEH 1:2", 
+            "EST 2:6", 
+            "PSM 51:18", 
+            "ECC 1:1", 
+            "SON 1:5", 
+            "ISA 1:1", 
+            "JER 1:3", 
+            "LAM 1:7", 
+            "EZE 4:1", 
+            "DAN 1:1", 
+            "JOE 2:32", 
+            "AMO 1:2", 
+            "OBA 1:11", 
+            "MIC 1:1", 
+            "ZEP 1:4", 
+            "MAL 2:11", 
+            "MAT 2:1", 
+            "MAK 1:5", 
+            "LUK 2:22", 
+            "JHN 1:19", 
+            "ACT 1:4", 
+            "ROM 15:19", 
+            "ROM 15:25", 
+            "ROM 15:26", 
+            "ROM 15:31", 
+            "1CO 16:3", 
+            "GAL 1:17", 
+            "HEB 12:22", 
+            "REV 21:10"
+        ]
+    }, 
+    "Jeshanah": {
+        "chinese_name": "耶沙拿", 
+        "lat": "31.980029", 
+        "lon": "35.229709", 
+        "notes": "now Ein Sinya", 
+        "verses": [
+            "2CH 13:19"
+        ]
+    }, 
+    "Jogbehah": {
+        "chinese_name": "約比哈", 
+        "lat": "32.028743", 
+        "lon": "35.862887", 
+        "notes": "", 
+        "verses": [
+            "NUM 32:35", 
+            "JUG 8:11"
+        ]
+    }, 
+    "Jordan Valley": {
+        "chinese_name": "約但河", 
+        "lat": "32.309099", 
+        "lon": "35.559900", 
+        "notes": "", 
+        "verses": [
+            "GEN 13:10", 
+            "GEN 13:11"
+        ]
+    }, 
+    "Juttah": {
+        "chinese_name": "淤他", 
+        "lat": "31.450000", 
+        "lon": "35.083333", 
+        "notes": "; now Yatta", 
+        "verses": [
+            "JOS 15:55", 
+            "JOS 21:16"
+        ]
+    }, 
+    "Kain": {
+        "chinese_name": "基尼", 
+        "lat": "31.500000", 
+        "lon": "35.166667", 
+        "notes": "now Yaqin", 
+        "verses": [
+            "NUM 24:22", 
+            "JOS 15:57"
+        ]
+    }, 
+    "Kanah 1": {
+        "chinese_name": "加拿", 
+        "lat": "32.138219", 
+        "lon": "35.038971", 
+        "notes": "", 
+        "verses": [
+            "JOS 16:8", 
+            "JOS 17:9"
+        ]
+    }, 
+    "Kedemoth": {
+        "chinese_name": "基底莫", 
+        "lat": "31.646073", 
+        "lon": "35.894537", 
+        "notes": "; esv map", 
+        "verses": [
+            "DEU 2:26", 
+            "JOS 13:18", 
+            "JOS 21:37", 
+            "1CH 6:79"
+        ]
+    }, 
+    "Keilah": {
+        "chinese_name": "基伊拉", 
+        "lat": "31.614175", 
+        "lon": "35.002752", 
+        "notes": "now Khirbet Qila", 
+        "verses": [
+            "JOS 15:44", 
+            "1SA 23:1", 
+            "1SA 23:2", 
+            "1SA 23:3", 
+            "1SA 23:4", 
+            "1SA 23:5", 
+            "1SA 23:6", 
+            "1SA 23:7", 
+            "1SA 23:8", 
+            "1SA 23:10", 
+            "1SA 23:11", 
+            "1SA 23:12", 
+            "1SA 23:13", 
+            "NEH 3:17", 
+            "NEH 3:18"
+        ]
+    }, 
+    "Kenath": {
+        "chinese_name": "基納", 
+        "lat": "32.756919", 
+        "lon": "36.616400", 
+        "notes": "", 
+        "verses": [
+            "NUM 32:42", 
+            "1CH 2:23"
+        ]
+    }, 
+    "Kibzaim": {
+        "chinese_name": "基伯先", 
+        "lat": "31.833333", 
+        "lon": "35.300000", 
+        "notes": "; now Kabus", 
+        "verses": [
+            "JOS 21:22"
+        ]
+    }, 
+    "Kidron": {
+        "chinese_name": "汲淪", 
+        "lat": "31.772134", 
+        "lon": "35.236596", 
+        "notes": "", 
+        "verses": [
+            "2SA 15:23", 
+            "1KI 2:37", 
+            "1KI 15:13", 
+            "2KI 23:4", 
+            "2KI 23:6", 
+            "2KI 23:12", 
+            "2CH 15:16", 
+            "2CH 29:16", 
+            "JER 31:40"
+        ]
+    }, 
+    "Kishion": {
+        "chinese_name": "基善", 
+        "lat": "32.559061", 
+        "lon": "35.246206", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:20", 
+            "JOS 21:28"
+        ]
+    }, 
+    "Kishon": {
+        "chinese_name": "基順", 
+        "lat": "32.761948", 
+        "lon": "35.064096", 
+        "notes": "river", 
+        "verses": [
+            "JUG 4:7", 
+            "JUG 4:13", 
+            "JUG 5:21", 
+            "1KI 18:40", 
+            "PSM 83:9"
+        ]
+    }, 
+    "Kitron": {
+        "chinese_name": "基倫", 
+        "lat": "32.753141", 
+        "lon": "35.279335", 
+        "notes": "", 
+        "verses": [
+            "JUG 1:30"
+        ]
+    }, 
+    "Lahmam": {
+        "chinese_name": "拉幔", 
+        "lat": "31.566667", 
+        "lon": "34.900000", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:40"
+        ]
+    }, 
+    "Laishah": {
+        "chinese_name": "萊煞", 
+        "lat": "31.800000", 
+        "lon": "35.250000", 
+        "notes": "now Isawiya", 
+        "verses": [
+            "ISA 10:30"
+        ]
+    }, 
+    "Lasha": {
+        "chinese_name": "拉沙", 
+        "lat": "31.718148", 
+        "lon": "35.584826", 
+        "notes": "http://www.christusrex.org/www1/ofm/mad/sections/section3.html", 
+        "verses": [
+            "GEN 10:19"
+        ]
+    }, 
+    "Lasharon": {
+        "chinese_name": "拉沙崙", 
+        "lat": "32.725440", 
+        "lon": "35.467002", 
+        "notes": "now Sharona", 
+        "verses": [
+            "JOS 12:18"
+        ]
+    }, 
+    "Lebonah": {
+        "chinese_name": "利波拿", 
+        "lat": "32.070770", 
+        "lon": "35.239871", 
+        "notes": "now al-Lubban", 
+        "verses": [
+            "JUG 21:19"
+        ]
+    }, 
+    "Lo-debar": {
+        "chinese_name": "羅底巴亞", 
+        "lat": "32.662488", 
+        "lon": "35.783568", 
+        "notes": "", 
+        "verses": [
+            "2SA 9:4", 
+            "2SA 9:5", 
+            "2SA 17:27", 
+            "AMO 6:13"
+        ]
+    }, 
+    "Maarath": {
+        "chinese_name": "瑪臘", 
+        "lat": "31.621003", 
+        "lon": "35.102328", 
+        "notes": "now Bayt Ummar", 
+        "verses": [
+            "JOS 15:59"
+        ]
+    }, 
+    "Madmannah": {
+        "chinese_name": "麥瑪拿", 
+        "lat": "31.391668", 
+        "lon": "34.940502", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:31", 
+            "1CH 2:49"
+        ]
+    }, 
+    "Madon": {
+        "chinese_name": "瑪頓", 
+        "lat": "32.799879", 
+        "lon": "35.459506", 
+        "notes": "", 
+        "verses": [
+            "JOS 11:1", 
+            "JOS 12:19"
+        ]
+    }, 
+    "Mahaneh-dan": {
+        "chinese_name": "瑪哈尼但", 
+        "lat": "31.758315", 
+        "lon": "34.994252", 
+        "notes": "", 
+        "verses": [
+            "JUG 13:25", 
+            "JUG 18:12"
+        ]
+    }, 
+    "Makkedah": {
+        "chinese_name": "瑪基大", 
+        "lat": "31.935117", 
+        "lon": "34.781326", 
+        "notes": "", 
+        "verses": [
+            "JOS 10:10", 
+            "JOS 10:16", 
+            "JOS 10:17", 
+            "JOS 10:21", 
+            "JOS 10:28", 
+            "JOS 10:29", 
+            "JOS 12:16", 
+            "JOS 15:41"
+        ]
+    }, 
+    "Manahath": {
+        "chinese_name": "瑪拿轄", 
+        "lat": "31.752603", 
+        "lon": "35.181972", 
+        "notes": "now Malha", 
+        "verses": [
+            "1CH 8:6"
+        ]
+    }, 
+    "Marah": {
+        "chinese_name": "瑪拉", 
+        "lat": "29.350000", 
+        "lon": "32.933333", 
+        "notes": "", 
+        "verses": [
+            "EXO 15:23", 
+            "NUM 33:8", 
+            "NUM 33:9"
+        ]
+    }, 
+    "Mareal": {
+        "chinese_name": "瑪拉拉", 
+        "lat": "32.697409", 
+        "lon": "35.241789", 
+        "notes": "now Malul", 
+        "verses": [
+            "JOS 19:11"
+        ]
+    }, 
+    "Mearah": {
+        "chinese_name": "米亞拉", 
+        "lat": "33.633333", 
+        "lon": "35.433333", 
+        "notes": "", 
+        "verses": [
+            "JOS 13:4"
+        ]
+    }, 
+    "Memphis": {
+        "chinese_name": "埃及", 
+        "lat": "29.849632", 
+        "lon": "31.253958", 
+        "notes": "http://en.wikipedia.org/wiki/Memphis%2C_Egypt", 
+        "verses": [
+            "ISA 19:13", 
+            "JER 2:16", 
+            "JER 44:1", 
+            "JER 46:14", 
+            "JER 46:19", 
+            "EZE 30:13", 
+            "EZE 30:16", 
+            "HOS 9:6"
+        ]
+    }, 
+    "Mephaath": {
+        "chinese_name": "米法押", 
+        "lat": "31.850000", 
+        "lon": "35.933333", 
+        "notes": "", 
+        "verses": [
+            "JOS 13:18", 
+            "JOS 21:37", 
+            "1CH 6:79", 
+            "JER 48:21"
+        ]
+    }, 
+    "Merom": {
+        "chinese_name": "米倫", 
+        "lat": "33.075269", 
+        "lon": "35.605480", 
+        "notes": "lake", 
+        "verses": [
+            "JOS 11:5", 
+            "JOS 11:7"
+        ]
+    }, 
+    "Michmethath": {
+        "chinese_name": "密米他", 
+        "lat": "32.183333", 
+        "lon": "35.283333", 
+        "notes": "", 
+        "verses": [
+            "JOS 16:6", 
+            "JOS 17:7"
+        ]
+    }, 
+    "Middin": {
+        "chinese_name": "密丁",
+        "lat": "31.743894", 
+        "lon": "35.401591", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:61"
+        ]
+    }, 
+    "Migdal-el": {
+        "chinese_name": "密大伊勒", 
+        "lat": "33.232131", 
+        "lon": "35.362942", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:38"
+        ]
+    }, 
+    "Migdal-gad": {
+        "chinese_name": "麥大迦得", 
+        "lat": "31.666667", 
+        "lon": "34.583333", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:37"
+        ]
+    }, 
+    "Minnith": {
+        "chinese_name": "米匿", 
+        "lat": "31.750000", 
+        "lon": "35.850000", 
+        "notes": "", 
+        "verses": [
+            "JUG 11:33", 
+            "EZE 27:17"
+        ]
+    }, 
+    "Misrephoth-maim": {
+        "chinese_name": "米斯利弗瑪音", 
+        "lat": "33.118952", 
+        "lon": "35.139434", 
+        "notes": "now Narouq", 
+        "verses": [
+            "JOS 11:8", 
+            "JOS 13:6"
+        ]
+    }, 
+    "Moladah": {
+        "chinese_name": "摩拉大", 
+        "lat": "31.162327", 
+        "lon": "35.057114", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:26", 
+            "JOS 19:2", 
+            "1CH 4:28", 
+            "NEH 11:26"
+        ]
+    }, 
+    "Mount Ephron": {
+        "chinese_name": "以弗崙", 
+        "lat": "31.675746", 
+        "lon": "35.042407", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:9"
+        ]
+    }, 
+    "Mount Halak": {
+        "chinese_name": "哈拉山", 
+        "lat": "30.916667", 
+        "lon": "34.833333", 
+        "notes": "?; http://www.bibleorigins.net/MountHalakGebelHalaqMap.html", 
+        "verses": [
+            "JOS 11:17", 
+            "JOS 12:7"
+        ]
+    }, 
+    "Mount Hor 1": {
+        "chinese_name": "何珥", 
+        "lat": "30.317396", 
+        "lon": "35.407152", 
+        "notes": "", 
+        "verses": [
+            "NUM 20:22", 
+            "NUM 20:23", 
+            "NUM 20:25", 
+            "NUM 20:27", 
+            "NUM 21:4", 
+            "NUM 33:37", 
+            "NUM 33:38", 
+            "NUM 33:39", 
+            "NUM 33:41", 
+            "DEU 32:50"
+        ]
+    }, 
+    "Mount Hor 2": {
+        "chinese_name": "何珥", 
+        "lat": "35.710069", 
+        "lon": "36.188080", 
+        "notes": "", 
+        "verses": [
+            "NUM 34:7", 
+            "NUM 34:8"
+        ]
+    }, 
+    "Mount Seir 2": {
+        "chinese_name": "西珥山", 
+        "lat": "31.783333", 
+        "lon": "34.994000", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:10"
+        ]
+    }, 
+    "Mount Sinai": {
+        "chinese_name": "西奈山", 
+        "lat": "28.539722", 
+        "lon": "33.973333", 
+        "notes": "", 
+        "verses": [
+            "EXO 19:11", 
+            "EXO 19:18", 
+            "EXO 19:20", 
+            "EXO 19:23", 
+            "EXO 24:16", 
+            "EXO 31:18", 
+            "EXO 34:2", 
+            "EXO 34:4", 
+            "EXO 34:29", 
+            "EXO 34:32", 
+            "LEV 7:38", 
+            "LEV 25:1", 
+            "LEV 26:46", 
+            "LEV 27:34", 
+            "NUM 3:1", 
+            "NUM 28:6", 
+            "NEH 9:13", 
+            "ACT 7:30", 
+            "ACT 7:38", 
+            "GAL 4:24", 
+            "GAL 4:25"
+        ]
+    }, 
+    "Mozah": {
+        "chinese_name": "摩撒", 
+        "lat": "31.802641", 
+        "lon": "35.158376", 
+        "notes": "", 
+        "verses": [
+            "JOS 18:26"
+        ]
+    }, 
+    "Naamah": {
+        "chinese_name": "拿瑪", 
+        "lat": "31.871782", 
+        "lon": "34.871894", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:41"
+        ]
+    }, 
+    "Naaran": {
+        "chinese_name": "拿蘭", 
+        "lat": "31.949518", 
+        "lon": "35.458730", 
+        "notes": "", 
+        "verses": [
+            "1CH 7:28"
+        ]
+    }, 
+    "Nahalol": {
+        "chinese_name": "拿哈拉", 
+        "lat": "32.722209", 
+        "lon": "35.352820", 
+        "notes": "", 
+        "verses": [
+            "JUG 1:30"
+        ]
+    }, 
+    "Neballat": {
+        "chinese_name": "尼八拉", 
+        "lat": "31.992079", 
+        "lon": "34.957563", 
+        "notes": "now Bayt Nabala", 
+        "verses": [
+            "NEH 11:34"
+        ]
+    }, 
+    "Nebo 1": {
+        "chinese_name": "尼波", 
+        "lat": "31.748024", 
+        "lon": "35.743257", 
+        "notes": "from harper; now El Mekhaiyat", 
+        "verses": [
+            "NUM 32:3", 
+            "NUM 32:38", 
+            "NUM 33:47", 
+            "1CH 5:8", 
+            "ISA 15:2", 
+            "JER 48:1", 
+            "JER 48:22"
+        ]
+    }, 
+    "Nebo 2": {
+        "chinese_name": "尼波", 
+        "lat": "31.606256", 
+        "lon": "35.037417", 
+        "notes": "", 
+        "verses": [
+            "EZR 2:29", 
+            "EZR 10:43", 
+            "NEH 7:33"
+        ]
+    }, 
+    "Neiel": {
+        "chinese_name": "尼業", 
+        "lat": "32.894254", 
+        "lon": "35.221877", 
+        "notes": "; now Yenin", 
+        "verses": [
+            "JOS 19:27"
+        ]
+    }, 
+    "Nephtoah": {
+        "chinese_name": "尼弗多亞", 
+        "lat": "31.683036", 
+        "lon": "35.167987", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:9", 
+            "JOS 18:15"
+        ]
+    }, 
+    "Netophah": {
+        "chinese_name": "尼陀法", 
+        "lat": "31.735465", 
+        "lon": "35.220503", 
+        "notes": "", 
+        "verses": [
+            "2SA 23:28", 
+            "2SA 23:29", 
+            "1CH 11:30", 
+            "1CH 27:13", 
+            "EZR 2:22", 
+            "NEH 7:26"
+        ]
+    }, 
+    "Nezib": {
+        "chinese_name": "尼悉", 
+        "lat": "31.588050", 
+        "lon": "34.992389", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:43"
+        ]
+    }, 
+    "Nicopolis": {
+        "chinese_name": "尼哥波立", 
+        "lat": "39.024033", 
+        "lon": "20.735730", 
+        "notes": "", 
+        "verses": [
+            "TIT 3:12"
+        ]
+    }, 
+    "Nile": {
+        "chinese_name": "尼羅", 
+        "lat": "30.092632", 
+        "lon": "31.230987", 
+        "notes": "", 
+        "verses": [
+            "GEN 41:1", 
+            "GEN 41:2", 
+            "GEN 41:3", 
+            "GEN 41:17", 
+            "GEN 41:18", 
+            "EXO 1:22", 
+            "EXO 4:9", 
+            "EXO 7:15", 
+            "EXO 7:17", 
+            "EXO 7:18", 
+            "EXO 7:20", 
+            "EXO 7:21", 
+            "EXO 7:24", 
+            "EXO 7:25", 
+            "EXO 8:3", 
+            "EXO 8:9", 
+            "EXO 8:11", 
+            "EXO 17:5", 
+            "1CH 13:5", 
+            "ISA 19:6", 
+            "ISA 19:7", 
+            "ISA 19:8", 
+            "ISA 23:3", 
+            "ISA 23:10", 
+            "JER 2:18", 
+            "JER 46:7", 
+            "JER 46:8", 
+            "EZE 29:3", 
+            "EZE 29:9", 
+            "EZE 30:12", 
+            "AMO 8:8", 
+            "AMO 9:5", 
+            "NAH 3:8", 
+            "ZEC 10:11"
+        ]
+    }, 
+    "Nimrim": {
+        "chinese_name": "寧林", 
+        "lat": "31.133191", 
+        "lon": "35.531138", 
+        "notes": "from harper; now Numeira", 
+        "verses": [
+            "ISA 15:6", 
+            "JER 48:34"
+        ]
+    }, 
+    "Nineveh": {
+        "chinese_name": "尼尼微", 
+        "lat": "36.359410", 
+        "lon": "43.152887", 
+        "notes": "Nineveh in KML", 
+        "verses": [
+            "GEN 10:11", 
+            "GEN 10:12", 
+            "2KI 19:36", 
+            "ISA 37:37", 
+            "JON 1:2", 
+            "JON 3:2", 
+            "JON 3:3", 
+            "JON 3:4", 
+            "JON 3:5", 
+            "JON 3:6", 
+            "JON 3:7", 
+            "JON 4:11", 
+            "NAH 1:1", 
+            "NAH 2:8", 
+            "NAH 3:7", 
+            "ZEP 2:13", 
+            "MAT 12:41", 
+            "LUK 11:30", 
+            "LUK 11:32"
+        ]
+    }, 
+    "Nob": {
+        "chinese_name": "挪伯", 
+        "lat": "31.799605", 
+        "lon": "35.232980", 
+        "notes": "", 
+        "verses": [
+            "1SA 21:1", 
+            "1SA 22:9", 
+            "1SA 22:11", 
+            "1SA 22:19", 
+            "NEH 11:32", 
+            "ISA 10:32"
+        ]
+    }, 
+    "On": {
+        "chinese_name": "安", 
+        "lat": "30.108086", 
+        "lon": "31.338220", 
+        "notes": "", 
+        "verses": [
+            "GEN 41:45", 
+            "GEN 41:50", 
+            "GEN 46:20", 
+            "EZE 30:17"
+        ]
+    }, 
+    "Ophni": {
+        "chinese_name": "俄弗尼", 
+        "lat": "31.961989", 
+        "lon": "35.215483", 
+        "notes": "", 
+        "verses": [
+            "JOS 18:24"
+        ]
+    }, 
+    "Parah": {
+        "chinese_name": "巴拉", 
+        "lat": "31.833333", 
+        "lon": "35.300000", 
+        "notes": "", 
+        "verses": [
+            "JOS 18:23"
+        ]
+    }, 
+    "Paran": {
+        "chinese_name": "巴蘭", 
+        "lat": "29.151667", 
+        "lon": "33.541944", 
+        "notes": "", 
+        "verses": [
+            "GEN 21:21", 
+            "NUM 10:12", 
+            "NUM 12:16", 
+            "NUM 13:3", 
+            "NUM 13:26", 
+            "DEU 1:1", 
+            "1SA 25:1", 
+            "1KI 11:18"
+        ]
+    }, 
+    "Patmos": {
+        "chinese_name": "拔摩", 
+        "lat": "37.307520", 
+        "lon": "26.548274", 
+        "notes": "", 
+        "verses": [
+            "REV 1:9"
+        ]
+    }, 
+    "Pethor": {
+        "chinese_name": "毘奪", 
+        "lat": "36.654616", 
+        "lon": "38.068879", 
+        "notes": "http://www.aushariye.hum.ku.dk/images/large/fig-01.htm", 
+        "verses": [
+            "NUM 22:5", 
+            "DEU 23:4"
+        ]
+    }, 
+    "Pharpar": {
+        "chinese_name": "法珥法", 
+        "lat": "33.379601", 
+        "lon": "36.306085", 
+        "notes": "river", 
+        "verses": [
+            "2KI 5:12"
+        ]
+    }, 
+    "Pi-beseth": {
+        "chinese_name": "比伯實", 
+        "lat": "30.583333", 
+        "lon": "31.500000", 
+        "notes": "", 
+        "verses": [
+            "EZE 30:17"
+        ]
+    }, 
+    "Pirathon": {
+        "chinese_name": "比拉頓", 
+        "lat": "32.286022", 
+        "lon": "35.022944", 
+        "notes": "now Faroun", 
+        "verses": [
+            "JUG 12:15", 
+            "2SA 23:30", 
+            "1CH 11:31", 
+            "1CH 27:14"
+        ]
+    }, 
+    "Raamah": {
+        "chinese_name": "拉瑪", 
+        "lat": "15.68", 
+        "lon": "42.78", 
+        "notes": "?", 
+        "verses": [
+            "EZE 27:22"
+        ]
+    }, 
+    "Rabbith": {
+        "chinese_name": "拉璧", 
+        "lat": "32.391416", 
+        "lon": "35.377302", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:20"
+        ]
+    }, 
+    "Rakkon": {
+        "chinese_name": "拉昆", 
+        "lat": "32.132898", 
+        "lon": "34.788144", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:46"
+        ]
+    }, 
+    "Ramah 2": {
+        "chinese_name": "拉瑪", 
+        "lat": "33.111078", 
+        "lon": "35.310464", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:29"
+        ]
+    }, 
+    "Ramah 3": {
+        "chinese_name": "拉瑪", 
+        "lat": "32.939010", 
+        "lon": "35.368123", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:36"
+        ]
+    }, 
+    "Rehoboth 1": {
+        "chinese_name": "利河伯", 
+        "lat": "31.066829", 
+        "lon": "34.597830", 
+        "notes": "", 
+        "verses": [
+            "GEN 26:22"
+        ]
+    }, 
+    "Rezeph": {
+        "chinese_name": "利色", 
+        "lat": "35.950000", 
+        "lon": "39.016667", 
+        "notes": "; from http://en.wikipedia.org/wiki/Resafa", 
+        "verses": [
+            "2KI 19:12", 
+            "ISA 37:12"
+        ]
+    }, 
+    "Riblah 1": {
+        "chinese_name": "利比拉", 
+        "lat": "34.431703", 
+        "lon": "36.545259", 
+        "notes": "", 
+        "verses": [
+            "2KI 23:33", 
+            "2KI 25:6", 
+            "2KI 25:20", 
+            "2KI 25:21", 
+            "JER 39:5", 
+            "JER 39:6", 
+            "JER 52:9", 
+            "JER 52:10", 
+            "JER 52:26", 
+            "JER 52:27", 
+            "EZE 6:14"
+        ]
+    }, 
+    "Rimmon 1": {
+        "chinese_name": "臨門磐", 
+        "lat": "31.934660", 
+        "lon": "35.297063", 
+        "notes": "", 
+        "verses": [
+            "JUG 20:45", 
+            "JUG 20:47", 
+            "JUG 21:13"
+        ]
+    }, 
+    "Salecah": {
+        "chinese_name": "撒迦", 
+        "lat": "32.493941", 
+        "lon": "36.710337", 
+        "notes": "", 
+        "verses": [
+            "DEU 3:10", 
+            "JOS 12:5", 
+            "JOS 13:11", 
+            "1CH 5:11"
+        ]
+    }, 
+    "Salt Sea": {
+        "chinese_name": "鹽海", 
+        "lat": "31.538593", 
+        "lon": "35.482268", 
+        "notes": "", 
+        "verses": [
+            "GEN 14:3", 
+            "NUM 34:3", 
+            "NUM 34:12", 
+            "DEU 3:17", 
+            "JOS 3:16", 
+            "JOS 12:3", 
+            "JOS 15:2", 
+            "JOS 15:5", 
+            "JOS 18:19"
+        ]
+    }, 
+    "Samos": {
+        "chinese_name": "撒摩", 
+        "lat": "37.715172", 
+        "lon": "26.934167", 
+        "notes": "", 
+        "verses": [
+            "ACT 20:15"
+        ]
+    }, 
+    "Samothrace": {
+        "chinese_name": "撒摩特喇", 
+        "lat": "40.467279", 
+        "lon": "25.486069", 
+        "notes": "", 
+        "verses": [
+            "ACT 16:11"
+        ]
+    }, 
+    "Secacah": {
+        "chinese_name": "西迦迦", 
+        "lat": "31.766667", 
+        "lon": "35.283333", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:61"
+        ]
+    }, 
+    "Secu": {
+        "chinese_name": "西沽", 
+        "lat": "31.883333", 
+        "lon": "35.200000", 
+        "notes": "; now Suweika", 
+        "verses": [
+            "1SA 19:22"
+        ]
+    }, 
+    "Sephar": {
+        "chinese_name": "西發", 
+        "lat": "14.550219", 
+        "lon": "44.392642", 
+        "notes": "", 
+        "verses": [
+            "GEN 10:30"
+        ]
+    }, 
+    "Shaalbim": {
+        "chinese_name": "沙賓", 
+        "lat": "31.870364", 
+        "lon": "34.981728", 
+        "notes": "now Salbit", 
+        "verses": [
+            "JUG 1:35", 
+            "1KI 4:9"
+        ]
+    }, 
+    "Shaaraim 1": {
+        "chinese_name": "沙拉音", 
+        "lat": "31.7001", 
+        "lon": "34.89532", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:36", 
+            "1SA 17:52"
+        ]
+    }, 
+    "Shamir 1": {
+        "chinese_name": "沙密", 
+        "lat": "31.416667", 
+        "lon": "34.933333", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:48"
+        ]
+    }, 
+    "Shamir 2": {
+        "chinese_name": "沙密", 
+        "lat": "32.360470", 
+        "lon": "35.250054", 
+        "notes": "now Sanur", 
+        "verses": [
+            "JUG 10:1", 
+            "JUG 10:2"
+        ]
+    }, 
+    "Shaphir": {
+        "chinese_name": "沙斐", 
+        "lat": "31.743719", 
+        "lon": "34.694006", 
+        "notes": "", 
+        "verses": [
+            "MIC 1:11"
+        ]
+    }, 
+    "Sharuhen": {
+        "chinese_name": "沙魯險", 
+        "lat": "31.282222", 
+        "lon": "34.482500", 
+        "notes": "now Tel Sharuhen", 
+        "verses": [
+            "JOS 19:6"
+        ]
+    }, 
+    "Shihor-libnath": {
+        "chinese_name": "希曷立納", 
+        "lat": "32.538496", 
+        "lon": "34.907697", 
+        "notes": "river; now Nahar Tanninim?", 
+        "verses": [
+            "JOS 19:26"
+        ]
+    }, 
+    "Shion": {
+        "chinese_name": "示按", 
+        "lat": "32.716666", 
+        "lon": "35.333334", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:19"
+        ]
+    }, 
+    "Sibmah": {
+        "chinese_name": "西比瑪", 
+        "lat": "31.815283", 
+        "lon": "35.766738", 
+        "notes": "", 
+        "verses": [
+            "NUM 32:38", 
+            "JOS 13:19", 
+            "ISA 16:8", 
+            "ISA 16:9", 
+            "JER 48:32"
+        ]
+    }, 
+    "Sirah": {
+        "chinese_name": "西拉", 
+        "lat": "31.55", 
+        "lon": "35.1", 
+        "notes": "", 
+        "verses": [
+            "2SA 3:26"
+        ]
+    }, 
+    "Syene": {
+        "chinese_name": "希尼", 
+        "lat": "24.066181", 
+        "lon": "32.895862", 
+        "notes": "now Aswan", 
+        "verses": [
+            "ISA 49:12", 
+            "EZE 29:10", 
+            "EZE 30:6"
+        ]
+    }, 
+    "Syrtis": {
+        "chinese_name": "賽耳底", 
+        "lat": "31.766667", 
+        "lon": "18.505556", 
+        "notes": "water; from harper; now Sidra", 
+        "verses": [
+            "ACT 27:17"
+        ]
+    }, 
+    "Taanath-shiloh": {
+        "chinese_name": "他納示羅", 
+        "lat": "32.150000", 
+        "lon": "35.383333", 
+        "notes": "; now Khirbat Tana", 
+        "verses": [
+            "JOS 16:6"
+        ]
+    }, 
+    "Tahpanhes": {
+        "chinese_name": "答比匿", 
+        "lat": "30.860556", 
+        "lon": "32.171389", 
+        "notes": "http://en.wikipedia.org/wiki/Tahpanhes", 
+        "verses": [
+            "JER 2:16", 
+            "JER 43:7", 
+            "JER 43:8", 
+            "JER 43:9", 
+            "JER 44:1", 
+            "JER 46:14"
+        ]
+    }, 
+    "Tamar 2": {
+        "chinese_name": "大馬色", 
+        "lat": "31.024923", 
+        "lon": "35.064154", 
+        "notes": "now Kurnub; from New Bible Dictionary", 
+        "verses": [
+            "EZE 47:18", 
+            "EZE 47:19", 
+            "EZE 48:28"
+        ]
+    }, 
+    "Tema": {
+        "chinese_name": "提瑪", 
+        "lat": "27.633172", 
+        "lon": "38.554125", 
+        "notes": "", 
+        "verses": [
+            "JOB 6:19", 
+            "ISA 21:14", 
+            "JER 25:23"
+        ]
+    }, 
+    "Thebes": {
+        "chinese_name": "挪", 
+        "lat": "25.700025", 
+        "lon": "32.639441", 
+        "notes": "", 
+        "verses": [
+            "JER 46:25", 
+            "EZE 30:14", 
+            "EZE 30:15", 
+            "EZE 30:16", 
+            "NAH 3:8"
+        ]
+    }, 
+    "Three Taverns": {
+        "chinese_name": "三館", 
+        "lat": "41.591320", 
+        "lon": "12.828636", 
+        "notes": "", 
+        "verses": [
+            "ACT 28:15"
+        ]
+    }, 
+    "Tigris": {
+        "chinese_name": "希底結", 
+        "lat": "35.983343", 
+        "lon": "43.346466", 
+        "notes": "", 
+        "verses": [
+            "GEN 2:14", 
+            "DAN 10:4"
+        ]
+    }, 
+    "Timnah 1": {
+        "chinese_name": "亭拿", 
+        "lat": "31.784368", 
+        "lon": "34.909680", 
+        "notes": "now Tel Batash", 
+        "verses": [
+            "GEN 38:12", 
+            "GEN 38:13", 
+            "GEN 38:14", 
+            "JOS 15:10", 
+            "JOS 19:43", 
+            "JUG 14:1", 
+            "JUG 14:2", 
+            "JUG 14:5", 
+            "2CH 28:18"
+        ]
+    }, 
+    "Timnah 2": {
+        "chinese_name": "亭納", 
+        "lat": "31.699323", 
+        "lon": "35.040359", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:57"
+        ]
+    }, 
+    "Timnath-heres": {
+        "chinese_name": "亭拿希烈", 
+        "lat": "32.121473", 
+        "lon": "35.150392", 
+        "notes": "", 
+        "verses": [
+            "JUG 2:9"
+        ]
+    }, 
+    "Tiphsah 1": {
+        "chinese_name": "提弗薩", 
+        "lat": "35.847967", 
+        "lon": "38.732350", 
+        "notes": "", 
+        "verses": [
+            "1KI 4:24"
+        ]
+    }, 
+    "Tiphsah 2": {
+        "chinese_name": "提斐薩", 
+        "lat": "32.166667", 
+        "lon": "35.166667", 
+        "notes": "", 
+        "verses": [
+            "2KI 15:16"
+        ]
+    }, 
+    "Tob": {
+        "chinese_name": "陀伯", 
+        "lat": "32.561735", 
+        "lon": "36.240494", 
+        "notes": "from harper; now et-Taiyibeh", 
+        "verses": [
+            "JUG 11:3", 
+            "JUG 11:5", 
+            "2SA 10:6", 
+            "2SA 10:8"
+        ]
+    }, 
+    "Tophel": {
+        "chinese_name": "陀弗", 
+        "lat": "30.936991", 
+        "lon": "35.616870", 
+        "notes": "", 
+        "verses": [
+            "DEU 1:1"
+        ]
+    }, 
+    "Ulai": {
+        "chinese_name": "烏萊", 
+        "lat": "32.178696", 
+        "lon": "48.224890", 
+        "notes": "river; from http://en.wikipedia.org/wiki/Ulai", 
+        "verses": [
+            "DAN 8:2", 
+            "DAN 8:16"
+        ]
+    }, 
+    "Ummah": {
+        "chinese_name": "烏瑪", 
+        "lat": "33.104377", 
+        "lon": "35.180623", 
+        "notes": "now Alma el Shaab", 
+        "verses": [
+            "JOS 19:30"
+        ]
+    }, 
+    "Uzal": {
+        "chinese_name": "烏薩", 
+        "lat": "15.354879", 
+        "lon": "44.215092", 
+        "notes": "now Sanaa", 
+        "verses": [
+            "GEN 10:27"
+        ]
+    }, 
+    "Uzzen-sheerah": {
+        "chinese_name": "烏羡舍伊拉", 
+        "lat": "31.887821", 
+        "lon": "35.045649", 
+        "notes": "now Beit Sera", 
+        "verses": [
+            "1CH 7:24"
+        ]
+    }, 
+    "Valley of Achor": {
+        "chinese_name": "亞割", 
+        "lat": "31.836890", 
+        "lon": "35.399737", 
+        "notes": "", 
+        "verses": [
+            "JOS 7:24", 
+            "JOS 7:26", 
+            "JOS 15:7", 
+            "ISA 65:10", 
+            "HOS 2:15"
+        ]
+    }, 
+    "Valley of Aven": {
+        "chinese_name": "亞文", 
+        "lat": "34.006944", 
+        "lon": "36.203889", 
+        "notes": "", 
+        "verses": [
+            "AMO 1:5"
+        ]
+    }, 
+    "Valley of Beracah": {
+        "chinese_name": "比拉迦谷", 
+        "lat": "31.610650", 
+        "lon": "35.165648", 
+        "notes": "", 
+        "verses": [
+            "2CH 20:26"
+        ]
+    }, 
+    "Valley of Elah": {
+        "chinese_name": "以拉谷", 
+        "lat": "31.690629", 
+        "lon": "34.963136", 
+        "notes": "", 
+        "verses": [
+            "1SA 17:2", 
+            "1SA 17:19", 
+            "1SA 21:9"
+        ]
+    }, 
+    "Valley of Hinnom": {
+        "chinese_name": "欣嫩", 
+        "lat": "31.769079", 
+        "lon": "35.227994", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:8", 
+            "JOS 18:16", 
+            "NEH 11:30"
+        ]
+    }, 
+    "Valley of Iphtahel": {
+        "chinese_name": "伊弗他伊勒", 
+        "lat": "32.832774", 
+        "lon": "35.277225", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:14", 
+            "JOS 19:27"
+        ]
+    }, 
+    "Valley of Mizpeh": {
+        "chinese_name": "米斯巴", 
+        "lat": "33.281770", 
+        "lon": "35.573371", 
+        "notes": "", 
+        "verses": [
+            "JOS 11:8"
+        ]
+    }, 
+    "Valley of Rephaim": {
+        "chinese_name": "利乏音", 
+        "lat": "31.756332", 
+        "lon": "35.223059", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:8", 
+            "JOS 18:16", 
+            "2SA 5:18", 
+            "2SA 5:22", 
+            "2SA 23:13", 
+            "1CH 11:15", 
+            "1CH 14:9", 
+            "ISA 17:5"
+        ]
+    }, 
+    "Valley of Salt": {
+        "chinese_name": "鹽谷", 
+        "lat": "31.087328", 
+        "lon": "35.383740", 
+        "notes": "from nbd", 
+        "verses": [
+            "2SA 8:13", 
+            "2KI 14:7", 
+            "1CH 18:12", 
+            "2CH 25:11", 
+            "PSM 60:1"
+        ]
+    }, 
+    "Valley of Siddim": {
+        "chinese_name": "西訂", 
+        "lat": "31.235341", 
+        "lon": "35.517624", 
+        "notes": "", 
+        "verses": [
+            "GEN 14:3", 
+            "GEN 14:8", 
+            "GEN 14:10"
+        ]
+    }, 
+    "Valley of Sorek": {
+        "chinese_name": "梭烈谷", 
+        "lat": "31.825731", 
+        "lon": "34.989013", 
+        "notes": "now Wadi es-Sarar", 
+        "verses": [
+            "JUG 16:4"
+        ]
+    }, 
+    "Valley of Zeboim": {
+        "chinese_name": "洗波音", 
+        "lat": "31.936283", 
+        "lon": "35.424836", 
+        "notes": "from tyndale; now Wadi ed Dubba", 
+        "verses": [
+            "1SA 13:18"
+        ]
+    }, 
+    "Valley of Zephathah": {
+        "chinese_name": "洗法谷", 
+        "lat": "31.615198", 
+        "lon": "34.910085", 
+        "notes": "", 
+        "verses": [
+            "2CH 14:10"
+        ]
+    }, 
+    "Yiron": {
+        "chinese_name": "以利穩", 
+        "lat": "33.088748", 
+        "lon": "35.414111", 
+        "notes": "now Yaroun", 
+        "verses": [
+            "JOS 19:38"
+        ]
+    }, 
+    "Zanoah 1": {
+        "chinese_name": "撒挪亞", 
+        "lat": "31.716667", 
+        "lon": "35.000000", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:34", 
+            "NEH 3:13", 
+            "NEH 11:30"
+        ]
+    }, 
+    "Zanoah 2": {
+        "chinese_name": "撒挪亞", 
+        "lat": "31.366667", 
+        "lon": "35.000000", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:56"
+        ]
+    }, 
+    "Zaphon": {
+        "chinese_name": "撒分", 
+        "lat": "32.237710", 
+        "lon": "35.585865", 
+        "notes": "; now Qos", 
+        "verses": [
+            "JOS 13:27", 
+            "JUG 12:1"
+        ]
+    }, 
+    "Zarethan": {
+        "chinese_name": "撒拉但", 
+        "lat": "32.267821", 
+        "lon": "35.576613", 
+        "notes": "now Tell es Saidiyeh; from harper", 
+        "verses": [
+            "JOS 3:16", 
+            "1KI 4:12", 
+            "1KI 7:46"
+        ]
+    }, 
+    "Zedad": {
+        "chinese_name": "西達達", 
+        "lat": "34.312571", 
+        "lon": "36.925484", 
+        "notes": "", 
+        "verses": [
+            "NUM 34:8", 
+            "EZE 47:15"
+        ]
+    }, 
+    "Zelzah": {
+        "chinese_name": "泄撒", 
+        "lat": "31.717666", 
+        "lon": "35.187019", 
+        "notes": "", 
+        "verses": [
+            "1SA 10:2"
+        ]
+    }, 
+    "Zemaraim": {
+        "chinese_name": "洗瑪臉", 
+        "lat": "31.910999", 
+        "lon": "35.457280", 
+        "notes": "", 
+        "verses": [
+            "JOS 18:22"
+        ]
+    }, 
+    "Zephath": {
+        "chinese_name": "洗法", 
+        "lat": "30.880918", 
+        "lon": "34.630620", 
+        "notes": "", 
+        "verses": [
+            "JUG 1:17"
+        ]
+    }, 
+    "Zered": {
+        "chinese_name": "撒烈溪", 
+        "lat": "30.884128", 
+        "lon": "35.897633", 
+        "notes": "river", 
+        "verses": [
+            "DEU 2:13", 
+            "DEU 2:14"
+        ]
+    }, 
+    "Zereth-shahar": {
+        "chinese_name": "細列哈沙轄", 
+        "lat": "31.616962", 
+        "lon": "35.567522", 
+        "notes": "", 
+        "verses": [
+            "JOS 13:19"
+        ]
+    }, 
+    "Ziddim": {
+        "chinese_name": "西丁", 
+        "lat": "32.814279", 
+        "lon": "35.435872", 
+        "notes": "", 
+        "verses": [
+            "JOS 19:35"
+        ]
+    }, 
+    "Zior": {
+        "chinese_name": "洗珥", 
+        "lat": "31.589719", 
+        "lon": "35.148296", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:54"
+        ]
+    }, 
+    "Ziz": {
+        "chinese_name": "洗斯", 
+        "lat": "31.572903", 
+        "lon": "35.406346", 
+        "notes": "", 
+        "verses": [
+            "2CH 20:16"
+        ]
+    }, 
+    "Zophim": {
+        "chinese_name": "瑣腓", 
+        "lat": "31.767811", 
+        "lon": "35.725296", 
+        "notes": "", 
+        "verses": [
+            "NUM 23:14"
+        ]
+    }, 
+    "Zorah": {
+        "chinese_name": "瑣拉", 
+        "lat": "31.762141", 
+        "lon": "34.969319", 
+        "notes": "", 
+        "verses": [
+            "JOS 15:33", 
+            "JOS 19:41", 
+            "JUG 13:2", 
+            "JUG 13:25", 
+            "JUG 16:31", 
+            "JUG 18:2", 
+            "JUG 18:8", 
+            "JUG 18:11", 
+            "2CH 11:10", 
+            "NEH 11:29"
+        ]
+    }
+}
