@@ -6,4 +6,7 @@ require_once 'Bible.php';
 
 $bible = Bible::getInstance();
 
-print_r($bible->getVerses('UCV', 1, 1, 1));
+print_r($bible->getVerses(array('UCV', 'NIV'), 1, 1, 1));
+// print_r($bible->getLanguages());
+// print_r($bible->getBooks("NIV"));
+// print_r($bible->getNumChapters(1));
