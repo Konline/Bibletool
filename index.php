@@ -11,6 +11,7 @@ $bible = Bible::getInstance();
 $smarty = new Bible_Smarty($config);
 
 $action = $_REQUEST['action'];
+$smarty->assign('action', $action);
 
 switch ($action)
 {
