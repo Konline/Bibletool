@@ -1,0 +1,26 @@
+{if $page == 'about'}
+	{assign var='title' value='緣由'}
+{elseif $page == 'thanks'}
+	{assign var='title' value='感謝'}
+{elseif $page == 'references'}
+	{assign var='title' value='參考資料'}
+{/if}
+{include file="header.tmpl"}
+<table CLASS="static-table">
+  <tr CLASS="static-table-row">
+    <td CLASS="static-section-index">
+      <ul>
+        <li CLASS="static-page-current">
+          <a HREF="{$webroot}/static/about">緣由</a>
+        </li>
+        <li><a HREF="{$webroot}/static/thanks">感謝</a></li>
+        <li><a HREF="{$webroot}/static/references">參考資料</a></li>
+      </ul>
+    </td>
+    <td CLASS="static-content">
+
+	{include file="static/$page.tmpl"}
+    </td>
+  </tr>
+</table>
+{include file="footer.tmpl"}

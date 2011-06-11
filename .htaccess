@@ -1,0 +1,11 @@
+RewriteEngine On
+
+RewriteRule ^static/([^/]+) index.php?action=static&page=$1
+
+RewriteRule ^browse index.php?action=browse
+
+RewriteRule ^gospel$ index.php?action=gospel
+RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
+
+RewriteRule ^outline$ index.php?action=outline
+RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1
