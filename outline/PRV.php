@@ -1,0 +1,118 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">箴言簡介</h1>
+<p>
+箴言是聖經中的第二十卷經書，詩歌智慧書中的第三卷，箴言是流行在神子民中間一些諺語、金句，加以整理編輯而成的一卷經書。其著者也不止一人，也屬集體創作，其中所羅門王是最主要的著者(箴1:1,10:1,25:1),所羅門王曾作箴言三千句(王上4:32;傳12:9),而本卷書是所羅門著作中的精華部份，然也收集了其他久已在民間流傳的格言，也就是本卷書所言的「智慧人的言語」(箴22:17和箴24:23)。</p>
+<p>
+格言是在上古代就有的；尤其是在東方，非常盛行。多以其來教育年輕子弟，作為待人處世的道理。往往一句簡短的格言，作了人一身的座右銘，也影響了他一生的生活。</p>
+<p>多讀箴言且努力實行，必能在生活中有美好的見證，也蒙　神的祝福。</p>
+<hr>
+<h1 ALIGN="center">箴言大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 前言：目的和主題</td>
+<td>1:1-1:7</td>
+</tr>
+<tr>
+<td>二、 序論：智慧的道路</td>
+<td>1:8-9:18</td>
+</tr>
+<tr>
+<td>三、 所羅門的箴言首集</td>
+<td>10:1-22:16</td>
+</tr>
+<tr>
+<td>四、 智言三十則</td>
+<td>22:17-24:22</td>
+</tr>
+<tr>
+<td>五、 智慧人的話</td>
+<td>24:23-24:34</td>
+</tr>
+<tr>
+<td>六、 所羅門的箴言次集</td>
+<td>25:1-29:27</td>
+</tr>
+<tr>
+<td>七、 亞古珥的箴言</td>
+<td>30:1-30:33</td>
+</tr>
+<tr>
+<td>八、 利慕伊勒王的箴言</td>
+<td>31:1-31:9</td>
+</tr>
+<tr>
+<td>九、 跋：賢德的妻子</td>
+<td>31:10-31:31</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">箴言表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center">重點</td>
+<td ALIGN="center" COLSPAN="2">序言</td>
+<td ALIGN="center" COLSPAN="3">箴言</td>
+<td ALIGN="center" COLSPAN="2">教訓</td>
+</tr>
+<tr>
+<td ALIGN="center">分段</td>
+<td ALIGN="center">
+<p>目地與主題</p>
+<p>1</p>
+</td>
+<td ALIGN="center">
+<p>父親的訓悔</p>
+<p>2-9</p>
+</td>
+<td ALIGN="center">
+<p>所羅門的話(第一部)</p>
+<p>10-21</p>
+</td>
+<td ALIGN="center">
+<p>智慧人的話</p>
+<p>22-24</p>
+</td>
+<td ALIGN="center">
+<p>所羅門的話(第二部)</p>
+<p>25-29</p>
+</td>
+<td ALIGN="center">
+<p>亞古珥的話</p>
+<p>30</p>
+</td>
+<td ALIGN="center">
+<p>論才德婦人</p>
+<p>31</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center" ROWSPAN="2">主題</td>
+<td ALIGN="center" COLSPAN="2">個人的智慧</td>
+<td ALIGN="center" COLSPAN="3">智慧的原則</td>
+<td ALIGN="center" COLSPAN="2">智慧的操練</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="5">所羅門</td>
+<td ALIGN="center" COLSPAN="2">亞古珥與利慕伊勒</td>
+</tr>
+<tr>
+<td ALIGN="center">地點</td>
+<td ALIGN="center" COLSPAN="7">猶大</td>
+</tr>
+<tr>
+<td ALIGN="center">時間</td>
+<td ALIGN="center" COLSPAN="7">約主前 950-700 年間</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

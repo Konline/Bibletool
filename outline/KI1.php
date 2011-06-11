@@ -1,0 +1,111 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">列王紀上簡介</h1>
+<p>
+列王記上是聖經中的第十一卷經書，也是舊約歷史書中的第六卷。本書記載猶大國和以色列國諸王的事蹟，所以命名為「列王紀」；內容包：大衛晚年，所羅門的豋基，聖殿的建造，所羅門王晚年的墮落，國度的分裂。</p>
+<p>
+猶大國王—從羅波安起到約蘭止的事蹟；以色列國王—從耶羅波安起到亞哈謝止的事蹟。本書尚記載了大先知以利亞的事蹟，「以利亞」名字的意義是「耶和華我的神」，以利亞是個禱告的戰士；禱告對他是能力的源頭，是成功的祕訣。他禱告：求天不下雨(雅5:17)，求寡婦的兒子活過來，求火從天降，又求從天降雨等，都蒙神答應。</p>
+<p>
+從以利亞求天降雨的禱告，可找出幾個關於禱告的特點：1.憑神的旨意(王上18:1);2.專一(雅5:17-18);3.懇切(雅5:17);4.虔誠(王上18:42);5.信心(王上18:43-44)。</p>
+<hr>
+<h1 ALIGN="center">列王紀上大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 所羅門繼大衛為王</td>
+<td>1:1-2:46</td>
+</tr>
+<tr>
+<td>二、 所羅門的時代</td>
+<td>3:1-11:43</td>
+</tr>
+<tr>
+<td>1.所羅門的智慧</td>
+<td>3:1-3:28</td>
+</tr>
+<tr>
+<td>2.政改和政績</td>
+<td>4:1-4:34</td>
+</tr>
+<tr>
+<td>3.建聖殿</td>
+<td>5:1-9:9</td>
+</tr>
+<tr>
+<td>4.建王宮、擴大海上貿易</td>
+<td>9:10-10:29</td>
+</tr>
+<tr>
+<td>5.所羅門干罪</td>
+<td>11:1-11:43</td>
+</tr>
+<tr>
+<td>三、 王國的分裂</td>
+<td>12:1-22:53</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">列王紀上表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center">重點</td>
+<td ALIGN="center" COLSPAN="3">國王統一</td>
+<td ALIGN="center" COLSPAN="3">國王分裂</td>
+</tr>
+<tr>
+<td ALIGN="center">分段</td>
+<td ALIGN="center">
+<p>所羅門興起</p>
+<p>1-4</p>
+</td>
+<td ALIGN="center">
+<p>所羅門建殿</p>
+<p>5-8</p>
+</td>
+<td ALIGN="center">
+<p>所羅門得名</p>
+<p>9-11</p>
+</td>
+<td ALIGN="center">
+<p>領土分裂</p>
+<p>12-16</p>
+</td>
+<td ALIGN="center">
+<p>以利亞的服事</p>
+<p>17-19</p>
+</td>
+<td ALIGN="center">
+<p>亞哈政權</p>
+<p>20-22</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center" ROWSPAN="2">主題</td>
+<td ALIGN="center" COLSPAN="3">彊土擴大聲名遠播</td>
+<td ALIGN="center" COLSPAN="3">分裂與衰敗</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="3">一個國王</td>
+<td ALIGN="center" COLSPAN="3">多個國王</td>
+</tr>
+<tr>
+<td ALIGN="center">地點</td>
+<td ALIGN="center" COLSPAN="3">耶 路 撒 冷</td>
+<td ALIGN="center" COLSPAN="3">北國(以色列) 南國(猶大)</td>
+</tr>
+<tr>
+<td ALIGN="center">時間</td>
+<td ALIGN="center" COLSPAN="3">約四十年</td>
+<td ALIGN="center" COLSPAN="3">約九十年</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

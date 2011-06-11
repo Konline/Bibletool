@@ -1,0 +1,102 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">羅馬書簡介</h1>
+<p>
+羅馬書是聖經中的第四十五卷經書，是新約中的第六卷。論到神的福音，這福音是神的大能，也顯明了神的義，世上的人都落在罪中，都要受到神的審判，沒有一個人能因行為稱義。
+神設立祂兒子耶穌作挽回祭，因基督的救贖就稱信耶穌的人為義，又使我們這些原有罪性的人，因生命聖靈的律而在基督堙A使身體得贖，得以成聖又得進入榮耀的盼望。</p>
+<p>
+羅馬書共十六章，前半部(1至8章)講到個人得到救恩的基本真理，指出全人類都陷罪中，需要神所預備的救贖，也就是藉著耶穌基督在十字架上所完成的得救方法。後半部(9至16章)講到神的揀選和基督徒的生活箴言。我們若因神諸般的恩慈把身體當成活祭獻上給　神，能忠心事奉　神，就能彰顯神的榮耀。</p>
+<hr>
+<h1 ALIGN="center">羅馬書大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 引言</td>
+<td>1:1-1:17</td>
+</tr>
+<tr>
+<td>二、 世人需要救恩</td>
+<td>1:18-3:20</td>
+</tr>
+<tr>
+<td>三、 因信稱義</td>
+<td>3:21-8:39</td>
+</tr>
+<tr>
+<td>四、 神的揀選</td>
+<td>9:1-11:36</td>
+</tr>
+<tr>
+<td>五、 基督徒的生活標準</td>
+<td>12:1-15:13</td>
+</tr>
+<tr>
+<td>六、 結語及問候</td>
+<td>15:14-16:27</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">羅馬書表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center">重點</td>
+<td ALIGN="center">罪 惡</td>
+<td ALIGN="center">救 恩</td>
+<td ALIGN="center">掙 扎</td>
+<td ALIGN="center">至高權威</td>
+<td ALIGN="center">服 事</td>
+</tr>
+<tr>
+<td ALIGN="center">分段</td>
+<td ALIGN="center">
+<p>人類需要公義</p>
+<p>1-3</p>
+</td>
+<td ALIGN="center">
+<p>神預備公義</p>
+<p>4-5</p>
+</td>
+<td ALIGN="center">
+<p>公義度日的能力</p>
+<p>6-8</p>
+</td>
+<td ALIGN="center">
+<p>神公義的計劃</p>
+<p>9-11</p>
+</td>
+<td ALIGN="center">
+<p>公義的實際作為</p>
+<p>12-16</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center" ROWSPAN="2">主題</td>
+<td ALIGN="center" COLSPAN="3">福音的根基</td>
+<td ALIGN="center" COLSPAN="2">福音的行動</td>
+</tr>
+<tr>
+<td ALIGN="center">遣責</td>
+<td ALIGN="center">稱義</td>
+<td ALIGN="center">分別為聖</td>
+<td ALIGN="center">證實</td>
+<td ALIGN="center">運用</td>
+</tr>
+<tr>
+<td ALIGN="center">地點</td>
+<td ALIGN="center" COLSPAN="5">可能在哥林多</td>
+</tr>
+<tr>
+<td ALIGN="center">時間</td>
+<td ALIGN="center" COLSPAN="5">主後 57 年</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

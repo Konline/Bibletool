@@ -1,0 +1,68 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">以弗所書簡介</h1>
+<p>以弗所書是聖經中的第四十九卷經書，是新約中的第十卷。是保羅在羅馬監獄中寫給以弗所教會的書信。是四卷「獄中書簡」中之一卷。</p>
+<p>
+本卷書主題是說：「在時機成熟的時候，　神要使天上和地上一切被造的的都歸於基督，以祂為首」(弗1:10)；保羅要　神的子民在生活上要符合　神的計劃-全人類在耶穌裡和而為一。前半卷在說明合一的道理；　神召祂的子民，赦免他們是藉著耶穌基督，在基督裡使人類從罪的束縛中得到釋放，並且說明　神那偉大應許是以聖靈為保證的。本書後半部是要信徒跟基督的合一應在團契的生活中實現出來。</p>
+<p>
+保羅並用諸多比喻說明與基督的合一：教會好比身體，而基督是頭；教會好比是一所建築物，而基督是基石；教會好比是妻子，而基督是丈夫；他以基督的愛、犧牲、赦免、恩典和聖潔為標準來觀一切事物。</p>
+<p>註 : 以弗所書、腓立比書、歌羅西書和腓立門書同稱為保羅的「獄中書簡」</p>
+<hr>
+<h1 ALIGN="center">以弗所書大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 簡介</td>
+<td>1:1-1:2</td>
+</tr>
+<tr>
+<td>二、 信徒在基督裡的地位</td>
+<td>1:3-3:21</td>
+</tr>
+<tr>
+<td>三、 信徒的行事為人</td>
+<td>4:1-5:17</td>
+</tr>
+<tr>
+<td>四、 信徒屬靈戰爭</td>
+<td>5:18-6:20</td>
+</tr>
+<tr>
+<td>五、 結論</td>
+<td>6:21-6:24</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">以弗所書表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center">第 1 章</td>
+<td ALIGN="center">第 2 章</td>
+<td ALIGN="center">第 3 章</td>
+<td ALIGN="center">第 4 章</td>
+<td ALIGN="center">第 5 章</td>
+<td ALIGN="center">第 6 章</td>
+</tr>
+<tr>
+<td ALIGN="center">基督堛煽I足</td>
+<td ALIGN="center">基督堛漲X一</td>
+<td ALIGN="center">基督堛漁成</td>
+<td ALIGN="center">身體堛漸肮</td>
+<td ALIGN="center">家庭中的生活</td>
+<td ALIGN="center">戰場上的生活</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="3">屬靈的富足</td>
+<td ALIGN="center" COLSPAN="3">屬靈的生活</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

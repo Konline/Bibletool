@@ -1,0 +1,149 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">歷代志下簡介</h1>
+<p>
+歷代志下是聖經中的第十四卷經書，也是舊約歷史書中的第九卷。本卷書繼續前卷「歷代志上」，專講猶大國列王的歷史，從所羅門登基作王起，一直到西底家被擄，以及波斯王古列下詔止。本卷書的性質和「歷代志上」一樣，仍是以　神的看法和話語來解釋猶大國的歷史。目的仍是使歸回故國的百姓認識　神的作為而歸順祂。本卷書又記載猶大國分裂後有五次的大復興：</p>
+<p>1.在亞撒作王年間(代下13-16 章)，</p>
+<p>2.在約沙法作王年間(代下17,19-20章)，</p>
+<p>3.在約阿施作王年間(23-24:16)</p>
+<p>
+4.希西家作王年間(29-31章)，5.在約西亞作王年間(34-35章)。每次的大復興都與王的母親和當代的祭司的好壞有很大的關係。</p>
+<p>本卷書又記載了 神四次大拯救：</p>
+<p>1.拯救亞比雅脫離耶羅波安的手，</p>
+<p>2.拯救亞撒脫離古實王謝拉的手，</p>
+<p>3.拯救約沙法脫離摩押、亞捫、米烏尼聯軍的手，</p>
+<p>4.拯救希西家脫亞述王西拿基立的手。萬軍之耶和華為依靠祂、尋求祂的子民爭戰。</p>
+<p>註 : 代下1:17「..車每輛七百舍客勒」按原文應為「六百舍客勒」參見王上10:29</p>
+<hr>
+<h1 ALIGN="center">歷代志下大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 所羅門王為王和建聖殿</td>
+<td>1:1-9:31</td>
+</tr>
+<tr>
+<td>1.所羅門王的財富與智慧</td>
+<td>1:1-1:17</td>
+</tr>
+<tr>
+<td>2.聖殿的建造與奉獻</td>
+<td>2:1-9:31</td>
+</tr>
+<tr>
+<td>二、 猶大諸王—自羅波安至被擄巴比倫</td>
+<td>10:1-36:23</td>
+</tr>
+<tr>
+<td>1.所羅門王國的分裂</td>
+<td>10:1-12:16</td>
+</tr>
+<tr>
+<td>2.亞比雅作王</td>
+<td>13:1-13:22</td>
+</tr>
+<tr>
+<td>3.亞撒作王</td>
+<td>14:1-16:14</td>
+</tr>
+<tr>
+<td>4.約沙法作王</td>
+<td>17:1-20:37</td>
+</tr>
+<tr>
+<td>5.約蘭作王</td>
+<td>21:1-21:20</td>
+</tr>
+<tr>
+<td>6.亞哈謝作王</td>
+<td>22:1-23:21</td>
+</tr>
+<tr>
+<td>7.約阿施、亞瑪謝和鳥西雅</td>
+<td>24:1-26:23</td>
+</tr>
+<tr>
+<td>8.約坦和亞哈斯</td>
+<td>27:1-28:27</td>
+</tr>
+<tr>
+<td>9.希西家作王</td>
+<td>29:1-32:33</td>
+</tr>
+<tr>
+<td>10.瑪拉西作王</td>
+<td>33:1-33:25</td>
+</tr>
+<tr>
+<td>11.約西亞及末代四王</td>
+<td>34:1-36:16</td>
+</tr>
+<tr>
+<td>12.耶路撒冷和聖殿被毀</td>
+<td>36:17-36:23</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">歷代志下表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center">重點</td>
+<td ALIGN="center" COLSPAN="2">所羅門王朝</td>
+<td ALIGN="center" COLSPAN="4">猶大滅亡</td>
+</tr>
+<tr>
+<td ALIGN="center">分段</td>
+<td ALIGN="center">
+<p>所羅門王建殿</p>
+<p>1-5</p>
+</td>
+<td ALIGN="center">
+<p>所羅門敬拜神</p>
+<p>6-9</p>
+</td>
+<td ALIGN="center">
+<p>腐敗(羅波安)</p>
+<p>10-11</p>
+</td>
+<td ALIGN="center">
+<p>匡正(亞撒到約阿施)</p>
+<p>13-28</p>
+</td>
+<td ALIGN="center">
+<p>委身(希西家)</p>
+<p>29-32</p>
+</td>
+<td ALIGN="center">
+<p>被擄(巴比倫)</p>
+<p>33-36</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center" ROWSPAN="2">主題</td>
+<td ALIGN="center" COLSPAN="2">獻殿</td>
+<td ALIGN="center" COLSPAN="4">歷史</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="2">大衛祖先</td>
+<td ALIGN="center" COLSPAN="4">十九個君王及一個皇后</td>
+</tr>
+<tr>
+<td ALIGN="center">地點</td>
+<td ALIGN="center" COLSPAN="6">南國猶大</td>
+</tr>
+<tr>
+<td ALIGN="cente">時間</td>
+<td ALIGN="center" COLSPAN="2">約四十年</td>
+<td ALIGN="center" COLSPAN="4">約四百年</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

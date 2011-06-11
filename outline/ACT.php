@@ -1,0 +1,148 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">使徒行傳簡介</h1>
+<p>
+使徒行傳是聖經中的第四十四卷經書，是新約中的第五卷，也是路加醫生在聖靈引領下所寫的第二卷經書，路加福音的特點是所提到的聖靈共15次之多，比其他的三卷福音書多(太9次、可6次、約13次)而使徒行傳提到聖靈達50次，比四福音書的總和還多，因而使徒行傳又稱聖靈行傳。</p>
+<p>
+四福音書是見證耶穌是通過"道成肉身"的言行記錄；而使徒行傳是主藉著聖靈通過人而作成的工作；也可說使徒行傳從頭到尾都是記聖靈的工作。因此信徒必須對聖靈要有深刻的認識。</p>
+<p>
+使徒行傳主要講到教會的被建與擴展，教會首先在耶路撒冷被建立(1至7章)，續而擴張到猶太全地和撒瑪利亞(8至12章),後藉使徒保羅向外邦傳道，建立教會直到地極，兩千年來直到現在聖靈還在工作，聖靈行傳還在繼續，凡對主耶穌所吩咐的大使命有負擔的信徒，他的工作都被記在聖靈行傳中。</p>
+<p>
+使徒行傳有兩個中心人物，前12章是彼得；後16章是保羅。彼得是主在世時親自教導訓練的使徒；而保羅是主復活升天後藉聖靈所教導訓練的使徒。</p>
+<hr>
+<h1 ALIGN="center">使徒行傳大綱</h1>
+<table BORDER="1" ALIGN="center">
+<tr>
+<td>一、教會的起頭</td>
+<td>1:1-2:47</td>
+</tr>
+<tr>
+<td>二、耶路撒冷的教會</td>
+<td>3:1-5:42</td>
+</tr>
+<tr>
+<td>三、教會在巴勒斯坦擴展</td>
+<td>6:1-12:25</td>
+</tr>
+<tr>
+<td>四、教會在小亞細亞及歐洲擴展</td>
+<td>13:1-21:17</td>
+</tr>
+<tr>
+<td>五、教會擴展至羅馬</td>
+<td>21:18-28:31</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">使徒行傳表解</h1>
+<table BORDER="1" ALIGN="center">
+<tr>
+<td ALIGN="center">重點</td>
+<td ALIGN="center" COLSPAN="2">聖 靈</td>
+<td ALIGN="center" COLSPAN="2">受 逼 迫</td>
+<td ALIGN="center" COLSPAN="3">福 音 廣 傳</td>
+<td ALIGN="center" COLSPAN="3">保 羅 受 審</td>
+</tr>
+<tr>
+<td ALIGN="center">
+<p>分</p>
+<p>段</p>
+</td>
+<td ALIGN="center">
+<p>被澆灌的教會</p>
+<p>1-4</p>
+</td>
+<td ALIGN="center">
+<p>擴展中的教會</p>
+<p>5-7</p>
+</td>
+<td ALIGN="center">
+<p>受逼迫的教會</p>
+<p>8-9</p>
+</td>
+<td ALIGN="center">
+<p>教會的轉型</p>
+<p>10-12</p>
+</td>
+<td ALIGN="center">
+<p>保羅首度旅行佈道</p>
+<p>13-15</p>
+</td>
+<td ALIGN="center">
+<p>保羅二度旅行佈道</p>
+<p>16-18</p>
+</td>
+<td ALIGN="center">
+<p>保羅三度旅行佈道</p>
+<p>19-20</p>
+</td>
+<td ALIGN="center">
+<p>保羅遭到被逮捕</p>
+<p>21-23</p>
+</td>
+<td ALIGN="center">
+<p>保羅三次受審</p>
+<p>24-26</p>
+</td>
+<td ALIGN="center">
+<p>保羅前往羅馬</p>
+<p>27-28</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center" ROWSPAN="2">
+<p>主</p>
+<p>題</p>
+</td>
+<td ALIGN="center" COLSPAN="2">建 立</td>
+<td ALIGN="center" COLSPAN="2">延 伸</td>
+<td ALIGN="center" COLSPAN="3">擴 展</td>
+<td ALIGN="center" COLSPAN="3">辨 明</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="2">猶太人</td>
+<td ALIGN="center" COLSPAN="2">撒瑪利亞</td>
+<td ALIGN="center" COLSPAN="6">外邦人</td>
+</tr>
+<tr>
+<td ALIGN="center">
+<p>地</p>
+<p>點</p>
+</td>
+<td ALIGN="center" COLSPAN="2">耶路撒冷</td>
+<td ALIGN="center" COLSPAN="2">
+<p>猶 大</p>
+<p>撒瑪利亞</p>
+</td>
+<td ALIGN="center" COLSPAN="6">地 極</td>
+</tr>
+<tr>
+<td ALIGN="center">
+<p>時</p>
+<p>間</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>2年</p>
+<p>AD. 33-35</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>13年</p>
+<p>AD. 35-48</p>
+</td>
+<td ALIGN="center" COLSPAN="6">
+<p>14年</p>
+<p>AD. 48-62</p>
+</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

@@ -1,0 +1,125 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">路得記簡介</h1>
+<p>
+路得記是聖經中的第八卷經書，是舊約歷史書中的第三卷經書。本卷書可稱之為士師記的附錄(共只有四章)，相傳係撒母耳所寫。士師記是一本黑暗、慘痛的歷史，讀時令人失望歎息；可是讀本卷書時令人感到欽佩、奮興。因為士師記引領我們走過殺戮戰場，而路得引領我們進入寧靜的農莊,
+使人感到滿懷溫馨與喜悅。路得的事跡在士師時代大中好比沙漠中的綠洲；黑夜中的明星。</p>
+<p>
+本卷書有一個主要目的，就是追溯大衛王和主基督的家譜(太1:5,16)。想不到一個外邦女子，因為說了一番懇摯動人的話：「不要催我回去不跟隨你，你住那裡去，我也往那裡去，你在那裡住宿，我也在那裡住宿，你的國就是我的國，你的神就是我的神，你在那裏死, 我也在那裏死，也葬在那裏，除非死能使我們相離。不然願耶和華重重降罰與我。」(得1:16-17)由於她的愛心作了正確的選擇，竟能作了大衛王的曾祖母；不止於此，連我們的主，按人意說來，也是她的後裔。</p>
+<p>
+波阿斯乃是基督的預表；他敬畏神，遵行律法，很富有又有權柄，說話有分量，為人所敬重，注意他如何以恩慈對待他的雇工，和外人，然後去思想耶穌的偉大、完全與慈愛(如約1:14,13:1,18:38,
+來7:16,26等)。路得乃預表被律法隔絕的外邦人尤其是摩押人(申23:3)；是罪人但卻藉恩典而蒙悅納。路得本是遠離家鄉的客旅，非常窮困，毫無指望，可是在波阿斯蒙了恩，被贖回，藉著婚姻和他聯合。我們在屬靈的事上，也是有相同經歷的。</p>
+<p>備 註 :</p>
+<p>1.從得1:2和得1:4排名之順序上瑪倫是拿俄米的長子基連是次子;俄珥巴是瑪倫之妻,路得是基連之妻</p>
+<p>2.又從得1:15,拿俄米對路得說:你嫂子已經回本國...好像路得是次媳,但從路4:10證實「路得是瑪倫之妻」應是長媳</p>
+<p>3.因此不能從得1:4排名順序「路得」排在「俄珥巴」之後而認定是為次媳,可能是基連先其兄結婚因而俄珥巴排名在前</p>
+<p>4.得1:15中「嫂子」與「弟媳」在原文為同一字,使中文譯本在繙譯上有了出入</p>
+<hr>
+<h1 ALIGN="center">路得記大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 以利米勒舉家至摩押避荒</td>
+<td>1:1-1:5</td>
+</tr>
+<tr>
+<td>二、 路得隨拿俄米返伯利恆</td>
+<td>1:6-1:22</td>
+</tr>
+<tr>
+<td>三、 路得在波阿斯田中拾穗</td>
+<td>2:1-2:23</td>
+</tr>
+<tr>
+<td>四、 拿俄米安排兒媳婚事</td>
+<td>3:1-3;18</td>
+</tr>
+<tr>
+<td>五、 波阿斯娶路得為妻生子</td>
+<td>4:1-4:17</td>
+</tr>
+<tr>
+<td>六、 王者家譜</td>
+<td>4:18-4:22</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">路得記表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center" COLSPAN="2">到波阿斯的城</td>
+<td ALIGN="center" COLSPAN="2">到波阿斯的田</td>
+<td ALIGN="center" COLSPAN="2">在波阿斯的</td>
+<td ALIGN="center" COLSPAN="2">在波阿斯的家</td>
+</tr>
+<tr>
+<td ALIGN="center">1:1-5</td>
+<td ALIGN="center">1:6-22</td>
+<td ALIGN="center">2:1-13</td>
+<td ALIGN="center">2:14-20</td>
+<td ALIGN="center">3:1-5</td>
+<td ALIGN="center">3:6-19</td>
+<td ALIGN="center">4:1-17</td>
+<td ALIGN="center">4:18-22</td>
+</tr>
+<tr>
+<td ALIGN="center">寄居摩押拿俄米(甜)</td>
+<td ALIGN="center">返伯利恆瑪拉(苦)</td>
+<td ALIGN="center">一般的恩典</td>
+<td ALIGN="center">格外的恩典</td>
+<td ALIGN="center">婆婆的指示</td>
+<td ALIGN="center">媳婦的順服</td>
+<td ALIGN="center">與波阿斯成親</td>
+<td ALIGN="center">成為大衛之祖</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="2">
+<p>寡婦</p>
+<p>荒年</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>工人</p>
+<p>麥田</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>賢婦</p>
+<p>禾</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>主婦</p>
+<p>新家</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center" COLSPAN="2">
+<p>遇 苦 難</p>
+<p>信心的道路</p>
+<p>信心的試煉</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>受 安 慰</p>
+<p>愛心的事奉</p>
+<p>信心的勞苦</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>得 應 許</p>
+<p>謙卑的慰藉</p>
+<p>信心的應許</p>
+</td>
+<td ALIGN="center" COLSPAN="2">
+<p>蒙 贖 回</p>
+<p>順服的賞賜</p>
+<p>信心的賞賜</p>
+</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>

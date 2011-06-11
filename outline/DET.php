@@ -1,0 +1,114 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('outline', array( 'body' => '
+
+<h1 ALIGN="center">申命記簡介</h1>
+<p>
+申命記是聖經中的第五卷經書，也是摩西五經的最末的一卷。意思是「重申律法」，並再解釋一遍。　神藉摩西向那新生的一代重新申述　神在過去如何恩待以色列人，從為奴之地救贖他們出來，傳給他們律法，分別他們為自己的子民，可是總因他們多次的埋怨、謗瀆、背叛
+神，所以都受了神的懲罰，倒斃在曠野裡。現在　神就用過去的事實來教導、警戒、勉勵新起的一代，應該記念祂奇妙的恩典和大能的作為，並絕對地順服祂的律例、典章，這樣才能在那應許之地獲得勝利、豐富、福樂和基業。</p>
+<p>
+本卷書的內容大部分都是摩西八次的講述。這也是摩西的臨別贈言，從他的話語中可看出他的才華和愛心，是抱著何等的熱心、慈愛和忠誠向以色列諄諄勸導，也是非常感動人的。</p> 
+<hr>
+<h1 ALIGN="center">申命記大綱</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td>一、 摩西第一篇講論</td>
+<td>1:1-4:43</td>
+</tr>
+<tr>
+<td>二、 摩西第二篇講論</td>
+<td>4:44-26:19</td>
+</tr>
+<tr>
+<td>三、 摩西第三篇講論</td>
+<td>27:1-28:68</td>
+</tr>
+<tr>
+<td>四、 摩西第四篇講論</td>
+<td>29:1-30:20</td>
+</tr>
+<tr>
+<td>五、 摩西第五篇講論</td>
+<td>31:1-22</td>
+</tr>
+<tr>
+<td>六、 摩西第六篇講論</td>
+<td>31:23-31:29</td>
+</tr>
+<tr>
+<td>七、 摩西第七篇講論</td>
+<td>32:1-52</td>
+</tr>
+<tr>
+<td>八、 摩西第八篇講論</td>
+<td>33:1-29</td>
+</tr>
+<tr>
+<td>九、 神親葬摩西</td>
+<td>34:1-12</td>
+</tr>
+</table>
+<hr>
+<h1 ALIGN="center">申命記表解</h1>
+<table ALIGN="center" BORDER="1">
+<tr>
+<td ALIGN="center">重點</td>
+<td ALIGN="center">過去</td>
+<td ALIGN="center" COLSPAN="4">現在</td>
+<td ALIGN="center" COLSPAN="2">未來</td>
+</tr>
+<tr>
+<td ALIGN="center">分段</td>
+<td ALIGN="center">
+<p>回憶漂流的期往事</p>
+<p>1-4</p>
+</td>
+<td ALIGN="center">
+<p>追想　神的律法</p>
+<p>5-11</p>
+</td>
+<td ALIGN="center">
+<p>禮儀法</p>
+<p>12-16</p>
+</td>
+<td ALIGN="center">
+<p>內戰</p>
+<p>17-20</p>
+</td>
+<td ALIGN="center">
+<p>社法</p>
+<p>21-26</p>
+</td>
+<td ALIGN="center">
+<p>與　神立約</p>
+<p>27-30</p>
+</td>
+<td ALIGN="center">
+<p>摩西的離世</p>
+<p>31-34</p>
+</td>
+</tr>
+<tr>
+<td ALIGN="center">主題</td>
+<td ALIGN="center">回顧歷史</td>
+<td ALIGN="center" COLSPAN="4">檢討聖潔</td>
+<td ALIGN="center" COLSPAN="2">前瞻承傳</td>
+</tr>
+<tr>
+<td ALIGN="center">地點</td>
+<td ALIGN="center" COLSPAN="7">摩押</td>
+</tr>
+<tr>
+<td ALIGN="center">時間</td>
+<td ALIGN="center" COLSPAN="7">大約二星期</td>
+</tr>
+</table>
+
+'));
+                                                                     
+$smarty->display('outline.tpl');
+
+?>
