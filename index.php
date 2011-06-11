@@ -1,12 +1,15 @@
 <?php
 
-ini_set('include_path', ini_get('include_path') . ':' . dirname(__FILE__) . '/lib');
+// put full path to Smarty.class.php
+require('lib/Smarty/Smarty.class.php');
+$smarty = new Smarty();
 
-require_once 'Bible.php';
+$smarty->setTemplateDir('smarty/templates');
+$smarty->setCompileDir('smarty/templates_c');
+$smarty->setCacheDir('smarty/cache');
+$smarty->setConfigDir('smarty/configs');
 
-$bible = Bible::getInstance();
+$smarty->assign('name', 'Ned');
+$smarty->display('index.tpl');
 
-print_r($bible->getVerses(array('UCV', 'NIV'), 1, 1, 1));
-// print_r($bible->getLanguages());
-// print_r($bible->getBooks("NIV"));
-// print_r($bible->getNumChapters(1));
+?>

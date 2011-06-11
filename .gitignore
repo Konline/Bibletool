@@ -1,1 +1,3 @@
 *.swp
+smarty/templates_c
+smarty/cache
