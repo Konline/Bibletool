@@ -1,3 +1,2 @@
 *.swp
-smarty/templates_c
-smarty/cache
+etc/application.conf
