@@ -1,0 +1,121 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('gospel', array( 'body' => '
+
+<h1 class=gospel>四福音書綜合--主耶穌基督微行錄</h1>
+<h2 class=gospel>第捌段 附錄</h2>
+<h3 class=gospel>附錄B.主耶穌所講的比喻之三</h3>
+<h4>主僕關係之比喻</h4>
+<table class=gospel border=1>
+<tr class=gospel>
+	<th class=gospel>三、主僕關係
+	<th class=gospel>時間
+	<th class=gospel>馬太
+	<th class=gospel>馬可
+	<th class=gospel>路加
+	<th class=gospel>約翰
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:52-52&ranges=MAT:20:1-1>家主</a>
+	<th class=gospel>AD.28年春
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:52-52>20:1</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:7:41-43>二個債戶</a>
+	<th class=gospel>AD.28年夏
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:7:41-43>7:41-43</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:18:23-34>無憐恤心的僕人</a>
+	<th class=gospel>AD.29年秋
+	<td class=gospel><a href=../retrieve/?ranges=MAT:18:23-34>18:23-34</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:20:1-16>葡萄園的工人</a>
+	<th class=gospel>AD.30年2月
+	<td class=gospel><a href=../retrieve/?ranges=MAT:20:1-16>20:1-16</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr> 
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:14:26-33>作門徒的代價</a>
+	<th class=gospel>AD.30年2月
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:14:26-33>14:26-33</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:16:1-8>不義的管家</a>
+	<th class=gospel>AD.30年2月
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:16:1-8>16:1-8</a>
+	<td class=gospel>&nbsp;
+</tr> 
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:16:19-31>財主與乞丐</a>
+	<th class=gospel>AD.30年3月
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:16:19-31>19:19-31</a>
+	<td class=gospel>&nbsp;
+</tr> 
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:17:7-10>主人與僕人</a>
+	<th class=gospel>AD.30年3月
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:17:7-10>17:7-10</a>
+	<td class=gospel>&nbsp;
+</tr> 
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:21:33-44&ranges=MAK:12:1-12&ranges=LUK:20:9-18>凶惡的園戶</a>
+	<th class=gospel>AD.30年4月4日
+	<td class=gospel><a href=../retrieve/?ranges=MAT:21:33-44>21:33-44</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:12:1-11>12:1-11</a>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:20:9-18>20:9-18</a>
+	<td class=gospel>&nbsp;
+</tr> 
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:24:45-51&ranges=LUK:12:42-48>忠心有見識的僕人</a>
+	<th class=gospel>AD.30年4月4日
+	<td class=gospel><a href=../retrieve/?ranges=MAT:24:45-51>24:45-51</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:12:42-48>12:42-48</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:12:42-48>僕人的才幹</a>
+	<th class=gospel>AD.30年4月4日
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:12:42-48>19:12-27</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:13:35-37>儆醒的僕人</a>
+	<th class=gospel>AD.30年4月4日
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=MAK:13:35-37>13:35-37</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr>
+</table>
+
+'));
+
+$smarty->display('gospel.tpl');

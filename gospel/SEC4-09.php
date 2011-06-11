@@ -1,0 +1,104 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('gospel', array( 'body' => '
+
+<h1 class=gospel>四福音書綜合 -- 主耶穌基督微行錄</h1>
+<h2 class=gospel>第四段  第二年之傳道工作</h2>
+<h3 class=gospel>第九章  天國的比喻</h3>
+<table class=gospel border=1>
+<tr class=gospel>
+	<th class=gospel>分節標題
+	<th class=gospel>馬太
+	<th class=gospel>馬可
+	<th class=gospel>路加
+	<th class=gospel>約翰
+	<th class=gospel>參考經文
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:1-2&ranges=MAK:4:1-1&ranges=LUK:8:4-4>引言</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT13_1_2>13:1-2</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:4:1-1>4:1</a>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:8:4-4>8:4</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:3-23&ranges=MAK:4:2-20&ranges=LUK:8:5-15>撒種的比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT13_3_23>13:3-23</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:4:2-20>4:2-20</a>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:8:5-15>8:5-15</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:4:21-25&ranges=LUK:8:16-18>論燈與隱瞞的事</a>
+        <td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=MAK:4:21-25>4:21-25</a>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:8:16-18>8:16-18</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:24-32&ranges=LUK:4:26-34>稗子與芥菜種的比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:24-32>13:24-32</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:4:26-34>4:26-34</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:33-36>麵酵的比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:33-36>13:33-36</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:36-43&ranges=MAK:4:34-34>對門徒解釋稗子的比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:36-43>13:36-43</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAK:4:34-34>4:34</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:13:18-21>再論芥菜種與麵酵比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:13:18-21>13:18-21</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:44-46>藏寶與尋珠的比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:44-46>13:44-46</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:47-50>撒網的比喻</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:47-50>13:47-50</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:51-53>結論</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:13:51-53>13:51-53</a>
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+        <td class=gospel>&nbsp;
+</tr>
+</table>
+
+'));
+
+$smarty->display('gospel.tpl');

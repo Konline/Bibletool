@@ -1,0 +1,80 @@
+<?php
+
+require(dirname(__FILE__).'/'.'../smarty.config.php');
+
+$smarty->assign('header', array('root' => '..'));
+$smarty->assign('gospel', array( 'body' => '
+
+<h1 class=gospel>四福音書綜合 -- 主耶穌基督微行錄</h1>
+<h2 class=gospel>第陸段 受難前一週之事跡</h2>
+<h3 class=gospel>第十二章 耶穌的十架七言</h3>
+<table class=gospel border=1>
+<tr class=gospel>
+	<th class=gospel>分節標題
+	<th class=gospel>馬太
+	<th class=gospel>馬可
+	<th class=gospel>路加
+	<th class=gospel>約翰
+	<th class=gospel>參考經文
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:23:34-34>第一句話</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:23:34-34>23:34</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:23:43-43>第二句話</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:23:43-43>23:34</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=JHN:19:26-27>第三句話</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=JHN:19:26-27>19:26-27</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:27:46-46&ranges=JHN:15:34-34>第四句話</a>
+	<td class=gospel><a href=../retrieve/?ranges=MAT:27:46-46>27:46</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=JHN:15:34-34>15:34</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=JHN:19:28-28>第五句話</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=JHN:19:28-28>19:28</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=JHN:19:30-30>第六句話</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=JHN:19:30-30>19:30</a>
+	<td class=gospel>&nbsp;
+</tr>
+<tr class=gospel>
+	<td class=gospel><a href=../retrieve/?ranges=LUK:23:46-46>第七句話</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+	<td class=gospel><a href=../retrieve/?ranges=LUK:23:46-46>23:46</a>
+	<td class=gospel>&nbsp;
+	<td class=gospel>&nbsp;
+</tr>
+</table>
+
+'));
+
+$smarty->display('gospel.tpl');
