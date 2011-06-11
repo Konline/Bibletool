@@ -16,10 +16,10 @@ $smarty->assign('gospel', array( 'body' => '
 <tr class=gospel>
 	<td class=gospel>
 	<ol>
-	<li><a href="SEC8A01.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>醫治疾病─17件</a></li>
-	<li><a href="SEC8A02.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>趕逐污鬼─6件</a></li>
-	 <li><a href="SEC8A03.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>自然聽命─9件</a></li>
-	 <li><a href="SEC8A04.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>死人復活─3件</a></li>
+	<li><a href="SEC8A01.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>醫治疾病─17件</a></li>
+	<li><a href="SEC8A02.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>趕逐污鬼─6件</a></li>
+	 <li><a href="SEC8A03.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>自然聽命─9件</a></li>
+	 <li><a href="SEC8A04.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>死人復活─3件</a></li>
 	</ol>
 	</td>
 </tr>

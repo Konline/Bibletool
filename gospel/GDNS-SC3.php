@@ -9,12 +9,12 @@ $smarty->assign('gospel', array( 'body' => '
 <h2 class=gospel>第三段  第一年之傳道工作</h2>
 <hr>
 
-<p><a href="SEC3-01.html">第一章  第一個逾越節</a>
-<p><a href="SEC3-02.html">第二章  在猶太地居住</a>
-<p><a href="SEC3-03.html">第三章  撒瑪利亞婦人</a>
-<p><a href="SEC3-04.html">第四章  在加利利之傳道工作</a>
-<p><a href="SEC3-05.html">第五章  在迦百農之傳道工作</a>
-<p><a href="SEC3-06.html">第六章  在迦百農之醫治工作</a>
+<p><a href="SEC3-01.php">第一章  第一個逾越節</a>
+<p><a href="SEC3-02.php">第二章  在猶太地居住</a>
+<p><a href="SEC3-03.php">第三章  撒瑪利亞婦人</a>
+<p><a href="SEC3-04.php">第四章  在加利利之傳道工作</a>
+<p><a href="SEC3-05.php">第五章  在迦百農之傳道工作</a>
+<p><a href="SEC3-06.php">第六章  在迦百農之醫治工作</a>
 
 <hr>
 

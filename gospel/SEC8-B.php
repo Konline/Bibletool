@@ -23,10 +23,10 @@ $smarty->assign('gospel', array( 'body' => '
 <tr class=gospel>
 	<td class=gospel>
 	<OL>
-	 <li><a href="SEC8B01.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>自然生物─8件</a></li>
-	 <li><a href="SEC8B02.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>自然事物─8件</a></li>
-	 <li><a href="SEC8B03.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>主僕關係─12件</a></li>
-	 <li><a href="SEC8B04.html"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>一般人事─12件</a></li>
+	 <li><a href="SEC8B01.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>自然生物─8件</a></li>
+	 <li><a href="SEC8B02.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>自然事物─8件</a></li>
+	 <li><a href="SEC8B03.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>主僕關係─12件</a></li>
+	 <li><a href="SEC8B04.php"&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79&LABEL=%ac%f9%bf%ab%aa%ba%b5%b2%bb%79>一般人事─12件</a></li>
 	</ol>
 	</td>
 </tr>
