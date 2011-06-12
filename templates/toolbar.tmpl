@@ -1,6 +1,6 @@
 <div CLASS="browse-toolbar">
-  <form CLASS="browse-form" ACTION="{$webroot}/browse/?" METHOD="GET">
-    <select NAME="version" ID="version" ONCHANGE="javascript:form.submit()">
+  <form CLASS="browse-form">
+    <select NAME="version" ID="version">
       <option VALUE="UCV" SELECTED="selected">國語和合本</option>
       <option VALUE="NCV">中文新譯本</option>
       <option VALUE="CLV">當代中譯本</option>
@@ -11,8 +11,7 @@
       <option VALUE="CLV_CN">當代中譯本（簡體）</option>
       <option VALUE="LZZ_CN">呂振中譯本（簡體）</option>
     </select>
-    <select NAME="book" ID="book" ONCHANGE="javascript:updateSelectWithBook(&quot;book&quot;, &quot;chapter&quot;);
-                                            form.submit();">
+    <select NAME="book" ID="book">
       <option VALUE=1 SELECTED="selected">創世記</option>
       <option VALUE=2>出埃及記</option>
       <option VALUE=3>利未記</option>
@@ -80,7 +79,7 @@
       <option VALUE=65>猶大書</option>
       <option VALUE=66>啟示錄</option>
     </select>
-    <select NAME="chapter" ID="chapter" ONCHANGE="javascript:form.submit()">
+    <select NAME="chapter" ID="chapter">
       <option VALUE=1 SELECTED="selected">1 章</option>
       <option VALUE=2>2 章</option>
       <option VALUE=3>3 章</option>
@@ -132,8 +131,6 @@
       <option VALUE=49>49 章</option>
       <option VALUE=50>50 章</option>
     </select>
-    <input TYPE="submit" VALUE="查詢">
-    <input TYPE="hidden" NAME="style" VALUE="table">
   </form>
   <img CLASS="browse-arrows" SRC="{$webroot}/images/up.png">
   <img CLASS="browse-arrows" SRC="{$webroot}/images/left.png">

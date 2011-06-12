@@ -7,6 +7,9 @@ var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
                               4, 4, 5, 3, 6, 4, 3, 1, 13, 5,
                               5, 3, 5, 1, 1, 1, 22);
 
+// Variable to hold the current style
+var currentStyle;
+
 // Clear a given select menu
 function clearSelect(selectId) {
   var select = document.getElementById(selectId);
@@ -91,35 +94,75 @@ function keybinding(e) {
   };
 };
 
+// Print data in table style
+var tableStyleFn = function(data) {
+  // get the chapter number from the first verse
+  var chapterNo = data.verses[0].chapter;
+  
+  // Add the chapter header
+  $("<div class=browse-chapter-title>" +
+    data.book + " 第 " + chapterNo + " 章：" +
+    data.title + "</div>").appendTo('#browse-body');
+
+  // Put the chapter body into browse-body
+  var browseTable = $("<div class=browse-table-chapter></div>");
+  browseTable.appendTo('#browse-body');
+
+  // Put each verse into browseTable
+  $.each(data.verses, function(idx, verse) {
+    var verseHeader = '<span class="browse-table-verse-header">' + 
+      verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
+    var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
+    var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
+    $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
+  });
+};
+
 // Get a chapter from the server and update the 'browse-body' div
 function getChapter(version, book, chapter) {
-  var jqxhr = $.getJSON(webroot + '/stubs/gen_1_1.json', function(data){
-    // populate the 'browse-body' div with stuff from data
-    $("<div class=browse-chapter-title>" +
-      data.book + " 第 " + book + " 章：" +
-      data.title + "</div>").appendTo('#browse-body');
-    var browseTable = $("<div class=browse-table-chapter></div>");
-    browseTable.appendTo('#browse-body');
-    $.each(data.verses, function(idx, verse) {
-      var verseHeader = '<span class="browse-table-verse-header">' + 
-        verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
-      var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
-      var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
-      $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
-    });
-  })
+  var url = webroot + '/get_verses/' + version + '/' + book + '/' + chapter;
+  $('#browse-body').empty();
+  var jqxhr = $.getJSON(url, currentStyle)
+    .complete(function() {
+      // update the browse toolbar here
+      updateSelectWithBook('book', 'chapter');
+    })
     .error(function(){
       $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
     });
 };
 
+function selectedVersion() {
+  return $('#version option:selected').val();
+}
+
+function selectedBook() {
+  return $('#book option:selected').val();
+}
+
+function selectedChapter() {
+  return $('#chapter option:selected').val();
+}
+
+// Main function
 $(document).ready(function() {
   // enable keybinding
   document.onkeypress = keybinding;
+
+  // Default style is table
+  currentStyle = tableStyleFn;
   
   // fetch Genesis 1:1
-  getChapter(1,1,1);
+  getChapter('UCV', 1, 1);
+  
+  // add on-change events to select menus
+  var selectOnChangeEvt = function() {
+    getChapter(selectedVersion(),
+               selectedBook(),
+               selectedChapter());
+  }
+  $("#version").change(selectOnChangeEvt);
+  $("#book").change(selectOnChangeEvt);
+  $("#chapter").change(selectOnChangeEvt);
 });
 
-
-  
