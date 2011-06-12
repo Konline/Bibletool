@@ -10,14 +10,6 @@ var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
 // Variable to hold the current style
 var currentStyle;
 
-// Clear a given select menu
-function clearSelect(selectId) {
-  var select = document.getElementById(selectId);
-  while (select.length != 0) {
-    select.remove(select.selectedIndex);
-  };
-};
-
 // Populate a select menu with n chapters
 function populateSelect(selectId, n) {
   var select = document.getElementById(selectId);
@@ -57,7 +49,7 @@ function updateSelectWithBook(bookSelectId, chaptersSelectId) {
   var bookSelectedIndex = bookSelect.selectedIndex;
   var bookSelectedNumber = bookSelect.options[bookSelectedIndex].value;
   var bookTotalChapters = chaptersArray[bookSelectedNumber];
-  clearSelect(chaptersSelectId);
+  $('#'+ chaptersSelectId).empty();
   populateSelect(chaptersSelectId, bookTotalChapters);
 };
 
@@ -101,8 +93,9 @@ var tableStyleFn = function(data) {
   
   // Add the chapter header
   $("<div class=browse-chapter-title>" +
-    data.book + " 第 " + chapterNo + " 章：" +
-    data.title + "</div>").appendTo('#browse-body');
+    data.book + " 第 " + chapterNo + " 章" +
+    ((data.title == null) ? "" : "：" + data.title) +
+    "</div>").appendTo('#browse-body');
 
   // Put the chapter body into browse-body
   var browseTable = $("<div class=browse-table-chapter></div>");
@@ -124,8 +117,10 @@ function getChapter(version, book, chapter) {
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, currentStyle)
     .complete(function() {
-      // update the browse toolbar here
+      // update the browse toolbar with new book and chapters
       updateSelectWithBook('book', 'chapter');
+      // make the current chapter selected
+      $("#chapter option:nth-child(" + chapter + ")").attr('selected', 'selected');
     })
     .error(function(){
       $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
@@ -148,21 +143,25 @@ function selectedChapter() {
 $(document).ready(function() {
   // enable keybinding
   document.onkeypress = keybinding;
-
-  // Default style is table
-  currentStyle = tableStyleFn;
   
-  // fetch Genesis 1:1
-  getChapter('UCV', 1, 1);
-  
-  // add on-change events to select menus
-  var selectOnChangeEvt = function() {
-    getChapter(selectedVersion(),
-               selectedBook(),
-               selectedChapter());
+  // Use the presence of the version select to tell if we are in
+  // browse mode
+  if ( $('#version').length > 0) {
+    // Default style is table
+    currentStyle = tableStyleFn;
+    
+    // fetch Genesis 1:1
+    getChapter('UCV', 1, 1);
+    
+    // add on-change events to select menus
+    var selectOnChangeEvt = function() {
+      getChapter(selectedVersion(),
+                 selectedBook(),
+                 selectedChapter());
+    }
+    $("#version").change(selectOnChangeEvt);
+    $("#book").change(selectOnChangeEvt);
+    $("#chapter").change(selectOnChangeEvt);
   }
-  $("#version").change(selectOnChangeEvt);
-  $("#book").change(selectOnChangeEvt);
-  $("#chapter").change(selectOnChangeEvt);
 });
 
