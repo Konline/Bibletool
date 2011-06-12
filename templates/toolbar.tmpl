@@ -132,23 +132,18 @@
       <option VALUE=50>50 章</option>
     </select>
   </form>
-  <img CLASS="browse-arrows" SRC="{$webroot}/images/up.png">
-  <img CLASS="browse-arrows" SRC="{$webroot}/images/left.png">
-  <a HREF="{$webroot}/browse/?style=table&amp;book=1&amp;chapter=2&amp;version=UCV&amp;" ID="next_chap_anchor">
-    <img CLASS="browse-arrows" TITLE="創世記 第 2 章 (k or a)" SRC="{$webroot}/images/right.png">
-  </a>
-  <a HREF="{$webroot}/browse/?style=table&amp;book=2&amp;chapter=1&amp;version=UCV&amp;" ID="next_book_anchor">
-    <img CLASS="browse-arrows" TITLE="出埃及記 第 1 章 (n)" SRC="{$webroot}/images/down.png">
-  </a>
-  <img SRC="{$webroot}/images/style_table.png" CLASS="browse-arrows" TITLE="表格">
-  <a HREF="{$webroot}/browse/?style=paragraph&amp;book=1&amp;chapter=1&amp;version=UCV&amp;">
-    <img SRC="{$webroot}/images/style_paragraph.png" CLASS="browse-arrows" TITLE="段落">
-  </a>
-  <img SRC="{$webroot}/images/toggle_black.png" CLASS="browse-arrows" ID="toggle" TITLE="紅字(r)" ONCLICK="javascript:toggleRedDiv()">
-  <form CLASS="query-form" ACTION="query/?" METHOD="GET">
-    <input TYPE="hidden" NAME="style" VALUE="table">
-    <input TYPE="hidden" NAME="version" VALUE="UCV">
-    <input TYPE="text" NAME="query" ONFOCUS="javascript:focusForm()" ONBLUR="javascript:blurForm()">
-    <input TYPE="submit" VALUE="搜索">
-  </form>
+  <img CLASS="browse-arrows" TITLE="上一卷書 (p)"
+       SRC="{$webroot}/images/up.png" ID="up-arrow">
+  <img CLASS="browse-arrows" TITLE="上一章 (k or a)"
+       SRC="{$webroot}/images/left.png" ID="left-arrow">
+  <img CLASS="browse-arrows" TITLE="下一章 (j or d)"
+       SRC="{$webroot}/images/right.png" ID="right-arrow">
+  <img CLASS="browse-arrows" TITLE="下一卷書 (n)"
+       SRC="{$webroot}/images/down.png" ID="down-arrow">
+  <img SRC="{$webroot}/images/style_table.png" CLASS="browse-arrows"
+       TITLE="表格" ID="table-style">
+  <img SRC="{$webroot}/images/style_paragraph.png"
+       CLASS="browse-arrows"
+       TITLE="段落" ID="paragraph-style">
+  <img SRC="{$webroot}/images/toggle_black.png" CLASS="browse-arrows" ID="toggle" TITLE="紅字(r)">
 </div>

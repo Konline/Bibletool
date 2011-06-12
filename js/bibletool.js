@@ -54,35 +54,22 @@ function updateSelectWithBook(bookSelectId, chaptersSelectId) {
 };
 
 // Keybinding related functions
-var notInForm = true;
-function focusForm() {
-    notInForm = null;
-};
-function blurForm() {
-    notInForm = true;
-};
 function keybinding(e) {
   var evtobj = window.event ? event : e;
   var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode;
   var actualkey = String.fromCharCode(unicode);
-  var prevChapAnchor = document.getElementById('prev_chap_anchor');
-  var prevBookAnchor = document.getElementById('prev_book_anchor');
-  var nextChapAnchor = document.getElementById('next_chap_anchor');
-  var nextBookAnchor = document.getElementById('next_book_anchor');
-  if (notInForm) {
-    if (actualkey == 'r') {
-      toggleRedDiv();
-    } else if ((actualkey == 'j' || actualkey == 'd') && nextChapAnchor) {
-      window.location = nextChapAnchor.href;
-    } else if (actualkey == 'n' && nextBookAnchor) {
-      window.location = nextBookAnchor.href;
-    } else if ((actualkey == 'k' || actualkey == 'a') && prevChapAnchor) {
-      window.location = prevChapAnchor.href;
-    } else if (actualkey == 'p' && prevBookAnchor) {
-      window.location = prevBookAnchor.href;
-    } else if (true) {
-      null;
-    };
+  if (actualkey == 'r') {
+    toggleRedDiv();
+  } else if ((actualkey == 'j' || actualkey == 'd') && nextChapAnchor) {
+    window.location = nextChapAnchor.href;
+  } else if (actualkey == 'n' && nextBookAnchor) {
+    window.location = nextBookAnchor.href;
+  } else if ((actualkey == 'k' || actualkey == 'a') && prevChapAnchor) {
+    window.location = prevChapAnchor.href;
+  } else if (actualkey == 'p' && prevBookAnchor) {
+    window.location = prevBookAnchor.href;
+  } else {
+    // do nothing
   };
 };
 
@@ -162,6 +149,9 @@ $(document).ready(function() {
     $("#version").change(selectOnChangeEvt);
     $("#book").change(selectOnChangeEvt);
     $("#chapter").change(selectOnChangeEvt);
+
+    // toggle red image
+    $("toggle").click(toggleRedDiv());
   }
 });
 
