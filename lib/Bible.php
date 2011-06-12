@@ -70,6 +70,18 @@ class Bible
 		$verses = array();
 		while ($row = mysql_fetch_assoc($result))
 		{
+			// Strings enclosed between '【' and '】' are considered subtitles
+			if (preg_match('/(【.*】)/', $row['content'], $match))
+			{
+				$row['subtitle'] = $match[1];
+				$row['content'] = str_replace($row['subtitle'], '', $row['content']);
+			}
+
+			// Strings enclosed betweeen "' " and " '" are God's words
+			$patterns = array("/' /", "/ '/");
+			$replacements = array("<span class='browse-verse-red' style='color: red;'>", "</span>");
+			$row['content'] = preg_replace($patterns, $replacements, $row['content']);
+
 			$verses[] = $row;
 		}
 		mysql_free_result($result);
