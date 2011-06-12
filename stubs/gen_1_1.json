@@ -1,4 +1,5 @@
 {
+  "book": "創世記",
   "title": "神造天地",
   "verses": [
     { "book": "創",
@@ -13,7 +14,7 @@
     { "book": "創",
       "chapter": 1,
       "verse": 3,
-      "content": "　神說： 「要有光。」 就有了光。" },
+      "content": "　神說： <span class='browse-verse-red' style='color: red;'>「要有光。」</span>就有了光。" },
     { "book": "創",
       "chapter": 1,
       "verse": 4,
