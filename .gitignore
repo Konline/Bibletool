@@ -1,2 +1,3 @@
 *.swp
 etc/application.conf
+js/application.js

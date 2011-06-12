@@ -1,7 +1,3 @@
-// URL root
-// Don't know of a better way to handle this for now
-var webroot = '/Bibletool';
-
 // # of chapters in a given book. 0th entry is dummy
 var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
                               24, 22, 25, 29, 36, 10, 13, 10, 42, 150,
@@ -43,10 +39,10 @@ function toggleRedDiv() {
     if (span.className == 'browse-verse-red') {
       if (span.style.color == 'red') {
         span.style.color = 'black';
-        toggleImage.src = 'images/toggle_red.png';
+        toggleImage.src = webroot + '/images/toggle_red.png';
       } else if (true) {
         span.style.color = 'red';
-        toggleImage.src = 'images/toggle_black.png';
+        toggleImage.src = webroot + '/images/toggle_black.png';
       };
     };
   };
