@@ -1,14 +1,16 @@
 {assign var='title' value='四福音書'}
 {include file="header.tmpl"}
 <div id="gospel-left">
-  <a href="{$webroot}/gospel/GDNS-SC1">降生受浸前事蹟</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC2">傳道前之預備工作</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC3">第一年之傳道工作</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC4">第二年之傳道工作</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC5">第三年之傳道工作</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC6">受難前一週之事跡</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC7">耶穌基督復活升天</a><br>
-  <a href="{$webroot}/gospel/GDNS-SC8">附錄</a><br>
+  <ul>
+  <li {if $page=='GDNS-SC1'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC1">降生受浸前事蹟</a></li>
+  <li {if $page=='GDNS-SC2'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC2">傳道前之預備工作</a></li>
+  <li {if $page=='GDNS-SC3'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC3">第一年之傳道工作</a></li>
+  <li {if $page=='GDNS-SC4'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC4">第二年之傳道工作</a></li>
+  <li {if $page=='GDNS-SC5'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC5">第三年之傳道工作</a></li>
+  <li {if $page=='GDNS-SC6'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC6">受難前一週之事跡</a></li>
+  <li {if $page=='GDNS-SC7'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC7">耶穌基督復活升天</a></li>
+  <li {if $page=='GDNS-SC8'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC8">附錄</a></li>
+  </ul>
 </div>
 
 <div id="gospel-body">

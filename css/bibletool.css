@@ -267,12 +267,17 @@ table.glossary-index-table td {
 #gospel-left {
     float:left;
     padding:1em;
-    width:12%;
+    width:15%;
+}
+
+#gospel-left ul {
+    list-style-image:none;
+    list-style-type:none;
 }
 
 #gospel-body {
     float:left;
-    width:80%;
+    width:70%;
     padding:1em;
 }
 
