@@ -25,17 +25,18 @@ class Bible
 	{
 		$this->db = mysql_connect($config->database->host, $config->database->user, $config->database->pass);
 		mysql_select_db($config->database->dbname);
+		mysql_query('SET NAMES utf-8');
 	}
 
 	/** Return verses given the range
 	 * @param $languages: Array, language name (eg. ["UCV", "KJV"])
 	 * @param $book: Integer, book number
 	 * @param $chapter: Integer, chapter number
-	 * @param $start: Integer, starting verse
+	 * @param $start: Integer, optional starting verse
 	 * @param $end: Integer, optional ending verse
 	 * @return Array of verses
 	 */
-	public function getVerses($languages, $book, $chapter, $start, $end=1000)
+	public function getVerses($languages, $book, $chapter, $start=1, $end=1000)
 	{
 		if (!is_array($languages))
 		{
@@ -45,7 +46,7 @@ class Bible
 		$languages_str = "'" . implode("','", $languages) . "'";
 
 		$sql = sprintf("
-			SELECT l.name AS language, b.short_name AS book, v.chapter AS chapter, v.verse AS verse, v.body AS body
+			SELECT b.short_name AS book, v.chapter AS chapter, v.verse AS verse, v.body AS content
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 				INNER JOIN languages l ON (v.language_id=l.id)
@@ -133,5 +134,44 @@ class Bible
 		$result = mysql_query($sql);
 		$row = mysql_fetch_assoc($result);
 		return $row['cnt'];
+	}
+
+	/** Return book name for the requested language
+	 * @param $language: String, language name (eg. "KJV")
+	 * @param $book: Integer, book id
+	 * @return Array, (short_name, long_name)
+	 */
+	public function getBookNames($language, $book)
+	{
+		$sql = sprintf("
+			SELECT b.short_name, b.long_name
+			FROM books b INNER JOIN languages l ON (b.language_id=l.id)
+			WHERE l.name='%s' AND b.book='%s'",
+			mysql_real_escape_string($language),
+			mysql_real_escape_string($book)
+		);
+		$result = mysql_query($sql);
+		return mysql_fetch_assoc($result);
+	}
+
+	/** Return chapter title
+	 * @param $language: String, language name (eg. "KJV")
+	 * @param $book: Integer, book id
+	 * @param $chapter: Integer, book id
+	 * @return String, chapter title
+	 */
+	public function getChapterTitle($language, $book, $chapter)
+	{
+		$sql = sprintf("
+			SELECT c.title
+			FROM chapters c INNER JOIN languages l ON (c.language_id=l.id)
+			WHERE l.name='%s' AND c.book='%s' AND c.chapter='%s'",
+			mysql_real_escape_string($language),
+			mysql_real_escape_string($book),
+			mysql_real_escape_string($chapter)
+		);
+		$result = mysql_query($sql);
+		$row = mysql_fetch_assoc($result);
+		return $row['title'];
 	}
 };

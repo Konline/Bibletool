@@ -32,6 +32,12 @@ switch ($action)
 		$smarty->display('outline.tmpl');
 		break;
 
+	case 'get_verses':
+		require_once 'Action_GetVerses.php';
+		$controller = new Action_GetVerses($bible, $smarty);
+		$controller->process();
+		break;
+
 	case 'browse':
 	default:
 		$smarty->display('browse.tmpl');
