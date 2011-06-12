@@ -1,5 +1,5 @@
 <div CLASS="browse-toolbar">
-  <form CLASS="browse-form" ACTION="browse/?" METHOD="GET">
+  <form CLASS="browse-form" ACTION="{$webroot}/browse/?" METHOD="GET">
     <select NAME="version" ID="version" ONCHANGE="javascript:form.submit()">
       <option VALUE="UCV" SELECTED="selected">國語和合本</option>
       <option VALUE="NCV">中文新譯本</option>
@@ -137,14 +137,14 @@
   </form>
   <img CLASS="browse-arrows" SRC="{$webroot}/images/up.png">
   <img CLASS="browse-arrows" SRC="{$webroot}/images/left.png">
-  <a HREF="browse/?style=table&amp;book=1&amp;chapter=2&amp;version=UCV&amp;" ID="next_chap_anchor">
+  <a HREF="{$webroot}/browse/?style=table&amp;book=1&amp;chapter=2&amp;version=UCV&amp;" ID="next_chap_anchor">
     <img CLASS="browse-arrows" TITLE="創世記 第 2 章 (k or a)" SRC="{$webroot}/images/right.png">
   </a>
-  <a HREF="browse/?style=table&amp;book=2&amp;chapter=1&amp;version=UCV&amp;" ID="next_book_anchor">
+  <a HREF="{$webroot}/browse/?style=table&amp;book=2&amp;chapter=1&amp;version=UCV&amp;" ID="next_book_anchor">
     <img CLASS="browse-arrows" TITLE="出埃及記 第 1 章 (n)" SRC="{$webroot}/images/down.png">
   </a>
   <img SRC="{$webroot}/images/style_table.png" CLASS="browse-arrows" TITLE="表格">
-  <a HREF="browse/?style=paragraph&amp;book=1&amp;chapter=1&amp;version=UCV&amp;">
+  <a HREF="{$webroot}/browse/?style=paragraph&amp;book=1&amp;chapter=1&amp;version=UCV&amp;">
     <img SRC="{$webroot}/images/style_paragraph.png" CLASS="browse-arrows" TITLE="段落">
   </a>
   <img SRC="{$webroot}/images/toggle_black.png" CLASS="browse-arrows" ID="toggle" TITLE="紅字(r)" ONCLICK="javascript:toggleRedDiv()">
