@@ -27,11 +27,11 @@ class Action_GetVerses extends Action_Base
 
 		$result = array();
 
+		$book_names = $this->bible->getBookNames($languages[0], $book);
+		$result['book'] = $book_names['long_name'];
+
 		if (count($languages) == 1)
 		{
-			$book_names = $this->bible->getBookNames($languages[0], $book);
-			$result['book'] = $book_names['long_name'];
-
 			$chapter_title = $this->bible->getChapterTitle($languages[0], $book, $chapter);
 			$result['title'] = $chapter_title;
 		}
