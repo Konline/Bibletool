@@ -70,8 +70,15 @@ class Bible
 		$verses = array();
 		while ($row = mysql_fetch_assoc($result))
 		{
-			// Strings enclosed between '【' and '】' are considered subtitles
+			// Strings enclosed between '【' and '】' are considered subtitles for Chinese bibles.
 			if (preg_match('/(【.*】)/', $row['content'], $match))
+			{
+				$row['subtitle'] = $match[1];
+				$row['content'] = str_replace($row['subtitle'], '', $row['content']);
+			}
+
+			// Strings enclosed between '< ' and ' >' are considered subtitles for NIV.
+			if (preg_match('/(< .* >)/', $row['content'], $match))
 			{
 				$row['subtitle'] = $match[1];
 				$row['content'] = str_replace($row['subtitle'], '', $row['content']);
