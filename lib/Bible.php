@@ -46,7 +46,7 @@ class Bible
 		$languages_str = "'" . implode("','", $languages) . "'";
 
 		$sql = sprintf("
-			SELECT b.short_name AS book, v.chapter AS chapter, v.verse AS verse, v.body AS content
+			SELECT l.name AS language, b.short_name AS book, v.chapter AS chapter, v.verse AS verse, v.body AS content
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 				INNER JOIN languages l ON (v.language_id=l.id)
