@@ -8,7 +8,7 @@ class Action_GetVerses extends Action_Base
 	 */
 	public function process()
 	{
-		$language = $_REQUEST['language'];
+		$languages = explode(',', $_REQUEST['languages']);
 		$book = $_REQUEST['book'];
 		$chapter = $_REQUEST['chapter'];
 		if (isset($_REQUEST['range']))
@@ -25,15 +25,20 @@ class Action_GetVerses extends Action_Base
 			$end = 1000;
 		}
 
-		$book_names = $this->bible->getBookNames($language, $book);
-		$chapter_title = $this->bible->getChapterTitle($language, $book, $chapter);
-		$verses = $this->bible->getVerses($language, $book, $chapter, $start, $end);
+		$result = array();
 
-		$result = array(
-			'book' =>  $book_names['long_name'],
-			'title' => $chapter_title,
-			'verses' => $verses
-		);
+		if (count($languages) == 1)
+		{
+			$book_names = $this->bible->getBookNames($languages[0], $book);
+			$result['book'] = $book_names['long_name'];
+
+			$chapter_title = $this->bible->getChapterTitle($languages[0], $book, $chapter);
+			$result['title'] = $chapter_title;
+		}
+
+		$verses = $this->bible->getVerses($languages, $book, $chapter, $start, $end);
+
+		$result['verses'] = $verses;
 
 		header('Content-type: application/json');
 		print json_encode($result);
