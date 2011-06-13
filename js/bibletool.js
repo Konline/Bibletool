@@ -62,11 +62,11 @@ function keybinding(e) {
     toggleRedDiv();
   } else if ((actualkey == 'j' || actualkey == 'd')) {
     rightArrow();
-  } else if (actualkey == 'n') {
+  } else if (actualkey == 'n' || actualkey == 'x') {
     downArrow();
   } else if ((actualkey == 'k' || actualkey == 'a')) {
     leftArrow();
-  } else if (actualkey == 'p') {
+  } else if (actualkey == 'p' || actualkey == 'w') {
     upArrow();
   } else {
     // do nothing
