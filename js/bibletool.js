@@ -68,6 +68,20 @@ function keybinding(e) {
     leftArrow();
   } else if (actualkey == 'p' || actualkey == 'w') {
     upArrow();
+  } else if (actualkey == 't') {
+    switch (currentStyle) {
+    case 'table':
+      currentStyle = 'paragraph';
+      break;
+    case 'paragraph':
+      currentStyle = 'table';
+      break;
+    default:
+      console.log("Unsupported style " + style);
+    }
+    getChapter(selectedVersion(),
+               selectedBook(),
+               selectedChapter());
   } else {
     // do nothing
   };
@@ -78,6 +92,9 @@ function getCurrentStyleFn(style) {
   switch(style) {
   case 'table':
     return tableStyleFn;
+    break;
+  case 'paragraph':
+    return paragraphStyleFn;
     break;
   default:
     console.log("Unsupported style " + style);
@@ -106,6 +123,34 @@ var tableStyleFn = function(data) {
     var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
     var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
     $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
+  });
+};
+
+// Print data in paragraph
+var paragraphStyleFn = function(data) {
+  // get the chapter number from the first verse
+  var chapterNo = data.verses[0].chapter;
+  
+  // Add the chapter header
+  $("<div class=browse-chapter-title>" +
+    data.book + " 第 " + chapterNo + " 章" +
+    ((data.title == null) ? "" : "：" + data.title) +
+    "</div>").appendTo('#browse-body');
+
+  // Put the chapter body into browse-body
+  var browseParagraph = $("<div class=browse-paragraph-chapter></div>");
+  browseParagraph.appendTo('#browse-body');
+
+  // Put each verse into browseParagraph
+  $.each(data.verses, function(idx, verse) {
+    var verseSubtitle = verse.subtitle ? '<div class="browse-paragraph-verse-subtitle">' + verse.subtitle + '</div>' : '';
+    var verseNumber = '<span class=' + 
+      (verse.subtitle ? 'browse-paragraph-1stverse-number' : 'browse-paragraph-verse-number') +
+      '>' + verse.verse + '</span>';
+    var verseContent = '<span class="browse-paragraph-verse-content">' + verse.content + '</span>';
+    $(verseSubtitle).appendTo(browseParagraph);
+    $(verseNumber).appendTo(browseParagraph);
+    $(verseContent).appendTo(browseParagraph);
   });
 };
 
@@ -183,11 +228,17 @@ function downArrow() {
 }
 
 function paragraphStyle() {
-  console.log("paragraph style");
+  currentStyle = 'paragraph';
+  getChapter(selectedVersion(),
+             selectedBook(),
+             selectedChapter());
 }
 
 function tableStyle() {
-  console.log("Table style");
+  currentStyle = 'table';
+  getChapter(selectedVersion(),
+             selectedBook(),
+             selectedChapter());
 }
 
 // Main function
