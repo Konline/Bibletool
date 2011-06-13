@@ -60,18 +60,29 @@ function keybinding(e) {
   var actualkey = String.fromCharCode(unicode);
   if (actualkey == 'r') {
     toggleRedDiv();
-  } else if ((actualkey == 'j' || actualkey == 'd') && nextChapAnchor) {
-    window.location = nextChapAnchor.href;
-  } else if (actualkey == 'n' && nextBookAnchor) {
-    window.location = nextBookAnchor.href;
-  } else if ((actualkey == 'k' || actualkey == 'a') && prevChapAnchor) {
-    window.location = prevChapAnchor.href;
-  } else if (actualkey == 'p' && prevBookAnchor) {
-    window.location = prevBookAnchor.href;
+  } else if ((actualkey == 'j' || actualkey == 'd')) {
+    rightArrow();
+  } else if (actualkey == 'n') {
+    downArrow();
+  } else if ((actualkey == 'k' || actualkey == 'a')) {
+    leftArrow();
+  } else if (actualkey == 'p') {
+    upArrow();
   } else {
     // do nothing
   };
 };
+
+// Return the function that implements the style
+function getCurrentStyleFn(style) {
+  switch(style) {
+  case 'table':
+    return tableStyleFn;
+    break;
+  default:
+    console.log("Unsupported style " + style);
+  }
+}
 
 // Print data in table style
 var tableStyleFn = function(data) {
@@ -102,7 +113,7 @@ var tableStyleFn = function(data) {
 function getChapter(version, book, chapter) {
   var url = webroot + '/get_verses/' + version + '/' + book + '/' + chapter;
   $('#browse-body').empty();
-  var jqxhr = $.getJSON(url, currentStyle)
+  var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
     .complete(function() {
       // update the browse toolbar with new book and chapters
       updateSelectWithBook('book', 'chapter');
@@ -126,6 +137,59 @@ function selectedChapter() {
   return $('#chapter option:selected').val();
 }
 
+function upArrow() {
+  var book = parseInt(selectedBook());
+  if ( book > 1 ) {
+    $("#book option:nth-child(" + book + ")").removeAttr('selected');
+    $("#book option:nth-child(" + (book-1) + ")").attr('selected', 'selected');
+    getChapter(selectedVersion(),
+               selectedBook(),
+               1);
+  }
+}
+
+function leftArrow() {
+  var chapter = parseInt(selectedChapter());
+  if ( chapter > 1 ) {
+    $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
+    $("#chapter option:nth-child(" + (chapter-1) + ")").attr('selected', 'selected');
+    getChapter(selectedVersion(),
+               selectedBook(),
+               selectedChapter());
+  }
+}
+
+function rightArrow() {
+  var book = parseInt(selectedBook());
+  var chapter = parseInt(selectedChapter());
+  if ( chapter < chaptersArray[book] ) {
+    $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
+    $("#chapter option:nth-child(" + (chapter+1) + ")").attr('selected', 'selected');
+    getChapter(selectedVersion(),
+               selectedBook(),
+               selectedChapter());
+  }
+}
+
+function downArrow() {
+  var book = parseInt(selectedBook());
+  if ( book < 66 ) {
+    $("#book option:nth-child(" + book + ")").removeAttr('selected');
+    $("#book option:nth-child(" + (book+1) + ")").attr('selected', 'selected');
+    getChapter(selectedVersion(),
+               selectedBook(),
+               1);
+  }
+}
+
+function paragraphStyle() {
+  console.log("paragraph style");
+}
+
+function tableStyle() {
+  console.log("Table style");
+}
+
 // Main function
 $(document).ready(function() {
   // enable keybinding
@@ -135,7 +199,7 @@ $(document).ready(function() {
   // browse mode
   if ( $('#version').length > 0) {
     // Default style is table
-    currentStyle = tableStyleFn;
+    currentStyle = 'table';
     
     // fetch Genesis 1:1
     getChapter('UCV', 1, 1);
@@ -150,8 +214,16 @@ $(document).ready(function() {
     $("#book").change(selectOnChangeEvt);
     $("#chapter").change(selectOnChangeEvt);
 
+    // arrow keys
+    $("#up-arrow").click(function(){upArrow()});
+    $("#left-arrow").click(function(){leftArrow()});
+    $("#right-arrow").click(function(){rightArrow()});
+    $("#down-arrow").click(function(){downArrow()});
+    $("#paragraph-style").click(function(){paragraphStyle()});
+    $("#table-style").click(function(){tableStyle()});
+    
     // toggle red image
-    $("toggle").click(toggleRedDiv());
+    $("#toggle").click(function(){toggleRedDiv()});
   }
 });
 
