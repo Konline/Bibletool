@@ -30,7 +30,7 @@ class Bible
 
 	/** Return verses given the range
 	 * @param $languages: Array, language name (eg. ["UCV", "KJV"])
-	 * @param $book: Integer, book number
+	 * @param $book: Integer or String (eg. 1, OR "GEN")
 	 * @param $chapter: Integer, chapter number
 	 * @param $start: Integer, optional starting verse
 	 * @param $end: Integer, optional ending verse
@@ -192,5 +192,21 @@ class Bible
 		$result = mysql_query($sql);
 		$row = mysql_fetch_assoc($result);
 		return $row['title'];
+	}
+
+	/** Return book index given the short English name (GEN => 1)
+	 * @param $book_name: String
+	 * @return Integer (from 1 to 66)
+	 */
+	public function getBookIndex($book_name)
+	{
+		$sql = sprintf("
+			SELECT b.book
+			FROM books b INNER JOIN languages l ON (b.language_id=l.id)
+			WHERE l.name='KJV' AND b.short_name='%s'",
+			mysql_real_escape_string($book_name));
+		$result = mysql_query($sql);
+		$row = mysql_fetch_assoc($result);
+		return $row['book'];
 	}
 };

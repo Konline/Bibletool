@@ -38,6 +38,12 @@ switch ($action)
 		$controller->process();
 		break;
 
+	case 'retrieve':
+		require_once 'Action_Retrieve.php';
+		$controller = new Action_Retrieve($bible, $smarty);
+		$controller->process();
+		break;
+
 	case 'browse':
 	default:
 		$smarty->display('browse.tmpl');
