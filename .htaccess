@@ -10,9 +10,5 @@ RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
 RewriteRule ^outline$ index.php?action=outline
 RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1
 
-RewriteRule ^get_verses/([^/]+)/([^/]+)/([^/]+)$ index.php?action=get_verses&languages=$1&book=$2&chapter=$3
-RewriteRule ^get_verses/([^/]+)/([^/]+)/([^/]+)/([^/]+) index.php?action=get_verses&languages=$1&book=$2&chapter=$3&range=$4
+RewriteRule ^retrieve/(.*) index.php?action=retrieve&ranges=$1
 
-RewriteRule ^retrieve/([^/]+)/ranges=(.*) index.php?action=retrieve&language=$1&ranges=$2
-
-RewriteRule ^retrieve/ranges=(.*) index.php?action=retrieve&language=UCV&ranges=$1

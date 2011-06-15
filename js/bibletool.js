@@ -156,7 +156,7 @@ var paragraphStyleFn = function(data) {
 
 // Get a chapter from the server and update the 'browse-body' div
 function getChapter(version, book, chapter) {
-  var url = webroot + '/get_verses/' + version + '/' + book + '/' + chapter;
+  var url = webroot + 'retrieve/' + version + ':' + book + ':' + chapter;
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
     .complete(function() {
