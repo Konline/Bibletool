@@ -12,3 +12,5 @@ RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1
 
 RewriteRule ^retrieve/(.*) index.php?action=retrieve&ranges=$1
 
+RewriteRule ^search/([^/]+)/q=(.*) index.php?action=search&language=$1&q=$2
+RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3
