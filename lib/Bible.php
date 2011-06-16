@@ -70,25 +70,7 @@ class Bible
 		$verses = array();
 		while ($row = mysql_fetch_assoc($result))
 		{
-			// Strings enclosed between '【' and '】' are considered subtitles for Chinese bibles.
-			if (preg_match('/(【.*】)/', $row['content'], $match))
-			{
-				$row['subtitle'] = $match[1];
-				$row['content'] = str_replace($row['subtitle'], '', $row['content']);
-			}
-
-			// Strings enclosed between '< ' and ' >' are considered subtitles for NIV.
-			if (preg_match('/(< .* >)/', $row['content'], $match))
-			{
-				$row['subtitle'] = $match[1];
-				$row['content'] = str_replace($row['subtitle'], '', $row['content']);
-			}
-
-			// Strings enclosed betweeen "' " and " '" are God's words
-			$patterns = array("/' /", "/ '/");
-			$replacements = array("<span class='browse-verse-red' style='color: red;'>", "</span>");
-			$row['content'] = preg_replace($patterns, $replacements, $row['content']);
-
+			$row = $this->annotateVerse($row);
 			$verses[] = $row;
 		}
 		mysql_free_result($result);
@@ -208,5 +190,89 @@ class Bible
 		$result = mysql_query($sql);
 		$row = mysql_fetch_assoc($result);
 		return $row['book'];
+	}
+
+	/** Search bible
+	 * @param $language: String, language to search against
+	 * @param $q: String, query to search
+	 * @param $book_filter: (optional) Array of Integer, book ids to limit search on
+	 * @param Array of matching verses
+	 */
+	public function search($language, $q, $book_filter=null)
+	{
+		if ($q == "")
+			return;
+
+		$book_filter_str = '';
+		if (!empty($book_filter))
+		{
+			$book_filter_str = ' AND v.book IN (' . mysql_real_escape_string(implode(',', $book_filter)) . ')';
+		}
+
+		$t1 = microtime(true);
+
+		$sql = sprintf("
+			SELECT v.book, v.chapter, v.verse, v.body AS content
+			FROM verses v
+				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
+		   		INNER JOIN languages l ON (v.language_id=l.id)
+			WHERE l.name='%s' AND v.body LIKE '%%%s%%' $book_filter_str",
+			mysql_real_escape_string($language),
+			mysql_real_escape_string($q)
+		);
+
+		$result = mysql_query($sql);
+		if (!$result)
+		{
+			echo "ERROR: Bad query: " . mysql_error();
+			return array();
+		}
+
+		$verses = array(
+			'hits'   => mysql_num_rows($result),
+			'time'   => null,
+			'verses' => array(),
+		);
+
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$row = $this->annotateVerse($row);
+			$verses['verses'][] = $row;
+		}
+
+		$verses['time'] = round((microtime(true) - $t1) * 1000, 2);
+
+		mysql_free_result($result);
+
+		return $verses;
+	}
+
+	/** Helper function to parse a verse and extract any annotations,
+	 * such as red letter, or subtitles in the verse
+	 * @param $verse: Array, a verse
+	 * @return Array of a verse with the annotations added
+	 */
+	private function annotateVerse($verse)
+	{
+		// Strings enclosed between '【' and '】' are considered subtitles for Chinese bibles.
+		if (preg_match('/(【.*】)/', $verse['content'], $match))
+		{
+			$verse['subtitle'] = $match[1];
+			$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
+		}
+
+		// Strings enclosed between '< ' and ' >' are considered subtitles for NIV.
+		if (preg_match('/(< .* >)/', $verse['content'], $match))
+		{
+			$verse['subtitle'] = $match[1];
+			$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
+		}
+
+		// Strings enclosed betweeen "' " and " '" are God's words
+		$patterns = array("/' /", "/ '/");
+		$replacements = array("<span class='browse-verse-red' style='color: red;'>", "</span>");
+		$verse['content'] = preg_replace($patterns, $replacements, $verse['content']);
+
+		return $verse;
 	}
 };
