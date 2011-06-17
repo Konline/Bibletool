@@ -51,8 +51,17 @@ class Action_Retrieve extends Action_Base
 					{
 						$valid_languages[] = $lang['name'];
 					}
-					
-					if (in_array($parts[0], $valid_languages))
+
+					$languages = array();
+					foreach (explode(',', $parts[0]) as $lang)
+					{
+						if (in_array($lang, $valid_languages))
+						{
+							$languages[] = $lang;
+						}
+					}
+
+					if ($languages)
 					{
 						$languages = explode(',', $parts[0]);
 						$book = $parts[1];
@@ -67,7 +76,7 @@ class Action_Retrieve extends Action_Base
 						$chapter = $parts[1];
 						list($start, $end) = explode('-', $parts[2]);
 						if (!isset($end))
-							$end = 1000;
+							$end = $start;
 					}
 					break;
 
