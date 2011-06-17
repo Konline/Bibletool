@@ -46,6 +46,7 @@ switch ($action)
 
 	case 'browse':
 	default:
+                $smarty->assign('action', 'browse'); // for default case
 		$smarty->display('browse.tmpl');
 		break;
 }
