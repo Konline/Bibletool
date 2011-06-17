@@ -169,6 +169,7 @@ var paragraphStyleFn = function(data) {
 
 // Get a chapter from the server and update the 'browse-body' div
 function browse (url) {
+  console.log('Fetching url: ' + url);
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
     .error(function(){
@@ -177,7 +178,14 @@ function browse (url) {
 };
 
 function selectedVersion() {
-  return $('#version option:selected').val();
+  // Build a colon ':' separated string of versions
+  var versions = $("#version option:selected")
+    .map(function() {
+      return this.value;
+    }).get().join(',');
+  return versions;
+
+  // $('#version option:selected').val();
 }
 
 function selectedBook() {
