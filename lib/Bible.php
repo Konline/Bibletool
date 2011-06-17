@@ -192,6 +192,27 @@ class Bible
 		return $row['book'];
 	}
 
+	/** Return number of verses in a chapter
+	 * @param $language: String
+	 * @param $book: Integer
+	 * @param $chapter: Integer
+	 * @return Integer, number of verses
+	 */
+	public function getNumVerses($language, $book, $chapter)
+	{
+		$sql = sprintf("
+			SELECT COUNT(*) AS cnt
+			FROM verses v INNER JOIN languages l ON (v.language_id=l.id)
+			WHERE l.name='%s' AND v.book='%s' AND v.chapter='%s'",
+			mysql_real_escape_string($language),
+			mysql_real_escape_string($book),
+			mysql_real_escape_string($chapter)
+		);
+		$result = mysql_query($sql);
+		$row = mysql_fetch_assoc($result);
+		return $row['cnt'];
+	}
+
 	/** Search bible
 	 * @param $language: String, language to search against
 	 * @param $q: String, query to search

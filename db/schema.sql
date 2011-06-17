@@ -1,5 +1,8 @@
 -- Bibletool schema
 
+DROP TABLE IF EXISTS glossary_verses;
+DROP TABLE IF EXISTS glossary_notes;
+DROP TABLE IF EXISTS glossary;
 DROP TABLE IF EXISTS verses;
 DROP TABLE IF EXISTS chapters;
 DROP TABLE IF EXISTS books;
@@ -43,6 +46,36 @@ CREATE TABLE verses (
 	body        VARCHAR(700) NOT NULL,
 	PRIMARY KEY(id),
 	UNIQUE(language_id, book, chapter, verse),
+	KEY(book, chapter, verse),
 	FOREIGN KEY(language_id) REFERENCES languages(id),
 	FOREIGN KEY(language_id, book) REFERENCES books(language_id, book)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE glossary (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	strokes     INTEGER NOT NULL,
+	chinese		VARCHAR(80),
+	english		VARCHAR(80),
+	PRIMARY KEY(id)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE glossary_notes (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	glossary_id INTEGER NOT NULL,
+	notes       VARCHAR(700) NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(glossary_id) REFERENCES glossary(id)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE glossary_verses (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	glossary_id INTEGER NOT NULL,
+	book        INTEGER NOT NULL,
+	chapter     INTEGER NOT NULL,
+	start_verse INTEGER NOT NULL,
+	end_verse   INTEGER NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(glossary_id) REFERENCES glossary(id),
+	FOREIGN KEY(book, chapter) REFERENCES verses(book, chapter)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
