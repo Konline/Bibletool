@@ -79,9 +79,10 @@ function keybinding(e) {
     default:
       console.log("Unsupported style " + style);
     }
-    getChapter(selectedVersion(),
-               selectedBook(),
-               selectedChapter());
+    browse(webroot + 
+           '/retrieve/' + selectedVersion() +
+           ':' + selectedBook() +
+           ':' + selectedChapter());
   } else {
     // do nothing
   };
@@ -124,6 +125,12 @@ var tableStyleFn = function(data) {
     var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
     $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
   });
+
+  // update the browse toolbar with new book and chapters
+  updateSelectWithBook('book', 'chapter');
+  
+  // make the current chapter selected
+  $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
 };
 
 // Print data in paragraph
@@ -152,19 +159,18 @@ var paragraphStyleFn = function(data) {
     $(verseNumber).appendTo(browseParagraph);
     $(verseContent).appendTo(browseParagraph);
   });
+  
+  // update the browse toolbar with new book and chapters
+  updateSelectWithBook('book', 'chapter');
+  
+  // make the current chapter selected
+  $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
 };
 
 // Get a chapter from the server and update the 'browse-body' div
-function getChapter(version, book, chapter) {
-  var url = webroot + 'retrieve/' + version + ':' + book + ':' + chapter;
+function browse (url) {
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
-    .complete(function() {
-      // update the browse toolbar with new book and chapters
-      updateSelectWithBook('book', 'chapter');
-      // make the current chapter selected
-      $("#chapter option:nth-child(" + chapter + ")").attr('selected', 'selected');
-    })
     .error(function(){
       $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
     });
@@ -187,9 +193,10 @@ function upArrow() {
   if ( book > 1 ) {
     $("#book option:nth-child(" + book + ")").removeAttr('selected');
     $("#book option:nth-child(" + (book-1) + ")").attr('selected', 'selected');
-    getChapter(selectedVersion(),
-               selectedBook(),
-               1);
+    browse(webroot + 
+           '/retrieve/' + selectedVersion() +
+           ':' + selectedBook() +
+           ':' + '1');
   }
 }
 
@@ -198,9 +205,10 @@ function leftArrow() {
   if ( chapter > 1 ) {
     $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
     $("#chapter option:nth-child(" + (chapter-1) + ")").attr('selected', 'selected');
-    getChapter(selectedVersion(),
-               selectedBook(),
-               selectedChapter());
+    browse(webroot + 
+           '/retrieve/' + selectedVersion() +
+           ':' + selectedBook() +
+           ':' + selectedChapter());
   }
 }
 
@@ -210,9 +218,10 @@ function rightArrow() {
   if ( chapter < chaptersArray[book] ) {
     $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
     $("#chapter option:nth-child(" + (chapter+1) + ")").attr('selected', 'selected');
-    getChapter(selectedVersion(),
-               selectedBook(),
-               selectedChapter());
+    browse(webroot + 
+           '/retrieve/' + selectedVersion() +
+           ':' + selectedBook() +
+           ':' + selectedChapter());
   }
 }
 
@@ -221,24 +230,27 @@ function downArrow() {
   if ( book < 66 ) {
     $("#book option:nth-child(" + book + ")").removeAttr('selected');
     $("#book option:nth-child(" + (book+1) + ")").attr('selected', 'selected');
-    getChapter(selectedVersion(),
-               selectedBook(),
-               1);
+    browse(webroot + 
+           '/retrieve/' + selectedVersion() +
+           ':' + selectedBook() +
+           ':' + '1');
   }
 }
 
 function paragraphStyle() {
   currentStyle = 'paragraph';
-  getChapter(selectedVersion(),
-             selectedBook(),
-             selectedChapter());
+  browse(webroot + 
+         '/retrieve/' + selectedVersion() +
+         ':' + selectedBook() +
+         ':' + selectedChapter());
 }
 
 function tableStyle() {
   currentStyle = 'table';
-  getChapter(selectedVersion(),
-             selectedBook(),
-             selectedChapter());
+  browse(webroot + 
+         '/retrieve/' + selectedVersion() +
+         ':' + selectedBook() +
+         ':' + selectedChapter());
 }
 
 // Main function
@@ -253,13 +265,14 @@ $(document).ready(function() {
     currentStyle = 'table';
     
     // fetch Genesis 1:1
-    getChapter('UCV', 1, 1);
+    browse(webroot + '/retrieve/1:1');
     
     // add on-change events to select menus
     var selectOnChangeEvt = function() {
-      getChapter(selectedVersion(),
-                 selectedBook(),
-                 selectedChapter());
+      browse(webroot + 
+             '/retrieve/' + selectedVersion() +
+             ':' + selectedBook() +
+             ':' + selectedChapter());
     }
     $("#version").change(selectOnChangeEvt);
     $("#book").change(selectOnChangeEvt);
