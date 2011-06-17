@@ -104,6 +104,9 @@ function getCurrentStyleFn(style) {
 
 // Print data in table style
 var tableStyleFn = function(data) {
+  // get the first entry from data
+  var data = data[0];
+  
   // get the chapter number from the first verse
   var chapterNo = data.verses[0].chapter;
   
@@ -135,6 +138,9 @@ var tableStyleFn = function(data) {
 
 // Print data in paragraph
 var paragraphStyleFn = function(data) {
+  // get the first entry from data
+  var data = data[0];
+  
   // get the chapter number from the first verse
   var chapterNo = data.verses[0].chapter;
   
