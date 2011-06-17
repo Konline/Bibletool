@@ -23,6 +23,11 @@ class Action_Retrieve extends Action_Base
 
 		foreach ($ranges as $range)
 		{
+			if (empty($range))
+			{
+				continue;
+			}
+
 			$parts = explode(':', $range);
 			$parts_count = count($parts);
 			switch ($parts_count)
@@ -100,8 +105,6 @@ class Action_Retrieve extends Action_Base
 				$book = $this->bible->getBookIndex($book);
 			}
 
-			$one_language = count($languages) > 1 ? false : true;
-
 			foreach ($languages as $language)
 			{
 				$book_names = $this->bible->getBookNames($language, $book);
@@ -114,14 +117,7 @@ class Action_Retrieve extends Action_Base
 					'verses' => $verses,
 				);
 
-				if ($one_language)
-				{
-					$results = $result;
-				}
-				else
-				{
-					$results[] = $result;
-				}
+				$results[] = $result;
 			}
 		}
 
