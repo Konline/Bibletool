@@ -44,6 +44,10 @@ switch ($action)
 		$controller->process();
 		break;
 
+	case 'interlinear':
+		$smarty->display('interlinear.tmpl');
+		break;
+
 	case 'browse':
 	default:
                 $smarty->assign('action', 'browse'); // for default case

@@ -4,6 +4,8 @@ RewriteRule ^static/([^/]+) index.php?action=static&page=$1
 
 RewriteRule ^browse index.php?action=browse
 
+RewriteRule ^interlinear index.php?action=interlinear
+
 RewriteRule ^gospel$ index.php?action=gospel
 RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
 
