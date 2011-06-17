@@ -187,7 +187,37 @@ function interlinear (url) {
   console.log('Interlinear: Fetching url: ' + url);
   $('#interlinear-body').empty();
   var jqxhr = $.getJSON(url, function(data) {
-    
+    // get the first entry from data
+    var data = data[0];
+  
+    // get the chapter number from the first verse
+    var chapterNo = data.verses[0].chapter;
+  
+  // Add the chapter header
+  $("<div class=browse-chapter-title>" +
+    data.book + " 第 " + chapterNo + " 章" +
+    ((data.title == null) ? "" : "：" + data.title) +
+    "</div>").appendTo('#browse-body');
+
+  // Put the chapter body into browse-body
+  var browseTable = $("<div class=browse-table-chapter></div>");
+  browseTable.appendTo('#browse-body');
+
+  // Put each verse into browseTable
+  $.each(data.verses, function(idx, verse) {
+    var verseHeader = '<span class="browse-table-verse-header">' + 
+      verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
+    var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
+    var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
+    $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
+  });
+
+  // update the browse toolbar with new book and chapters
+  updateSelectWithBook('book', 'chapter');
+  
+  // make the current chapter selected
+  $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
+
   })
     .error(function(){
       $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
