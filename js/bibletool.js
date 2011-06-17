@@ -175,9 +175,20 @@ var paragraphStyleFn = function(data) {
 
 // Get a chapter from the server and update the 'browse-body' div
 function browse (url) {
-  console.log('Fetching url: ' + url);
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
+    .error(function(){
+      $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
+    });
+};
+
+// Get chapters from the server and update the 'interlinear-body' div
+function interlinear (url) {
+  console.log('Interlinear: Fetching url: ' + url);
+  $('#interlinear-body').empty();
+  var jqxhr = $.getJSON(url, function(data) {
+    
+  })
     .error(function(){
       $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
     });
@@ -282,12 +293,32 @@ $(document).ready(function() {
     browse(webroot + '/retrieve/1:1');
     
     // add on-change events to select menus
-    var selectOnChangeEvt = function() {
-      browse(webroot + 
-             '/retrieve/' + selectedVersion() +
-             ':' + selectedBook() +
-             ':' + selectedChapter());
+    // the event is dependent on the action
+    // and we determine the action based on the "tab" that is currently
+    // selected
+    var actionLabel = $("a.section-navigator-current").get()[0].text;
+    var selectOnChangeEvt;
+    switch (actionLabel) {
+    case '聖經對照':
+      selectOnChangeEvt = function() {
+        interlinear(webroot + 
+                    '/retrieve/' + selectedVersion() +
+                    ':' + selectedBook() +
+                    ':' + selectedChapter());
+      };
+      break;
+    case '經節查詢':
+      selectOnChangeEvt = function() {
+        browse(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + selectedChapter());
+      };
+      break;
+    default:
+      console.log("Unsupported action: " + actionLabel);
     }
+    
     $("#version").change(selectOnChangeEvt);
     $("#book").change(selectOnChangeEvt);
     $("#chapter").change(selectOnChangeEvt);
@@ -301,7 +332,7 @@ $(document).ready(function() {
     $("#table-style").click(function(){tableStyle()});
     
     // toggle red image
-    $("#toggle").click(function(){toggleRedDiv()});
-  }
+    $("#toggle").click(function(){toggleRedDiv()});}
+    
 });
 
