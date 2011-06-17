@@ -6,6 +6,13 @@ require_once 'Action_Base.php';
  */
 class Action_Search extends Action_Base
 {
+
+	public function __construct($bible, $smarty)
+	{
+		parent::__construct($bible, $smart);
+		$this->cacheable = true;
+	}
+
 	/** Return verses in JSON format
 	 */
 	public function process()
