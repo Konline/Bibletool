@@ -73,7 +73,7 @@ class Bible
 		$verses = array();
 		while ($row = mysql_fetch_assoc($result))
 		{
-			$row = $this->annotateVerse($row);
+			$row = $this->annotateVerse($row, $row['language']);
 			$verses[] = $row;
 		}
 		mysql_free_result($result);
@@ -260,7 +260,7 @@ class Bible
 
 		while ($row = mysql_fetch_assoc($result))
 		{
-			$row = $this->annotateVerse($row);
+			$row = $this->annotateVerse($row, $language);
 			$verses['verses'][] = $row;
 		}
 
@@ -274,9 +274,10 @@ class Bible
 	/** Helper function to parse a verse and extract any annotations,
 	 * such as red letter, or subtitles in the verse
 	 * @param $verse: Array, a verse
+	 * @param $language: String, language (eg. 'KJV')
 	 * @return Array of a verse with the annotations added
 	 */
-	private function annotateVerse($verse)
+	private function annotateVerse($verse, $language)
 	{
 		if (in_array($language, $this->chinese_bibles))
 		{
