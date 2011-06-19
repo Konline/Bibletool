@@ -10,6 +10,10 @@ var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
 // Variable to hold the current style
 var currentStyle;
 
+// Function to call whenever there is a change in 
+// version, book, or chapter event
+var onChangeFn;
+
 // Populate a select menu with n chapters
 function populateSelect(selectId, n) {
   var select = document.getElementById(selectId);
@@ -193,34 +197,34 @@ function interlinear (url) {
     // get the chapter number from the first verse
     var chapterNo = data.verses[0].chapter;
   
-  // Add the chapter header
-  $("<div class=browse-chapter-title>" +
-    data.book + " 第 " + chapterNo + " 章" +
-    ((data.title == null) ? "" : "：" + data.title) +
-    "</div>").appendTo('#browse-body');
+    // Add the chapter header
+    $("<div class=browse-chapter-title>" +
+      data.book + " 第 " + chapterNo + " 章" +
+      ((data.title == null) ? "" : "：" + data.title) +
+      "</div>").appendTo('#interlinear-body');
 
-  // Put the chapter body into browse-body
-  var browseTable = $("<div class=browse-table-chapter></div>");
-  browseTable.appendTo('#browse-body');
+    // Put the chapter body into browse-body
+    var browseTable = $("<div class=browse-table-chapter></div>");
+    browseTable.appendTo('#interlinear-body');
 
-  // Put each verse into browseTable
-  $.each(data.verses, function(idx, verse) {
-    var verseHeader = '<span class="browse-table-verse-header">' + 
-      verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
-    var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
-    var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
-    $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
-  });
-
-  // update the browse toolbar with new book and chapters
-  updateSelectWithBook('book', 'chapter');
-  
-  // make the current chapter selected
-  $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
-
+    // Put each verse into browseTable
+    $.each(data.verses, function(idx, verse) {
+      var verseHeader = '<span class="browse-table-verse-header">' + 
+        verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
+      var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
+      var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
+      $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
+    });
+    
+    // update the browse toolbar with new book and chapters
+    updateSelectWithBook('book', 'chapter');
+    
+    // make the current chapter selected
+    $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
+    
   })
     .error(function(){
-      $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
+      $('<p>Failed to get chapter information from the server</p>').appendTo('#interlinear-body');
     });
 };
 
@@ -248,10 +252,10 @@ function upArrow() {
   if ( book > 1 ) {
     $("#book option:nth-child(" + book + ")").removeAttr('selected');
     $("#book option:nth-child(" + (book-1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + '1');
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + '1');
   }
 }
 
@@ -260,10 +264,10 @@ function leftArrow() {
   if ( chapter > 1 ) {
     $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
     $("#chapter option:nth-child(" + (chapter-1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + selectedChapter());
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + selectedChapter());
   }
 }
 
@@ -273,10 +277,10 @@ function rightArrow() {
   if ( chapter < chaptersArray[book] ) {
     $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
     $("#chapter option:nth-child(" + (chapter+1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + selectedChapter());
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + selectedChapter());
   }
 }
 
@@ -285,74 +289,62 @@ function downArrow() {
   if ( book < 66 ) {
     $("#book option:nth-child(" + book + ")").removeAttr('selected');
     $("#book option:nth-child(" + (book+1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + '1');
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + '1');
   }
 }
 
 function paragraphStyle() {
   currentStyle = 'paragraph';
-  browse(webroot + 
-         '/retrieve/' + selectedVersion() +
-         ':' + selectedBook() +
-         ':' + selectedChapter());
+  onChangeFn(webroot + 
+             '/retrieve/' + selectedVersion() +
+             ':' + selectedBook() +
+             ':' + selectedChapter());
 }
 
 function tableStyle() {
   currentStyle = 'table';
-  browse(webroot + 
-         '/retrieve/' + selectedVersion() +
-         ':' + selectedBook() +
-         ':' + selectedChapter());
+  onChangeFn(webroot + 
+             '/retrieve/' + selectedVersion() +
+             ':' + selectedBook() +
+             ':' + selectedChapter());
 }
 
 // Main function
 $(document).ready(function() {
-  // enable keybinding
-  document.onkeypress = keybinding;
-  
-  // Use the presence of the version select to tell if we are in
-  // browse mode
+  // Use the presence of the version select to tell if we are in browse mode
   if ( $('#version').length > 0) {
     // Default style is table
     currentStyle = 'table';
-    
-    // fetch Genesis 1:1
-    browse(webroot + '/retrieve/1:1');
-    
-    // add on-change events to select menus
-    // the event is dependent on the action
-    // and we determine the action based on the "tab" that is currently
-    // selected
+
+    // determine the 'action' based on a.section-navigator-current DOM component
     var actionLabel = $("a.section-navigator-current").get()[0].text;
-    var selectOnChangeEvt;
     switch (actionLabel) {
     case '聖經對照':
-      selectOnChangeEvt = function() {
-        interlinear(webroot + 
-                    '/retrieve/' + selectedVersion() +
-                    ':' + selectedBook() +
-                    ':' + selectedChapter());
-      };
+      onChangeFn = interlinear;
       break;
     case '經節查詢':
-      selectOnChangeEvt = function() {
-        browse(webroot + 
-               '/retrieve/' + selectedVersion() +
-               ':' + selectedBook() +
-               ':' + selectedChapter());
-      };
+      onChangeFn = browse;
       break;
     default:
       console.log("Unsupported action: " + actionLabel);
     }
-    
-    $("#version").change(selectOnChangeEvt);
-    $("#book").change(selectOnChangeEvt);
-    $("#chapter").change(selectOnChangeEvt);
 
+    // default URL
+    var defaultURLFn = function() { 
+      onChangeFn(webroot + '/retrieve/' + 
+                 selectedVersion() + ':' + 
+                 selectedBook() + ':' + 
+                 selectedChapter());
+    };
+    
+    // Add the event call backs
+    $("#version").change(defaultURLFn);
+    $("#book").change(defaultURLFn);
+    $("#chapter").change(defaultURLFn);
+    
     // arrow keys
     $("#up-arrow").click(function(){upArrow()});
     $("#left-arrow").click(function(){leftArrow()});
@@ -362,7 +354,13 @@ $(document).ready(function() {
     $("#table-style").click(function(){tableStyle()});
     
     // toggle red image
-    $("#toggle").click(function(){toggleRedDiv()});}
+    $("#toggle").click(function(){toggleRedDiv()});
     
+    // enable keybinding
+    document.onkeypress = keybinding;
+    
+    // load the default chapter
+    defaultURLFn();
+  }
 });
 
