@@ -10,7 +10,8 @@ class Action_Search extends Action_Base
 	public function __construct($bible, $smarty)
 	{
 		parent::__construct($bible, $smart);
-		$this->cacheable = true;
+		// TODO(koyao): Turn cache back on once we find a way to force cache refresh
+		$this->cacheable = false;
 	}
 
 	/** Return verses in JSON format
