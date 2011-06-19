@@ -68,7 +68,7 @@ foreach ($LANGUAGES as $name => $lang)
 	while (!feof($inf))
 	{
 		$line = trim(fgets($inf));
-		if (preg_match("/([^ ]+) (\d+):(\d+)--(.*)/", $line, $matches))
+		if (preg_match("/(.*) (\d+):(\d+)--(.*)/", $line, $matches))
 		{
 			$book = trim($matches[1]);
 			$chapter = trim($matches[2]);
