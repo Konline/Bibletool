@@ -54,9 +54,12 @@ CREATE TABLE verses (
 CREATE TABLE glossary (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
 	strokes     INTEGER NOT NULL,
+	letter      CHAR(1),
 	chinese		VARCHAR(80),
 	english		VARCHAR(80),
-	PRIMARY KEY(id)
+	PRIMARY KEY(id),
+	KEY(strokes),
+	KEY(letter)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE glossary_notes (

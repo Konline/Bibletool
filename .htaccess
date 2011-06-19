@@ -1,5 +1,8 @@
 RewriteEngine On
 
+
+### Frontend: They should return HTML
+
 RewriteRule ^static/([^/]+) index.php?action=static&page=$1
 
 RewriteRule ^browse index.php?action=browse
@@ -12,7 +15,14 @@ RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
 RewriteRule ^outline$ index.php?action=outline
 RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1
 
+
+### API: they should return JSON
+
 RewriteRule ^retrieve/(.*) index.php?action=retrieve&ranges=$1
 
 RewriteRule ^search/([^/]+)/q=(.*) index.php?action=search&language=$1&q=$2
 RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3
+
+RewriteRule ^words/index index.php?action=glossary
+RewriteRule ^words/stroke/([^/]+) index.php?action=glossary&stroke=$1
+RewriteRule ^words/define/([^/]+) index.php?action=glossary&word=$1

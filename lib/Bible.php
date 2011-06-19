@@ -271,6 +271,112 @@ class Bible
 		return $verses;
 	}
 
+	/** Return glossary indices
+	 * @return Array(Array with strokes, Array with letters)
+	 */
+	public function getGlossaryIndex()
+	{
+		$sql = "SELECT DISTINCT(strokes) FROM glossary ORDER BY strokes";
+		$result = mysql_query($sql);
+
+		$strokes = array();
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$strokes[] = $row['strokes'];
+		}
+
+		$sql = "SELECT DISTINCT(letter) FROM glossary WHERE letter <> '' ORDER BY letter";
+		$result = mysql_query($sql);
+
+		$letters = array();
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$letters[] = $row['letter'];
+		}
+
+		return array($strokes, $letters);
+	}
+
+	/** Return list of words matching given stroke/letter
+	 * @param $stroke: Integer, number of strokes
+	 * @param $letter: String, one character English letter
+	 * @return Array of words
+	 */
+	public function getGlossaryStroke($stroke, $letter)
+	{
+		if (!is_null($letter))
+		{
+			$sql = sprintf(
+				"SELECT chinese, english FROM glossary WHERE letter='%s'",
+				mysql_real_escape_string($letter)
+			);
+		}
+		elseif (!is_null($stroke))
+		{
+			$sql = sprintf(
+				"SELECT chinese, english FROM glossary WHERE strokes='%s'",
+				mysql_real_escape_string($stroke)
+			);
+		}
+		else
+		{
+			return;
+		}
+
+		$result = mysql_query($sql);
+
+		$words = array();
+
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$words[] = $row;
+		}
+
+		return $words;
+	}
+
+	/** Return glossary definition given a Chinese word
+	 * @param $word: String
+	 * @return array with word definition
+	 */
+	public function getGlossaryWord($word)
+	{
+		$sql = sprintf("SELECT id, strokes, chinese, english FROM glossary WHERE chinese='%s'", mysql_real_escape_string($word));
+		$result = mysql_query($sql);
+		$row = mysql_fetch_assoc($result);
+
+		$id = $row['id'];
+
+		$definition = array(
+			'strokes' => $row['strokes'],
+			'chinese' => $row['chinese'],
+			'english' => $row['english'],
+			'notes' => array(),
+			'verses' => array(),
+		);
+
+		$sql = sprintf("SELECT notes FROM glossary_notes WHERE glossary_id='%s'", mysql_real_escape_string($id));
+		$result = mysql_query($sql);
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$definition['notes'][] = $row['notes'];
+		}
+
+		$sql = sprintf("
+			SELECT book, chapter, start_verse, end_verse
+			FROM glossary_verses
+			WHERE glossary_id='%s'",
+			mysql_real_escape_string($id)
+		);
+		$result = mysql_query($sql);
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$definition['verses'][] = array($row['book'], $row['chapter'], $row['start_verse'], $row['end_verse']);
+		}
+
+		return $definition;
+	}
+
 	/** Helper function to parse a verse and extract any annotations,
 	 * such as red letter, or subtitles in the verse
 	 * @param $verse: Array, a verse

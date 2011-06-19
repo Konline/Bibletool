@@ -148,8 +148,9 @@ foreach ($glossary as $strokes => $terms)
 	{
 		$chinese = mysql_real_escape_string($term->chinese);
 		$english = mysql_real_escape_string($term->english);
+		$letter = strtoupper(substr($english, 0, 1));
 
-		$sql = "INSERT INTO glossary (strokes, chinese, english) VALUES ('$strokes', '$chinese', '$english')";
+		$sql = "INSERT INTO glossary (strokes, letter, chinese, english) VALUES ('$strokes', '$letter', '$chinese', '$english')";
 		if (!mysql_query($sql))
 		{
 			echo "ERROR: Failed to insert glossary: " . mysql_error() . "\n";

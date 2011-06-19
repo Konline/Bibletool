@@ -15,6 +15,26 @@ $smarty->assign('action', $action);
 
 switch ($action)
 {
+	/** API: They should JSON */
+	case 'retrieve':
+		require_once 'Action_Retrieve.php';
+		$controller = new Action_Retrieve($bible, $smarty);
+		$controller->run();
+		break;
+
+	case 'search':
+		require_once 'Action_Search.php';
+		$controller = new Action_Search($bible, $smarty);
+		$controller->run();
+		break;
+
+	case 'glossary':
+		require_once 'Action_Glossary.php';
+		$controller = new Action_Glossary($bible, $smarty);
+		$controller->run();
+		break;
+
+	/** Frontend: They should return HTML */
 	case 'static':
 		$smarty->assign('page', $_REQUEST['page']);
 		$smarty->display('static.tmpl');
@@ -32,25 +52,13 @@ switch ($action)
 		$smarty->display('outline.tmpl');
 		break;
 
-	case 'retrieve':
-		require_once 'Action_Retrieve.php';
-		$controller = new Action_Retrieve($bible, $smarty);
-		$controller->run();
-		break;
-
-	case 'search':
-		require_once 'Action_Search.php';
-		$controller = new Action_Search($bible, $smarty);
-		$controller->run();
-		break;
-
 	case 'interlinear':
 		$smarty->display('interlinear.tmpl');
 		break;
 
 	case 'browse':
 	default:
-                $smarty->assign('action', 'browse'); // for default case
+		$smarty->assign('action', 'browse'); // for default case
 		$smarty->display('browse.tmpl');
 		break;
 }
