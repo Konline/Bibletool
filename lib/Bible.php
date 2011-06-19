@@ -11,7 +11,7 @@ class Bible
 	private static $instance;
 	private $db;
 
-	private $english_bibles = array('KJV', 'NIV');
+	private $english_bibles = array('KJV');
 	private $chinese_bibles = array('UCV', 'UCV_CN', 'CLV', 'CLV_CN', 'NCV', 'NCV_CN', 'LZZ', 'LZZ_CN');
 
 	public function getInstance()
