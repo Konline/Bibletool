@@ -10,6 +10,10 @@ var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
 // Variable to hold the current style
 var currentStyle;
 
+// Function to call whenever there is a change in 
+// version, book, or chapter event
+var onChangeFn;
+
 // Populate a select menu with n chapters
 function populateSelect(selectId, n) {
   var select = document.getElementById(selectId);
@@ -175,11 +179,59 @@ var paragraphStyleFn = function(data) {
 
 // Get a chapter from the server and update the 'browse-body' div
 function browse (url) {
-  console.log('Fetching url: ' + url);
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
     .error(function(){
-      $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
+      $('<p>Failed to download data from the server</p>').appendTo('#browse-body');
+    });
+};
+
+// Get chapters from the server and update the 'interlinear-body' div
+function interlinear (url) { 
+  console.log('interlinear: Fetching url ' + url);
+
+  $('#interlinear-body').empty();
+  var jqxhr = $.getJSON(url, function(data) {
+    // get the number of versions and verses for easier iteration
+    var numOfVersions = data.length;
+    var numOfVerses = data[0].verses.length;
+    
+    // get the book name and chapter number from the first verse
+    var bookName = data[0].book;
+    var chapterNo = data[0].verses[0].chapter;
+    
+    // Add the chapter header
+    $("<div class=browse-chapter-title>" +
+      bookName + " 第 " + chapterNo + " 章" +
+      ((data.title == null) ? "" : "：" + data.title) +
+      "</div>").appendTo('#interlinear-body');
+    
+    // Put the chapter body into interlinear-body
+    var interlinearTable = $("<table class=interlinear-table></table>");
+    interlinearTable.appendTo('#interlinear-body');
+
+    // Put each verse into interlinearTable
+    for (var verse=0; verse<numOfVerses; verse++) {
+      var interlinearVerseNumber = '<td class="interlinear-verse-number">' + 
+        chapterNo + ':' + (verse+1) + "</td>";
+      var interlinearVerseGroup = '<td class="interlinear-verse-group">';
+      for (var version=0; version<numOfVersions; version++) {
+        interlinearVerseGroup += '<span class="interlinear-version">[' +
+          data[version].verses[verse].language + ']</span>' +
+          data[version].verses[verse].content + '<br>';
+      }
+      interlinearVerseGroup += '</td>';
+      $('<tr class="interlinear-verse">' + interlinearVerseNumber + interlinearVerseGroup + '</tr>')
+        .appendTo(interlinearTable);
+    }
+    // update the browse toolbar with new book and chapters
+    updateSelectWithBook('book', 'chapter');
+  
+    // make the current chapter selected
+    $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
+  })
+    .error(function(){
+      $('<p>Failed to download data from the server</p>').appendTo('#interlinear-body');
     });
 };
 
@@ -207,10 +259,10 @@ function upArrow() {
   if ( book > 1 ) {
     $("#book option:nth-child(" + book + ")").removeAttr('selected');
     $("#book option:nth-child(" + (book-1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + '1');
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + '1');
   }
 }
 
@@ -219,10 +271,10 @@ function leftArrow() {
   if ( chapter > 1 ) {
     $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
     $("#chapter option:nth-child(" + (chapter-1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + selectedChapter());
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + selectedChapter());
   }
 }
 
@@ -232,10 +284,10 @@ function rightArrow() {
   if ( chapter < chaptersArray[book] ) {
     $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
     $("#chapter option:nth-child(" + (chapter+1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + selectedChapter());
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + selectedChapter());
   }
 }
 
@@ -244,54 +296,67 @@ function downArrow() {
   if ( book < 66 ) {
     $("#book option:nth-child(" + book + ")").removeAttr('selected');
     $("#book option:nth-child(" + (book+1) + ")").attr('selected', 'selected');
-    browse(webroot + 
-           '/retrieve/' + selectedVersion() +
-           ':' + selectedBook() +
-           ':' + '1');
+    onChangeFn(webroot + 
+               '/retrieve/' + selectedVersion() +
+               ':' + selectedBook() +
+               ':' + '1');
   }
 }
 
 function paragraphStyle() {
   currentStyle = 'paragraph';
-  browse(webroot + 
-         '/retrieve/' + selectedVersion() +
-         ':' + selectedBook() +
-         ':' + selectedChapter());
+  onChangeFn(webroot + 
+             '/retrieve/' + selectedVersion() +
+             ':' + selectedBook() +
+             ':' + selectedChapter());
 }
 
 function tableStyle() {
   currentStyle = 'table';
-  browse(webroot + 
-         '/retrieve/' + selectedVersion() +
-         ':' + selectedBook() +
-         ':' + selectedChapter());
+  onChangeFn(webroot + 
+             '/retrieve/' + selectedVersion() +
+             ':' + selectedBook() +
+             ':' + selectedChapter());
 }
 
 // Main function
 $(document).ready(function() {
-  // enable keybinding
-  document.onkeypress = keybinding;
+  // Override default Ajax timeout to 5 secs
+  //$.ajaxSetup({
+  //  timeout: 5000
+  //});
   
-  // Use the presence of the version select to tell if we are in
-  // browse mode
+  // Use the presence of the version select to tell if we are in browse mode
   if ( $('#version').length > 0) {
     // Default style is table
     currentStyle = 'table';
-    
-    // fetch Genesis 1:1
-    browse(webroot + '/retrieve/1:1');
-    
-    // add on-change events to select menus
-    var selectOnChangeEvt = function() {
-      browse(webroot + 
-             '/retrieve/' + selectedVersion() +
-             ':' + selectedBook() +
-             ':' + selectedChapter());
-    }
-    $("#version").change(selectOnChangeEvt);
-    $("#book").change(selectOnChangeEvt);
-    $("#chapter").change(selectOnChangeEvt);
 
+    // determine the 'action' based on a.section-navigator-current DOM component
+    var actionLabel = $("a.section-navigator-current").get()[0].text;
+    switch (actionLabel) {
+    case '聖經對照':
+      onChangeFn = interlinear;
+      break;
+    case '經節查詢':
+      onChangeFn = browse;
+      break;
+    default:
+      console.log("Unsupported action: " + actionLabel);
+    }
+
+    // default URL
+    var defaultURLFn = function() { 
+      onChangeFn(webroot + '/retrieve/' + 
+                 selectedVersion() + ':' + 
+                 selectedBook() + ':' + 
+                 selectedChapter());
+    };
+    
+    // Add the event call backs
+    $("#version").change(defaultURLFn);
+    $("#book").change(defaultURLFn);
+    $("#chapter").change(defaultURLFn);
+    
     // arrow keys
     $("#up-arrow").click(function(){upArrow()});
     $("#left-arrow").click(function(){leftArrow()});
@@ -302,6 +367,12 @@ $(document).ready(function() {
     
     // toggle red image
     $("#toggle").click(function(){toggleRedDiv()});
+    
+    // enable keybinding
+    document.onkeypress = keybinding;
+    
+    // load the default chapter
+    defaultURLFn();
   }
 });
 
