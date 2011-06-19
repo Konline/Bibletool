@@ -11,6 +11,9 @@ class Bible
 	private static $instance;
 	private $db;
 
+	private $english_bibles = array('KJV', 'NIV');
+	private $chinese_bibles = array('UCV', 'UCV_CN', 'CLV', 'CLV_CN', 'NCV', 'NCV_CN', 'LZZ', 'LZZ_CN');
+
 	public function getInstance()
 	{
 		if (!self::$instance)
@@ -275,24 +278,29 @@ class Bible
 	 */
 	private function annotateVerse($verse)
 	{
-		// Strings enclosed between '【' and '】' are considered subtitles for Chinese bibles.
-		if (preg_match('/(【.*】)/', $verse['content'], $match))
+		if (in_array($language, $this->chinese_bibles))
 		{
-			$verse['subtitle'] = $match[1];
-			$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
+			// Strings enclosed between '【' and '】' are considered subtitles for Chinese bibles.
+			if (preg_match('/(【.*】)/', $verse['content'], $match))
+			{
+				$verse['subtitle'] = $match[1];
+				$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
+			}
+
+			// Strings enclosed betweeen "' " and " '" are God's words
+			$patterns = array("/' /", "/ '/");
+			$replacements = array("<span class='browse-verse-red' style='color: red;'>", "</span>");
+			$verse['content'] = preg_replace($patterns, $replacements, $verse['content']);
 		}
 
-		// Strings enclosed between '< ' and ' >' are considered subtitles for NIV.
-		if (preg_match('/(< .* >)/', $verse['content'], $match))
+		if (in_array($language, $this->english_bibles))
 		{
-			$verse['subtitle'] = $match[1];
-			$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
+			if (preg_match('/(< .* >)/', $verse['content'], $match))
+			{
+				$verse['subtitle'] = $match[1];
+				$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
+			}
 		}
-
-		// Strings enclosed betweeen "' " and " '" are God's words
-		$patterns = array("/' /", "/ '/");
-		$replacements = array("<span class='browse-verse-red' style='color: red;'>", "</span>");
-		$verse['content'] = preg_replace($patterns, $replacements, $verse['content']);
 
 		return $verse;
 	}
