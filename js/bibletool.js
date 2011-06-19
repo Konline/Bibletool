@@ -187,7 +187,9 @@ function browse (url) {
 };
 
 // Get chapters from the server and update the 'interlinear-body' div
-function interlinear (url) {
+function interlinear (url) { 
+  console.log('interlinear: Fetching url ' + url);
+
   $('#interlinear-body').empty();
   var jqxhr = $.getJSON(url, function(data) {
     // get the number of versions and verses for easier iteration
@@ -319,6 +321,11 @@ function tableStyle() {
 
 // Main function
 $(document).ready(function() {
+  // Override default Ajax timeout to 5 secs
+  //$.ajaxSetup({
+  //  timeout: 5000
+  //});
+  
   // Use the presence of the version select to tell if we are in browse mode
   if ( $('#version').length > 0) {
     // Default style is table
