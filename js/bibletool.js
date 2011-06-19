@@ -182,49 +182,54 @@ function browse (url) {
   $('#browse-body').empty();
   var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
     .error(function(){
-      $('<p>Failed to get chapter information from the server</p>').appendTo('#browse-body');
+      $('<p>Failed to download data from the server</p>').appendTo('#browse-body');
     });
 };
 
 // Get chapters from the server and update the 'interlinear-body' div
 function interlinear (url) {
-  console.log('Interlinear: Fetching url: ' + url);
   $('#interlinear-body').empty();
   var jqxhr = $.getJSON(url, function(data) {
-    // get the first entry from data
-    var data = data[0];
-  
-    // get the chapter number from the first verse
-    var chapterNo = data.verses[0].chapter;
-  
+    // get the number of versions and verses for easier iteration
+    var numOfVersions = data.length;
+    var numOfVerses = data[0].verses.length;
+    
+    // get the book name and chapter number from the first verse
+    var bookName = data[0].book;
+    var chapterNo = data[0].verses[0].chapter;
+    
     // Add the chapter header
     $("<div class=browse-chapter-title>" +
-      data.book + " 第 " + chapterNo + " 章" +
+      bookName + " 第 " + chapterNo + " 章" +
       ((data.title == null) ? "" : "：" + data.title) +
       "</div>").appendTo('#interlinear-body');
-
-    // Put the chapter body into browse-body
-    var browseTable = $("<div class=browse-table-chapter></div>");
-    browseTable.appendTo('#interlinear-body');
-
-    // Put each verse into browseTable
-    $.each(data.verses, function(idx, verse) {
-      var verseHeader = '<span class="browse-table-verse-header">' + 
-        verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
-      var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
-      var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
-      $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
-    });
     
+    // Put the chapter body into interlinear-body
+    var interlinearTable = $("<table class=interlinear-table></table>");
+    interlinearTable.appendTo('#interlinear-body');
+
+    // Put each verse into interlinearTable
+    for (var verse=0; verse<numOfVerses; verse++) {
+      var interlinearVerseNumber = '<td class="interlinear-verse-number">' + 
+        chapterNo + ':' + (verse+1) + "</td>";
+      var interlinearVerseGroup = '<td class="interlinear-verse-group">';
+      for (var version=0; version<numOfVersions; version++) {
+        interlinearVerseGroup += '<span class="interlinear-version">[' +
+          data[version].verses[verse].language + ']</span>' +
+          data[version].verses[verse].content + '<br>';
+      }
+      interlinearVerseGroup += '</td>';
+      $('<tr class="interlinear-verse">' + interlinearVerseNumber + interlinearVerseGroup + '</tr>')
+        .appendTo(interlinearTable);
+    }
     // update the browse toolbar with new book and chapters
     updateSelectWithBook('book', 'chapter');
-    
+  
     // make the current chapter selected
     $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
-    
   })
     .error(function(){
-      $('<p>Failed to get chapter information from the server</p>').appendTo('#interlinear-body');
+      $('<p>Failed to download data from the server</p>').appendTo('#interlinear-body');
     });
 };
 
