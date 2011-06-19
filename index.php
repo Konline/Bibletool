@@ -35,13 +35,13 @@ switch ($action)
 	case 'retrieve':
 		require_once 'Action_Retrieve.php';
 		$controller = new Action_Retrieve($bible, $smarty);
-		$controller->process();
+		$controller->run();
 		break;
 
 	case 'search':
 		require_once 'Action_Search.php';
 		$controller = new Action_Search($bible, $smarty);
-		$controller->process();
+		$controller->run();
 		break;
 
 	case 'interlinear':

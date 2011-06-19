@@ -5,6 +5,7 @@
 ini_set('include_path', ini_get('include_path') . ':' . dirname(__FILE__) . '/../lib');
 
 require_once 'Config.php';
+require_once 'Bible.php';
 require_once 'ParserHelper.php';
 
 $config = Config::getInstance();
@@ -20,7 +21,7 @@ if (!$db)
 mysql_select_db($config->database->dbname);
 
 echo "Initializing schema...\n";
-$sqls = file_get_contents(__DIR__ . '/../db/schema.sql');
+$sqls = file_get_contents(dirname(__FILE__) . '/../db/schema.sql');
 
 foreach (explode(';', $sqls) as $sql)
 {
@@ -38,7 +39,7 @@ foreach (explode(';', $sqls) as $sql)
 foreach ($LANGUAGES as $name => $lang)
 {
 	$description = $lang['description'];
-	$filename = __DIR__ . '/../data/' . $lang['filename'];
+	$filename = dirname(__FILE__) . '/../data/' . $lang['filename'];
 	$inf = fopen($filename, 'r');
 	if (!$inf)
 	{
@@ -132,4 +133,65 @@ foreach ($LANGUAGES as $name => $lang)
 		}
 	}
 	fclose($inf);
+}
+
+$filename = dirname(__FILE__) . '/../data/glossary.json';
+echo "Parsing $filename\n";
+
+$glossary = json_decode(file_get_contents($filename));
+
+$bible = Bible::getInstance();
+
+foreach ($glossary as $strokes => $terms)
+{
+	foreach ($terms as $term)
+	{
+		$chinese = mysql_real_escape_string($term->chinese);
+		$english = mysql_real_escape_string($term->english);
+
+		$sql = "INSERT INTO glossary (strokes, chinese, english) VALUES ('$strokes', '$chinese', '$english')";
+		if (!mysql_query($sql))
+		{
+			echo "ERROR: Failed to insert glossary: " . mysql_error() . "\n";
+			exit(1);
+		}
+		$glossary_id = mysql_insert_id();
+
+		foreach ($term->notes as $note)
+		{
+			$note = mysql_real_escape_string($note);
+			$sql = "INSERT INTO glossary_notes (glossary_id, notes) VALUES ('$glossary_id', '$note')";
+			if (!mysql_query($sql))
+			{
+				echo "ERROR: Failed to insert glossary_verses: " . mysql_error() . "\n";
+				exit(1);
+			}
+		}
+
+		foreach ($term->verses as $verse)
+		{
+			list($book, $chapter_verse) = explode(' ', $verse);
+			$book = $bible->getBookIndex($book);
+
+
+			list($chapter, $verses) = explode(':', $chapter_verse);
+			
+			list($start_verse, $end_verse) = explode('-', $verses);
+			if (empty($start_verse))
+			{
+				$start_verse = 1;
+			}
+			if (empty($end_verse))
+			{
+				$end_verse = $bible->getNumVerses('UCV', $book, $chapter);
+			}
+
+			$sql = "INSERT INTO glossary_verses (glossary_id, book, chapter, start_verse, end_verse) VALUES ('$glossary_id', '$book', '$chapter', '$start_verse', '$end_verse')";
+			if (!mysql_query($sql))
+			{
+				echo "ERROR: Failed to insert glossary_verses: " . mysql_error() . "\n";
+				exit(1);
+			}
+		}
+	}
 }
