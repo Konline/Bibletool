@@ -43,11 +43,6 @@ $LANGUAGES = array(
 		'filename' => 'KJV.utf8',
 		'description' => '英文欽定本(KJV)',
 	),
-
-	'NIV' => array(
-		'filename' => 'NIV.utf8',
-		'description' => '英文國際本(NIV)',
-	),
 );
 
 $BOOK_NAME_MAPPING = array(
