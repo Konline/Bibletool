@@ -17,6 +17,9 @@ var currentStyle;
 // version, book, or chapter event
 var onChangeFn;
 
+// Var to hold the search results
+var searchResults;
+
 // Populate a select menu with n chapters
 function populateSelect(selectId, n) {
   var select = document.getElementById(selectId);
@@ -314,6 +317,11 @@ function paragraphStyle() {
              ':' + selectedChapter());
 }
 
+function processQueryData(data) {
+  queryResults = data;
+  console.log('Found ' + queryResults.hits + ' hits');
+}
+
 function tableStyle() {
   currentStyle = 'table';
   onChangeFn(webroot + 
@@ -324,7 +332,8 @@ function tableStyle() {
 
 // Main function
 $(document).ready(function() {
-  // Use the presence of the version select to tell if we are in browse mode
+  // browse and interlinear action are similar, to they are
+  // implemented together
   if ( action == 'browse' ||
        action == 'interlinear') {
     // Default style is table
@@ -370,6 +379,26 @@ $(document).ready(function() {
     
     // load the default chapter
     defaultURLFn();
+  } 
+
+  // Query action
+  else if ( action == 'query' ) {
+    $("#query-form").submit(function() {
+      var version = selectedVersion();
+      var queryTerm = $("input[name='query']").val();
+      var url = webroot + '/search/' + version + '/q=' + queryTerm;
+      var jqxhr = $.getJSON(url, processQueryData)
+        .error(function(){
+          $('<p>Failed to download data from the server</p>').appendTo('#browse-body');
+        });
+      
+      // prevent the default behavior of submit by returning false
+      return false;
+    });
   }
 });
+
+    
+
+    
 
