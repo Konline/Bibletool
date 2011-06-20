@@ -56,6 +56,12 @@ switch ($action)
 		$smarty->display('interlinear.tmpl');
 		break;
 
+	case 'contactus':
+		require_once 'Action_ContactUs.php';
+		$controller = new Action_ContactUs($bible, $smarty);
+		$controller->run();
+		break;
+
 	case 'browse':
 	default:
 		$smarty->assign('action', 'browse'); // for default case

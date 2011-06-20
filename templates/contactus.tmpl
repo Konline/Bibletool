@@ -1,0 +1,28 @@
+{assign var='title' value='聯絡我們'}
+{include file="header.tmpl"}
+
+<div id="contactus-body"></div>
+
+
+<script TYPE="text/javascript"> 
+// <![CDATA[
+var categories = new Array('錯字糾正', '增加功能', '其它');
+var newdiv = document.createElement('div');
+var container = document.getElementById('contactus-body');
+newdiv.innerHTML = '<div id="error_message"><font color=red>{$error_message}</font></div><div class="contactus-form"> <form action="{$webroot}/contactus/posting" method="POST"> <table> <tr><th class="contactus-form">您的姓名：</th><td class="contactus-form"><input type="input" name="name" value="{$name}"></input><i><princ> (eg. John Doe)</princ></i></td></tr> <tr><th class="contactus-form">電子郵件：</th><td class="contactus-form"><input type="input" name="email" value="{$email}"></input><i><princ> (eg. test@example.com)</princ></i></td></tr> <tr><th class="contactus-form">回應主題：</th><td class="contactus-form"><select name="category" id="contactus_select"></select></td></tr> <tr><th valign="top" class="contactus-form">內容：</th><td class="contactus-form"><textarea rows="10" cols="40" name="body">{$body}</textarea></td></tr> <tr><td colspan="3" align="center"><input type="submit" value="寄出！"></input></td></tr> </table> </form> </div>';
+container.appendChild(newdiv);
+var select = document.getElementById('contactus_select');
+for (var i = 0; i < categories.length; i = i + 1) {
+    var option = document.createElement('option');
+    option.text = categories[i];
+    option.value = categories[i];
+    try {
+        select.add(option, null);
+    } catch (ex) {
+        select.add(option);
+    };
+};
+// ]]>
+</script>
+
+{include file="footer.tmpl"}

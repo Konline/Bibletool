@@ -15,6 +15,9 @@ RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
 RewriteRule ^outline$ index.php?action=outline
 RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1
 
+RewriteRule ^contactus/posting index.php?action=contactus&posting=true
+RewriteRule ^contactus index.php?action=contactus
+
 
 ### API: they should return JSON
 
