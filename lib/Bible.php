@@ -341,40 +341,48 @@ class Bible
 	 */
 	public function getGlossaryWord($word)
 	{
-		$sql = sprintf("SELECT id, strokes, chinese, english FROM glossary WHERE chinese='%s'", mysql_real_escape_string($word));
-		$result = mysql_query($sql);
-		$row = mysql_fetch_assoc($result);
+		$results = array();
 
-		$id = $row['id'];
-
-		$definition = array(
-			'strokes' => $row['strokes'],
-			'chinese' => $row['chinese'],
-			'english' => $row['english'],
-			'notes' => array(),
-			'verses' => array(),
-		);
-
-		$sql = sprintf("SELECT notes FROM glossary_notes WHERE glossary_id='%s'", mysql_real_escape_string($id));
+		$sql = sprintf("SELECT id, strokes, chinese, english, definition FROM glossary WHERE chinese='%s'", mysql_real_escape_string($word));
 		$result = mysql_query($sql);
 		while ($row = mysql_fetch_assoc($result))
 		{
-			$definition['notes'][] = $row['notes'];
+			$id = $row['id'];
+
+			$definition = array(
+				'strokes' => $row['strokes'],
+				'chinese' => $row['chinese'],
+				'english' => $row['english'],
+				'definition' => $row['definition'],
+				'notes' => array(),
+				'verses' => array(),
+			);
+
+			$sql = sprintf("SELECT notes FROM glossary_notes WHERE glossary_id='%s'", mysql_real_escape_string($id));
+			$result2 = mysql_query($sql);
+			while ($row2 = mysql_fetch_assoc($result2))
+			{
+				$definition['notes'][] = $row2['notes'];
+			}
+
+			$sql = sprintf("
+				SELECT book, chapter, start_verse, end_verse
+				FROM glossary_verses
+				WHERE glossary_id='%s'",
+				mysql_real_escape_string($id)
+			);
+			$result3 = mysql_query($sql);
+			while ($row3 = mysql_fetch_assoc($result3))
+			{
+				$definition['verses'][] = array($row3['book'], $row3['chapter'], $row3['start_verse'], $row3['end_verse']);
+			}
+
+			$results[] = $definition;
 		}
 
-		$sql = sprintf("
-			SELECT book, chapter, start_verse, end_verse
-			FROM glossary_verses
-			WHERE glossary_id='%s'",
-			mysql_real_escape_string($id)
-		);
-		$result = mysql_query($sql);
-		while ($row = mysql_fetch_assoc($result))
-		{
-			$definition['verses'][] = array($row['book'], $row['chapter'], $row['start_verse'], $row['end_verse']);
-		}
+		print_r($results);exit;
 
-		return $definition;
+		return $results;
 	}
 
 	/** Helper function to parse a verse and extract any annotations,
