@@ -55,8 +55,9 @@ CREATE TABLE glossary (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
 	strokes     INTEGER NOT NULL,
 	letter      CHAR(1),
-	chinese		VARCHAR(80),
-	english		VARCHAR(80),
+	chinese     VARCHAR(80),
+	english     VARCHAR(80),
+	definition  VARCHAR(700),
 	PRIMARY KEY(id),
 	KEY(strokes),
 	KEY(letter)
