@@ -1,3 +1,6 @@
+// Global variable action
+var action;
+
 // # of chapters in a given book. 0th entry is dummy
 var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
                               24, 22, 25, 29, 36, 10, 13, 10, 42, 150,
@@ -321,27 +324,21 @@ function tableStyle() {
 
 // Main function
 $(document).ready(function() {
-  // Override default Ajax timeout to 5 secs
-  //$.ajaxSetup({
-  //  timeout: 5000
-  //});
-  
   // Use the presence of the version select to tell if we are in browse mode
-  if ( $('#version').length > 0) {
+  if ( action == 'browse' ||
+       action == 'interlinear') {
     // Default style is table
     currentStyle = 'table';
-
-    // determine the 'action' based on a.section-navigator-current DOM component
-    var actionLabel = $("a.section-navigator-current").get()[0].text;
-    switch (actionLabel) {
-    case '聖經對照':
+    
+    switch (action) {
+    case 'interlinear':
       onChangeFn = interlinear;
       break;
-    case '經節查詢':
+    case 'browse':
       onChangeFn = browse;
       break;
     default:
-      console.log("Unsupported action: " + actionLabel);
+      console.log("Unsupported action: " + action);
     }
 
     // default URL

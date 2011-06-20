@@ -12,6 +12,9 @@
     <script TYPE="text/javascript" SRC="{$webroot}/js/application.js"></script>
     <script TYPE="text/javascript" SRC="{$webroot}/js/bibletool.js"></script>
     <script TYPE="text/javascript" SRC="{$webroot}/web/anarchy_media/anarchy.js"></script>
+    <script TYPE="text/javascript">
+      action='{$action}'
+    </script>
   </head>
   <body>
     <div CLASS="page-header">
@@ -20,7 +23,7 @@
         <a CLASS="section-navigator-{if $action == 'static'}current{else}other{/if}" HREF="{$webroot}/static/about">緣由</a>
         <a CLASS="section-navigator-{if $action == 'browse'}current{else}other{/if}" HREF="{$webroot}/browse">經節查詢</a>
         <a CLASS="section-navigator-{if $action == 'interlinear'}current{else}other{/if}" HREF="{$webroot}/interlinear">聖經對照</a>
-        <a CLASS="section-navigator-{if $action == 'search'}current{else}other{/if}" HREF="{$webroot}/query">字串查詢</a>
+        <a CLASS="section-navigator-{if $action == 'query'}current{else}other{/if}" HREF="{$webroot}/query">字串查詢</a>
         <a CLASS="section-navigator-{if $action == 'outline'}current{else}other{/if}" HREF="{$webroot}/outline">聖經綱要</a>
         <a CLASS="section-navigator-{if $action == 'glossary'}current{else}other{/if}" HREF="{$webroot}/glossary">聖經詞彙</a>
         <a CLASS="section-navigator-{if $action == 'gospel'}current{else}other{/if}" HREF="{$webroot}/gospel">四福音書</a>
