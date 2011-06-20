@@ -36,7 +36,7 @@ class Action_ContactUs extends Action_Base
 			return;
 		}
 
-		$message = "Message from: $name\nCategory: $category\nBody: $body\n\n";
+		$message = "Message from: $name ($email)\n\nCategory: $category\n\nBody:\n\n$body\n\n";
 		$headers = "From: " . self::SENDER . "\r\n";
 
 		$this->smarty->display('contactus_thankyou.tmpl');
