@@ -9,6 +9,8 @@ RewriteRule ^browse index.php?action=browse
 
 RewriteRule ^interlinear index.php?action=interlinear
 
+RewriteRule ^query index.php?action=query
+
 RewriteRule ^gospel$ index.php?action=gospel
 RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
 
