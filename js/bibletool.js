@@ -20,6 +20,9 @@ var onChangeFn;
 // Var to hold the search results
 var searchResults;
 
+// Var to hold jsonURL
+var jsonURL;
+
 // Populate a select menu with n chapters
 function populateSelect(selectId, n) {
   var select = document.getElementById(selectId);
@@ -408,8 +411,8 @@ $(document).ready(function() {
     // enable keybinding
     document.onkeypress = keybinding;
     
-    // load the default chapter
-    defaultURLFn();
+    // load the jsonURL
+    onChangeFn(jsonURL);
   } 
 
   // Query action

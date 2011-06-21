@@ -69,6 +69,9 @@ switch ($action)
 	case 'browse':
 	default:
 		$smarty->assign('action', 'browse'); // for default case
+		$jsonURL = $_REQUEST['jsonURL'] ? $_REQUEST['jsonURL'] :
+		           'UCV:1:1';                // defautl URL to load
+		$smarty->assign('jsonURL', $jsonURL);
 		$smarty->display('browse.tmpl');
 		break;
 }

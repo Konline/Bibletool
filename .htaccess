@@ -5,6 +5,7 @@ RewriteEngine On
 
 RewriteRule ^static/([^/]+) index.php?action=static&page=$1
 
+RewriteRule ^browse/([^/]+) index.php?action=browse&jsonURL=$1
 RewriteRule ^browse index.php?action=browse
 
 RewriteRule ^interlinear index.php?action=interlinear
