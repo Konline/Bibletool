@@ -20,9 +20,27 @@ class Action_Search extends Action_Base
 	public function process()
 	{
 		$language = $_REQUEST['language'];
-		$book_filter = explode(',', $_REQUEST['book_filter']);
+		$book_filter = $_REQUEST['book_filter'];
 		$q = $_REQUEST['q'];
 		$page = $_REQUEST['page'];
+
+		if (strpos($book_filter, '-') !== FALSE)
+		{
+			list($start, $end) = explode('-', $book_filter);
+			if (!is_numeric($start))
+			{
+				$start = $this->bible->getBookIndex($start);
+			}
+			if (!is_numeric($end))
+			{
+				$end = $this->bible->getBookIndex($end);
+			}
+			$book_filter = range($start, $end);
+		}
+		else
+		{
+			$book_filter = explode(',', $book_filter);
+		}
 
 		if (!isset($page))
 		{
