@@ -317,9 +317,40 @@ function paragraphStyle() {
              ':' + selectedChapter());
 }
 
+function generatePaginateDiv(data) {
+  return $("<div class='query-paginate'>" +
+           "<span class='query-paginate-other-page'>&lt;&lt;</span>" +
+           "<span class='query-paginate-current-page'>1</span>&gt;&gt;" +
+           "</div>");
+}
+
 function processQueryData(data) {
   queryResults = data;
-  console.log('Found ' + queryResults.hits + ' hits');
+  $("#query-result").empty();
+  $("<div class='query-title'>找到 " + queryResults.hits + 
+    " 經節 (搜尋時間：" + (queryResults.time/1000) + " 秒)</div>")
+    .appendTo("#query-result");
+  generatePaginateDiv(data).appendTo("#query-result");
+  var browseTableChapter = $("<div class='browse-table-chapter'></div>");
+  browseTableChapter.appendTo("#query-result");
+  // display the search results
+  for (var i=0; i<queryResults.hits; i++) {
+    var result = queryResults.verses[i];
+    var book = result.book;
+    var chapter = result.chapter;
+    var verse = result.verse;
+    var content = result.content;
+    var subtitle = result.subtitle ? "<span class='browse-table-verse-subtitle'>" + result.subtitle + "</span>" : "";
+    $("<div class='query-verse'>" +
+      "<span class='browse-table-verse-header'>" +
+      "<a href=" + webroot + "/browse/UCV:" + book + ":" + 
+      chapter + ">" + book + " " + chapter + ":" + verse + "</a>" +
+      "</span>" +
+      "<span class='browse-table-verse-content'>" +
+      subtitle + content + "</span>" +
+      "</div>").appendTo(browseTableChapter);
+  }
+  generatePaginateDiv(data).appendTo("#query-result");
 }
 
 function tableStyle() {
