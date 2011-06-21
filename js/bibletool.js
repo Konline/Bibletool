@@ -337,6 +337,7 @@ function processQueryData(data) {
   // display the search results
   for (var i=0; i<queryResults.hits; i++) {
     var result = queryResults.verses[i];
+    var name = result.name;
     var book = result.book;
     var chapter = result.chapter;
     var verse = result.verse;
@@ -345,7 +346,7 @@ function processQueryData(data) {
     $("<div class='query-verse'>" +
       "<span class='browse-table-verse-header'>" +
       "<a href=" + webroot + "/browse/UCV:" + book + ":" + 
-      chapter + ">" + book + " " + chapter + ":" + verse + "</a>" +
+      chapter + ">" + name + " " + chapter + ":" + verse + "</a>" +
       "</span>" +
       "<span class='browse-table-verse-content'>" +
       subtitle + content + "</span>" +

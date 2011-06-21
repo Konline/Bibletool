@@ -233,6 +233,23 @@ class Bible
 			$book_filter_str = ' AND v.book IN (' . mysql_real_escape_string(implode(',', $book_filter)) . ')';
 		}
 
+		$or_list = array();
+		foreach (explode('OR', $q) as $or_term)
+		{
+			$and_list = array();
+			foreach (explode(' ', $or_term) as $term)
+			{
+				if (empty($term) || $term == 'AND')
+				{
+					continue;
+				}
+				$and_list[] = sprintf("v.body LIKE '%%%s%%'", mysql_real_escape_string($term));
+			}
+			$and_str = '(' . implode(' AND ', $and_list) . ')';
+			$or_list[] = $and_str;
+		}
+		$q_str = '(' . implode(' OR ', $or_list) . ')';
+
 		$t1 = microtime(true);
 
 		$sql = sprintf("
@@ -240,10 +257,9 @@ class Bible
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 		   		INNER JOIN languages l ON (v.language_id=l.id)
-			WHERE l.name='%s' AND v.body LIKE '%%%s%%' $book_filter_str",
-			mysql_real_escape_string($language),
-			mysql_real_escape_string($q)
+			WHERE l.name='%s'", mysql_real_escape_string($language)
 		);
+		$sql .= " AND $q_str $book_filter_str";
 
 		$result = mysql_query($sql);
 		if (!$result)
@@ -379,8 +395,6 @@ class Bible
 
 			$results[] = $definition;
 		}
-
-		print_r($results);exit;
 
 		return $results;
 	}

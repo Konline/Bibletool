@@ -9,7 +9,7 @@ class Action_Search extends Action_Base
 
 	public function __construct($bible, $smarty)
 	{
-		parent::__construct($bible, $smart);
+		parent::__construct($bible, $smarty);
 		// TODO(koyao): Turn cache back on once we find a way to force cache refresh
 		$this->cacheable = false;
 	}
