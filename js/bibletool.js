@@ -331,7 +331,7 @@ function processQueryData(data) {
   queryResults = data;
   $("#query-result").empty();
   $("<div class='query-title'>找到 " + queryResults.hits + 
-    " 經節 (搜尋時間：" + (queryResults.time/1000) + " 秒)</div>")
+    " 經節 (搜尋時間：" + (Math.round(queryResults.time)/1000) + " 秒)</div>")
     .appendTo("#query-result");
   generatePaginateDiv(data).appendTo("#query-result");
   var browseTableChapter = $("<div class='browse-table-chapter'></div>");
