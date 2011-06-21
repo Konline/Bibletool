@@ -236,7 +236,7 @@ class Bible
 		$t1 = microtime(true);
 
 		$sql = sprintf("
-			SELECT v.book, v.chapter, v.verse, v.body AS content
+			SELECT b.short_name AS name, v.book, v.chapter, v.verse, v.body AS content
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 		   		INNER JOIN languages l ON (v.language_id=l.id)
