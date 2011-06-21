@@ -13,6 +13,9 @@ $smarty = new Bible_Smarty($config);
 $action = $_REQUEST['action'];
 $smarty->assign('action', $action);
 
+$jsonURL = $_REQUEST['jsonURL'] ? $_REQUEST['jsonURL'] : 'UCV:1:1';
+$smarty->assign('jsonURL', $jsonURL);
+
 switch ($action)
 {
 	/** API: They should JSON */
@@ -69,9 +72,6 @@ switch ($action)
 	case 'browse':
 	default:
 		$smarty->assign('action', 'browse'); // for default case
-		$jsonURL = $_REQUEST['jsonURL'] ? $_REQUEST['jsonURL'] :
-		           'UCV:1:1';                // defautl URL to load
-		$smarty->assign('jsonURL', $jsonURL);
 		$smarty->display('browse.tmpl');
 		break;
 }

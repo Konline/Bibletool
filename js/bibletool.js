@@ -197,8 +197,6 @@ function browse (url) {
 
 // Get chapters from the server and update the 'interlinear-body' div
 function interlinear (url) { 
-  console.log('interlinear: Fetching url ' + url);
-
   $('#interlinear-body').empty();
   var jqxhr = $.getJSON(url, function(data) {
     // get the number of versions and verses for easier iteration
@@ -431,8 +429,3 @@ $(document).ready(function() {
     });
   }
 });
-
-    
-
-    
-
