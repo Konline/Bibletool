@@ -57,6 +57,8 @@ function LoadLanguages()
 	global $LANGUAGES;
 	global $BOOK_NAME_MAPPING;
 
+	$bible = Bible::getInstance();
+
 	foreach ($LANGUAGES as $name => $lang)
 	{
 		$description = $lang['description'];
@@ -94,7 +96,15 @@ function LoadLanguages()
 				$book = trim($matches[1]);
 				$chapter = trim($matches[2]);
 				$verse = trim($matches[3]);
+				$subtitle = '';
 				$body = mysql_real_escape_string(trim($matches[4]));
+
+				if ((in_array($name, $bible->chinese_bibles) && preg_match('/(【.*】)/', $body, $match)) ||
+					(in_array($name, $bible->english_bibles) && preg_match('/(< .* >)/', $body, $match)))
+				{
+					$subtitle = $match[1];
+					$body = str_replace($subtitle, '', $body);
+				}
 
 				if ($book != $last_book)
 				{
@@ -123,7 +133,7 @@ function LoadLanguages()
 					}
 				}
 
-				$sql = "INSERT INTO verses (language_id, book, chapter, verse, body) VALUES ('$language_id', '$book_no', '$chapter', '$verse', '$body')";
+				$sql = "INSERT INTO verses (language_id, book, chapter, verse, subtitle, body) VALUES ('$language_id', '$book_no', '$chapter', '$verse', '$subtitle', '$body')";
 				if (!mysql_query($sql))
 				{
 					echo "ERROR: Failed to insert verses: " . mysql_error() . "\n";

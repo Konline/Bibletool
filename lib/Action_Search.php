@@ -48,8 +48,6 @@ class Action_Search extends Action_Base
 
 		$verses = $this->bible->search($language, $q, $book_filter, $page, self::VERSES_PER_PAGE);
 
-		print_r($verses); exit;
-
 		header('Content-type: application/json');
 		print json_encode($verses);
 	}

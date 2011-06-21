@@ -11,8 +11,8 @@ class Bible
 	private static $instance;
 	private $db;
 
-	private $english_bibles = array('KJV');
-	private $chinese_bibles = array('UCV', 'UCV_CN', 'CLV', 'CLV_CN', 'NCV', 'NCV_CN', 'LZZ', 'LZZ_CN');
+	public $english_bibles = array('KJV');
+	public $chinese_bibles = array('UCV', 'UCV_CN', 'CLV', 'CLV_CN', 'NCV', 'NCV_CN', 'LZZ', 'LZZ_CN');
 
 	public function getInstance()
 	{
@@ -49,7 +49,8 @@ class Bible
 		$languages_str = "'" . implode("','", $languages) . "'";
 
 		$sql = sprintf("
-			SELECT l.name AS language, b.short_name AS book, v.chapter AS chapter, v.verse AS verse, v.body AS content
+			SELECT l.name AS language, b.short_name AS book, v.chapter AS chapter, v.verse AS verse,
+				v.subtitle AS subtitle, v.body AS content
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 				INNER JOIN languages l ON (v.language_id=l.id)
@@ -258,7 +259,7 @@ class Bible
 		$t1 = microtime(true);
 
 		$sql = sprintf("
-			SELECT b.short_name AS name, v.book, v.chapter, v.verse, v.body AS content
+			SELECT b.short_name AS name, v.book, v.chapter, v.verse, v.subtitle AS subtitle, v.body AS content
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 		   		INNER JOIN languages l ON (v.language_id=l.id)
@@ -415,28 +416,11 @@ class Bible
 	{
 		if (in_array($language, $this->chinese_bibles))
 		{
-			// Strings enclosed between '【' and '】' are considered subtitles for Chinese bibles.
-			if (preg_match('/(【.*】)/', $verse['content'], $match))
-			{
-				$verse['subtitle'] = $match[1];
-				$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
-			}
-
 			// Strings enclosed betweeen "' " and " '" are God's words
 			$patterns = array("/' /", "/ '/");
 			$replacements = array("<span class='browse-verse-red' style='color: red;'>", "</span>");
 			$verse['content'] = preg_replace($patterns, $replacements, $verse['content']);
 		}
-
-		if (in_array($language, $this->english_bibles))
-		{
-			if (preg_match('/(< .* >)/', $verse['content'], $match))
-			{
-				$verse['subtitle'] = $match[1];
-				$verse['content'] = str_replace($verse['subtitle'], '', $verse['content']);
-			}
-		}
-
 		return $verse;
 	}
 };

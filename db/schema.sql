@@ -43,6 +43,7 @@ CREATE TABLE verses (
 	book        INTEGER NOT NULL,
 	chapter     INTEGER NOT NULL,
 	verse       INTEGER NOT NULL,
+	subtitle    VARCHAR(80),
 	body        VARCHAR(700) NOT NULL,
 	PRIMARY KEY(id),
 	UNIQUE(language_id, book, chapter, verse),
