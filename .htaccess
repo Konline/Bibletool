@@ -3,33 +3,35 @@ RewriteEngine On
 
 ### Frontend: They should return HTML
 
-RewriteRule ^static/([^/]+) index.php?action=static&page=$1
+RewriteRule ^static/([^/]+) index.php?action=static&page=$1 [L]
 
-RewriteRule ^browse/([^/]+) index.php?action=browse&jsonURL=$1
-RewriteRule ^browse index.php?action=browse
+RewriteRule ^browse/([^/]+) index.php?action=browse&jsonURL=$1 [L]
+RewriteRule ^browse index.php?action=browse [L]
 
-RewriteRule ^interlinear/([^/]+) index.php?action=interlinear&jsonURL=$1
-RewriteRule ^interlinear index.php?action=interlinear
+RewriteRule ^interlinear/([^/]+) index.php?action=interlinear&jsonURL=$1 [L]
+RewriteRule ^interlinear index.php?action=interlinear [L]
 
-RewriteRule ^query index.php?action=query
+RewriteRule ^query index.php?action=query [L]
 
-RewriteRule ^gospel$ index.php?action=gospel
-RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1
+RewriteRule ^gospel$ index.php?action=gospel [L]
+RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1 [L]
 
-RewriteRule ^outline$ index.php?action=outline
-RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1
+RewriteRule ^outline$ index.php?action=outline [L]
+RewriteRule ^outline/([^/]+) index.php?action=outline&page=$1 [L]
 
-RewriteRule ^contactus/posting index.php?action=contactus&posting=true
-RewriteRule ^contactus index.php?action=contactus
+RewriteRule ^contactus/posting index.php?action=contactus&posting=true [L]
+RewriteRule ^contactus index.php?action=contactus [L]
 
 
 ### API: they should return JSON
 
-RewriteRule ^retrieve/(.*) index.php?action=retrieve&ranges=$1
+RewriteRule ^retrieve/(.*) index.php?action=retrieve&ranges=$1 [L]
 
-RewriteRule ^search/([^/]+)/q=(.*) index.php?action=search&language=$1&q=$2
-RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3
+RewriteRule ^search/([^/]+)/q=(.*)&page=(.*) index.php?action=search&language=$1&q=$2&page=$3 [L]
+RewriteRule ^search/([^/]+)/([^/]+)/q=(.*)&page=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3&page=$4 [L]
+RewriteRule ^search/([^/]+)/q=(.*) index.php?action=search&language=$1&q=$2 [L]
+RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3 [L]
 
-RewriteRule ^words/index index.php?action=glossary
-RewriteRule ^words/stroke/([^/]+) index.php?action=glossary&stroke=$1
-RewriteRule ^words/define/([^/]+) index.php?action=glossary&word=$1
+RewriteRule ^words/index index.php?action=glossary [L]
+RewriteRule ^words/stroke/([^/]+) index.php?action=glossary&stroke=$1 [L]
+RewriteRule ^words/define/([^/]+) index.php?action=glossary&word=$1 [L]

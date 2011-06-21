@@ -220,9 +220,11 @@ class Bible
 	 * @param $language: String, language to search against
 	 * @param $q: String, query to search
 	 * @param $book_filter: (optional) Array of Integer, book ids to limit search on
-	 * @param Array of matching verses
+	 * @param $page: Integer, page number to return
+	 * @param $verses_per_page: Integer, number of results to return per page
+	 * @return Array of matching verses
 	 */
-	public function search($language, $q, $book_filter=null)
+	public function search($language, $q, $book_filter, $page, $verses_per_page)
 	{
 		if ($q == "")
 			return;
@@ -250,6 +252,9 @@ class Bible
 		}
 		$q_str = '(' . implode(' OR ', $or_list) . ')';
 
+		$page = mysql_real_escape_string($page);
+		$verses_per_page = mysql_real_escape_string($verses_per_page);
+
 		$t1 = microtime(true);
 
 		$sql = sprintf("
@@ -260,6 +265,7 @@ class Bible
 			WHERE l.name='%s'", mysql_real_escape_string($language)
 		);
 		$sql .= " AND $q_str $book_filter_str";
+		$sql .= sprintf(' LIMIT %d, %d', (int)($page-1) * $verses_per_page, $verses_per_page);
 
 		$result = mysql_query($sql);
 		if (!$result)

@@ -6,6 +6,7 @@ require_once 'Action_Base.php';
  */
 class Action_Search extends Action_Base
 {
+	const VERSES_PER_PAGE = 20;
 
 	public function __construct($bible, $smarty)
 	{
@@ -21,6 +22,12 @@ class Action_Search extends Action_Base
 		$language = $_REQUEST['language'];
 		$book_filter = explode(',', $_REQUEST['book_filter']);
 		$q = $_REQUEST['q'];
+		$page = $_REQUEST['page'];
+
+		if (!isset($page))
+		{
+			$page = 1;
+		}
 
 		$temp = array();
 		foreach ($book_filter as $book)
@@ -39,7 +46,9 @@ class Action_Search extends Action_Base
 		}
 		$book_filter = $temp;
 
-		$verses = $this->bible->search($language, $q, $book_filter);
+		$verses = $this->bible->search($language, $q, $book_filter, $page, self::VERSES_PER_PAGE);
+
+		print_r($verses); exit;
 
 		header('Content-type: application/json');
 		print json_encode($verses);
