@@ -259,7 +259,7 @@ class Bible
 		$t1 = microtime(true);
 
 		$sql = sprintf("
-			SELECT b.short_name AS name, v.book, v.chapter, v.verse, v.subtitle AS subtitle, v.body AS content
+			SELECT SQL_CALC_FOUND_ROWS b.short_name AS name, v.book, v.chapter, v.verse, v.subtitle AS subtitle, v.body AS content
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 		   		INNER JOIN languages l ON (v.language_id=l.id)
@@ -275,8 +275,13 @@ class Bible
 			return array();
 		}
 
+		// Get total number of hits, disregarding the LIMIT clause
+		$row = mysql_fetch_row(mysql_query('SELECT FOUND_ROWS()'));
+		$total = $row[0];
+
 		$verses = array(
-			'hits'   => mysql_num_rows($result),
+			'hits'   => $total,
+			'page'   => $page,
 			'time'   => null,
 			'verses' => array(),
 		);
