@@ -23,6 +23,10 @@ var searchResults;
 // Var to hold jsonURL
 var jsonURL;
 
+// results per page (this is a constant set in the backend)
+// cannot be changed in the front end
+var resultsPerPage = 20;
+
 // Populate a select menu with n chapters
 function populateSelect(selectId, n) {
   var select = document.getElementById(selectId);
@@ -319,10 +323,24 @@ function paragraphStyle() {
 }
 
 function generatePaginateDiv(data) {
-  return $("<div class='query-paginate'>" +
-           "<span class='query-paginate-other-page'>&lt;&lt;</span>" +
-           "<span class='query-paginate-current-page'>1</span>&gt;&gt;" +
-           "</div>");
+  var currPage = data.page;
+  var hits = data.hits;
+  var totalPages = Math.ceil(hits/resultsPerPage);
+  var queryPaginate = $("<div class='query-paginate'></div>");
+  var queryTerm = $("input[name='query']").val();
+  var version = selectedVersion();
+  for (var i=1; i<=totalPages; i++) {
+    var anchor = $("<a href=" + webroot + 
+                   "/query/" + version +
+                   "/q=" + queryTerm +
+                   "&page=" + i + "></a>");
+    $("<span class='query-paginate-" + 
+      (i==currPage ? "current" : "other") +
+      "-page'>" +
+      i + "</span>").appendTo(anchor);
+    anchor.appendTo(queryPaginate);
+  }
+  return queryPaginate;
 }
 
 function processQueryData(data) {
@@ -331,11 +349,11 @@ function processQueryData(data) {
   $("<div class='query-title'>找到 " + queryResults.hits + 
     " 經節 (搜尋時間：" + (Math.round(queryResults.time)/1000) + " 秒)</div>")
     .appendTo("#query-result");
-  generatePaginateDiv(data).appendTo("#query-result");
+  generatePaginateDiv(queryResults).appendTo("#query-result");
   var browseTableChapter = $("<div class='browse-table-chapter'></div>");
   browseTableChapter.appendTo("#query-result");
   // display the search results
-  for (var i=0; i<queryResults.hits; i++) {
+  for (var i=0; i<resultsPerPage; i++) {
     var result = queryResults.verses[i];
     var name = result.name;
     var book = result.book;
@@ -352,7 +370,7 @@ function processQueryData(data) {
       subtitle + content + "</span>" +
       "</div>").appendTo(browseTableChapter);
   }
-  generatePaginateDiv(data).appendTo("#query-result");
+  generatePaginateDiv(queryResults).appendTo("#query-result");
 }
 
 function tableStyle() {
