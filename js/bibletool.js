@@ -363,6 +363,9 @@ function processQueryData(data) {
   // display the search results
   for (var i=0; i<resultsPerPage; i++) {
     var result = data.verses[i];
+    if (!result) {
+      continue;
+    }
     var name = result.name;
     var book = result.book;
     var chapter = result.chapter;
