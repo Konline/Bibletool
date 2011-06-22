@@ -330,31 +330,39 @@ function generatePaginateDiv(data) {
   var queryTerm = $("input[name='query']").val();
   var version = selectedVersion();
   for (var i=1; i<=totalPages; i++) {
-    var anchor = $("<a href=" + webroot + 
-                   "/query/" + version +
-                   "/q=" + queryTerm +
-                   "&page=" + i + "></a>");
-    $("<span class='query-paginate-" + 
-      (i==currPage ? "current" : "other") +
-      "-page'>" +
-      i + "</span>").appendTo(anchor);
+    var url = webroot + "/search/" + 
+      version + "/q=" + queryTerm +
+      "&page=" + i; 
+    var span = $("<span class='query-paginate-" + 
+                   (i==currPage ? "current" : "other") +
+                   "-page'>" + i + "</span>");
+    var anchor = ($("<a></a>")
+                  .click(function() {
+                    console.log($(this)[0]);
+                    console.log($(this).last());
+                    if ( currPage == i ) {
+                      // do nothing because we are already
+                      // at the current page
+                    } else {
+                      query(url);
+                    }
+                  }));
+    span.appendTo(anchor);
     anchor.appendTo(queryPaginate);
   }
   return queryPaginate;
 }
 
 function processQueryData(data) {
-  queryResults = data;
-  $("#query-result").empty();
-  $("<div class='query-title'>找到 " + queryResults.hits + 
-    " 經節 (搜尋時間：" + (Math.round(queryResults.time)/1000) + " 秒)</div>")
+  $("<div class='query-title'>找到 " + data.hits + 
+    " 經節 (搜尋時間：" + (Math.round(data.time)/1000) + " 秒)</div>")
     .appendTo("#query-result");
-  generatePaginateDiv(queryResults).appendTo("#query-result");
+  generatePaginateDiv(data).appendTo("#query-result");
   var browseTableChapter = $("<div class='browse-table-chapter'></div>");
   browseTableChapter.appendTo("#query-result");
   // display the search results
   for (var i=0; i<resultsPerPage; i++) {
-    var result = queryResults.verses[i];
+    var result = data.verses[i];
     var name = result.name;
     var book = result.book;
     var chapter = result.chapter;
@@ -370,7 +378,7 @@ function processQueryData(data) {
       subtitle + content + "</span>" +
       "</div>").appendTo(browseTableChapter);
   }
-  generatePaginateDiv(queryResults).appendTo("#query-result");
+  generatePaginateDiv(data).appendTo("#query-result");
 }
 
 function tableStyle() {
@@ -379,6 +387,15 @@ function tableStyle() {
              '/retrieve/' + selectedVersion() +
              ':' + selectedBook() +
              ':' + selectedChapter());
+}
+
+// Query function, given an URL
+function query(url) {
+  $("#query-result").empty();
+  var jqxhr = $.getJSON(url, processQueryData)
+    .error(function(){
+      $('<p>Failed to download data from the server</p>').appendTo('#browse-body');
+    });
 }
 
 // Main function
@@ -438,11 +455,7 @@ $(document).ready(function() {
       var version = selectedVersion();
       var queryTerm = $("input[name='query']").val();
       var url = webroot + '/search/' + version + '/q=' + queryTerm;
-      var jqxhr = $.getJSON(url, processQueryData)
-        .error(function(){
-          $('<p>Failed to download data from the server</p>').appendTo('#browse-body');
-        });
-      
+      query(url);
       // prevent the default behavior of submit by returning false
       return false;
     });
