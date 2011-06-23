@@ -30,6 +30,10 @@ foreach ($glossaries as $file)
 	LoadGlossary($filename);
 }
 
+LoadSubjects();
+
+exit;
+
 
 /* Auxiliary functions */
 
@@ -205,21 +209,7 @@ function LoadGlossary($filename)
 
 			foreach ($term->verses as $verse)
 			{
-				list($book, $chapter_verse) = explode(' ', $verse);
-				$book = $bible->getBookIndex($book);
-
-
-				list($chapter, $verses) = explode(':', $chapter_verse);
-				
-				list($start_verse, $end_verse) = explode('-', $verses);
-				if (empty($start_verse))
-				{
-					$start_verse = 1;
-				}
-				if (empty($end_verse))
-				{
-					$end_verse = $bible->getNumVerses('UCV', $book, $chapter);
-				}
+				list($book, $chapter, $start_verse, $end_verse) = ParseVerse($bible, $verse);
 
 				$sql = "INSERT INTO glossary_verses (glossary_id, book, chapter, start_verse, end_verse) VALUES ('$glossary_id', '$book', '$chapter', '$start_verse', '$end_verse')";
 				if (!mysql_query($sql))
@@ -230,4 +220,107 @@ function LoadGlossary($filename)
 			}
 		}
 	}
+}
+
+function LoadSubjects()
+{
+	$file = dirname(__FILE__) . '/../data/subjects.json';
+	echo "Parsing $file";
+
+	$bible = Bible::getInstance();
+
+	$subjects = json_decode(file_get_contents($file));
+	foreach ($subjects as $topic => $object)
+	{
+		$sql = sprintf("INSERT INTO subjects (name) VALUES ('%s')", mysql_real_escape_string($topic));
+		if (!mysql_query($sql))
+		{
+			echo "Failed to insert subjects: " . mysql_error() . "\n";
+			echo "SQL: $sql\n";
+			exit(1);
+		}
+		$parent_id = mysql_insert_id();
+
+		if (is_array($object))
+		{
+			foreach ($object as $verse)
+			{
+				list($book, $chapter, $start_verse, $end_verse) = ParseVerse($bible, $verse);
+				$sql = sprintf(
+					"INSERT INTO subject_verses (subject_id, book, chapter, start_verse, end_verse)
+					VALUES ('%s', '%s', '%s', '%s', '%s')",
+					$parent_id,
+					mysql_real_escape_string($book),
+					mysql_real_escape_string($chapter),
+					mysql_real_escape_string($start_verse),
+					mysql_real_escape_string($end_verse)
+				);
+
+				if (!mysql_query($sql))
+				{
+					echo "Failed to insert subject_verses: " . mysql_error() . "\n";
+					echo "SQL: $sql\n";
+					exit(1);
+				}
+			}
+		}
+		else
+		{
+			foreach ($object as $subtopic => $verses)
+			{
+				$sql = sprintf("INSERT INTO subjects (parent_id, name) VALUES ('%s', '%s')",
+					$parent_id,
+					mysql_real_escape_string($topic)
+				);
+				if (!mysql_query($sql))
+				{
+					echo "Failed to insert subtopic: " . mysql_error() . "\n";
+					echo "SQL: $sql\n";
+					exit(1);
+				}
+				$parent_id2 = mysql_insert_id();
+
+				foreach ($verses as $verse)
+				{
+					list($book, $chapter, $start_verse, $end_verse) = ParseVerse($bible, $verse);
+					$sql = sprintf(
+						"INSERT INTO subject_verses (subject_id, book, chapter, start_verse, end_verse)
+						VALUES ('%s', '%s', '%s', '%s', '%s')",
+						$parent_id2,
+						mysql_real_escape_string($book),
+						mysql_real_escape_string($chapter),
+						mysql_real_escape_string($start_verse),
+						mysql_real_escape_string($end_verse)
+					);
+					if (!mysql_query($sql))
+					{
+						echo "Failed to insert sub subject_verses: " . mysql_error() . "\n";
+						echo "SQL: $sql\n";
+						exit(1);
+					}
+
+				}
+			}
+		}
+	}
+}
+
+function ParseVerse($bible, $verse)
+{
+	list($book, $chapter_verse) = explode(' ', $verse);
+	$book = $bible->getBookIndex($book);
+
+	list($chapter, $verses) = explode(':', $chapter_verse);
+	
+	list($start_verse, $end_verse) = explode('-', $verses);
+	if (empty($start_verse))
+	{
+		$start_verse = 1;
+	}
+	if (empty($end_verse))
+	{
+		$end_verse = $bible->getNumVerses('KJV', $book, $chapter);
+	}
+
+	return array($book, $chapter, $start_verse, $end_verse);
 }

@@ -1,5 +1,7 @@
 -- Bibletool schema
 
+DROP TABLE IF EXISTS subject_verses;
+DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS glossary_verses;
 DROP TABLE IF EXISTS glossary_notes;
 DROP TABLE IF EXISTS glossary;
@@ -82,5 +84,24 @@ CREATE TABLE glossary_verses (
 	PRIMARY KEY(id),
 	FOREIGN KEY(glossary_id) REFERENCES glossary(id),
 	FOREIGN KEY(book, chapter) REFERENCES verses(book, chapter)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE subjects (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	parent_id   INTEGER,
+	name		VARCHAR(20) NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(parent_id) REFERENCES subjects(id)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE subject_verses (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	subject_id  INTEGER NOT NULL,
+	book        INTEGER NOT NULL,
+	chapter     INTEGER NOT NULL,
+	start_verse INTEGER NOT NULL,
+	end_verse   INTEGER NOT NULL,
+	PRIMARY KEY(id),
+	FOREIGN KEY(subject_id) REFERENCES subjects(id)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
