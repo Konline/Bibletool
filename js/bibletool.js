@@ -332,19 +332,21 @@ function generatePaginateDiv(data) {
   for (var i=1; i<=totalPages; i++) {
     var url = webroot + "/search/" + 
       version + "/q=" + queryTerm +
-      "&page=" + i; 
+      "&page=";
     var span = $("<span class='query-paginate-" + 
                    (i==currPage ? "current" : "other") +
                    "-page'>" + i + "</span>");
     var anchor = ($("<a></a>")
                   .click(function() {
-                    console.log($(this)[0]);
-                    console.log($(this).last());
+                    // need to rely on the value stored in the span
+                    // because this 'click' function is a closure and
+                    // the evaluation is deferred
+                    var page = $(this)[0].firstChild.innerText;
                     if ( currPage == i ) {
                       // do nothing because we are already
                       // at the current page
                     } else {
-                      query(url);
+                      query(url + page);
                     }
                   }));
     span.appendTo(anchor);
@@ -394,6 +396,7 @@ function tableStyle() {
 
 // Query function, given an URL
 function query(url) {
+  console.log('query url = ' + url);
   $("#query-result").empty();
   var jqxhr = $.getJSON(url, processQueryData)
     .error(function(){
