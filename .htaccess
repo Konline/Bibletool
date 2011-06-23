@@ -35,3 +35,5 @@ RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&b
 RewriteRule ^words/index index.php?action=glossary [L]
 RewriteRule ^words/stroke/([^/]+) index.php?action=glossary&stroke=$1 [L]
 RewriteRule ^words/define/([^/]+) index.php?action=glossary&word=$1 [L]
+
+RewriteRule ^subjects/index index.php?action=subjects [L]

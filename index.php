@@ -37,6 +37,12 @@ switch ($action)
 		$controller->run();
 		break;
 
+	case 'subjects':
+		require_once 'Action_Subjects.php';
+		$controller = new Action_Subjects($bible, $smarty);
+		$controller->run();
+		break;
+
 	/** Frontend: They should return HTML */
 	case 'static':
 		$smarty->assign('page', $_REQUEST['page']);

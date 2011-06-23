@@ -270,7 +270,7 @@ function LoadSubjects()
 			{
 				$sql = sprintf("INSERT INTO subjects (parent_id, name) VALUES ('%s', '%s')",
 					$parent_id,
-					mysql_real_escape_string($topic)
+					mysql_real_escape_string($subtopic)
 				);
 				if (!mysql_query($sql))
 				{

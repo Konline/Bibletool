@@ -89,7 +89,7 @@ CREATE TABLE glossary_verses (
 CREATE TABLE subjects (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
 	parent_id   INTEGER,
-	name		VARCHAR(20) NOT NULL,
+	name        VARCHAR(40) NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(parent_id) REFERENCES subjects(id)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
