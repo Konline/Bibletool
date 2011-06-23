@@ -94,7 +94,7 @@ function keybinding(e) {
       currentStyle = 'table';
       break;
     default:
-      console.log("Unsupported style " + style);
+      console.log("Unsupported style: " + style);
     }
     browse(webroot + 
            '/retrieve/' + selectedVersion() +
@@ -115,7 +115,7 @@ function getCurrentStyleFn(style) {
     return paragraphStyleFn;
     break;
   default:
-    console.log("Unsupported style " + style);
+    console.log("Unsupported style: " + style);
   }
 }
 
@@ -323,25 +323,29 @@ function paragraphStyle() {
 }
 
 function generatePaginateDiv(data) {
-  var currPage = data.page;
-  var hits = data.hits;
+  var currPage = parseInt(data.page);
+  var hits = parseInt(data.hits);
   var totalPages = Math.ceil(hits/resultsPerPage);
   var queryPaginate = $("<div class='query-paginate'></div>");
   var queryTerm = $("input[name='query']").val();
   var version = selectedVersion();
-  for (var i=1; i<=totalPages; i++) {
+  var startPage = Math.max(currPage - 5, 1);
+  var stopPage = Math.min(currPage + 5, totalPages);
+  for (var i=startPage; i<=stopPage; i++) {
     var url = webroot + "/search/" + 
       version + "/q=" + queryTerm +
       "&page=";
     var span = $("<span class='query-paginate-" + 
                    (i==currPage ? "current" : "other") +
-                   "-page'>" + i + "</span>");
+                 "-page'>" + (i==stopPage ? i + " (還有" + (totalPages-i) + "頁)" :
+                              i) +
+                 "</span>");
     var anchor = ($("<a></a>")
                   .click(function() {
                     // need to rely on the value stored in the span
                     // because this 'click' function is a closure and
                     // the evaluation is deferred
-                    var page = $(this)[0].firstChild.innerText;
+                    var page = parseInt($(this)[0].firstChild.innerText);
                     if ( currPage == i ) {
                       // do nothing because we are already
                       // at the current page
@@ -396,7 +400,6 @@ function tableStyle() {
 
 // Query function, given an URL
 function query(url) {
-  console.log('query url = ' + url);
   $("#query-result").empty();
   var jqxhr = $.getJSON(url, processQueryData)
     .error(function(){
