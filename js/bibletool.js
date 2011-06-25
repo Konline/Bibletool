@@ -106,17 +106,35 @@ function keybinding(e) {
 };
 
 // Return the function that implements the style
-function getCurrentStyleFn(style) {
-  switch(style) {
-  case 'table':
-    return tableStyleFn;
-    break;
-  case 'paragraph':
-    return paragraphStyleFn;
-    break;
-  default:
+function getCurrentStyleFn (style, url) {
+  return url.match(/;/) ? rangeStyleFn :
+    style == 'table' ? tableStyleFn :
+    style == 'paragraph' ? paragraphStyleFn :
     console.log("Unsupported style: " + style);
-  }
+}
+
+// Print range data in table style
+var rangeStyleFn = function(data) {
+  for(var i=0; i<data.length; i++) {
+    // Put the chapter body into browse-body
+    var browseTable = $("<div class=retrieve-range></div>");
+    browseTable.appendTo('#browse-body');
+    
+    // Put each verse into browseTable
+    $.each(data[i].verses, function(idx, verse) {
+      var book = verse.book;
+      var chapter = verse.chapter;
+      var name = verse.name;
+      var number = verse.verse;
+      var verseHeader = '<span class="browse-table-verse-header">' + 
+        "<a href=" + webroot + "/browse/UCV:" + book + ":" + 
+        chapter + ">" + name + " " + chapter + ":" + number + "</a>" +
+        "</span>";
+      var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
+      var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
+      $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
+    });
+  }// get the first entry from data
 }
 
 // Print data in table style
@@ -193,7 +211,7 @@ var paragraphStyleFn = function(data) {
 // Get a chapter from the server and update the 'browse-body' div
 function browse (url) {
   $('#browse-body').empty();
-  var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle))
+  var jqxhr = $.getJSON(url, getCurrentStyleFn(currentStyle, url))
     .error(function(){
       $('<p>Failed to download data from the server</p>').appendTo('#browse-body');
     });
