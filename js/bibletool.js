@@ -425,6 +425,49 @@ function query(url) {
     });
 }
 
+
+// toggle subjects Plus and Minus Id
+function toggleSubjectPlusMinus(divId, imgId) {
+    var div = document.getElementById(divId);
+    var img = document.getElementById(imgId);
+    if (div.style.display == 'none') {
+      div.style.display = '';
+      img.src = webroot + '/images/minus.gif';
+    } else if (true) {
+      div.style.display = 'none';
+      img.src = webroot + '/images/plus.gif';
+    };
+};
+
+// display subjects
+function subjects(url) {
+  console.log('subjects url: ' + url);
+  $("#subjects-body").empty();
+  var jqxhr = $.getJSON(url, function(data) {
+    for (var subject in data) {
+      // if val is an array, this indicates
+      // that there are no subtitles
+      var val = data[subject];
+      if ( $.isArray(val) ) {
+        var link = $.map(val, function(ele, idx) {
+          return ele.replace(" ", ":");
+        }).join(';');
+        $("<div class=subject>" +
+          "<div class=subject-title>" +
+          "<a href=" + webroot + "/browse/UCV:" + link +
+          ">" + subject + "</a></div></div>").appendTo("#subjects-body");
+      } else {
+        // this subject has subtitles
+        // TODO
+        
+      }
+    }
+  })
+    .error(function(){
+      $('<p>Failed to download data from the server</p>').appendTo('#subjects-body');
+    });
+}
+
 // Main function
 $(document).ready(function() {
   // browse and interlinear action are similar, to they are
@@ -490,6 +533,6 @@ $(document).ready(function() {
 
   // Subjects action
   else if ( action == 'subjects' ) {
-    console.log("subjects section");
+    subjects(webroot + '/subjects/index');
   }
 });
