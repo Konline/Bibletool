@@ -487,4 +487,9 @@ $(document).ready(function() {
       return false;
     });
   }
+
+  // Subjects action
+  else if ( action == 'subjects' ) {
+    console.log("subjects section");
+  }
 });

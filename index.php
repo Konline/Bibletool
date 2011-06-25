@@ -38,9 +38,14 @@ switch ($action)
 		break;
 
 	case 'subjects':
-		require_once 'Action_Subjects.php';
-		$controller = new Action_Subjects($bible, $smarty);
-		$controller->run();
+		if ( $_REQUEST['index'] ) {
+			require_once 'Action_Subjects.php';
+			$controller = new Action_Subjects($bible, $smarty);
+			$controller->run();
+			break;
+		} else {
+			$smarty->display('subjects.tmpl');
+		}
 		break;
 
 	/** Frontend: They should return HTML */
