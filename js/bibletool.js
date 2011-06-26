@@ -473,7 +473,12 @@ function subjects(url) {
                                  "'></div>")
           .appendTo(subjectTitle);
         for (var subtitle in val) {
-          $("<div>"+subtitle+"</div>").appendTo(subjectSubtitles);
+          var link = $.map(val[subtitle], function(ele, idx) {
+            return ele.replace(" ", ":");
+          }).join(';');
+          $("<div class=subject-subtitle>" + 
+            "<a href=" + webroot + "/browse/UCV:" + link +
+            ">" + subtitle + "</a></div>").appendTo(subjectSubtitles);
         }
       }
     }
@@ -548,7 +553,6 @@ $(document).ready(function() {
 
   // Subjects action
   else if ( action == 'subjects' ) {
-    //subjects(webroot + '/subjects/index');
-    subjects(webroot + '/stubs/subjects.json');
+    subjects(webroot + '/subjects/index');
   }
 });
