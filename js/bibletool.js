@@ -441,13 +441,13 @@ function toggleSubjectPlusMinus(divId, imgId) {
 
 // display subjects
 function subjects(url) {
-  console.log('subjects url: ' + url);
   $("#subjects-body").empty();
+  var counter = 0;
   var jqxhr = $.getJSON(url, function(data) {
     for (var subject in data) {
+      var val = data[subject];
       // if val is an array, this indicates
       // that there are no subtitles
-      var val = data[subject];
       if ( $.isArray(val) ) {
         var link = $.map(val, function(ele, idx) {
           return ele.replace(" ", ":");
@@ -456,10 +456,25 @@ function subjects(url) {
           "<div class=subject-title>" +
           "<a href=" + webroot + "/browse/UCV:" + link +
           ">" + subject + "</a></div></div>").appendTo("#subjects-body");
-      } else {
-        // this subject has subtitles
-        // TODO
-        
+      } 
+      // this subject has subtitles
+      else {
+        var divId = 'plus_minus_' + counter;
+        var imgId = 'plus_minus_img_' + counter;
+        counter++;
+        var onClick = "onclick=toggleSubjectPlusMinus('" + divId + "','" + imgId + "')";
+        var subjectTitle = $("<div class=subject>" +
+                             "<div class=subject-title " + onClick + ">" +
+                             subject + "<img id=" + imgId +  
+                             " src=" + webroot + "/images/plus.gif>" +
+                             "</div></div>").appendTo("#subjects-body");
+        var subjectSubtitles = $("<div class=subject-subtitles style='display: none;' id='" + 
+                                 divId + 
+                                 "'></div>")
+          .appendTo(subjectTitle);
+        for (var subtitle in val) {
+          $("<div>"+subtitle+"</div>").appendTo(subjectSubtitles);
+        }
       }
     }
   })
@@ -533,6 +548,7 @@ $(document).ready(function() {
 
   // Subjects action
   else if ( action == 'subjects' ) {
-    subjects(webroot + '/subjects/index');
+    //subjects(webroot + '/subjects/index');
+    subjects(webroot + '/stubs/subjects.json');
   }
 });
