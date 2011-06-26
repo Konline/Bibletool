@@ -106,8 +106,12 @@ function keybinding(e) {
 };
 
 // Return the function that implements the style
+// Since the 'browse' api is overloaded for many purposes, we need to
+// look at the url pattern to understand if we are dealing with an
+// entire chapter or just few bible fragments
 function getCurrentStyleFn (style, url) {
   return url.match(/;/) ? rangeStyleFn :
+    url.split(":").length > 3 ? rangeStyleFn :
     style == 'table' ? tableStyleFn :
     style == 'paragraph' ? paragraphStyleFn :
     console.log("Unsupported style: " + style);
