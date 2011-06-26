@@ -80,6 +80,10 @@ switch ($action)
 		$controller->run();
 		break;
 
+	case 'biblemap':
+		$smarty->display('biblemap.tmpl');
+		break;
+
 	case 'browse':
 	default:
 		$smarty->assign('action', 'browse'); // for default case
