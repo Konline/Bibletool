@@ -38,13 +38,28 @@ switch ($action)
 		break;
 
 	case 'subjects':
-		if ( $_REQUEST['index'] ) {
+		if ($_REQUEST['index'])
+		{
 			require_once 'Action_Subjects.php';
 			$controller = new Action_Subjects($bible, $smarty);
 			$controller->run();
-			break;
-		} else {
+		}
+		else
+		{
 			$smarty->display('subjects.tmpl');
+		}
+		break;
+
+	case 'biblemap':
+		if ($_REQUEST['index'])
+		{
+			require_once 'Action_Biblemap.php';
+			$controller = new Action_Biblemap($bible, $smarty);
+			$controller->run();
+		}
+		else
+		{
+			$smarty->display('biblemap.tmpl');
 		}
 		break;
 
@@ -78,10 +93,6 @@ switch ($action)
 		require_once 'Action_ContactUs.php';
 		$controller = new Action_ContactUs($bible, $smarty);
 		$controller->run();
-		break;
-
-	case 'biblemap':
-		$smarty->display('biblemap.tmpl');
 		break;
 
 	case 'browse':

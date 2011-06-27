@@ -624,6 +624,6 @@ $(document).ready(function() {
     });
     // Load the JSON data from the server
     // biblemap(webroot + '/biblemap/index');
-    biblemap(webroot + '/data/openbible_places.json');
+    biblemap(webroot + '/biblemap/index');
   }
 });
