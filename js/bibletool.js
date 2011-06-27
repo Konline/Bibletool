@@ -162,7 +162,7 @@ var tableStyleFn = function(data) {
   // Put each verse into browseTable
   $.each(data.verses, function(idx, verse) {
     var verseHeader = '<span class="browse-table-verse-header">' + 
-      verse.book + ' ' + verse.chapter + ':' + verse.verse + "</span>";
+      verse.name + ' ' + verse.chapter + ':' + verse.verse + "</span>";
     var verseSubtitle = verse.subtitle ? '<span class="browse-table-verse-subtitle">' + verse.subtitle + '</span>' : '';
     var verseContent = '<span class="browse-table-verse-content">' + verseSubtitle + ' ' + verse.content + '</span>';
     $('<div class="browse-table-verse">' + verseHeader + verseContent + '</div>').appendTo(browseTable);
