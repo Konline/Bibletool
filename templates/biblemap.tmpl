@@ -1,33 +1,19 @@
 {assign var='title' value='聖經地圖'}
 {include file="header.tmpl"}
-{include file="browse-toolbar.tmpl"}
 
 <div class="page-body" id="biblemap-body">
   <form>
     <select name="biblemap" id="biblemap-select">
     </select>
   </form>
+  <div ID="map_canvas"></div></div>
 </div>
 
-<script TYPE="text/javascript" SRC="http://www.google.com/jsapi?sensor=false&amp;key=ABQIAAAAY34p2enf-VdbmZjgD6QaNhSxt77ZyXQbxX67Z4n-H1NhHCVDlRQBu4g6QWBEYhJ7VRbCuXwr4fyBww"></script><script TYPE="text/javascript"> 
-// <![CDATA[
+<script TYPE="text/javascript" SRC="http://www.google.com/jsapi?sensor=false&amp;key=ABQIAAAAY34p2enf-VdbmZjgD6QaNhSxt77ZyXQbxX67Z4n-H1NhHCVDlRQBu4g6QWBEYhJ7VRbCuXwr4fyBww">
+</script>
+
+<script TYPE="text/javascript"> 
 google.load('maps', '2');
-function initialize(lat, lng) {
-    var map = new google.maps.Map2(document.getElementById('map_canvas'));
-    var latlng = new google.maps.LatLng(lat, lng);
-    var mapNode = document.getElementById('map_node');
-    function createMarker(latlng) {
-        var marker = new GMarker(latlng);
-        GEvent.addListener(marker, 'click', function () {
-            map.openInfoWindow(latlng, mapNode);
-        });
-        return marker;
-    };
-    map.setCenter(latlng, 5);
-    map.setUIToDefault();
-    map.setMapType(G_HYBRID_MAP);
-    map.addOverlay(createMarker(latlng));
-    map.openInfoWindow(latlng, mapNode);
-};
-// ]]>
+</script>
+
 {include file="footer.tmpl"}
