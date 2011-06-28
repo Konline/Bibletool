@@ -32,9 +32,16 @@ switch ($action)
 		break;
 
 	case 'glossary':
-		require_once 'Action_Glossary.php';
-		$controller = new Action_Glossary($bible, $smarty);
-		$controller->run();
+		if ($_REQUEST['index'])
+		{
+			require_once 'Action_Glossary.php';
+			$controller = new Action_Glossary($bible, $smarty);
+			$controller->run();
+		}
+		else
+		{
+			$smarty->display('glossary.tmpl');
+		}
 		break;
 
 	case 'subjects':
