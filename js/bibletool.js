@@ -626,4 +626,10 @@ $(document).ready(function() {
     // biblemap(webroot + '/biblemap/index');
     biblemap(webroot + '/biblemap/index');
   }
+
+  // Glossary action
+  else if ( action == 'glossary' ) {
+    
+
+  }
 });
