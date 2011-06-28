@@ -531,6 +531,31 @@ function initializeMap (lat, lng) {
   map.openInfoWindow(latlng, mapNode);
 };
 
+// display glossary index
+function glossaryIndex(stroke) {
+  $("#glossary-index-table").empty();
+  var url = webroot + '/glossary/stroke/' + stroke;
+  var jqxhr = $.getJSON(url, function(data) {
+    for(var i=0; i<data.length; i=i++) {
+      var chinese1 = data[i].chinese;
+      var english1 = data[i].english ? ' (' + data[i].english + ')' : "";
+      var link1 = webroot + '/glossary/define/' + chinese1;
+      i++;
+      var chinese2 = (i<data.length && data[i].chinese) ? data[i].chinese : "";
+      var english2 = (i<data.length && data[i].english) ? ' (' + data[i].english + ')' : "";
+      var link2 = (i<data.length && data[i].chinese) ? webroot + '/glossary/define/' + chinese2 : null;
+      $("<tr>" + 
+        "<td><a href=" + link1 + ">" + chinese1 + english1 + "</a></td>" +
+        "<td><a href=" + link2 + ">" + chinese2 + english2 + "</a></td>" +
+        "</tr>")
+        .appendTo($("#glossary-index-table"));
+    }
+  })
+    .error(function(){
+      $('<p>Failed to download data from the server</p>').appendTo('#glossary-body');
+    })
+}
+
 // Main function
 $(document).ready(function() {
   // browse and interlinear action are similar, to they are
@@ -629,7 +654,33 @@ $(document).ready(function() {
 
   // Glossary action
   else if ( action == 'glossary' ) {
-    
-
+    // populate by-stroke and by-alpha td's
+    var url = webroot + '/glossary/index';
+    var jqxhr = $.getJSON(url, function(data) {
+      var strokes = data[0];
+      var alphas = data[1];
+      for(var i=0; i<strokes.length; i++) {
+        var stroke = strokes[i];
+        $("<a>" + stroke + "劃 </a>")
+          .click(function() {
+            // since this is a closure, rely on the text inside the anchor
+            glossaryIndex(parseInt(this.text));
+          })
+          .appendTo($("#by-stroke"));
+      }
+      for(var i=0; i<alphas.length; i++) {
+        var alpha = alphas[i];
+        $("<a>" + alpha + "</a>")
+          .click(function() {
+            // since this is a closure, rely on the text inside the anchor
+            glossaryIndex(this.text);
+          })
+          .appendTo($("#by-alpha"));
+      }
+    })
+      .error(function(){
+        $('<p>Failed to download data from the server</p>').appendTo('#glossary-body');
+      });
+    glossaryIndex(1);
   }
 });
