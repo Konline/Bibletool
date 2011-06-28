@@ -43,12 +43,12 @@ class Action_Glossary extends Action_Base
 				echo "ERROR: Invalid stroke\n";
 				return;
 			}
-			$results = $this->bible->GetGlossaryStroke($stroke, $letter);
+			$results = $this->bible->getGlossaryStroke($stroke, $letter);
 		}
 		elseif (isset($word))
 		{
 			// Return information about a particular word
-			$results = $this->bible->GetGlossaryWord($word);
+			$results = $this->bible->getGlossaryWord($word);
 		}
 
 		header('Content-type: application/json');
