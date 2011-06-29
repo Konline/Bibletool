@@ -539,16 +539,17 @@ function glossaryIndex(stroke) {
     for(var i=0; i<data.length; i=i++) {
       var chinese1 = data[i].chinese;
       var english1 = data[i].english ? ' (' + data[i].english + ')' : "";
-      var link1 = webroot + '/glossary/define/' + chinese1;
+      var link1 = $("<td><a href=" + webroot + '/glossary/word/' + 
+                    chinese1 + ">" + chinese1 + english1 + "</a></td>");
       i++;
       var chinese2 = (i<data.length && data[i].chinese) ? data[i].chinese : "";
       var english2 = (i<data.length && data[i].english) ? ' (' + data[i].english + ')' : "";
-      var link2 = (i<data.length && data[i].chinese) ? webroot + '/glossary/define/' + chinese2 : null;
-      $("<tr>" + 
-        "<td><a href=" + link1 + ">" + chinese1 + english1 + "</a></td>" +
-        "<td><a href=" + link2 + ">" + chinese2 + english2 + "</a></td>" +
-        "</tr>")
-        .appendTo($("#glossary-index-table"));
+      var link2 = (i<data.length && data[i].chinese) ? 
+        $("<td><a href=" + webroot + '/glossary/word/' + 
+          chinese2 + ">" + chinese2 + english2 + "</a></td>") : $("<td>&nbsp;</td>");
+      var tr = $("<tr></tr>").appendTo("#glossary-index-table");
+      link1.appendTo(tr);
+      link2.appendTo(tr);
     }
   })
     .error(function(){
