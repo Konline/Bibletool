@@ -534,22 +534,40 @@ function initializeMap (lat, lng) {
 // display glossary index
 function glossaryIndex(stroke) {
   $("#glossary-index-table").empty();
+  $("div.glossary").remove();
   var url = webroot + '/glossary/stroke/' + stroke;
   var fn = function(evt) {
     evt.preventDefault();
     var url = $(this.firstChild).attr('href');
     $("#glossary-index-table").empty();
     var jqxhr = $.getJSON(url, function(data) {
-      data = data[0];
-      var chinese = data.chinese;
-      var english = data.english;
-      var definition = data.definition;
-      var notes = data.notes;
-      var verses = data.verses;
-      $("<div class=glossary-name>" + 
-        data.chinese + 
-        ' (' + data.english + ')' +
-       "</div>").appendTo($("#glossary"));
+      for (var i=0; i<data.length; i++) {
+        var word = data[i];
+        var glossary = $("<div class=glossary>");
+        
+        // word name
+        $("<div class=glossary-name>" + 
+          word.chinese + 
+          (word.english ? ' (' + word.english + ')' : "") +
+          "</div>").appendTo(glossary);
+        
+        // verses (TODO)
+        $.map(word.verses, function(v, idx) {
+          return v;
+        }).join(";");
+        
+        // word definition
+        $("<div class=glossary-definition>" + 
+          word.definition +
+          "</div>").appendTo(glossary);
+        
+        // word notes
+        $("<div class=glossary-notes>" + 
+          word.notes +
+          "</div>").appendTo(glossary);
+        
+        glossary.appendTo("#glossary-body");
+      }
     });
   }
   var jqxhr = $.getJSON(url, function(data) {
