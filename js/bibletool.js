@@ -535,6 +535,23 @@ function initializeMap (lat, lng) {
 function glossaryIndex(stroke) {
   $("#glossary-index-table").empty();
   var url = webroot + '/glossary/stroke/' + stroke;
+  var fn = function(evt) {
+    evt.preventDefault();
+    var url = $(this.firstChild).attr('href');
+    $("#glossary-index-table").empty();
+    var jqxhr = $.getJSON(url, function(data) {
+      data = data[0];
+      var chinese = data.chinese;
+      var english = data.english;
+      var definition = data.definition;
+      var notes = data.notes;
+      var verses = data.verses;
+      $("<div class=glossary-name>" + 
+        data.chinese + 
+        ' (' + data.english + ')' +
+       "</div>").appendTo($("#glossary"));
+    });
+  }
   var jqxhr = $.getJSON(url, function(data) {
     for(var i=0; i<data.length; i=i++) {
       var chinese1 = data[i].chinese;
@@ -542,14 +559,16 @@ function glossaryIndex(stroke) {
       var link1 = $("<td><a href=" + webroot + '/glossary/word/' + 
                     chinese1 + ">" + chinese1 + english1 + "</a></td>");
       i++;
-      var chinese2 = (i<data.length && data[i].chinese) ? data[i].chinese : "";
-      var english2 = (i<data.length && data[i].english) ? ' (' + data[i].english + ')' : "";
-      var link2 = (i<data.length && data[i].chinese) ? 
+      // check if we have a second link
+      var twolinkp = (i<data.length && data[i].chinese) ? true : false;
+      var chinese2 = (twolinkp) ? data[i].chinese : "";
+      var english2 = (twolinkp && data[i].english) ? ' (' + data[i].english + ')' : "";
+      var link2 = (twolinkp) ? 
         $("<td><a href=" + webroot + '/glossary/word/' + 
           chinese2 + ">" + chinese2 + english2 + "</a></td>") : $("<td>&nbsp;</td>");
       var tr = $("<tr></tr>").appendTo("#glossary-index-table");
-      link1.appendTo(tr);
-      link2.appendTo(tr);
+      link1.click(fn).appendTo(tr);
+      if ( twolinkp ) { link2.click(fn).appendTo(tr); }
     }
   })
     .error(function(){
