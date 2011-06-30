@@ -315,11 +315,14 @@ function ParseVerse($bible, $verse)
 	list($start_verse, $end_verse) = explode('-', $verses);
 	if (empty($start_verse))
 	{
+		// The entire chapter
 		$start_verse = 1;
-	}
-	if (empty($end_verse))
-	{
 		$end_verse = $bible->getNumVerses('KJV', $book, $chapter);
+	}
+	elseif (empty($end_verse))
+	{
+		// A single verse
+		$end_verse = $start_verse;
 	}
 
 	return array($book, $chapter, $start_verse, $end_verse);
