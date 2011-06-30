@@ -166,11 +166,12 @@ function addAudioBible() {
       padleft(book, '0', 2) + '_' + 
       book2ENabbrev[book] + '_' +
       padleft(chapter, '0', 3) + '.mp3';
-    console.log('link = ' + link);
     $('<div CLASS=browse-chapter-audio>' +
       '<a HREF=' + link + 
       '>Audio version for this chapter</a></div>')
       .appendTo('#browse-body');
+    // trigger anarchy media
+    Anarchy.Mp3.go();
   }
 }
 // Print data in table style
@@ -223,6 +224,9 @@ var paragraphStyleFn = function(data) {
     data.book + " 第 " + chapterNo + " 章" +
     ((data.title == null) ? "" : "：" + data.title) +
     "</div>").appendTo('#browse-body');
+
+  // Audio bible
+  addAudioBible();
 
   // Put the chapter body into browse-body
   var browseParagraph = $("<div class=browse-paragraph-chapter></div>");
@@ -603,8 +607,7 @@ function glossaryIndex(stroke) {
           return link;
         }).join(" ");
         $(links).appendTo(glossary);
-        console.log('links = ' + links);
-        
+                
         // word definition
         $("<div class=glossary-definition>" + 
           word.definition +

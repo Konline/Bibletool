@@ -10,7 +10,7 @@ For non-WP pages call script in <HEAD>:
 */
 // Configure plugin options below
 
-var anarchy_url = 'web/anarchy_media' // http address for the anarchy-media folder (no trailing slash).
+var anarchy_url = webroot+'/web/anarchy_media' // http address for the anarchy-media folder (no trailing slash).
 var accepted_domains=new Array('localhost', 'konline.org'); 	// OPTIONAL - Restrict script use to your domains. Add root domain name (minus 'http' or 'www') in quotes, add extra domains in quotes and separated by comma.
 var viddownloadLink = 'none'	// Download link for flv and wmv links: One of 'none' (to turn downloading off) or 'inline' to display the link. ***Use $qtkiosk for qt***.
 
@@ -80,67 +80,67 @@ if (!accepted_ok) {
 /* --------------------- Flash MP3 audio player ----------------------- */
 if(typeof(Anarchy) == 'undefined') Anarchy = {}
 Anarchy.Mp3 = {
-	playimg: null,
-	player: null,
-	go: function() {
-		var all = document.getElementsByTagName('a')
-		for (var i = 0, o; o = all[i]; i++) {
-			if(o.href.match(/\.mp3$/i) && o.className!="amplink") {
-				o.style.display = mp3downloadLink
-				var img = document.createElement('img')
-				img.src = anarchy_url+'/images/audio_mp3_play.gif'; img.title = 'Click to listen'
-				img.style.margin = mp3imgmargin
-				img.style.border = 'none'
-				img.style.cursor = 'pointer'
-				img.onclick = Anarchy.Mp3.makeToggle(img, o.href)
-				o.parentNode.insertBefore(img, o)
-	}}},
-	toggle: function(img, url) {
-		if (Anarchy.Mp3.playimg == img) Anarchy.Mp3.destroy()
-		else {
-			if (Anarchy.Mp3.playimg) Anarchy.Mp3.destroy()
-			img.src = anarchy_url+'/images/audio_mp3_stop.gif'; Anarchy.Mp3.playimg = img;
-			Anarchy.Mp3.player = document.createElement('span')
-			Anarchy.Mp3.player.innerHTML = '<br /><object style="'+mp3playerstyle+'" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"' +
-			'codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"' +
-			'width="290" height="24" id="player" align="middle">' +
-			'<param name="wmode" value="transparent" />' +
-			'<param name="allowScriptAccess" value="sameDomain" />' +
-			'<param name="flashVars" value="bg=0x'+playerbg+'&amp;leftbg=0x'+playerleftbg+'&amp;rightbg=0x'+playerrightbg+'&amp;rightbghover=0x'+playerrightbghover+'&amp;lefticon=0x'+playerlefticon+'&amp;righticon=0x'+playerrighticon+'&amp;righticonhover=0x'+playerrighticonhover+'&amp;text=0x'+playertext+'&amp;slider=0x'+playerslider+'&amp;track=0x'+playertrack+'&amp;loader=0x'+playerloader+'&amp;border=0x'+playerborder+'&amp;autostart=yes&amp;loop='+playerloop+'&amp;soundFile='+url+'" />' +
-			'<param name="movie" value="'+anarchy_url+'/player.swf" /><param name="quality" value="high" />' +
-			'<embed style="'+mp3playerstyle+'" src="'+anarchy_url+'/player.swf" flashVars="bg=0x'+playerbg+'&amp;leftbg=0x'+playerleftbg+'&amp;rightbg=0x'+playerrightbg+'&amp;rightbghover=0x'+playerrightbghover+'&amp;lefticon=0x'+playerlefticon+'&amp;righticon=0x'+playerrighticon+'&amp;righticonhover=0x'+playerrighticonhover+'&amp;text=0x'+playertext+'&amp;slider=0x'+playerslider+'&amp;track=0x'+playertrack+'&amp;loader=0x'+playerloader+'&amp;border=0x'+playerborder+'&amp;autostart=yes&amp;loop='+playerloop+'&amp;soundFile='+url+'" '+
-			'quality="high" wmode="transparent" width="290" height="24" name="player"' +
-			'align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"' +
-			' pluginspage="http://www.macromedia.com/go/getflashplayer" /></object><br />'
-			img.parentNode.insertBefore(Anarchy.Mp3.player, img.nextSibling)
-	}},
-	destroy: function() {
-		Anarchy.Mp3.playimg.src = anarchy_url+'/images/audio_mp3_play.gif'; Anarchy.Mp3.playimg = null
-		Anarchy.Mp3.player.removeChild(Anarchy.Mp3.player.firstChild); Anarchy.Mp3.player.parentNode.removeChild(Anarchy.Mp3.player); Anarchy.Mp3.player = null
-	},
-	makeToggle: function(img, url) { return function(){ Anarchy.Mp3.toggle(img, url) }}
+  playimg: null,
+  player: null,
+  go: function() {
+    var all = document.getElementsByTagName('a');
+    for (var i = 0, o; o = all[i]; i++) {
+      if(o.href.match(/\.mp3$/i) && o.className!="amplink") {
+	o.style.display = mp3downloadLink
+	var img = document.createElement('img')
+	img.src = anarchy_url+'/images/audio_mp3_play.gif'; img.title = 'Click to listen'
+	img.style.margin = mp3imgmargin
+	img.style.border = 'none'
+	img.style.cursor = 'pointer'
+	img.onclick = Anarchy.Mp3.makeToggle(img, o.href)
+	o.parentNode.insertBefore(img, o)
+      }}},
+  toggle: function(img, url) {
+    if (Anarchy.Mp3.playimg == img) Anarchy.Mp3.destroy()
+    else {
+      if (Anarchy.Mp3.playimg) Anarchy.Mp3.destroy()
+      img.src = anarchy_url+'/images/audio_mp3_stop.gif'; Anarchy.Mp3.playimg = img;
+      Anarchy.Mp3.player = document.createElement('span')
+      Anarchy.Mp3.player.innerHTML = '<br /><object style="'+mp3playerstyle+'" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"' +
+	'codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"' +
+	'width="290" height="24" id="player" align="middle">' +
+	'<param name="wmode" value="transparent" />' +
+	'<param name="allowScriptAccess" value="sameDomain" />' +
+	'<param name="flashVars" value="bg=0x'+playerbg+'&amp;leftbg=0x'+playerleftbg+'&amp;rightbg=0x'+playerrightbg+'&amp;rightbghover=0x'+playerrightbghover+'&amp;lefticon=0x'+playerlefticon+'&amp;righticon=0x'+playerrighticon+'&amp;righticonhover=0x'+playerrighticonhover+'&amp;text=0x'+playertext+'&amp;slider=0x'+playerslider+'&amp;track=0x'+playertrack+'&amp;loader=0x'+playerloader+'&amp;border=0x'+playerborder+'&amp;autostart=yes&amp;loop='+playerloop+'&amp;soundFile='+url+'" />' +
+	'<param name="movie" value="'+anarchy_url+'/player.swf" /><param name="quality" value="high" />' +
+	'<embed style="'+mp3playerstyle+'" src="'+anarchy_url+'/player.swf" flashVars="bg=0x'+playerbg+'&amp;leftbg=0x'+playerleftbg+'&amp;rightbg=0x'+playerrightbg+'&amp;rightbghover=0x'+playerrightbghover+'&amp;lefticon=0x'+playerlefticon+'&amp;righticon=0x'+playerrighticon+'&amp;righticonhover=0x'+playerrighticonhover+'&amp;text=0x'+playertext+'&amp;slider=0x'+playerslider+'&amp;track=0x'+playertrack+'&amp;loader=0x'+playerloader+'&amp;border=0x'+playerborder+'&amp;autostart=yes&amp;loop='+playerloop+'&amp;soundFile='+url+'" '+
+	'quality="high" wmode="transparent" width="290" height="24" name="player"' +
+	'align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"' +
+	' pluginspage="http://www.macromedia.com/go/getflashplayer" /></object><br />'
+      img.parentNode.insertBefore(Anarchy.Mp3.player, img.nextSibling)
+    }},
+  destroy: function() {
+    Anarchy.Mp3.playimg.src = anarchy_url+'/images/audio_mp3_play.gif'; Anarchy.Mp3.playimg = null
+    Anarchy.Mp3.player.removeChild(Anarchy.Mp3.player.firstChild); Anarchy.Mp3.player.parentNode.removeChild(Anarchy.Mp3.player); Anarchy.Mp3.player = null
+  },
+  makeToggle: function(img, url) { return function(){ Anarchy.Mp3.toggle(img, url) }}
 }
 
 /* ----------------- Flash flv video player ----------------------- */
 
 if(typeof(Anarchy) == 'undefined') Anarchy = {}
 Anarchy.FLV = {
-	go: function() {
-		var all = document.getElementsByTagName('a')
-		for (var i = 0, o; o = all[i]; i++) {
-			if(o.href.match(/\.flv$/i) && o.className!="amplink") {
-			o.style.display = viddownloadLink
-			url = o.href
-			var flvplayer = document.createElement('span')
-			flvplayer.innerHTML = '<object type="application/x-shockwave-flash" wmode="transparent" data="'+anarchy_url+'/flvplayer.swf?click='+anarchy_url+'/images/flvplaybutton.jpg&file='+url+'&showfsbutton='+flvfullscreen+'" height="'+flvheight+'" width="'+flvwidth+'">' +
-			'<param name="movie" value="'+anarchy_url+'/flvplayer.swf?click='+anarchy_url+'/images/flvplaybutton.jpg&file='+url+'&showfsbutton='+flvfullscreen+'"> <param name="wmode" value="transparent">' +
-			'<embed src="'+anarchy_url+'/flvplayer.swf?file='+url+'&click='+anarchy_url+'/images/flvplaybutton.jpg&&showfsbutton='+flvfullscreen+'" ' + 
-			'width="'+flvwidth+'" height="'+flvheight+'" name="flvplayer" align="middle" ' + 
-			'play="true" loop="false" quality="high" allowScriptAccess="sameDomain" ' +
-			'type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">' + 
-			'</embed></object><br />'
-			o.parentNode.insertBefore(flvplayer, o)
-	}}}}
+  go: function() {
+    var all = document.getElementsByTagName('a')
+    for (var i = 0, o; o = all[i]; i++) {
+      if(o.href.match(/\.flv$/i) && o.className!="amplink") {
+	o.style.display = viddownloadLink
+	url = o.href
+	var flvplayer = document.createElement('span')
+	flvplayer.innerHTML = '<object type="application/x-shockwave-flash" wmode="transparent" data="'+anarchy_url+'/flvplayer.swf?click='+anarchy_url+'/images/flvplaybutton.jpg&file='+url+'&showfsbutton='+flvfullscreen+'" height="'+flvheight+'" width="'+flvwidth+'">' +
+	  '<param name="movie" value="'+anarchy_url+'/flvplayer.swf?click='+anarchy_url+'/images/flvplaybutton.jpg&file='+url+'&showfsbutton='+flvfullscreen+'"> <param name="wmode" value="transparent">' +
+	  '<embed src="'+anarchy_url+'/flvplayer.swf?file='+url+'&click='+anarchy_url+'/images/flvplaybutton.jpg&&showfsbutton='+flvfullscreen+'" ' + 
+	  'width="'+flvwidth+'" height="'+flvheight+'" name="flvplayer" align="middle" ' + 
+	  'play="true" loop="false" quality="high" allowScriptAccess="sameDomain" ' +
+	  'type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer">' + 
+	  '</embed></object><br />'
+	o.parentNode.insertBefore(flvplayer, o)
+      }}}}
 
 /* ----------------------- QUICKTIME DETECT --------------------------- 
 // Bits of code by Chris Nott (chris[at]dithered[dot]com) and
@@ -148,214 +148,215 @@ Anarchy.FLV = {
 --------------------------------------------------------------------- */
 
 function getQuicktimeVersion() {
-var n=navigator;
-var nua=n.userAgent;
-var saf=(nua.indexOf('Safari')!=-1);
-var quicktimeVersion = 0;
+  var n=navigator;
+  var nua=n.userAgent;
+  var saf=(nua.indexOf('Safari')!=-1);
+  var quicktimeVersion = 0;
 
-if (saf) {
-quicktimeVersion='9.0';
-}
-else {	
-var agent = navigator.userAgent.toLowerCase(); 
-	
-	// NS3+, Opera3+, IE5+ Mac (support plugin array):  check for Quicktime plugin in plugin array
-	if (navigator.plugins != null && navigator.plugins.length > 0) {
+  if (saf) {
+    quicktimeVersion='9.0';
+  }
+  else {	
+    var agent = navigator.userAgent.toLowerCase(); 
+    
+    // NS3+, Opera3+, IE5+ Mac (support plugin array):  check for Quicktime plugin in plugin array
+    if (navigator.plugins != null && navigator.plugins.length > 0) {
       for (i=0; i < navigator.plugins.length; i++ ) {
-         var plugin =navigator.plugins[i];
-         if (plugin.name.indexOf("QuickTime") > -1) {
-            quicktimeVersion = parseFloat(plugin.name.substring(18));
-         }
+        var plugin =navigator.plugins[i];
+        if (plugin.name.indexOf("QuickTime") > -1) {
+          quicktimeVersion = parseFloat(plugin.name.substring(18));
+        }
       }
-	}
-   	else if (window.ActiveXObject) {
-		execScript('on error resume next: qtObj = IsObject(CreateObject("QuickTime.QuickTime.4"))','VBScript');
-			if (qtObj == true) {
-				quicktimeVersion = 100;
-				}
-			else {
-				quicktimeVersion = 0;
-			}
-		}
-	}
-	return quicktimeVersion;
+    }
+    else if (window.ActiveXObject) {
+      execScript('on error resume next: qtObj = IsObject(CreateObject("QuickTime.QuickTime.4"))','VBScript');
+      if (qtObj == true) {
+	quicktimeVersion = 100;
+      }
+      else {
+	quicktimeVersion = 0;
+      }
+    }
+  }
+  return quicktimeVersion;
 }
 
 /* ----------------------- Quicktime player ------------------------ */
 
 if(typeof(Anarchy) == 'undefined') Anarchy = {}
 Anarchy.MOV = {
-	playimg: null,
-	player: null,
-	go: function() {
-		var all = document.getElementsByTagName('a')
-		Anarchy.MOV.preview_images = { }
-		for (var i = 0, o; o = all[i]; i++) {
-			if(o.href.match(/\.mov$|\.mp4$|\.m4v$|\.m4b$|\.3gp$/i) && o.className!="amplink") {
-				o.style.display = 'none'
-				var img = document.createElement('img')
-				Anarchy.MOV.preview_images[i] = document.createElement('img') ;
-				Anarchy.MOV.preview_images[i].src = o.href + '.jpg' ;
-				Anarchy.MOV.preview_images[i].defaultImg = img ;
-				Anarchy.MOV.preview_images[i].replaceDefault = function() {
-				  this.defaultImg.src = this.src ; 
-				}
-				Anarchy.MOV.preview_images[i].onload = Anarchy.MOV.preview_images[i].replaceDefault ;
-				img.src = anarchy_url+'/images/vid_play.gif'
-				img.title = 'Click to play video'
-				img.style.margin = vidimgmargin
-				img.style.padding = '0px'
-				img.style.display = 'block'
-				img.style.border = 'none'
-				img.style.cursor = 'pointer'
-				img.height = qtheight
-				img.width = qtwidth
-				img.onclick = Anarchy.MOV.makeToggle(img, o.href)
-				o.parentNode.insertBefore(img, o)
-	}}},
-	toggle: function(img, url) {
-		if (Anarchy.MOV.playimg == img) Anarchy.MOV.destroy()
-		else {
-			if (Anarchy.MOV.playimg) Anarchy.MOV.destroy()
-			img.src = anarchy_url+'/images/vid_play.gif'
-			img.style.display = 'none'; 
-			Anarchy.MOV.playimg = img;
-			Anarchy.MOV.player = document.createElement('p')
-			var quicktimeVersion = getQuicktimeVersion()
-			if (quicktimeVersion >= 6) {
-			Anarchy.MOV.player.innerHTML = '<embed src="'+url+'" width="'+qtwidth+'" height="'+qtheight+'" loop="'+qtloop+'" autoplay="true" controller="true" border="0" type="video/quicktime" kioskmode="'+qtkiosk+'" scale="tofit"></embed><br />'
-          img.parentNode.insertBefore(Anarchy.MOV.player, img.nextSibling)
-          }
-		else
-			Anarchy.MOV.player.innerHTML = '<a href="http://www.apple.com/quicktime/download/" target="_blank"><img src="'+anarchy_url+'/images/getqt.jpg"></a>'
-          img.parentNode.insertBefore(Anarchy.MOV.player, img.nextSibling)
-	}},
-	destroy: function() {
-	},
-	makeToggle: function(img, url) { return function(){ Anarchy.MOV.toggle(img, url) }}
+  playimg: null,
+  player: null,
+  go: function() {
+    var all = document.getElementsByTagName('a')
+    Anarchy.MOV.preview_images = { }
+    for (var i = 0, o; o = all[i]; i++) {
+      if(o.href.match(/\.mov$|\.mp4$|\.m4v$|\.m4b$|\.3gp$/i) && o.className!="amplink") {
+	o.style.display = 'none'
+	var img = document.createElement('img')
+	Anarchy.MOV.preview_images[i] = document.createElement('img') ;
+	Anarchy.MOV.preview_images[i].src = o.href + '.jpg' ;
+	Anarchy.MOV.preview_images[i].defaultImg = img ;
+	Anarchy.MOV.preview_images[i].replaceDefault = function() {
+	  this.defaultImg.src = this.src ; 
+	}
+	Anarchy.MOV.preview_images[i].onload = Anarchy.MOV.preview_images[i].replaceDefault ;
+	img.src = anarchy_url+'/images/vid_play.gif'
+	img.title = 'Click to play video'
+	img.style.margin = vidimgmargin
+	img.style.padding = '0px'
+	img.style.display = 'block'
+	img.style.border = 'none'
+	img.style.cursor = 'pointer'
+	img.height = qtheight
+	img.width = qtwidth
+	img.onclick = Anarchy.MOV.makeToggle(img, o.href)
+	o.parentNode.insertBefore(img, o)
+      }}},
+  toggle: function(img, url) {
+    if (Anarchy.MOV.playimg == img) Anarchy.MOV.destroy()
+    else {
+      if (Anarchy.MOV.playimg) Anarchy.MOV.destroy()
+      img.src = anarchy_url+'/images/vid_play.gif'
+      img.style.display = 'none'; 
+      Anarchy.MOV.playimg = img;
+      Anarchy.MOV.player = document.createElement('p')
+      var quicktimeVersion = getQuicktimeVersion()
+      if (quicktimeVersion >= 6) {
+	Anarchy.MOV.player.innerHTML = '<embed src="'+url+'" width="'+qtwidth+'" height="'+qtheight+'" loop="'+qtloop+'" autoplay="true" controller="true" border="0" type="video/quicktime" kioskmode="'+qtkiosk+'" scale="tofit"></embed><br />'
+        img.parentNode.insertBefore(Anarchy.MOV.player, img.nextSibling)
+      }
+      else
+	Anarchy.MOV.player.innerHTML = '<a href="http://www.apple.com/quicktime/download/" target="_blank"><img src="'+anarchy_url+'/images/getqt.jpg"></a>'
+      img.parentNode.insertBefore(Anarchy.MOV.player, img.nextSibling)
+    }},
+  destroy: function() {
+  },
+  makeToggle: function(img, url) { return function(){ Anarchy.MOV.toggle(img, url) }}
 }
 
 /* --------------------- MPEG 4 Audio Quicktime player ---------------------- */
 
 if(typeof(Anarchy) == 'undefined') Anarchy = {}
 Anarchy.M4a = {
-	playimg: null,
-	player: null,
-	go: function() {
-		var all = document.getElementsByTagName('a')
-		for (var i = 0, o; o = all[i]; i++) {
-			if(o.href.match(/\.m4a$/i) && o.className!="amplink") {
-				o.style.display = 'none'
-				var img = document.createElement('img')
-				img.src = anarchy_url+'/images/audio_mp4_play.gif'; img.title = 'Click to listen'
-				img.style.margin = mp3imgmargin
-				img.style.border = 'none'
-				img.style.cursor = 'pointer'
-				img.onclick = Anarchy.M4a.makeToggle(img, o.href)
-				o.parentNode.insertBefore(img, o)
-	}}},
-	toggle: function(img, url) {
-		if (Anarchy.M4a.playimg == img) Anarchy.M4a.destroy()
-		else {
-			if (Anarchy.M4a.playimg) Anarchy.M4a.destroy()
-			img.src = anarchy_url+'/images/audio_mp4_stop.gif'; Anarchy.M4a.playimg = img;
-			Anarchy.M4a.player = document.createElement('p')
-			var quicktimeVersion = getQuicktimeVersion()
-			if (quicktimeVersion >= 6) {
-			Anarchy.M4a.player.innerHTML = '<embed src="'+url+'" width="160" height="16" loop="'+qtloop+'" autoplay="true" controller="true" border="0" type="video/quicktime" kioskmode="'+qtkiosk+'" ></embed><br />'
-          img.parentNode.insertBefore(Anarchy.M4a.player, img.nextSibling)
-          }
-		else
-			Anarchy.M4a.player.innerHTML = '<a href="http://www.apple.com/quicktime/download/" target="_blank"><img src="'+anarchy_url+'/images/getqt.jpg"></a>'
-          img.parentNode.insertBefore(Anarchy.M4a.player, img.nextSibling)
-	}},
-	destroy: function() {
-		Anarchy.M4a.playimg.src = anarchy_url+'/images/audio_mp4_play.gif'; Anarchy.M4a.playimg = null
-		Anarchy.M4a.player.removeChild(Anarchy.M4a.player.firstChild); Anarchy.M4a.player.parentNode.removeChild(Anarchy.M4a.player); Anarchy.M4a.player = null
-	},
-	makeToggle: function(img, url) { return function(){ Anarchy.M4a.toggle(img, url) }}
+  playimg: null,
+  player: null,
+  go: function() {
+    var all = document.getElementsByTagName('a')
+    for (var i = 0, o; o = all[i]; i++) {
+      if(o.href.match(/\.m4a$/i) && o.className!="amplink") {
+	o.style.display = 'none'
+	var img = document.createElement('img')
+	img.src = anarchy_url+'/images/audio_mp4_play.gif'; img.title = 'Click to listen'
+	img.style.margin = mp3imgmargin
+	img.style.border = 'none'
+	img.style.cursor = 'pointer'
+	img.onclick = Anarchy.M4a.makeToggle(img, o.href)
+	o.parentNode.insertBefore(img, o)
+      }}},
+  toggle: function(img, url) {
+    if (Anarchy.M4a.playimg == img) Anarchy.M4a.destroy()
+    else {
+      if (Anarchy.M4a.playimg) Anarchy.M4a.destroy()
+      img.src = anarchy_url+'/images/audio_mp4_stop.gif'; Anarchy.M4a.playimg = img;
+      Anarchy.M4a.player = document.createElement('p')
+      var quicktimeVersion = getQuicktimeVersion()
+      if (quicktimeVersion >= 6) {
+	Anarchy.M4a.player.innerHTML = '<embed src="'+url+'" width="160" height="16" loop="'+qtloop+'" autoplay="true" controller="true" border="0" type="video/quicktime" kioskmode="'+qtkiosk+'" ></embed><br />'
+        img.parentNode.insertBefore(Anarchy.M4a.player, img.nextSibling)
+      }
+      else
+	Anarchy.M4a.player.innerHTML = '<a href="http://www.apple.com/quicktime/download/" target="_blank"><img src="'+anarchy_url+'/images/getqt.jpg"></a>'
+      img.parentNode.insertBefore(Anarchy.M4a.player, img.nextSibling)
+    }},
+  destroy: function() {
+    Anarchy.M4a.playimg.src = anarchy_url+'/images/audio_mp4_play.gif'; Anarchy.M4a.playimg = null
+    Anarchy.M4a.player.removeChild(Anarchy.M4a.player.firstChild); Anarchy.M4a.player.parentNode.removeChild(Anarchy.M4a.player); Anarchy.M4a.player = null
+  },
+  makeToggle: function(img, url) { return function(){ Anarchy.M4a.toggle(img, url) }}
 }
 
 /* ----------------------- WMV player -------------------------- */
 
 if(typeof(Anarchy) == 'undefined') Anarchy = {}
 Anarchy.WMV = {
-	playimg: null,
-	player: null,
-	go: function() {
-		var all = document.getElementsByTagName('a')
-		for (var i = 0, o; o = all[i]; i++) {
-			if(o.href.match(/\.asf$|\.avi$|\.wmv$/i) && o.className!="amplink") {
-				o.style.display = viddownloadLink
-				var img = document.createElement('img')
-				img.src = anarchy_url+'/images/vid_play.gif'; img.title = 'Click to play video'
-				img.style.margin = '0px'
-				img.style.padding = '0px'
-				img.style.display = 'block'
-				img.style.border = 'none'
-				img.style.cursor = 'pointer'
-				img.height = qtheight
-				img.width = qtwidth
-				img.onclick = Anarchy.WMV.makeToggle(img, o.href)
-				o.parentNode.insertBefore(img, o)
-	}}},
-	toggle: function(img, url) {
-		if (Anarchy.WMV.playimg == img) Anarchy.WMV.destroy()
-		else {
-			  if (Anarchy.WMV.playimg) Anarchy.WMV.destroy()
-			  img.src = anarchy_url+'/images/vid_play.gif'
-			  img.style.display = 'none'; 
-			  Anarchy.WMV.playimg = img;
-			  Anarchy.WMV.player = document.createElement('span')
-			  if(navigator.userAgent.indexOf('Mac') != -1) {
-			  Anarchy.WMV.player.innerHTML = '<embed src="'+url+'" width="'+qtwidth+'" height="'+qtheight+'" loop="'+qtloop+'" autoplay="true" controller="true" border="0" type="video/quicktime" kioskmode="'+qtkiosk+'" scale="tofit" pluginspage="http://www.apple.com/quicktime/download/"></embed><br />'
-			  img.parentNode.insertBefore(Anarchy.WMV.player, img.nextSibling)
-			  } else {
-			  if (navigator.plugins && navigator.plugins.length) {
-			  Anarchy.WMV.player.innerHTML = '<embed type="application/x-mplayer2" src="'+url+'" ' +
-			  'showcontrols="1" ShowStatusBar="1" autostart="1" displaySize="4"' +
-			  'pluginspage="http://www.microsoft.com/Windows/Downloads/Contents/Products/MediaPlayer/"' +
-			  'width="'+wmvwidth+'" height="'+wmvheight+'">' +
-			  '</embed><br />'
-			  img.parentNode.insertBefore(Anarchy.WMV.player, img.nextSibling)
-			  } else {
-				Anarchy.WMV.player.innerHTML = '<object classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="'+wmvwidth+'" height="'+wmvheight+'" id="player"> ' +
-			  '<param name="url" value="'+url+'" /> ' +
-			  '<param name="autoStart" value="True" /> ' +
-			  '<param name="stretchToFit" value="True" /> ' +
-			  '<param name="showControls" value="True" /> ' +
-			  '<param name="ShowStatusBar" value="True" /> ' +
-			  '<embed type="application/x-mplayer2" src="'+url+'" ' +
-			  'showcontrols="1" ShowStatusBar="1" autostart="1" displaySize="4"' +
-			  'pluginspage="http://www.microsoft.com/Windows/Downloads/Contents/Products/MediaPlayer/"' +
-			  'width="'+wmvwidth+'" height="'+wmvheight+'">' +
-			  '</embed>' +
-			  '</object><br />'
-			  img.parentNode.insertBefore(Anarchy.WMV.player, img.nextSibling)
-			  }}
-	}},
-	destroy: function() {
-		Anarchy.WMV.playimg.src = anarchy_url+'/images/vid_play.gif'
-		Anarchy.WMV.playimg.style.display = 'inline'; Anarchy.WMV.playimg = null
-		Anarchy.WMV.player.removeChild(Anarchy.WMV.player.firstChild); 
-		Anarchy.WMV.player.parentNode.removeChild(Anarchy.WMV.player); 
-		Anarchy.WMV.player = null
-	},
-	makeToggle: function(img, url) { return function(){ Anarchy.WMV.toggle(img, url) }}
+  playimg: null,
+  player: null,
+  go: function() {
+    var all = document.getElementsByTagName('a')
+    for (var i = 0, o; o = all[i]; i++) {
+      if(o.href.match(/\.asf$|\.avi$|\.wmv$/i) && o.className!="amplink") {
+	o.style.display = viddownloadLink
+	var img = document.createElement('img')
+	img.src = anarchy_url+'/images/vid_play.gif'; img.title = 'Click to play video'
+	img.style.margin = '0px'
+	img.style.padding = '0px'
+	img.style.display = 'block'
+	img.style.border = 'none'
+	img.style.cursor = 'pointer'
+	img.height = qtheight
+	img.width = qtwidth
+	img.onclick = Anarchy.WMV.makeToggle(img, o.href)
+	o.parentNode.insertBefore(img, o)
+      }}},
+  toggle: function(img, url) {
+    if (Anarchy.WMV.playimg == img) Anarchy.WMV.destroy()
+    else {
+      if (Anarchy.WMV.playimg) Anarchy.WMV.destroy()
+      img.src = anarchy_url+'/images/vid_play.gif'
+      img.style.display = 'none'; 
+      Anarchy.WMV.playimg = img;
+      Anarchy.WMV.player = document.createElement('span')
+      if(navigator.userAgent.indexOf('Mac') != -1) {
+	Anarchy.WMV.player.innerHTML = '<embed src="'+url+'" width="'+qtwidth+'" height="'+qtheight+'" loop="'+qtloop+'" autoplay="true" controller="true" border="0" type="video/quicktime" kioskmode="'+qtkiosk+'" scale="tofit" pluginspage="http://www.apple.com/quicktime/download/"></embed><br />'
+	img.parentNode.insertBefore(Anarchy.WMV.player, img.nextSibling)
+      } else {
+	if (navigator.plugins && navigator.plugins.length) {
+	  Anarchy.WMV.player.innerHTML = '<embed type="application/x-mplayer2" src="'+url+'" ' +
+	    'showcontrols="1" ShowStatusBar="1" autostart="1" displaySize="4"' +
+	    'pluginspage="http://www.microsoft.com/Windows/Downloads/Contents/Products/MediaPlayer/"' +
+	    'width="'+wmvwidth+'" height="'+wmvheight+'">' +
+	    '</embed><br />'
+	  img.parentNode.insertBefore(Anarchy.WMV.player, img.nextSibling)
+	} else {
+	  Anarchy.WMV.player.innerHTML = '<object classid="CLSID:6BF52A52-394A-11d3-B153-00C04F79FAA6" width="'+wmvwidth+'" height="'+wmvheight+'" id="player"> ' +
+	    '<param name="url" value="'+url+'" /> ' +
+	    '<param name="autoStart" value="True" /> ' +
+	    '<param name="stretchToFit" value="True" /> ' +
+	    '<param name="showControls" value="True" /> ' +
+	    '<param name="ShowStatusBar" value="True" /> ' +
+	    '<embed type="application/x-mplayer2" src="'+url+'" ' +
+	    'showcontrols="1" ShowStatusBar="1" autostart="1" displaySize="4"' +
+	    'pluginspage="http://www.microsoft.com/Windows/Downloads/Contents/Products/MediaPlayer/"' +
+	    'width="'+wmvwidth+'" height="'+wmvheight+'">' +
+	    '</embed>' +
+	    '</object><br />'
+	  img.parentNode.insertBefore(Anarchy.WMV.player, img.nextSibling)
+	}}
+    }},
+  destroy: function() {
+    Anarchy.WMV.playimg.src = anarchy_url+'/images/vid_play.gif'
+    Anarchy.WMV.playimg.style.display = 'inline'; Anarchy.WMV.playimg = null
+    Anarchy.WMV.player.removeChild(Anarchy.WMV.player.firstChild); 
+    Anarchy.WMV.player.parentNode.removeChild(Anarchy.WMV.player); 
+    Anarchy.WMV.player = null
+  },
+  makeToggle: function(img, url) { return function(){ Anarchy.WMV.toggle(img, url) }}
 }
 
 /* ----------------- Trigger players onload ----------------------- */
 
-Anarchy.addLoadEvent = function(f) { var old = window.onload
-	if (typeof old != 'function') window.onload = f
-	else { window.onload = function() { old(); f() }}
-}
+// Don't trigger player onload because MP3 is loaded via jQuery
+// Anarchy.addLoadEvent = function(f) { var old = window.onload
+//	if (typeof old != 'function') window.onload = f
+//	else { window.onload = function() { old(); f() }}
+//}
 
-Anarchy.addLoadEvent(Anarchy.Mp3.go)
-Anarchy.addLoadEvent(Anarchy.FLV.go)
-Anarchy.addLoadEvent(Anarchy.MOV.go)
-Anarchy.addLoadEvent(Anarchy.M4a.go)
-Anarchy.addLoadEvent(Anarchy.WMV.go)
+//Anarchy.addLoadEvent(Anarchy.Mp3.go)
+///Anarchy.addLoadEvent(Anarchy.FLV.go)
+//Anarchy.addLoadEvent(Anarchy.MOV.go)
+//Anarchy.addLoadEvent(Anarchy.M4a.go)
+//Anarchy.addLoadEvent(Anarchy.WMV.go)
 
 /**
  * SWFObject v1.5: Flash Player detection and embed - http://blog.deconcept.com/swfobject/
