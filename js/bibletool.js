@@ -10,6 +10,9 @@ var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
                               4, 4, 5, 3, 6, 4, 3, 1, 13, 5,
                               5, 3, 5, 1, 1, 1, 22);
 
+// book number to abbreviation. 0th entry is dummy
+var book2abbrev = new Array( '', '創', '出', '利', '民', '申', '書', '士', '得', '撒上', '撒下', '王上', '王下', '代上', '代下', '拉', '尼', '斯', '伯', '詩', '箴', '傳', '歌', '賽', '耶', '哀', '結', '但', '何', '珥', '摩', '俄', '拿', '彌', '鴻', '哈', '番', '該', '亞', '瑪', '太', '可', '路', '約', '徒', '羅', '林前', '林後', '加', '弗', '腓', '西', '帖前', '帖後', '提前', '提後', '多', '門', '來', '雅', '彼前', '彼後', '約壹', '約貳', '約參', '猶', '啟');
+
 // Variable to hold the current style
 var currentStyle;
 
@@ -550,11 +553,25 @@ function glossaryIndex(stroke) {
           word.chinese + 
           (word.english ? ' (' + word.english + ')' : "") +
           "</div>").appendTo(glossary);
-        
-        // verses (TODO)
-        $.map(word.verses, function(v, idx) {
-          return v;
-        }).join(";");
+       
+        // verses
+        var links = $.map(word.verses, function(v, idx) {
+          var book = v[0];
+          var name = book2abbrev[book];
+          var chapter = v[1];
+          var start = v[2];
+          var end = v[3];
+          var link = '<a href=' + 
+            webroot + '/browse/UCV:' + 
+            book + ':' + chapter + ':' + start +
+            (start == end ? "" : '-' + end) +
+            '>' + name + ' ' + chapter + ':' +
+            start + (start==end ? '' : '-' + end) +
+            '</a>';
+          return link;
+        }).join(" ");
+        $(links).appendTo(glossary);
+        console.log('links = ' + links);
         
         // word definition
         $("<div class=glossary-definition>" + 
