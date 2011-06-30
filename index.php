@@ -32,7 +32,7 @@ switch ($action)
 		break;
 
 	case 'glossary':
-		if ($_REQUEST['index'] || $_REQUEST['stroke'] || $_REQUEST['word'])
+		if ($_REQUEST['index'] || $_REQUEST['stroke'] || $_REQUEST['word'] || $_REQUEST['ranges'])
 		{
 			require_once 'Action_Glossary.php';
 			$controller = new Action_Glossary($bible, $smarty);

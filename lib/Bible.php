@@ -321,6 +321,7 @@ class Bible
 		{
 			$letters[] = $row['letter'];
 		}
+		mysql_free_result($result);
 
 		return array($strokes, $letters);
 	}
@@ -359,6 +360,7 @@ class Bible
 		{
 			$words[] = $row;
 		}
+		mysql_free_result($result);
 
 		return $words;
 	}
@@ -409,6 +411,128 @@ class Bible
 		}
 
 		return $results;
+	}
+
+	/** Get glossary match a given bible range
+	 * @param $book: Integer, book index
+	 * @param $start_verse: Integer, start verse
+	 * @param $end_verse: Integer, end verse
+	 * @return Array of glossaries
+	 */
+	public function getGlossaryByRange($book, $chapter, $start_verse, $end_verse)
+	{
+		$sql = sprintf("
+			SELECT g.chinese AS chinese, g.english AS english, v.book, v.chapter, v.start_verse, v.end_verse
+			FROM glossary g INNER JOIN glossary_verses v ON (g.id=v.glossary_id)
+			WHERE v.book='%s' AND v.chapter='%s' AND v.start_verse >= '%s' AND v.end_verse <= '%s'",
+			mysql_real_escape_string($book),
+			mysql_real_escape_string($chapter),
+			mysql_real_escape_string($start_verse),
+			mysql_real_escape_string($end_verse)
+		);
+
+		$result = mysql_query($sql);
+		if (!$result)
+		{
+			echo "ERROR: Bad query: " . mysql_error();
+			return array();
+		}
+
+		$glossary = array();
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$glossary[] = $row;
+		}
+		mysql_free_result($result);
+
+		return $glossary;
+	}
+
+	/** Parse the various bible range formats supported by retrieve actions
+	 * @param $range: String, bible range
+	 * @return Array($languages, $book, $chapter, $start, $end)
+	 *         null in case of error
+	 */
+	public function parseBibleRange($range)
+	{
+		if (empty($range))
+		{
+			return;
+		}
+
+		$parts = explode(':', $range);
+		$parts_count = count($parts);
+		switch ($parts_count)
+		{
+			case 1:
+				// Invalid range, ignore it
+				continue;
+
+			case 2:
+				// $book:$chapter
+				list($book, $chapter) = $parts;
+				$languages = array('UCV');
+				$start = 1;
+				$end = 1000;
+				break;
+
+			case 3:
+				// $language:$book:$chapter, or
+				//    UCV:GEN:1
+				//    UCV:  1:1
+				// $book:$chapter:$verses
+				//    GEN:  1:1
+				//      1:  1:1
+				$valid_languages = array();
+				foreach ($this->getLanguages() as $lang)
+				{
+					$valid_languages[] = $lang['name'];
+				}
+
+				$languages = array();
+				foreach (explode(',', $parts[0]) as $lang)
+				{
+					if (in_array($lang, $valid_languages))
+					{
+						$languages[] = $lang;
+					}
+				}
+
+				if ($languages)
+				{
+					$languages = explode(',', $parts[0]);
+					$book = $parts[1];
+					$chapter = $parts[2];
+					$start = 1;
+					$end = 1000;
+				}
+				else
+				{
+					$languages = array('UCV');
+					$book = $parts[0];
+					$chapter = $parts[1];
+					list($start, $end) = explode('-', $parts[2]);
+					if (!isset($end))
+						$end = $start;
+				}
+				break;
+
+			case 4:
+				// $language:$book:$chapter:$verses
+				$languages = explode(',', $parts[0]);
+				$book = $parts[1];
+				$chapter = $parts[2];
+				list($start, $end) = explode('-', $parts[3]);
+				if (!isset($end))
+					$end = $start;
+				break;
+
+			default:
+				// Parse error, just ignore it
+				return;
+		}
+
+		return array($languages, $book, $chapter, $start, $end);
 	}
 
 	/** Helper function to parse a verse and extract any annotations,
