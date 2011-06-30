@@ -667,11 +667,18 @@ $(document).ready(function() {
     }
 
     // default URL
-    var defaultURLFn = function() { 
-      onChangeFn(webroot + '/retrieve/' + 
-                 selectedVersion() + ':' + 
-                 selectedBook() + ':' + 
-                 selectedChapter());
+    var defaultURLFn = function() {
+      if ( $(this).attr('id') == 'book' ) {
+        // changing book reset the chapter
+        onChangeFn(webroot + '/retrieve/' + 
+                   selectedVersion() + ':' + 
+                   selectedBook() + ':' + 1); 
+      } else {
+        onChangeFn(webroot + '/retrieve/' + 
+                   selectedVersion() + ':' + 
+                   selectedBook() + ':' + 
+                   selectedChapter());
+      }
     };
     
     // Add the event call backs
@@ -738,7 +745,6 @@ $(document).ready(function() {
       initializeMap(lat, lon);
     });
     // Load the JSON data from the server
-    // biblemap(webroot + '/biblemap/index');
     biblemap(webroot + '/biblemap/index');
   }
 
