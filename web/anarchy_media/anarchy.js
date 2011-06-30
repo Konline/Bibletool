@@ -60,20 +60,21 @@ var vidimgmargin = '0'		// Video image placeholder css margins
 var domaincheck=document.location.href //retrieve the current URL of user browser
 var accepted_ok=false //set acess to false by default
 
-if (domaincheck.indexOf("http")!=-1){ //if this is a http request
-for (r=0;r<accepted_domains.length;r++){
-if (domaincheck.indexOf(accepted_domains[r])!=-1){ //if a match is found
-accepted_ok=true //set access to true, and break out of loop
-break
+if (domaincheck.indexOf("http") != -1) { //if this is a http request
+  for (r=0; r<accepted_domains.length; r++) {
+    if (domaincheck.indexOf(accepted_domains[r]) != -1) { //if a match is found
+      accepted_ok=true //set access to true, and break out of loop
+      break
+    }
+  }
 }
+else {
+  accepted_ok=true
 }
-}
-else
-accepted_ok=true
 
-if (!accepted_ok){
-alert("You\'re not allowed to directly link to this .js file on our server!")
-history.back(-1)
+if (!accepted_ok) {
+  alert("You\'re not allowed to directly link to this .js file on our server!")
+  history.back(-1)
 }
 
 /* --------------------- Flash MP3 audio player ----------------------- */
