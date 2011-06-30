@@ -11,7 +11,8 @@ var chaptersArray = new Array(0, 50, 40, 27, 36, 34, 24, 21, 4, 31,
                               5, 3, 5, 1, 1, 1, 22);
 
 // book number to abbreviation. 0th entry is dummy
-var book2abbrev = new Array( '', '創', '出', '利', '民', '申', '書', '士', '得', '撒上', '撒下', '王上', '王下', '代上', '代下', '拉', '尼', '斯', '伯', '詩', '箴', '傳', '歌', '賽', '耶', '哀', '結', '但', '何', '珥', '摩', '俄', '拿', '彌', '鴻', '哈', '番', '該', '亞', '瑪', '太', '可', '路', '約', '徒', '羅', '林前', '林後', '加', '弗', '腓', '西', '帖前', '帖後', '提前', '提後', '多', '門', '來', '雅', '彼前', '彼後', '約壹', '約貳', '約參', '猶', '啟');
+var book2CNabbrev = new Array( '', '創', '出', '利', '民', '申', '書', '士', '得', '撒上', '撒下', '王上', '王下', '代上', '代下', '拉', '尼', '斯', '伯', '詩', '箴', '傳', '歌', '賽', '耶', '哀', '結', '但', '何', '珥', '摩', '俄', '拿', '彌', '鴻', '哈', '番', '該', '亞', '瑪', '太', '可', '路', '約', '徒', '羅', '林前', '林後', '加', '弗', '腓', '西', '帖前', '帖後', '提前', '提後', '多', '門', '來', '雅', '彼前', '彼後', '約壹', '約貳', '約參', '猶', '啟');
+var book2ENabbrev = new Array('', 'GEN', 'EXO', 'LEV', 'NUM', 'DEU', 'JOS', 'JUG', 'RUT', '1SA', '2SA', '1KI', '2KI', '1CH', '2CH', 'EZR', 'NEH', 'EST', 'JOB', 'PSM', 'PRO', 'ECC', 'SON', 'ISA', 'JER', 'LAM', 'EZE', 'DAN', 'HOS', 'JOE', 'AMO', 'OBA', 'JON', 'MIC', 'NAH', 'HAB', 'ZEP', 'HAG', 'ZEC', 'MAL', 'MAT', 'MAK', 'LUK', 'JHN', 'ACT', 'ROM', '1CO', '2CO', 'GAL', 'EPH', 'PHL', 'COL', '1TS', '2TS', '1TI', '2TI', 'TIT', 'PHM', 'HEB', 'JAS', '1PE', '2PE', '1JN', '2JN', '3JN', 'JUD', 'REV');
 
 // Variable to hold the current style
 var currentStyle;
@@ -144,6 +145,34 @@ var rangeStyleFn = function(data) {
   }// get the first entry from data
 }
 
+// Add audio bible to browse-body
+function addAudioBible() {
+  var version = selectedVersion();
+  var book = selectedBook();
+  var chapter = selectedChapter();
+  var padleft = function (val, ch, num) {
+    var re = new RegExp(".{" + num + "}$");
+    var pad = "";
+    if (!ch) ch = " ";
+    do  {
+      pad += ch;
+    }while(pad.length < num);
+    return re.exec(pad + val)[0];
+  }
+
+  if ( version == 'UCV' || version == 'KJV') {
+    var link = 'http://konline.org/bibletool/audiobible/' +
+      version + "/" + 
+      padleft(book, '0', 2) + '_' + 
+      book2ENabbrev[book] + '_' +
+      padleft(chapter, '0', 3) + '.mp3';
+    console.log('link = ' + link);
+    $('<div CLASS=browse-chapter-audio>' +
+      '<a HREF=' + link + 
+      '>Audio version for this chapter</a></div>')
+      .appendTo('#browse-body');
+  }
+}
 // Print data in table style
 var tableStyleFn = function(data) {
   // get the first entry from data
@@ -157,6 +186,9 @@ var tableStyleFn = function(data) {
     data.book + " 第 " + chapterNo + " 章" +
     ((data.title == null) ? "" : "：" + data.title) +
     "</div>").appendTo('#browse-body');
+
+  // Audio bible
+  addAudioBible();
 
   // Put the chapter body into browse-body
   var browseTable = $("<div class=browse-table-chapter></div>");
@@ -557,7 +589,7 @@ function glossaryIndex(stroke) {
         // verses
         var links = $.map(word.verses, function(v, idx) {
           var book = v[0];
-          var name = book2abbrev[book];
+          var name = book2CNabbrev[book];
           var chapter = v[1];
           var start = v[2];
           var end = v[3];
