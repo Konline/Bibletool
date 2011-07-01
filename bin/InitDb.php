@@ -32,6 +32,8 @@ foreach ($glossaries as $file)
 
 LoadSubjects();
 
+echo "Done\n";
+
 exit;
 
 
@@ -169,6 +171,10 @@ function LoadLanguages()
 		}
 		fclose($inf);
 	}
+
+	// Update bible data timestamp
+	$sql = "INSERT INTO cache_versions (entity, ts) VALUES ('languages', NOW()) ON DUPLICATE KEY UPDATE ts = NOW()";
+	mysql_query($sql);
 }
 
 function LoadGlossary($filename)
@@ -220,6 +226,10 @@ function LoadGlossary($filename)
 			}
 		}
 	}
+
+	// Update glossary data timestamp
+	$sql = "INSERT INTO cache_versions (entity, ts) VALUES ('glossary', NOW()) ON DUPLICATE KEY UPDATE ts = NOW()";
+	mysql_query($sql);
 }
 
 function LoadSubjects()
@@ -303,6 +313,10 @@ function LoadSubjects()
 			}
 		}
 	}
+
+	// Update subjects data timestamp
+	$sql = "INSERT INTO cache_versions (entity, ts) VALUES ('subjects', NOW()) ON DUPLICATE KEY UPDATE ts = NOW()";
+	mysql_query($sql);
 }
 
 function ParseVerse($bible, $verse)

@@ -1,5 +1,6 @@
 -- Bibletool schema
 
+DROP TABLE IF EXISTS cache_versions;
 DROP TABLE IF EXISTS subject_verses;
 DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS glossary_verses;
@@ -103,5 +104,13 @@ CREATE TABLE subject_verses (
 	end_verse   INTEGER NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(subject_id) REFERENCES subjects(id)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE cache_versions (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	entity      VARCHAR(50) NOT NULL,
+	ts          INTEGER NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(entity)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 

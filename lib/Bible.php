@@ -535,6 +535,26 @@ class Bible
 		return array($languages, $book, $chapter, $start, $end);
 	}
 
+	/** Return update timestamp of the entity
+	 * @param $entity: String, cache entity
+	 * @return Integer, Unix timestamp
+	 */
+	public function getCacheTimestamp($entity)
+	{
+		if (empty($entity))
+			return 0;
+
+		$sql = sprintf("SELECT ts FROM cache_versions WHERE entity='%s'",
+			mysql_real_escape_string($entity));
+		$result = mysql_query($sql);
+		$row = mysql_fetch_assoc($result);
+		if ($row)
+		{
+			return $row['ts'];
+		}
+		return 0;
+	}
+
 	/** Helper function to parse a verse and extract any annotations,
 	 * such as red letter, or subtitles in the verse
 	 * @param $verse: Array, a verse

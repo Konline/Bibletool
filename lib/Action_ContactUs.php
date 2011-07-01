@@ -10,6 +10,13 @@ class Action_ContactUs extends Action_Base
 	const RECIPIENT = 'yaoyao@gmail.com,kojung@gmail.com';
 	const SUBJECT = 'Feedback from Bibletool';
 
+	public function __construct($bible, $smarty)
+	{
+		parent::__construct($bible, $smarty);
+		$this->cacheable = true;
+		$this->cache_file = __FILE__;
+	}
+
 	public function process()
 	{
 		$posting = $_REQUEST['posting'];

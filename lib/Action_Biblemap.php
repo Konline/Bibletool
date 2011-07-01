@@ -9,8 +9,8 @@ class Action_Biblemap extends Action_Base
 	public function __construct($bible, $smarty)
 	{
 		parent::__construct($bible, $smarty);
-		// TODO(koyao): Turn cache back on once we find a way to force cache refresh
-		$this->cacheable = false;
+		$this->cacheable = true;
+		$this->cache_file = dirname(__FILE__) . '/../data/openbible_places.json');
 	}
 
 	/** Return verses in JSON format
