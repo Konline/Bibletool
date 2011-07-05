@@ -285,8 +285,6 @@ var Navigation = {
         return this.value;
       }).get().join(',');
     return versions;
-
-    // $('#version option:selected').val();
   },
 
   selectedBook: function() {
