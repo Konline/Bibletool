@@ -19,10 +19,10 @@ class Action_Glossary extends Action_Base
 	{
 		$stroke = $_REQUEST['stroke'];
 		$word = $_REQUEST['word'];
-		$ranges = explode(';', $_REQUEST['ranges']);
+		$ranges = isset($_REQUEST['ranges']) ? explode(';', $_REQUEST['ranges']) : array();
 		$results = array();
 
-		if (!isset($stroke) && !isset($word) && !empty($ranges))
+		if (!isset($stroke) && !isset($word) && empty($ranges))
 		{
 			// Return index of strokes and letters
 			$results = $this->bible->getGlossaryIndex();
@@ -62,7 +62,10 @@ class Action_Glossary extends Action_Base
 				}
 
 				list($languages, $book, $chapter, $start, $end) = $r;
-				$book = $this->bible->getBookIndex($book);
+				if (!is_numeric($book))
+				{
+					$book = $this->bible->getBookIndex($book);
+				}
 				$results = array_merge($results, $this->bible->getGlossaryByRange($book, $chapter, $start, $end));
 			}
 		}
