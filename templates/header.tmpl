@@ -13,9 +13,10 @@
     <script TYPE="text/javascript" SRC="{$webroot}/js/application.js"></script>
     <script TYPE="text/javascript" SRC="{$webroot}/web/anarchy_media/anarchy.js"></script>
     <script TYPE="text/javascript" SRC="{$webroot}/js/bibletool.js"></script>
-    <script TYPE="text/javascript">
-      action='{$action}'
-    </script>
+    {if $action == 'browse'}
+    <script TYPE="text/javascript" SRC="{$webroot}/js/Navigation.js"></script>
+    <script TYPE="text/javascript" SRC="{$webroot}/js/Browse.js"></script>
+    {/if}
   </head>
   <body>
     <div CLASS="page-header">
