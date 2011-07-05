@@ -22,7 +22,7 @@ class Action_Glossary extends Action_Base
 		$ranges = explode(';', $_REQUEST['ranges']);
 		$results = array();
 
-		if (!isset($stroke) && !isset($word) && !isset($ranges))
+		if (!isset($stroke) && !isset($word) && !empty($ranges))
 		{
 			// Return index of strokes and letters
 			$results = $this->bible->getGlossaryIndex();
