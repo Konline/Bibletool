@@ -10,7 +10,7 @@ class Action_Biblemap extends Action_Base
 	{
 		parent::__construct($bible, $smarty);
 		$this->cacheable = true;
-		$this->cache_file = dirname(__FILE__) . '/../data/openbible_places.json');
+		$this->cache_file = dirname(__FILE__) . '/../data/openbible_places.json';
 	}
 
 	/** Return verses in JSON format
