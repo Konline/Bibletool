@@ -8,6 +8,61 @@ var Navigation = {
   // Function to call whenever user changes the URL
   onChangeFn: null,
   
+  // parse URL fragment and return [[version1,..,versionN], book, chapter]
+  parseURLFragment: function(fragment) {
+    var tokens = fragment.split(':');
+    if ( tokens.length == 1 ) {
+      // invalid URL, default to UCV:1:1
+      return [["UCV"], 1, 1];
+    } else if ( tokens.length == 2) {
+      // GEN:1 or 1:1
+      var book = isNaN(tokens[0]) ? 
+        book2ENabbrev.findIndex(tokens[0]) : parseInt(tokens[0]);
+      var chapter = parseInt(tokens[1]);
+      return [["UCV"], book, chapter];
+    } else if ( tokens.length == 3) {
+      // language:book:chapter, or
+      //    UCV:GEN:1
+      //    UCV:  1:1
+      // book:chapter:verses
+      //    GEN:  1:1
+      //      1:  1:1
+      if ( !isNaN(tokens[0]) ||
+           (isNaN(tokens[0]) && 
+            book2ENabbrev.findIndex(tokens[0]) != "")) {
+        var book = isNaN(tokens[0]) ? 
+          book2ENabbrev.findIndex(tokens[0]) : parseInt(tokens[0]);
+        var chapter = parseInt(tokens[1]);
+        return [["UCV"], book, chapter];
+      } else {
+        var versions = tokens[0].split(',');
+        var book = isNaN(tokens[1]) ? 
+          book2ENabbrev.findIndex(tokens[1]) : parseInt(tokens[1]);
+        var chapter = parseInt(tokens[2]);
+        return [versions, book, chapter];
+      }
+    } else if ( tokens.length == 4 ) {
+      // language:book:chapter:verses
+      if ( !isNaN(tokens[0]) ||
+           (isNaN(tokens[0]) && 
+            book2ENabbrev.findIndex(tokens[0]) != "")) {
+        var book = isNaN(tokens[0]) ? 
+          book2ENabbrev.findIndex(tokens[0]) : parseInt(tokens[0]);
+        var chapter = parseInt(tokens[1]);
+        return [["UCV"], book, chapter];
+      } else {
+        var versions = tokens[0].split(',');
+        var book = isNaN(tokens[1]) ? 
+          book2ENabbrev.findIndex(tokens[1]) : parseInt(tokens[1]);
+        var chapter = parseInt(tokens[2]);
+        return [versions, book, chapter];
+      } 
+    } else {
+      // invalid URL, default to UCV:1:1
+      return [["UCV"], 1, 1];
+    }
+  },
+  
   // Initialize buttons with callbacks
   init: function() {
     var defaultURLFn = function(id) {
@@ -168,7 +223,7 @@ var Navigation = {
         $('<div class="browse-table-verse">' + verseHeader + 
           verseContent + '</div>').appendTo(browseTable);
       });
-    }// get the first entry from data
+    }
   },
 
   // Add audio bible to browse-body
@@ -234,12 +289,6 @@ var Navigation = {
       $('<div class="browse-table-verse">' + verseHeader + 
         verseContent + '</div>').appendTo(browseTable);
     });
-
-    // update the browse toolbar with new book and chapters
-    Navigation.updateSelectWithBook('book', 'chapter');
-    
-    // make the current chapter selected
-    $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
   },
 
   // Print data in paragraph
@@ -278,12 +327,6 @@ var Navigation = {
       $(verseNumber).appendTo(browseParagraph);
       $(verseContent).appendTo(browseParagraph);
     });
-    
-    // update the browse toolbar with new book and chapters
-    Navigation.updateSelectWithBook('book', 'chapter');
-    
-    // make the current chapter selected
-    $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
   },
 
   selectedVersion: function() {
@@ -306,20 +349,16 @@ var Navigation = {
   upArrow: function() {
     var book = parseInt(Navigation.selectedBook());
     if ( book > 1 ) {
-      $("#book option:nth-child(" + book + ")").removeAttr('selected');
-      $("#book option:nth-child(" + (book-1) + ")").attr('selected', 'selected');
       window.location.hash = Navigation.selectedVersion() +
-        ':' + Navigation.selectedBook() + ':' + '1';
+        ':' + (book-1) + ':' + '1';
     }
   },
 
   leftArrow: function() {
     var chapter = parseInt(Navigation.selectedChapter());
     if ( chapter > 1 ) {
-      $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
-      $("#chapter option:nth-child(" + (chapter-1) + ")").attr('selected', 'selected');
       window.location.hash = Navigation.selectedVersion() +
-        ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
+        ':' + Navigation.selectedBook() + ':' + (chapter-1);
     }
   },
 
@@ -327,20 +366,16 @@ var Navigation = {
     var book = parseInt(Navigation.selectedBook());
     var chapter = parseInt(Navigation.selectedChapter());
     if ( chapter < chaptersArray[book] ) {
-      $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
-      $("#chapter option:nth-child(" + (chapter+1) + ")").attr('selected', 'selected');
       window.location.hash = Navigation.selectedVersion() +
-        ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
+        ':' + Navigation.selectedBook() + ':' + (chapter+1);
     }
   },
 
   downArrow: function() {
     var book = parseInt(Navigation.selectedBook());
     if ( book < 66 ) {
-      $("#book option:nth-child(" + book + ")").removeAttr('selected');
-      $("#book option:nth-child(" + (book+1) + ")").attr('selected', 'selected');
       window.location.hash = Navigation.selectedVersion() +
-        ':' + Navigation.selectedBook() + ':' + '1';
+        ':' + (book+1) + ':' + '1';
     }
   },
 
