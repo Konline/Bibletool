@@ -13,9 +13,6 @@ $smarty = new Bible_Smarty($config);
 $action = $_REQUEST['action'];
 $smarty->assign('action', $action);
 
-$jsonURL = $_REQUEST['jsonURL'] ? $_REQUEST['jsonURL'] : 'UCV:1:1';
-$smarty->assign('jsonURL', $jsonURL);
-
 switch ($action)
 {
 	/** API: They should JSON */

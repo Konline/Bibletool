@@ -53,5 +53,4 @@ $(document).ready(function() {
   Navigation.currentStyle = 'table';
   Navigation.onChangeFn = Interlinear.interlinear;
   Navigation.init();
-  Navigation.onChangeFn(jsonURL);
 });

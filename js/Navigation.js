@@ -13,17 +13,26 @@ var Navigation = {
     var defaultURLFn = function(id) {
       if ( id == 'book' ) {
         // changing book reset the chapter
-        Navigation.onChangeFn(webroot + '/retrieve/' + 
-                              Navigation.selectedVersion() + ':' + 
-                              Navigation.selectedBook() + ':' + 1); 
+        window.location.hash = Navigation.selectedVersion() +
+          ':' + Navigation.selectedBook() + ':' + '1';
       } else {
-        Navigation.onChangeFn(webroot + '/retrieve/' + 
-                              Navigation.selectedVersion() + ':' + 
-                              Navigation.selectedBook() + ':' + 
-                              Navigation.selectedChapter());
+        window.location.hash = Navigation.selectedVersion() +
+          ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
       }
     };
     
+    // use URL hash to implement Ajax bookmarking
+    $(window).bind( 'hashchange', function(e) {
+      // the URL is the string after the hash mark, called the
+      // 'fragment' below. If nothing is provided, default to UCV:1:1
+      var fragment = $.param.fragment();
+      if ( fragment == "" ) {
+        fragment = 'UCV:1:1';
+        window.location.hash = fragment;
+      }
+      Navigation.onChangeFn(webroot + '/retrieve/' + fragment);
+    });
+
     // Add the event call backs
     $("#version").change(function(){defaultURLFn('version')});
     $("#book").change(function(){defaultURLFn('book')});
@@ -42,6 +51,9 @@ var Navigation = {
     
     // enable keybinding
     document.onkeypress = Navigation.keybinding;
+    
+    // trigger the hashchange by default
+    $(window).trigger( 'hashchange' );
   },
 
   // Populate a select menu with n chapters
@@ -113,11 +125,7 @@ var Navigation = {
       default:
         console.log("Unsupported style: " + style);
       }
-      Navigation.onChangeFn(webroot + 
-                            '/retrieve/' + 
-                            Navigation.selectedVersion() +
-                            ':' + Navigation.selectedBook() +
-                            ':' + Navigation.selectedChapter());
+      $(window).trigger( 'hashchange' );
     } else {
       // do nothing
     };
@@ -300,10 +308,8 @@ var Navigation = {
     if ( book > 1 ) {
       $("#book option:nth-child(" + book + ")").removeAttr('selected');
       $("#book option:nth-child(" + (book-1) + ")").attr('selected', 'selected');
-      Navigation.onChangeFn(webroot + 
-                            '/retrieve/' + Navigation.selectedVersion() +
-                            ':' + Navigation.selectedBook() +
-                            ':' + '1');
+      window.location.hash = Navigation.selectedVersion() +
+        ':' + Navigation.selectedBook() + ':' + '1';
     }
   },
 
@@ -312,10 +318,8 @@ var Navigation = {
     if ( chapter > 1 ) {
       $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
       $("#chapter option:nth-child(" + (chapter-1) + ")").attr('selected', 'selected');
-      Navigation.onChangeFn(webroot + 
-                            '/retrieve/' + Navigation.selectedVersion() +
-                            ':' + Navigation.selectedBook() +
-                            ':' + Navigation.selectedChapter());
+      window.location.hash = Navigation.selectedVersion() +
+        ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
     }
   },
 
@@ -325,10 +329,8 @@ var Navigation = {
     if ( chapter < chaptersArray[book] ) {
       $("#chapter option:nth-child(" + chapter + ")").removeAttr('selected');
       $("#chapter option:nth-child(" + (chapter+1) + ")").attr('selected', 'selected');
-      Navigation.onChangeFn(webroot + 
-                            '/retrieve/' + Navigation.selectedVersion() +
-                            ':' + Navigation.selectedBook() +
-                            ':' + Navigation.selectedChapter());
+      window.location.hash = Navigation.selectedVersion() +
+        ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
     }
   },
 
@@ -337,27 +339,19 @@ var Navigation = {
     if ( book < 66 ) {
       $("#book option:nth-child(" + book + ")").removeAttr('selected');
       $("#book option:nth-child(" + (book+1) + ")").attr('selected', 'selected');
-      Navigation.onChangeFn(webroot + 
-                            '/retrieve/' + Navigation.selectedVersion() +
-                            ':' + Navigation.selectedBook() +
-                            ':' + '1');
+      window.location.hash = Navigation.selectedVersion() +
+        ':' + Navigation.selectedBook() + ':' + '1';
     }
   },
 
   paragraphStyle: function() {
     Navigation.currentStyle = 'paragraph';
-    Navigation.onChangeFn(webroot + 
-                          '/retrieve/' + Navigation.selectedVersion() +
-                          ':' + Navigation.selectedBook() +
-                          ':' + Navigation.selectedChapter());
+    $(window).trigger( 'hashchange' );
   },
 
   tableStyle: function() {
     Navigation.currentStyle = 'table';
-    Navigation.onChangeFn(webroot + 
-                          '/retrieve/' + Navigation.selectedVersion() +
-                          ':' + Navigation.selectedBook() +
-                          ':' + Navigation.selectedChapter());
+    $(window).trigger( 'hashchange' );
   },
 };
 

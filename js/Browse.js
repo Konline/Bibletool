@@ -14,5 +14,4 @@ $(document).ready(function() {
   Navigation.currentStyle = 'table';
   Navigation.onChangeFn = Browse.browse;
   Navigation.init();
-  Navigation.onChangeFn(jsonURL);
 });
