@@ -3,20 +3,22 @@ var Query = {
   // cannot be changed in the front end
   resultsPerPage: 20,
   
-  // Query function, given an URL
-  query: function (url) {
-    $("#query-result").empty();
-    var jqxhr = $.getJSON(url, Query.processQueryData)
-      .error(function(){
-        $('<p>Failed to download data from the server</p>').appendTo('#query-result');
-      });
-  },
-  
   processQueryData: function(data) {
+    // get the version and queryterm from the fragment
+    var fragment = $.param.fragment();
+    var version = fragment.match(/^([^\/]+)/)[1];
+    var queryTerm = fragment.match(/q=([^&\/]+)/)[1];
+    
+    // update toolbar
+    $("select[name='version'] option").removeAttr('selected');
+    $("select[name='version'] option[value='"+version+"']").attr('selected', 'selected');
+    $("input[name='query']").val(queryTerm);
+
+    // process query data
     $("<div class='query-title'>找到 " + data.hits + 
-      " 經節 (搜尋時間：" + (Math.round(data.time)/1000) + " 秒)</div>")
+      " 經節含有\"" + queryTerm + "\" <br>(搜尋時間：" + (Math.round(data.time)/1000) + " 秒)</div>")
       .appendTo("#query-result");
-    Query.generatePaginateDiv(data).appendTo("#query-result");
+    Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
     var browseTableChapter = $("<div class='browse-table-chapter'></div>");
     browseTableChapter.appendTo("#query-result");
     // display the search results
@@ -40,40 +42,28 @@ var Query = {
         subtitle + content + "</span>" +
         "</div>").appendTo(browseTableChapter);
     }
-    Query.generatePaginateDiv(data).appendTo("#query-result");
+    Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
   },
 
-  generatePaginateDiv: function(data) {
+  generatePaginateDiv: function(data, queryTerm) {
     var currPage = parseInt(data.page);
     var hits = parseInt(data.hits);
     var totalPages = Math.ceil(hits/Query.resultsPerPage);
     var queryPaginate = $("<div class='query-paginate'></div>");
-    var queryTerm = $("input[name='query']").val();
     var version = Query.selectedVersion();
     var startPage = Math.max(currPage - 5, 1);
     var stopPage = Math.min(currPage + 5, totalPages);
     for (var i=startPage; i<=stopPage; i++) {
-      var url = webroot + "/search/" + 
-        version + "/q=" + queryTerm +
-        "&page=";
+      var link = webroot + '/query/#' + version + '/q=' + queryTerm + '&page=' + i;
       var span = $("<span class='query-paginate-" + 
                    (i==currPage ? "current" : "other") +
                    "-page'>" + (i==stopPage ? i + " (還有" + (totalPages-i) + "頁)" :
                                 i) +
                    "</span>");
-      var anchor = ($("<a></a>")
-                    .click(function() {
-                      // need to rely on the value stored in the span
-                      // because this 'click' function is a closure and
-                      // the evaluation is deferred
-                      var page = parseInt($(this)[0].firstChild.innerText);
-                      if ( currPage == i ) {
-                        // do nothing because we are already
-                        // at the current page
-                      } else {
-                        Query.query(url + page);
-                      }
-                    }));
+      var anchor = $("<a></a>");
+      if ( currPage != i ) {
+        anchor.attr('href', link);
+      }
       span.appendTo(anchor);
       anchor.appendTo(queryPaginate);
     }
@@ -91,13 +81,31 @@ var Query = {
 };
 
 $(document).ready(function() {
+  // use URL hash to implement Ajax bookmarking
+  $(window).bind( 'hashchange', function(e) {
+    // the URL is the string after the hash mark, called the
+    // 'fragment' below. If fragment is non-empty, then perform the
+    // actual query
+    var fragment = $.param.fragment();
+    if ( fragment != "" ) {
+      var url = webroot + '/search/' + fragment;
+      $("#query-result").empty();
+      var jqxhr = $.getJSON(url, Query.processQueryData)
+        .error(function(){
+          $('<p>Failed to download data from the server</p>').appendTo('#query-result');
+        });
+    }
+  });
+  
   $("#query-form").submit(function() {
     var version = Query.selectedVersion();
     var queryTerm = $("input[name='query']").val();
-    var url = webroot + '/search/' + version + '/q=' + queryTerm;
-    Query.query(url);
+    window.location.hash = version + '/q=' + queryTerm;
     // prevent the default behavior of submit by returning false
     return false;
   });
+  
+  // trigger the hashchange by default
+  $(window).trigger( 'hashchange' );
 });
 
