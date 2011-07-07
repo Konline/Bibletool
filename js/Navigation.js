@@ -89,9 +89,10 @@ var Navigation = {
       if ( fragment == "" ) {
         fragment = 'UCV:1:1';
         window.location.hash = fragment;
+      } else {
+        Navigation.onChangeFn(webroot + '/retrieve/' + fragment);
+        Navigation.updateToolbarFn(Navigation.parseURLFragment(fragment));
       }
-      Navigation.onChangeFn(webroot + '/retrieve/' + fragment);
-      Navigation.updateToolbarFn(Navigation.parseURLFragment(fragment));
     });
 
     // Add the event call backs
