@@ -218,7 +218,7 @@ var Navigation = {
         var name = verse.name;
         var number = verse.verse;
         var verseHeader = '<span class="browse-table-verse-header">' + 
-          "<a href=" + webroot + "/browse/UCV:" + book + ":" + 
+          "<a href=" + webroot + "/browse#UCV:" + book + ":" + 
           chapter + ">" + name + " " + chapter + ":" + number + "</a>" +
           "</span>";
         var verseSubtitle = verse.subtitle ? 

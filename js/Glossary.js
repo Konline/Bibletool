@@ -28,7 +28,7 @@ var Glossary = {
             var start = v[2];
             var end = v[3];
             var link = '<a href=' + 
-              webroot + '/browse/UCV:' + 
+              webroot + '/browse#UCV:' + 
               book + ':' + chapter + ':' + start +
               (start == end ? "" : '-' + end) +
               '>' + name + ' ' + chapter + ':' +

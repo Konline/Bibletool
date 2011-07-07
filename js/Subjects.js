@@ -27,7 +27,7 @@ var Subjects = {
           }).join(';');
           $("<div class=subject>" +
             "<div class=subject-title>" +
-            "<a href=" + webroot + "/browse/UCV:" + link +
+            "<a href=" + webroot + "/browse#UCV:" + link +
             ">" + subject + "</a></div></div>").appendTo("#subjects-body");
         } 
         // this subject has subtitles
@@ -50,7 +50,7 @@ var Subjects = {
               return ele.replace(" ", ":");
             }).join(';');
             $("<div class=subject-subtitle>" + 
-              "<a href=" + webroot + "/browse/UCV:" + link +
+              "<a href=" + webroot + "/browse#UCV:" + link +
               ">" + subtitle + "</a></div>").appendTo(subjectSubtitles);
           }
         }

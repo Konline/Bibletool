@@ -57,7 +57,7 @@ $(document).ready(function() {
     $("<div class=bible-map-name>" + name + "</div>").appendTo($("#map_node"));
     $("<div class=bible-map-notes>" + notes + "</div>").appendTo($("#map_node"));
     $("<div class=bible-map-verses>" + 
-      "<a href=" + webroot + "/browse/UCV:" + link + ">" +
+      "<a href=" + webroot + "/browse#UCV:" + link + ">" +
       verses + "</a></div>").appendTo($("#map_node"));
     Biblemap.initializeMap(lat, lon);
   });

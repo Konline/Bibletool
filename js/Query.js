@@ -33,7 +33,7 @@ var Query = {
       var subtitle = result.subtitle ? "<span class='browse-table-verse-subtitle'>" + result.subtitle + "</span>" : "";
       $("<div class='query-verse'>" +
         "<span class='browse-table-verse-header'>" +
-        "<a href=" + webroot + "/browse/UCV:" + book + ":" + 
+        "<a href=" + webroot + "/browse#UCV:" + book + ":" + 
         chapter + ">" + name + " " + chapter + ":" + verse + "</a>" +
         "</span>" +
         "<span class='browse-table-verse-content'>" +
