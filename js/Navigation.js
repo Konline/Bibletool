@@ -13,7 +13,9 @@ var Navigation = {
 
   // parse URL fragment and return [[version1,..,versionN], book, chapter]
   parseURLFragment: function(fragment) {
-    var tokens = fragment.split(':');
+    // only look at the first range of the fragment
+    // ranges are delimited by ';'
+    var tokens = fragment.split(';')[0].split(':');
     if ( tokens.length == 1 ) {
       // invalid URL, default to UCV:1:1
       return [["UCV"], 1, 1];
