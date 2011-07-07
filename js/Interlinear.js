@@ -45,6 +45,21 @@ var Interlinear = {
       .error(function(){
         $('<p>Failed to download data from the server</p>').appendTo('#interlinear-body');
       });
+  },
+  updateToolbarFn:  function(parsedURLFragments) {
+    var versions = parsedURLFragments[0];
+    var book = parsedURLFragments[1];
+    var chapter = parsedURLFragments[2];
+    
+    $("#version option").removeAttr('selected');
+    $.each(versions, function(idx, version) {
+      $("#version option[value='" + version +"']").attr('selected', 'selected');
+    });
+    $("#book option").removeAttr('selected');
+    $("#book option[value='" + book +"']").attr('selected', 'selected');
+        
+    $("#chapter option").removeAttr('selected');
+    $("#chapter option[value='" + chapter +"']").attr('selected', 'selected');
   }
 }
 
@@ -52,5 +67,6 @@ var Interlinear = {
 $(document).ready(function() {
   Navigation.currentStyle = 'table';
   Navigation.onChangeFn = Interlinear.interlinear;
+  Navigation.updateToolbarFn = Interlinear.updateToolbarFn;
   Navigation.init();
 });

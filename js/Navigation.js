@@ -7,7 +7,10 @@ var Navigation = {
   
   // Function to call whenever user changes the URL
   onChangeFn: null,
-  
+
+  // Function to call to update the toolbar
+  updateToolbarFn: null,
+
   // parse URL fragment and return [[version1,..,versionN], book, chapter]
   parseURLFragment: function(fragment) {
     var tokens = fragment.split(':');
@@ -86,6 +89,7 @@ var Navigation = {
         window.location.hash = fragment;
       }
       Navigation.onChangeFn(webroot + '/retrieve/' + fragment);
+      Navigation.updateToolbarFn(Navigation.parseURLFragment(fragment));
     });
 
     // Add the event call backs
