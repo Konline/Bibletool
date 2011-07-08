@@ -1,5 +1,7 @@
 RewriteEngine On
 
+RewriteRule ^bibletool/ "http\:\/\/bibletool\.konline\.org\/" [R=301,L]
+
 RewriteRule ^static/([^/]+) index.php?action=static&page=$1 [L]
 
 RewriteRule ^browse/([^/]+) index.php?action=browse&jsonURL=$1 [L]
