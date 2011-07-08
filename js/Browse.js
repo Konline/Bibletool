@@ -19,11 +19,11 @@ var Browse = {
         var english = data[i].english;
         var book = data[i].book;
         var chapter = data[i].chapter;
-        var startVerse = data[i].startVerse;
-        var endVerse = data[i].endVerse;
+        var startVerse = data[i].start_verse;
+        var endVerse = data[i].end_verse;
         var footnoteReference = $('<div class=footnote-reference>' +
-                                  chapter + ':' + book + '</div>');
-        var link = webroot + '/glossary/word/' + chinese;
+                                  chapter + ':' + startVerse + '</div>');
+        var link = webroot + '/glossary#word/' + chinese;
         var anchor = $('<a href='+link+'>'+chinese+
                        (english ? '('+english+')' : "") +
                        '</a>');
