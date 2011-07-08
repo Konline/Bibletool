@@ -2,3 +2,6 @@
 etc/application.conf
 js/application.js
 stubs
+404.shtml
+audiobible
+error_log
