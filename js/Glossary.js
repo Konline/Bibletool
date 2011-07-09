@@ -8,14 +8,16 @@ var Glossary = {
       for(var i=0; i<data.length; i=i++) {
         var chinese1 = data[i].chinese;
         var english1 = data[i].english ? ' (' + data[i].english + ')' : "";
-        var link1 = $("<td><a href=#word/" + chinese1 + ">" + chinese1 + english1 + "</a></td>");
+        var link1 = $("<td><a href=#word/" + encodeURI(chinese1) + 
+                      ">" + chinese1 + english1 + "</a></td>");
         i++;
         // check if we have a second link
         var twolinkp = (i<data.length && data[i].chinese) ? true : false;
         var chinese2 = (twolinkp) ? data[i].chinese : "";
         var english2 = (twolinkp && data[i].english) ? ' (' + data[i].english + ')' : "";
         var link2 = (twolinkp) ? 
-          $("<td><a href=#word/" + chinese2 + ">" + chinese2 + english2 + "</a></td>") : $("<td>&nbsp;</td>");
+          $("<td><a href=#word/" + encodeURI(chinese2) +
+            ">" + chinese2 + english2 + "</a></td>") : $("<td>&nbsp;</td>");
         var tr = $("<tr></tr>").appendTo("#glossary-index-table");
         link1.appendTo(tr);
         if ( twolinkp ) { link2.appendTo(tr); }
@@ -27,7 +29,7 @@ var Glossary = {
   },
   
   glossaryWord: function(word) {
-    var url = webroot + '/glossary/word/' + word;
+    var url = webroot + '/glossary/word/' + encodeURI(word);
     $("#glossary-index-table").empty();
     var jqxhr = $.getJSON(url, function(data) {
       for (var i=0; i<data.length; i++) {

@@ -7,7 +7,7 @@ var Query = {
     // get the version and queryterm from the fragment
     var fragment = $.param.fragment();
     var version = fragment.match(/^([^\/]+)/)[1];
-    var queryTerm = fragment.match(/q=([^&\/]+)/)[1];
+    var queryTerm = decodeURI(fragment.match(/q=([^&\/]+)/)[1]);
     
     // update toolbar
     $("select[name='version'] option").removeAttr('selected');
@@ -54,7 +54,7 @@ var Query = {
     var startPage = Math.max(currPage - 5, 1);
     var stopPage = Math.min(currPage + 5, totalPages);
     for (var i=startPage; i<=stopPage; i++) {
-      var link = webroot + '/query/#' + version + '/q=' + queryTerm + '&page=' + i;
+      var link = webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) + '&page=' + i;
       var span = $("<span class='query-paginate-" + 
                    (i==currPage ? "current" : "other") +
                    "-page'>" + (i==stopPage ? i + " (還有" + (totalPages-i) + "頁)" :
@@ -100,7 +100,7 @@ $(document).ready(function() {
   $("#query-form").submit(function() {
     var version = Query.selectedVersion();
     var queryTerm = $("input[name='query']").val();
-    window.location.hash = version + '/q=' + queryTerm;
+    window.location.hash = version + '/q=' + encodeURI(queryTerm);
     // prevent the default behavior of submit by returning false
     return false;
   });

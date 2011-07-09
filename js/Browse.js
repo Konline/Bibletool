@@ -23,7 +23,7 @@ var Browse = {
         var endVerse = data[i].end_verse;
         var footnoteReference = $('<div class=footnote-reference>' +
                                   chapter + ':' + startVerse + '</div>');
-        var link = webroot + '/glossary#word/' + chinese;
+        var link = webroot + '/glossary#word/' + encodeURI(chinese);
         var anchor = $('<a href='+link+'>'+chinese+
                        (english ? '('+english+')' : "") +
                        '</a>');
