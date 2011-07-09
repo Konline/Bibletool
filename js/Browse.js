@@ -1,5 +1,13 @@
-// Get a chapter from the server and update the 'browse-body' div
+// Browse class
 var Browse = {
+  // Fetch JSON from server and format data to the browser
+  // Since the actual formatting is style dependent (ie. 'table'
+  // format, 'paragraph' format, etc...), we rely on
+  // Navigation.getCurrentStyle() to return the function used to
+  // format the data. After the bible data is properly displayed, we
+  // call on Browse.glossary() to display the glossary footnote
+  // Parameters:
+  // - url: A string representing the url that will return the JSON data
   browse: function (url) {
     $('#browse-body').empty();
     var jqxhr = $.getJSON(url, Navigation.getCurrentStyleFn(url))
@@ -10,9 +18,20 @@ var Browse = {
   },
   
   // Add glossary foot note once the main body is displayed
+  // Parameters:
+  // - url: A string representing the url that will return the JSON data
   glossary: function(url) {
     var url = url.replace('retrieve', 'glossary/retrieve');
     var jqxhr = $.getJSON(url, function(data) {
+      // data is a JSON array that represents the glossary footnotes
+      // Convert 'data' into a <div> that looks like this
+      // <div class="footnote">
+      //   <div class="footnote-reference">1:1</div>
+      //   <div class="footnote-content">
+      //     <a href="/glossary#word/%E4%B8%8A%E5%B8%9D">上帝</a>
+      //   </div>
+      //   [... other footnotes ...]
+      // </div>
       var footnote = $('<div class=footnote></div>');
       for (var i=0; i<data.length; i++) {
         var chinese = data[i].chinese;
@@ -36,6 +55,15 @@ var Browse = {
     });
   },
 
+  // Update the navigation tool bar to reflect the current version,
+  // book, and chapter
+  // This function is not included in Navigation.js because navigation
+  // toolbar between 'browse' and 'interlinear' are different
+  // (e.g. interlinear allows multiple bible versions to be chosen,
+  // while browse does not)
+  // Parameters:
+  // - parsedURLFragments: A 3-entry array that looks like:
+  //     [[version1,...,versionN], book, chapter]
   updateToolbarFn: function(parsedURLFragments) {
     var versions = parsedURLFragments[0];
     var book = parsedURLFragments[1];

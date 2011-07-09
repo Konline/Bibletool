@@ -1,8 +1,12 @@
+// Class implementing the query functionality
 var Query = {
   // results per page (this is a constant set in the backend)
   // cannot be changed in the front end
   resultsPerPage: 20,
   
+  // Process the query data and display results to the user
+  // Parameters:
+  // - data: Parsed JSON data returned from the server
   processQueryData: function(data) {
     // get the version and queryterm from the fragment
     var fragment = $.param.fragment();
@@ -45,6 +49,10 @@ var Query = {
     Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
   },
 
+  // Generate the pagination divs
+  // Parameters:
+  // - data: Parsed JSON datastructure
+  // - queryTerm: string representing the query term
   generatePaginateDiv: function(data, queryTerm) {
     var currPage = parseInt(data.page);
     var hits = parseInt(data.hits);
@@ -70,6 +78,8 @@ var Query = {
     return queryPaginate;
   },
   
+  // Query the pulldown menu and return an array of the selected bible
+  // versions E.g. ['UCV', 'KJV']
   selectedVersion: function() {
     // Build a colon ':' separated string of versions
     var versions = $("#version option:selected")
@@ -97,6 +107,9 @@ $(document).ready(function() {
     }
   });
   
+  // Bind action to the submit button
+  // This simply updates the URL with the hash. The 'hashchange' event
+  // will take care of the rest
   $("#query-form").submit(function() {
     var version = Query.selectedVersion();
     var queryTerm = $("input[name='query']").val();

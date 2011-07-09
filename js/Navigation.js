@@ -1,17 +1,31 @@
 // Navigation class encapsulates common functionalities
-// used in browse and interlinear
+// used in browse and interlinear. This is an abstract class,
+// because derived classes should provided specialized functions
+// to make this class useful
 var Navigation = {
   
   // Variable to hold the current style
+  // Currently allowed values are: 'table', 'paragraph'
   currentStyle: null,
   
   // Function to call whenever user changes the URL
+  // This function should be implemented by derived class
   onChangeFn: null,
 
   // Function to call to update the toolbar
+  // This function should be implemented by derived class
   updateToolbarFn: null,
 
-  // parse URL fragment and return [[version1,..,versionN], book, chapter]
+  // Parse a URL fragment and return an array containing the versions,
+  // book and chapter. If URL fragment is empty or invalid, defaults
+  // to UCV:1:1. If URL fragment contains a range, only the first
+  // range is parsed
+  // Parameter:
+  // - fragment: a string representing the URL hash. E.g.
+  //   'UCV:1:1;2:3'
+  // Return value:
+  // - [[version1,..,versionN], book, chapter]. E.g.
+  //   [['UCV'], 1, 1]
   parseURLFragment: function(fragment) {
     // only look at the first range of the fragment
     // ranges are delimited by ';'
@@ -68,8 +82,12 @@ var Navigation = {
     }
   },
   
-  // Initialize buttons with callbacks
+  // Initialization function. Every derived class should call this
+  // function to perform common stuff, such as initializing UI widgets
+  // with callbacks. Nothing is passed to nor returned from this fn. 
   init: function() {
+    // Build a closure so that we can use it multiple times later
+    // This closure simply updates the URL hash to the selected location
     var defaultURLFn = function(id) {
       if ( id == 'book' ) {
         // changing book reset the chapter
@@ -118,7 +136,10 @@ var Navigation = {
     $(window).trigger( 'hashchange' );
   },
 
-  // Populate a select menu with n chapters
+  // Populate a select menu with integers from 1 thru n
+  // Parameter:
+  // - selectId: The 'id' of the select menu
+  // - n: integer representing the max number of elements to populate
   populateSelect: function(selectId, n) {
     var select = document.getElementById(selectId);
     for (var i = 1; i <= n; i = i + 1) {
@@ -133,7 +154,8 @@ var Navigation = {
     };
   },
   
-  // Toggle the red text
+  // Toggle the red text by toggling the CSS property
+  // as well as swapping the "R" button image
   toggleRedDiv: function() {
     var allSpans = document.getElementsByTagName('span');
     var toggleImage = document.getElementById('toggle');
@@ -152,6 +174,9 @@ var Navigation = {
   },
 
   // Update the book select menu with book names
+  // Parameters:
+  // - bookSelectId: 'id' of the book pulldown menu
+  // - chapterSelectId: 'id' of the chapter pulldown menu
   updateSelectWithBook: function(bookSelectId, chaptersSelectId) {
     var bookSelect = document.getElementById(bookSelectId);
     var bookSelectedIndex = bookSelect.selectedIndex;
@@ -162,6 +187,8 @@ var Navigation = {
   },
 
   // Keybinding related functions
+  // Parameter:
+  // - e: Event object provided by the browser
   keybinding: function(e) {
     var evtobj = window.event ? event : e;
     var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode;
@@ -197,6 +224,8 @@ var Navigation = {
   // Since the 'browse' api is overloaded for many purposes, we need to
   // look at the url pattern to understand if we are dealing with an
   // entire chapter or just few bible fragments
+  // Parameters:
+  // - url: String representing the JSON url we get fetching
   getCurrentStyleFn: function(url) {
     return url.match(/;/) ? Navigation.rangeStyleFn :
       url.split(":").length > 3 ? Navigation.rangeStyleFn :
@@ -206,8 +235,20 @@ var Navigation = {
   },
 
   // Print range data in table style
+  // Parameters:
+  // - data: Parsed JSON data structure
   rangeStyleFn: function(data) {
     for(var i=0; i<data.length; i++) {
+      // Each range looks like this:
+      // <div class="retrieve-range">
+      //   <div class="browse-table-verse">
+      //     <span class="browse-table-verse-header">
+      //       <a href="/browse#UCV:40:21">太 21:20</a>
+      //     </span>
+      //     <span class="browse-table-verse-content"> 門徒看見了，便希奇說：「無花果樹怎麼立刻枯乾了呢？」</span>
+      //   </div>
+      //   (... other verses ...)
+      // </div>
       // Put the chapter body into browse-body
       var browseTable = $("<div class=retrieve-range></div>");
       browseTable.appendTo('#browse-body');
@@ -238,6 +279,13 @@ var Navigation = {
     var version = Navigation.selectedVersion();
     var book = Navigation.selectedBook();
     var chapter = Navigation.selectedChapter();
+    // Pad a number with leading zeros
+    // Parameters:
+    // - val: number of pad
+    // - ch: padding character (we use '0')
+    // - num: width of returning string
+    // Returns:
+    // A string is left padded with 'ch' up to 'num' width
     var padleft = function (val, ch, num) {
       var re = new RegExp(".{" + num + "}$");
       var pad = "";
@@ -248,6 +296,7 @@ var Navigation = {
       return re.exec(pad + val)[0];
     }
 
+    // Currently only UCV and KJV versions have audio bible
     if ( version == 'UCV' || version == 'KJV') {
       var link = 'http://konline.org/bibletool/audiobible/' +
         version + "/" + 
@@ -264,6 +313,8 @@ var Navigation = {
   },
   
   // Print data in table style
+  // Parameters:
+  // - data: Parsed JSON data structure
   tableStyleFn: function(data) {
     // get the first entry from data
     var data = data[0];
@@ -284,7 +335,12 @@ var Navigation = {
     var browseTable = $("<div class=browse-table-chapter></div>");
     browseTable.appendTo('#browse-body');
 
-    // Put each verse into browseTable
+    // Put each verse into browseTable, looking like this:
+    // <div class="browse-table-verse">
+    //   <span class="browse-table-verse-header">創 1:1</span>
+    //   <span class="browse-table-verse-content">
+    //   <span class="browse-table-verse-subtitle">【　神創造天地】</span> 起初　神創造天地。</span>
+    // </div>
     $.each(data.verses, function(idx, verse) {
       var verseHeader = '<span class="browse-table-verse-header">' + 
         verse.name + ' ' + verse.chapter + ':' + verse.verse + "</span>";
@@ -320,6 +376,9 @@ var Navigation = {
     browseParagraph.appendTo('#browse-body');
 
     // Put each verse into browseParagraph
+    // Each verse looks like this:
+    // <span class="browse-paragraph-1stverse-number">1</span>
+    // <span class="browse-paragraph-verse-content">起初　神創造天地。</span>
     $.each(data.verses, function(idx, verse) {
       var verseSubtitle = verse.subtitle ?
         '<div class="browse-paragraph-verse-subtitle">' + 
@@ -336,6 +395,9 @@ var Navigation = {
     });
   },
 
+  // Query the pulldown menu and return an array containing the
+  // selected bible versions
+  // E.g. ['UCV', 'KJV']
   selectedVersion: function() {
     // Build a colon ':' separated string of versions
     var versions = $("#version option:selected")
@@ -345,14 +407,17 @@ var Navigation = {
     return versions;
   },
 
+  // Query the pulldown menu and return the selected bible book as integer
   selectedBook: function() {
     return $('#book option:selected').val();
   },
 
+  // Query the pulldown menu and return the selected chapter as integer
   selectedChapter: function() {
     return $('#chapter option:selected').val();
   },
 
+  // Callback when user presses the up-arrow
   upArrow: function() {
     var book = parseInt(Navigation.selectedBook());
     if ( book > 1 ) {
@@ -361,6 +426,7 @@ var Navigation = {
     }
   },
 
+  // Callback when user presses the left-arrow
   leftArrow: function() {
     var chapter = parseInt(Navigation.selectedChapter());
     if ( chapter > 1 ) {
@@ -369,6 +435,7 @@ var Navigation = {
     }
   },
 
+  // Callback when user presses the right-arrow
   rightArrow: function() {
     var book = parseInt(Navigation.selectedBook());
     var chapter = parseInt(Navigation.selectedChapter());
@@ -378,6 +445,7 @@ var Navigation = {
     }
   },
 
+  // Callback when user presses the down-arrow
   downArrow: function() {
     var book = parseInt(Navigation.selectedBook());
     if ( book < 66 ) {
@@ -386,11 +454,13 @@ var Navigation = {
     }
   },
 
+  // Callback when user presses the paragraph style button
   paragraphStyle: function() {
     Navigation.currentStyle = 'paragraph';
     $(window).trigger( 'hashchange' );
   },
 
+  // Callback when user presses the table style button
   tableStyle: function() {
     Navigation.currentStyle = 'table';
     $(window).trigger( 'hashchange' );
