@@ -305,6 +305,7 @@ div.glossary {
     margin:2em;
     border:thin double;
     -moz-border-radius:10px;
+    border-radius:10px;
 }
 
 div.glossary-name {
