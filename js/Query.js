@@ -120,5 +120,14 @@ $(document).ready(function() {
   
   // trigger the hashchange by default
   $(window).trigger( 'hashchange' );
+  
+  // Bind ajaxSend and ajaxComplete events
+  $("#query-result")
+    .ajaxSend(function() {
+      $(ajaxLoader).appendTo(this);
+    })
+    .ajaxComplete(function() {
+      $(ajaxLoader).remove();
+    });
 });
 

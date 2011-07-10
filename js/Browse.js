@@ -86,4 +86,13 @@ $(document).ready(function() {
   Navigation.onChangeFn = Browse.browse;
   Navigation.updateToolbarFn = Browse.updateToolbarFn;
   Navigation.init();
+
+  // Bind ajaxSend and ajaxComplete events
+  $("#browse-body")
+    .ajaxSend(function() {
+      $(ajaxLoader).appendTo(this);
+    })
+    .ajaxComplete(function() {
+      $(ajaxLoader).remove();
+    });
 });

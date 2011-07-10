@@ -163,6 +163,16 @@ $(document).ready(function() {
       console.log('Unsupported hash string: ' + fragment);
     }
   });
+
+  // Bind ajaxSend and ajaxComplete events
+  $("#glossary-body")
+    .ajaxSend(function() {
+      $(ajaxLoader).appendTo(this);
+    })
+    .ajaxComplete(function() {
+      $(ajaxLoader).remove();
+    });
+
   // trigger the hashchange by default
   $(window).trigger( 'hashchange' );
 });

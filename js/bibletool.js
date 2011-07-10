@@ -32,3 +32,16 @@ Array.prototype.findIndex = function(value){
   }
   return ctr;
 };
+
+// image showing Ajax progress
+var ajaxLoader = $('<div id=ajax-loader class=ajax-loader><img src='+webroot+'/images/ajax-loader.gif'+'></div>');
+
+// Sleep function, used for simulating network latency
+function sleep(milliseconds) {
+  var start = new Date().getTime();
+  for (var i = 0; i < 1e7; i++) {
+    if ((new Date().getTime() - start) > milliseconds){
+      break;
+    }
+  }
+}

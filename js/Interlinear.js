@@ -121,4 +121,13 @@ $(document).ready(function() {
   Navigation.onChangeFn = Interlinear.interlinear;
   Navigation.updateToolbarFn = Interlinear.updateToolbarFn;
   Navigation.init();
+  
+  // Bind ajaxSend and ajaxComplete events
+  $("#interlinear-body")
+    .ajaxSend(function() {
+      $(ajaxLoader).appendTo(this);
+    })
+    .ajaxComplete(function() {
+      $(ajaxLoader).remove();
+    });
 });

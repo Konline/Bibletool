@@ -421,3 +421,7 @@ div.common-copyright {
     clear:both;
     text-align:center;
 }
+
+div.ajax-loader {
+    text-align:center;
+}
