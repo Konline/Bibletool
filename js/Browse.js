@@ -74,7 +74,9 @@ var Browse = {
     
     $("#book option").removeAttr('selected');
     $("#book option[value='" + book +"']").attr('selected', 'selected');
-        
+
+    Navigation.updateSelectWithBook('book', 'chapter');
+
     $("#chapter option").removeAttr('selected');
     $("#chapter option[value='" + chapter +"']").attr('selected', 'selected');
   }

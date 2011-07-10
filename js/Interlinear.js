@@ -78,11 +78,6 @@ var Interlinear = {
         $('<tr class="interlinear-verse">' + interlinearVerseNumber + interlinearVerseGroup + '</tr>')
           .appendTo(interlinearTable);
       }
-      // update the browse toolbar with new book and chapters
-      Navigation.updateSelectWithBook('book', 'chapter');
-      
-      // make the current chapter selected
-      $("#chapter option:nth-child(" + chapterNo + ")").attr('selected', 'selected');
     })
       .error(function(){
         $('<p>Failed to download data from the server</p>').appendTo('#interlinear-body');
@@ -107,9 +102,12 @@ var Interlinear = {
     $.each(versions, function(idx, version) {
       $("#version option[value='" + version +"']").attr('selected', 'selected');
     });
+    
     $("#book option").removeAttr('selected');
     $("#book option[value='" + book +"']").attr('selected', 'selected');
-        
+       
+    Navigation.updateSelectWithBook('book', 'chapter');
+
     $("#chapter option").removeAttr('selected');
     $("#chapter option[value='" + chapter +"']").attr('selected', 'selected');
   }
