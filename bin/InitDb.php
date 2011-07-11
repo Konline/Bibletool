@@ -10,35 +10,109 @@ require_once 'ParserHelper.php';
 
 $config = Config::getInstance();
 
-// Initialize database
-echo "Connecting to database...\n";
-$db = mysql_connect($config->database->host, $config->database->user, $config->database->pass);
-if (!$db)
-{
-	echo "Failed to connect to database\n";
-	exit(1);
-}
-mysql_select_db($config->database->dbname);
+// Parse command line options
+$long_options = array_keys($LANGUAGES);
+$long_options[] = 'subjects';
+$long_options[] = 'glossary';
+$long_options[] = 'all';
+$long_options[] = 'help';
 
-LoadSchema();
-LoadLanguages();
+$options = getopt('h', $long_options);
 
-$glossaries = array('glossary.json', 'person_names.json', 'place_names.json');
-foreach ($glossaries as $file)
+if (empty($options) || isset($options['help']) || isset($options['h']))
 {
-	$filename = dirname(__FILE__) . '/../data/' . $file;
-	LoadGlossary($filename);
+	Usage();
+	exit;
 }
 
-LoadSubjects();
+$db = GetDatabase($config);
 
-echo "Done\n";
+if (isset($options['all']))
+{
+	LoadSchema();
+}
+
+BeginTransaction($db);
+
+LoadLanguages($options);
+
+if (isset($options['glossary']) || isset($options['all']))
+{
+	$sql = "DELETE FROM glossary";
+	mysql_query($sql);
+
+	$glossaries = array('glossary.json', 'person_names.json', 'place_names.json');
+	foreach ($glossaries as $file)
+	{
+		$filename = dirname(__FILE__) . '/../data/' . $file;
+		LoadGlossary($filename);
+	}
+}
+
+if (isset($options['subjects']) || isset($options['all']))
+{
+	$sql = "DELETE FROM subjects";
+	mysql_query($sql);
+
+	LoadSubjects();
+}
+
+Commit($db);
+
+echo "Done\n\n";
 
 exit;
 
 
 /* Auxiliary functions */
 
+function Usage()
+{
+	echo <<< EOF
+InitDb.php: Update database with fresh content
+  Available languages:
+    --UCV
+    --UCV_CN
+    --CLV
+    --CLV_CN
+    --NCV
+    --NCV_CN
+    --LZZ
+    --LZZ_CN
+    --KJV
+
+  Other data:
+    --subjects
+    --glossary
+
+  Other flags:
+    --all: Initialize all targets
+    --help: This page
+
+
+EOF;
+}
+
+/**
+ * Connect to MySQL and return a db handler
+ */
+function GetDatabase($config)
+{
+	// Initialize database
+	echo "Connecting to database...\n";
+	$db = mysql_connect($config->database->host, $config->database->user, $config->database->pass);
+	if (!$db)
+	{
+		echo "Failed to connect to database\n";
+		exit(1);
+	}
+	mysql_select_db($config->database->dbname);
+	return $db;
+}
+
+/**
+ * Initialize database by reloading the schema
+ */
 function LoadSchema()
 {
 	echo "Initializing schema...\n";
@@ -58,15 +132,28 @@ function LoadSchema()
 	}
 }
 
-function LoadLanguages()
+/**
+ * Update language data
+ * @param $options: Array, list of command line flag options
+ */
+function LoadLanguages($options)
 {
 	global $LANGUAGES;
 	global $BOOK_NAME_MAPPING;
 
 	$bible = Bible::getInstance();
 
+	$updated = false;
+
 	foreach ($LANGUAGES as $name => $lang)
 	{
+		if (!isset($options[$name]) && !isset($options['all']))
+		{
+			continue;
+		}
+
+		$updated = true;
+
 		$description = $lang['description'];
 		$filename = dirname(__FILE__) . '/../data/' . $lang['filename'];
 		$inf = fopen($filename, 'r');
@@ -77,6 +164,10 @@ function LoadLanguages()
 		}
 
 		echo "Parsing $filename\n";
+
+		$sql = "DELETE FROM languages WHERE name='$name'";
+		mysql_query($sql);
+
 		$sql = "INSERT INTO languages (name, description) VALUES ('$name', '$description')";
 		mysql_query($sql);
 		$language_id = mysql_insert_id();
@@ -172,9 +263,14 @@ function LoadLanguages()
 		fclose($inf);
 	}
 
-	// Update bible data timestamp
-	$sql = "INSERT INTO cache_versions (entity, ts) VALUES ('languages', NOW()) ON DUPLICATE KEY UPDATE ts = NOW()";
-	mysql_query($sql);
+	if ($updated)
+	{
+		// Update bible data timestamp
+		$sql = "INSERT INTO cache_versions (entity, ts)
+			VALUES ('languages', UNIX_TIMESTAMP())
+			ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
+		mysql_query($sql);
+	}
 }
 
 function LoadGlossary($filename)
@@ -228,14 +324,16 @@ function LoadGlossary($filename)
 	}
 
 	// Update glossary data timestamp
-	$sql = "INSERT INTO cache_versions (entity, ts) VALUES ('glossary', NOW()) ON DUPLICATE KEY UPDATE ts = NOW()";
+	$sql = "INSERT INTO cache_versions (entity, ts)
+		VALUES ('glossary', UNIX_TIMESTAMP())
+		ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
 	mysql_query($sql);
 }
 
 function LoadSubjects()
 {
 	$file = dirname(__FILE__) . '/../data/subjects.json';
-	echo "Parsing $file";
+	echo "Parsing $file\n";
 
 	$bible = Bible::getInstance();
 
@@ -315,7 +413,9 @@ function LoadSubjects()
 	}
 
 	// Update subjects data timestamp
-	$sql = "INSERT INTO cache_versions (entity, ts) VALUES ('subjects', NOW()) ON DUPLICATE KEY UPDATE ts = NOW()";
+	$sql = "INSERT INTO cache_versions (entity, ts)
+		VALUES ('subjects', UNIX_TIMESTAMP())
+		ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
 	mysql_query($sql);
 }
 
@@ -340,4 +440,16 @@ function ParseVerse($bible, $verse)
 	}
 
 	return array($book, $chapter, $start_verse, $end_verse);
+}
+
+function BeginTransaction($db)
+{
+	$sql = "BEGIN";
+	mysql_query($sql);
+}
+
+function Commit($db)
+{
+	$sql = "COMMIT";
+	mysql_query($sql);
 }

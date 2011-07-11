@@ -27,6 +27,7 @@ CREATE TABLE books (
 	PRIMARY KEY(id),
 	UNIQUE(language_id, book),
 	FOREIGN KEY(language_id) REFERENCES languages(id)
+		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE chapters (
@@ -36,7 +37,8 @@ CREATE TABLE chapters (
 	chapter     INTEGER NOT NULL,
 	title       VARCHAR(20) NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY(language_id) REFERENCES languages(id),
+	FOREIGN KEY(language_id) REFERENCES languages(id)
+		ON DELETE CASCADE ON UPDATE CASCADE,
 	KEY(language_id, book, chapter)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
@@ -51,8 +53,10 @@ CREATE TABLE verses (
 	PRIMARY KEY(id),
 	UNIQUE(language_id, book, chapter, verse),
 	KEY(book, chapter, verse),
-	FOREIGN KEY(language_id) REFERENCES languages(id),
+	FOREIGN KEY(language_id) REFERENCES languages(id)
+		ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY(language_id, book) REFERENCES books(language_id, book)
+		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE glossary (
@@ -73,6 +77,7 @@ CREATE TABLE glossary_notes (
 	notes       VARCHAR(700) NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(glossary_id) REFERENCES glossary(id)
+		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE glossary_verses (
@@ -83,8 +88,10 @@ CREATE TABLE glossary_verses (
 	start_verse INTEGER NOT NULL,
 	end_verse   INTEGER NOT NULL,
 	PRIMARY KEY(id),
-	FOREIGN KEY(glossary_id) REFERENCES glossary(id),
+	FOREIGN KEY(glossary_id) REFERENCES glossary(id)
+		ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY(book, chapter) REFERENCES verses(book, chapter)
+		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE subjects (
@@ -93,6 +100,7 @@ CREATE TABLE subjects (
 	name        VARCHAR(40) NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(parent_id) REFERENCES subjects(id)
+		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE subject_verses (
@@ -104,6 +112,7 @@ CREATE TABLE subject_verses (
 	end_verse   INTEGER NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(subject_id) REFERENCES subjects(id)
+		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE cache_versions (
