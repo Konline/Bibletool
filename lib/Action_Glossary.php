@@ -9,7 +9,7 @@ class Action_Glossary extends Action_Base
 	public function __construct($bible, $smarty)
 	{
 		parent::__construct($bible, $smarty);
-		$this->cacheable = false;
+		$this->cacheable = true;
 		$this->cache_entity = 'glossary';
 	}
 
