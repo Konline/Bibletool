@@ -1,8 +1,10 @@
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} !localhost
 RewriteBase /bibletool
 RewriteRule ^$ "http\:\/\/bibletool\.konline\.org\/browse\/" [R=301,L]
 
+RewriteCond %{HTTP_HOST} !localhost
 RewriteBase /
 RewriteRule ^bibletool\/? "http\:\/\/bibletool\.konline\.org\/browse\/" [R=301,L]
 
