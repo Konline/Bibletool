@@ -17,7 +17,7 @@ $long_options[] = 'glossary';
 $long_options[] = 'all';
 $long_options[] = 'help';
 
-$options = getopt('h', $long_options);
+$options = MyGetOpt('h', $long_options);
 
 if (empty($options) || isset($options['help']) || isset($options['h']))
 {
@@ -452,4 +452,24 @@ function Commit($db)
 {
 	$sql = "COMMIT";
 	mysql_query($sql);
+}
+
+/**
+ * PHP 5.2.x getopt() doesn't support long options, so we're reinventing the wheel here
+ */
+function MyGetOpt($short_str, $long_options)
+{
+	global $argv;
+
+	$result = array();
+	$short_options = str_split($short_str);
+	foreach ($argv as $i => $arg)
+	{
+		$arg = str_replace('-', '', $arg);
+		if (in_array($arg, $short_options) || in_array($arg, $long_options))
+		{
+			$result[$arg] = true;
+		}
+	}
+	return $result;
 }
