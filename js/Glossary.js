@@ -9,7 +9,7 @@ var Glossary = {
     $("div.glossary").remove();
     var url = webroot + '/glossary/stroke/' + stroke;
     var jqxhr = $.getJSON(url, function(data) {
-      for(var i=0; i<data.length; i=i++) {
+      for(var i=0; i<data.length; i++) {
         // Populate the table "#glossary-index-table" with the
         // information found in 'data'
         // Table is hardcoded to be 2 columns. Each row in the table
