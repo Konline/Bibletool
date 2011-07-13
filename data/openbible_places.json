@@ -1,32 +1,6 @@
 {
-    "Leshem": {
-        "chinese_name": "利善", 
-        "lat": "33.248659",
-        "lon": "35.652483", 
-        "notes": "Now Tel Dan",
-        "verses": [
-            "JOS 19:47"
-        ]
-    }, 
-    "Laish": {
-        "chinese_name": "拉億", 
-        "lat": "33.248659",
-        "lon": "35.652483", 
-        "notes": "Now Laish",
-        "verses": [
-            "JUG 18:29"
-        ]
-    }, 
-    "Dan": {
-        "chinese_name": "但", 
-        "lat": "33.248659",
-        "lon": "35.652483", 
-        "notes": "Now Tel Dan",
-        "verses": [
-            "JOS 19:47"
-        ]
-    }, 
     "Abana": {
+        "english_name": "Abana",
         "chinese_name": "亞罷拿", 
         "lat": "33.545097", 
         "lon": "36.224661", 
@@ -36,6 +10,7 @@
         ]
     }, 
     "Abdon": {
+        "english_name": "Abdon",
         "chinese_name": "押頓", 
         "lat": "33.046264", 
         "lon": "35.172513", 
@@ -46,6 +21,7 @@
         ]
     }, 
     "Abel-keramim": {
+        "english_name": "Abel-keramim",
         "chinese_name": "亞備勒基拉明", 
         "lat": "32.02425", 
         "lon": "35.82352", 
@@ -55,6 +31,7 @@
         ]
     }, 
     "Abel-meholah": {
+        "english_name": "Abel-meholah",
         "chinese_name": "亞伯米何拉", 
         "lat": "32.356010", 
         "lon": "35.536929", 
@@ -66,6 +43,7 @@
         ]
     }, 
     "Abilene": {
+        "english_name": "Abilene",
         "chinese_name": "亞比利尼", 
         "lat": "33.587300", 
         "lon": "36.091710", 
@@ -75,6 +53,7 @@
         ]
     }, 
     "Achzib": {
+        "english_name": "Achzib",
         "chinese_name": "亞革悉", 
         "lat": "31.700000", 
         "lon": "35.000000", 
@@ -85,6 +64,7 @@
         ]
     }, 
     "Adadah": {
+        "english_name": "Adadah",
         "chinese_name": "亞大達", 
         "lat": "31.1858", 
         "lon": "34.96745", 
@@ -94,6 +74,7 @@
         ]
     }, 
     "Adami-nekeb": {
+        "english_name": "Adami-nekeb",
         "chinese_name": "亞大米尼吉",
         "lat": "32.610500", 
         "lon": "35.542890", 
@@ -103,6 +84,7 @@
         ]
     }, 
     "Addar": {
+        "english_name": "Addar",
         "chinese_name": "亞達珥", 
         "lat": "30.9522", 
         "lon": "34.7187", 
@@ -112,6 +94,7 @@
         ]
     }, 
     "Adithaim": {
+        "english_name": "Adithaim",
         "chinese_name": "亞底他音", 
         "lat": "31.7001", 
         "lon": "34.89532", 
@@ -121,6 +104,7 @@
         ]
     }, 
     "Adramyttium": {
+        "english_name": "Adramyttium",
         "chinese_name": "亞大米田", 
         "lat": "39.574800", 
         "lon": "26.936700", 
@@ -130,6 +114,7 @@
         ]
     }, 
     "Adriatic-Sea": {
+        "english_name": "Adriatic-Sea",
         "chinese_name": "亞底亞", 
         "lat": "42.415000", 
         "lon": "16.373500", 
@@ -139,6 +124,7 @@
         ]
     }, 
     "Adullam": {
+        "english_name": "Adullam",
         "chinese_name": "亞杜蘭", 
         "lat": "31.650000", 
         "lon": "35.000000", 
@@ -155,6 +141,7 @@
         ]
     }, 
     "Adummim": {
+        "english_name": "Adummim",
         "chinese_name": "亞都冥", 
         "lat": "31.817585", 
         "lon": "35.361646", 
@@ -165,6 +152,7 @@
         ]
     }, 
     "Aenon": {
+        "english_name": "Aenon",
         "chinese_name": "哀嫩", 
         "lat": "32.398936", 
         "lon": "35.543510", 
@@ -174,6 +162,7 @@
         ]
     }, 
     "Ahava": {
+        "english_name": "Ahava",
         "chinese_name": "亞哈瓦", 
         "lat": "33.625197", 
         "lon": "42.786647", 
@@ -185,6 +174,7 @@
         ]
     }, 
     "Ain-1": {
+        "english_name": "Ain",
         "chinese_name": "亞延", 
         "lat": "34.353071", 
         "lon": "36.385705", 
@@ -194,6 +184,7 @@
         ]
     }, 
     "Ain-2": {
+        "english_name": "Ain",
         "chinese_name": "亞因", 
         "lat": "31.370835", 
         "lon": "34.860665", 
@@ -206,6 +197,7 @@
         ]
     }, 
     "Akrabbim": {
+        "english_name": "Akrabbim",
         "chinese_name": "亞克拉濱", 
         "lat": "30.688292", 
         "lon": "35.263182", 
@@ -217,6 +209,7 @@
         ]
     }, 
     "Alemeth": {
+        "english_name": "Alemeth",
         "chinese_name": "阿勒篾", 
         "lat": "31.828406", 
         "lon": "35.287637", 
@@ -226,6 +219,7 @@
         ]
     }, 
     "Allammelech": {
+        "english_name": "Allammelech",
         "chinese_name": "亞拉米勒", 
         "lat": "32.97829", 
         "lon": "35.182915", 
@@ -235,6 +229,7 @@
         ]
     }, 
     "Amad": {
+        "english_name": "Amad",
         "chinese_name": "亞末", 
         "lat": "33.019337", 
         "lon": "35.173644", 
@@ -244,6 +239,7 @@
         ]
     }, 
     "Amana": {
+        "english_name": "Amana",
         "chinese_name": "亞瑪拿", 
         "lat": "33.681370", 
         "lon": "36.055039", 
@@ -253,6 +249,7 @@
         ]
     }, 
     "Ammah": {
+        "english_name": "Ammah",
         "chinese_name": "亞瑪", 
         "lat": "31.869005", 
         "lon": "35.343177", 
@@ -262,6 +259,7 @@
         ]
     }, 
     "Anab": {
+        "english_name": "Anab",
         "chinese_name": "亞拿伯", 
         "lat": "31.403888", 
         "lon": "34.944185", 
@@ -272,6 +270,7 @@
         ]
     }, 
     "Anaharath": {
+        "english_name": "Anaharath",
         "chinese_name": "亞拿哈拉", 
         "lat": "32.607039", 
         "lon": "35.397389", 
@@ -281,6 +280,7 @@
         ]
     }, 
     "Anim": {
+        "english_name": "Anim",
         "chinese_name": "亞念", 
         "lat": "31.373521", 
         "lon": "35.074552", 
@@ -290,6 +290,7 @@
         ]
     }, 
     "Aphek": {
+        "english_name": "Aphek",
         "chinese_name": "亞弗", 
         "lat": "34.066067", 
         "lon": "35.865801", 
@@ -300,6 +301,7 @@
         ]
     }, 
     "Arab": {
+        "english_name": "Arab",
         "chinese_name": "亞拉", 
         "lat": "31.450746", 
         "lon": "35.045648", 
@@ -309,6 +311,7 @@
         ]
     }, 
     "Arabah": {
+        "english_name": "Arabah",
         "chinese_name": "亞拉巴", 
         "lat": "32.029676", 
         "lon": "35.520995", 
@@ -337,6 +340,7 @@
         ]
     }, 
     "Aram": {
+        "english_name": "Aram",
         "chinese_name": "亞蘭", 
         "lat": "34.85", 
         "lon": "39.12", 
@@ -350,6 +354,7 @@
         ]
     }, 
     "Aram-maacah": {
+        "english_name": "Aram-maacah",
         "chinese_name": "亞蘭瑪迦", 
         "lat": "33.2", 
         "lon": "36.5", 
@@ -359,6 +364,7 @@
         ]
     }, 
     "Argob": {
+        "english_name": "Argob",
         "chinese_name": "亞珥歌伯", 
         "lat": "33.144", 
         "lon": "36.136", 
@@ -371,6 +377,7 @@
         ]
     }, 
     "Arnon": {
+        "english_name": "Arnon",
         "chinese_name": "亞嫩", 
         "lat": "31.428800", 
         "lon": "35.677009", 
@@ -391,6 +398,7 @@
         ]
     }, 
     "Aroer": {
+        "english_name": "Aroer",
         "chinese_name": "亞羅珥", 
         "lat": "31.9617", 
         "lon": "35.9115", 
@@ -405,6 +413,7 @@
         ]
     }, 
     "Arumah": {
+        "english_name": "Arumah",
         "chinese_name": "亞魯瑪", 
         "lat": "32.154887", 
         "lon": "35.318192", 
@@ -414,6 +423,7 @@
         ]
     }, 
     "Arvad": {
+        "english_name": "Arvad",
         "chinese_name": "亞發", 
         "lat": "34.856082", 
         "lon": "35.858485", 
@@ -424,6 +434,7 @@
         ]
     }, 
     "Ashkenaz": {
+        "english_name": "Ashkenaz",
         "chinese_name": "亞實基拿", 
         "lat": "40.6", 
         "lon": "44.6", 
@@ -433,6 +444,7 @@
         ]
     }, 
     "Ashnah": {
+        "english_name": "Ashnah",
         "chinese_name": "亞實拿", 
         "lat": "31.8099", 
         "lon": "34.9365", 
@@ -443,6 +455,7 @@
         ]
     }, 
     "Azmon": {
+        "english_name": "Azmon",
         "chinese_name": "押們", 
         "lat": "30.958506", 
         "lon": "34.380500", 
@@ -454,6 +467,7 @@
         ]
     }, 
     "Baal-hazor": {
+        "english_name": "Baal-hazor",
         "chinese_name": "巴力夏瑣", 
         "lat": "31.979434", 
         "lon": "35.279229", 
@@ -463,6 +477,7 @@
         ]
     }, 
     "Baal-meon": {
+        "english_name": "Baal-meon",
         "chinese_name": "巴力免", 
         "lat": "31.679454", 
         "lon": "35.734892", 
@@ -474,6 +489,7 @@
         ]
     }, 
     "Baalath": {
+        "english_name": "Baalath",
         "chinese_name": "巴拉", 
         "lat": "31.927451", 
         "lon": "35.055378", 
@@ -483,6 +499,7 @@
         ]
     }, 
     "Baalath-beer": {
+        "english_name": "Baalath-beer",
         "chinese_name": "巴拉比珥", 
         "lat": "32.049953", 
         "lon": "35.733402", 
@@ -492,6 +509,7 @@
         ]
     }, 
     "Bahurim": {
+        "english_name": "Bahurim",
         "chinese_name": "巴戶琳", 
         "lat": "31.824736", 
         "lon": "35.388486", 
@@ -506,6 +524,7 @@
         ]
     }, 
     "Bene-berak": {
+        "english_name": "Bene-berak",
         "chinese_name": "比尼比拉", 
         "lat": "32.035782", 
         "lon": "34.827108", 
@@ -515,6 +534,7 @@
         ]
     }, 
     "Berothah": {
+        "english_name": "Berothah",
         "chinese_name": "比羅他", 
         "lat": "33.931480", 
         "lon": "36.152049", 
@@ -524,6 +544,7 @@
         ]
     }, 
     "Besor": {
+        "english_name": "Besor",
         "chinese_name": "比梭", 
         "lat": "31.398056", 
         "lon": "34.436667", 
@@ -535,6 +556,7 @@
         ]
     }, 
     "Beten": {
+        "english_name": "Beten",
         "chinese_name": "比田", 
         "lat": "32.934736", 
         "lon": "35.270799", 
@@ -544,6 +566,7 @@
         ]
     }, 
     "Beth-anath": {
+        "english_name": "Beth-anath",
         "chinese_name": "伯亞納", 
         "lat": "33.146864", 
         "lon": "35.427134", 
@@ -554,6 +577,7 @@
         ]
     }, 
     "Beth-anoth": {
+        "english_name": "Beth-anoth",
         "chinese_name": "伯亞諾", 
         "lat": "31.558456", 
         "lon": "35.124483", 
@@ -563,6 +587,7 @@
         ]
     }, 
     "Beth-arabah": {
+        "english_name": "Beth-arabah",
         "chinese_name": "瑪哈尼但", 
         "lat": "31.843320", 
         "lon": "35.506490", 
@@ -575,6 +600,7 @@
         ]
     }, 
     "Beth-azmaveth": {
+        "english_name": "Beth-azmaveth",
         "chinese_name": "伯亞斯瑪弗", 
         "lat": "31.834203", 
         "lon": "35.260706", 
@@ -584,6 +610,7 @@
         ]
     }, 
     "Beth-dagon-1": {
+        "english_name": "Beth-dagon",
         "chinese_name": "伯大袞", 
         "lat": "31.908", 
         "lon": "34.775", 
@@ -593,6 +620,7 @@
         ]
     }, 
     "Beth-dagon-2": {
+        "english_name": "Beth-dagon",
         "chinese_name": "伯大袞", 
         "lat": "32.899561", 
         "lon": "35.107928", 
@@ -602,6 +630,7 @@
         ]
     }, 
     "Beth-emek": {
+        "english_name": "Beth-emek",
         "chinese_name": "伯以墨", 
         "lat": "32.978855", 
         "lon": "35.167096", 
@@ -611,6 +640,7 @@
         ]
     }, 
     "Beth-gamul": {
+        "english_name": "Beth-gamul",
         "chinese_name": "伯迦末", 
         "lat": "31.519692", 
         "lon": "35.844714", 
@@ -620,6 +650,7 @@
         ]
     }, 
     "Beth-haccherem": {
+        "english_name": "Beth-haccherem",
         "chinese_name": "伯哈基琳", 
         "lat": "31.665911", 
         "lon": "35.241516", 
@@ -630,6 +661,7 @@
         ]
     }, 
     "Beth-haram": {
+        "english_name": "Beth-haram",
         "chinese_name": "伯亞蘭", 
         "lat": "31.816667", 
         "lon": "35.583333", 
@@ -639,6 +671,7 @@
         ]
     }, 
     "Beth-hoglah": {
+        "english_name": "Beth-hoglah",
         "chinese_name": "伯曷拉", 
         "lat": "31.837062", 
         "lon": "35.513151", 
@@ -650,6 +683,7 @@
         ]
     }, 
     "Beth-nimrah": {
+        "english_name": "Beth-nimrah",
         "chinese_name": "伯寧拉", 
         "lat": "31.900811", 
         "lon": "35.625693", 
@@ -660,6 +694,7 @@
         ]
     }, 
     "Beth-peor": {
+        "english_name": "Beth-peor",
         "chinese_name": "伯毘珥", 
         "lat": "31.656099", 
         "lon": "35.711870", 
@@ -672,6 +707,7 @@
         ]
     }, 
     "Beth-rehob": {
+        "english_name": "Beth-rehob",
         "chinese_name": "伯利合", 
         "lat": "33.219354", 
         "lon": "35.544122", 
@@ -682,6 +718,7 @@
         ]
     }, 
     "Beth-shemesh": {
+        "english_name": "Beth-shemesh",
         "chinese_name": "伯示麥", 
         "lat": "32.406430", 
         "lon": "35.504628", 
@@ -691,6 +728,7 @@
         ]
     }, 
     "Beth-shittah": {
+        "english_name": "Beth-shittah",
         "chinese_name": "伯哈示他", 
         "lat": "32.552496", 
         "lon": "35.438257", 
@@ -700,6 +738,7 @@
         ]
     }, 
     "Beth-tappuah": {
+        "english_name": "Beth-tappuah",
         "chinese_name": "伯他普亞", 
         "lat": "31.529730", 
         "lon": "35.050377", 
@@ -709,6 +748,7 @@
         ]
     }, 
     "Beth-zur": {
+        "english_name": "Beth-zur",
         "chinese_name": "伯夙", 
         "lat": "31.596107", 
         "lon": "35.102620", 
@@ -720,6 +760,7 @@
         ]
     }, 
     "Bethlehem": {
+        "english_name": "Bethlehem",
         "chinese_name": "伯利恆", 
         "lat": "32.735379", 
         "lon": "35.189704", 
@@ -729,6 +770,7 @@
         ]
     }, 
     "Betonim": {
+        "english_name": "Betonim",
         "chinese_name": "比多寧", 
         "lat": "32.010500", 
         "lon": "35.706297", 
@@ -738,6 +780,7 @@
         ]
     }, 
     "Bezek": {
+        "english_name": "Bezek",
         "chinese_name": "比利洗", 
         "lat": "31.898029", 
         "lon": "34.952878", 
@@ -748,6 +791,7 @@
         ]
     }, 
     "Bozrah": {
+        "english_name": "Bozrah",
         "chinese_name": "波斯拉", 
         "lat": "30.734691", 
         "lon": "35.606250", 
@@ -763,6 +807,7 @@
         ]
     }, 
     "Brook-of-Egypt": {
+        "english_name": "Brook-of-Egypt",
         "chinese_name": "埃及小河", 
         "lat": "31.032047", 
         "lon": "33.854957", 
@@ -780,6 +825,7 @@
         ]
     }, 
     "Cabul": {
+        "english_name": "Cabul",
         "chinese_name": "迦步勒", 
         "lat": "32.865661", 
         "lon": "35.211814", 
@@ -789,6 +835,7 @@
         ]
     }, 
     "Calah": {
+        "english_name": "Calah",
         "chinese_name": "迦拉", 
         "lat": "36.142884", 
         "lon": "43.312178", 
@@ -799,6 +846,7 @@
         ]
     }, 
     "Calneh": {
+        "english_name": "Calneh",
         "chinese_name": "甲尼", 
         "lat": "32.127213", 
         "lon": "45.229995", 
@@ -809,6 +857,7 @@
         ]
     }, 
     "Cauda": {
+        "english_name": "Cauda",
         "chinese_name": "高大", 
         "lat": "34.843510", 
         "lon": "24.091671", 
@@ -818,6 +867,7 @@
         ]
     }, 
     "Chebar": {
+        "english_name": "Chebar",
         "chinese_name": "迦巴魯", 
         "lat": "33.159129", 
         "lon": "44.062930", 
@@ -834,6 +884,7 @@
         ]
     }, 
     "Chephar-ammoni": {
+        "english_name": "Chephar-ammoni",
         "chinese_name": "基法阿摩尼", 
         "lat": "31.966667", 
         "lon": "35.250000", 
@@ -843,6 +894,7 @@
         ]
     }, 
     "Chephirah": {
+        "english_name": "Chephirah",
         "chinese_name": "基非拉", 
         "lat": "31.836401", 
         "lon": "35.095272", 
@@ -855,6 +907,7 @@
         ]
     }, 
     "Chesalon": {
+        "english_name": "Chesalon",
         "chinese_name": "基撒崙", 
         "lat": "31.781049", 
         "lon": "35.051130", 
@@ -864,6 +917,7 @@
         ]
     }, 
     "Chesulloth": {
+        "english_name": "Chesulloth",
         "chinese_name": "基蘇律", 
         "lat": "32.683231", 
         "lon": "35.324694", 
@@ -873,6 +927,7 @@
         ]
     }, 
     "Chios": {
+        "english_name": "Chios",
         "chinese_name": "基阿", 
         "lat": "38.444840", 
         "lon": "26.063302", 
@@ -882,6 +937,7 @@
         ]
     }, 
     "Crete": {
+        "english_name": "Crete",
         "chinese_name": "革哩底", 
         "lat": "35.171239", 
         "lon": "25.007204", 
@@ -895,6 +951,7 @@
         ]
     }, 
     "Cuth": {
+        "english_name": "Cuth",
         "chinese_name": "古他", 
         "lat": "32.733333", 
         "lon": "44.666667", 
@@ -904,6 +961,7 @@
         ]
     }, 
     "Cyprus": {
+        "english_name": "Cyprus",
         "chinese_name": "他施", 
         "lat": "35.018306", 
         "lon": "33.207693", 
@@ -924,6 +982,7 @@
         ]
     }, 
     "Cyrene": {
+        "english_name": "Cyrene",
         "chinese_name": "古利奈", 
         "lat": "32.824979", 
         "lon": "21.858301", 
@@ -938,6 +997,7 @@
         ]
     }, 
     "Dabbesheth": {
+        "english_name": "Dabbesheth",
         "chinese_name": "大巴設", 
         "lat": "33.000000", 
         "lon": "35.266682", 
@@ -946,7 +1006,18 @@
             "JOS 19:11"
         ]
     }, 
+    "Dan": {
+        "english_name": "Dan",
+        "chinese_name": "但", 
+        "lat": "33.248659",
+        "lon": "35.652483", 
+        "notes": "Now Tel Dan",
+        "verses": [
+            "JOS 19:47"
+        ]
+    }, 
     "Dannah": {
+        "english_name": "Dannah",
         "chinese_name": "大拿", 
         "lat": "31.561025", 
         "lon": "34.975472", 
@@ -956,6 +1027,7 @@
         ]
     }, 
     "Debir": {
+        "english_name": "Debir",
         "chinese_name": "底璧", 
         "lat": "31.816662", 
         "lon": "35.349994", 
@@ -965,6 +1037,7 @@
         ]
     }, 
     "Dedan": {
+        "english_name": "Dedan",
         "chinese_name": "底但", 
         "lat": "26.625139", 
         "lon": "37.919663", 
@@ -979,6 +1052,7 @@
         ]
     }, 
     "Dimnah": {
+        "english_name": "Dimnah",
         "chinese_name": "丁拿", 
         "lat": "32.781808", 
         "lon": "35.321364", 
@@ -988,6 +1062,7 @@
         ]
     }, 
     "Dizahab": {
+        "english_name": "Dizahab",
         "chinese_name": "底撒哈", 
         "lat": "28.507836", 
         "lon": "34.516339", 
@@ -997,6 +1072,7 @@
         ]
     }, 
     "Dophkah": {
+        "english_name": "Dophkah",
         "chinese_name": "脫加", 
         "lat": "28.770015", 
         "lon": "33.400460", 
@@ -1007,6 +1083,7 @@
         ]
     }, 
     "Dumah": {
+        "english_name": "Dumah",
         "chinese_name": "度瑪", 
         "lat": "31.438270", 
         "lon": "34.982762", 
@@ -1016,6 +1093,7 @@
         ]
     }, 
     "Ebez": {
+        "english_name": "Ebez",
         "chinese_name": "亞別", 
         "lat": "32.261621", 
         "lon": "35.328129", 
@@ -1025,6 +1103,7 @@
         ]
     }, 
     "Ecbatana": {
+        "english_name": "Ecbatana",
         "chinese_name": "亞馬他", 
         "lat": "34.798311", 
         "lon": "48.514966", 
@@ -1034,6 +1113,7 @@
         ]
     }, 
     "Elath": {
+        "english_name": "Elath",
         "chinese_name": "以拉", 
         "lat": "29.528502", 
         "lon": "35.005732", 
@@ -1045,6 +1125,7 @@
         ]
     }, 
     "Elealeh": {
+        "english_name": "Elealeh",
         "chinese_name": "以利亞利", 
         "lat": "31.813796", 
         "lon": "35.824275", 
@@ -1058,6 +1139,7 @@
         ]
     }, 
     "Elim": {
+        "english_name": "Elim",
         "chinese_name": "以琳", 
         "lat": "29.306194", 
         "lon": "32.980924", 
@@ -1070,6 +1152,7 @@
         ]
     }, 
     "Elon": {
+        "english_name": "Elon",
         "chinese_name": "以倫", 
         "lat": "31.973818", 
         "lon": "35.116531", 
@@ -1079,6 +1162,7 @@
         ]
     }, 
     "Elonbeth-hanan": {
+        "english_name": "Elonbeth-hanan",
         "chinese_name": "以倫伯哈南", 
         "lat": "31.852593", 
         "lon": "35.109078", 
@@ -1088,6 +1172,7 @@
         ]
     }, 
     "Eltekeh": {
+        "english_name": "Eltekeh",
         "chinese_name": "伊利提基", 
         "lat": "31.869521", 
         "lon": "35.066880", 
@@ -1097,6 +1182,7 @@
         ]
     }, 
     "Eltekon": {
+        "english_name": "Eltekon",
         "chinese_name": "伊勒提君", 
         "lat": "31.660570", 
         "lon": "34.995406", 
@@ -1106,6 +1192,7 @@
         ]
     }, 
     "En-gannim": {
+        "english_name": "En-gannim",
         "chinese_name": "隱干寧", 
         "lat": "31.750000", 
         "lon": "34.950106", 
@@ -1115,6 +1202,7 @@
         ]
     }, 
     "En-haddah": {
+        "english_name": "En-haddah",
         "chinese_name": "隱哈大", 
         "lat": "32.478425", 
         "lon": "35.254452", 
@@ -1124,6 +1212,7 @@
         ]
     }, 
     "En-hazor": {
+        "english_name": "En-hazor",
         "chinese_name": "隱夏瑣", 
         "lat": "33.100000", 
         "lon": "35.350000", 
@@ -1133,6 +1222,7 @@
         ]
     }, 
     "En-rogel": {
+        "english_name": "En-rogel",
         "chinese_name": "隱羅結", 
         "lat": "31.767775", 
         "lon": "35.234408", 
@@ -1145,6 +1235,7 @@
         ]
     }, 
     "En-shemesh": {
+        "english_name": "En-shemesh",
         "chinese_name": "隱示麥", 
         "lat": "31.774020", 
         "lon": "35.270231", 
@@ -1155,6 +1246,7 @@
         ]
     }, 
     "Enam": {
+        "english_name": "Enam",
         "chinese_name": "以楠", 
         "lat": "32.15", 
         "lon": "35.1260", 
@@ -1164,6 +1256,7 @@
         ]
     }, 
     "Eneglaim": {
+        "english_name": "Eneglaim",
         "chinese_name": "隱以革蓮", 
         "lat": "30.998062", 
         "lon": "35.498547", 
@@ -1173,6 +1266,7 @@
         ]
     }, 
     "Ephes-dammim": {
+        "english_name": "Ephes-dammim",
         "chinese_name": "以弗大憫", 
         "lat": "31.691186", 
         "lon": "34.944496", 
@@ -1182,6 +1276,7 @@
         ]
     }, 
     "Erech": {
+        "english_name": "Erech",
         "chinese_name": "以力", 
         "lat": "32.322222", 
         "lon": "45.636111", 
@@ -1192,6 +1287,7 @@
         ]
     }, 
     "Eshan": {
+        "english_name": "Eshan",
         "chinese_name": "以珊", 
         "lat": "31.420175", 
         "lon": "35.033537", 
@@ -1201,6 +1297,7 @@
         ]
     }, 
     "Eshtaol": {
+        "english_name": "Eshtaol",
         "chinese_name": "以實陶", 
         "lat": "31.782429", 
         "lon": "35.009012", 
@@ -1216,6 +1313,7 @@
         ]
     }, 
     "Etam-1": {
+        "english_name": "Etam",
         "chinese_name": "以坦", 
         "lat": "31.736294", 
         "lon": "35.054850", 
@@ -1226,6 +1324,7 @@
         ]
     }, 
     "Etam-2": {
+        "english_name": "Etam",
         "chinese_name": "以坦", 
         "lat": "31.686465", 
         "lon": "35.174740", 
@@ -1235,6 +1334,7 @@
         ]
     }, 
     "Etham": {
+        "english_name": "Etham",
         "chinese_name": "以倘", 
         "lat": "30.467511", 
         "lon": "32.282767", 
@@ -1247,6 +1347,7 @@
         ]
     }, 
     "Euphrates": {
+        "english_name": "Euphrates",
         "chinese_name": "伯拉河", 
         "lat": "35.090577", 
         "lon": "40.427780", 
@@ -1289,6 +1390,7 @@
         ]
     }, 
     "Forum-of-Appius": {
+        "english_name": "Forum-of-Appius",
         "chinese_name": "亞比烏市", 
         "lat": "41.468706", 
         "lon": "12.993929", 
@@ -1298,6 +1400,7 @@
         ]
     }, 
     "Gallim": {
+        "english_name": "Gallim",
         "chinese_name": "迦琳", 
         "lat": "31.816667", 
         "lon": "35.250000", 
@@ -1308,6 +1411,7 @@
         ]
     }, 
     "Gebim": {
+        "english_name": "Gebim",
         "chinese_name": "基柄", 
         "lat": "31.800000", 
         "lon": "35.250000", 
@@ -1317,6 +1421,7 @@
         ]
     }, 
     "Gederah": {
+        "english_name": "Gederah",
         "chinese_name": "基底拉", 
         "lat": "31.823337", 
         "lon": "34.777779", 
@@ -1328,6 +1433,7 @@
         ]
     }, 
     "Gedor": {
+        "english_name": "Gedor",
         "chinese_name": "基突", 
         "lat": "31.633330", 
         "lon": "35.083333", 
@@ -1338,6 +1444,7 @@
         ]
     }, 
     "Geshur": {
+        "english_name": "Geshur",
         "chinese_name": "基述", 
         "lat": "33.000000", 
         "lon": "36.416670", 
@@ -1355,6 +1462,7 @@
         ]
     }, 
     "Gibbethon": {
+        "english_name": "Gibbethon",
         "chinese_name": "基比頓", 
         "lat": "31.976623", 
         "lon": "35.004896", 
@@ -1368,6 +1476,7 @@
         ]
     }, 
     "Gihon": {
+        "english_name": "Gihon",
         "chinese_name": "基訓", 
         "lat": "31.773116", 
         "lon": "35.237186", 
@@ -1381,6 +1490,7 @@
         ]
     }, 
     "Gilboa": {
+        "english_name": "Gilboa",
         "chinese_name": "基利波", 
         "lat": "32.516667", 
         "lon": "35.400000", 
@@ -1392,6 +1502,7 @@
         ]
     }, 
     "Gilgal": {
+        "english_name": "Gilgal",
         "chinese_name": "吉甲", 
         "lat": "32.029737", 
         "lon": "35.222604", 
@@ -1402,6 +1513,7 @@
         ]
     }, 
     "Giloh": {
+        "english_name": "Giloh",
         "chinese_name": "基羅", 
         "lat": "31.616667", 
         "lon": "35.083333", 
@@ -1412,6 +1524,7 @@
         ]
     }, 
     "Gimzo": {
+        "english_name": "Gimzo",
         "chinese_name": "瑾鎖", 
         "lat": "31.928659", 
         "lon": "34.943219", 
@@ -1421,6 +1534,7 @@
         ]
     }, 
     "Goshen": {
+        "english_name": "Goshen",
         "chinese_name": "歌珊", 
         "lat": "31.450000", 
         "lon": "34.916667", 
@@ -1432,6 +1546,7 @@
         ]
     }, 
     "Gozan": {
+        "english_name": "Gozan",
         "chinese_name": "歌散", 
         "lat": "36.840013", 
         "lon": "40.068890", 
@@ -1445,6 +1560,7 @@
         ]
     }, 
     "Habor": {
+        "english_name": "Habor",
         "chinese_name": "哈博", 
         "lat": "36.344972", 
         "lon": "40.789333", 
@@ -1456,6 +1572,7 @@
         ]
     }, 
     "Hachilah": {
+        "english_name": "Hachilah",
         "chinese_name": "哈基拉", 
         "lat": "31.466604", 
         "lon": "35.216691", 
@@ -1467,6 +1584,7 @@
         ]
     }, 
     "Hadad-rimmon": {
+        "english_name": "Hadad-rimmon",
         "chinese_name": "哈達臨門", 
         "lat": "32.524106", 
         "lon": "35.205136", 
@@ -1476,6 +1594,7 @@
         ]
     }, 
     "Hadashah": {
+        "english_name": "Hadashah",
         "chinese_name": "哈大沙", 
         "lat": "31.679512", 
         "lon": "34.695903", 
@@ -1485,6 +1604,7 @@
         ]
     }, 
     "Hadid": {
+        "english_name": "Hadid",
         "chinese_name": "哈第", 
         "lat": "31.963575", 
         "lon": "34.952536", 
@@ -1496,6 +1616,7 @@
         ]
     }, 
     "Haeleph": {
+        "english_name": "Haeleph",
         "chinese_name": "以利弗", 
         "lat": "31.792733", 
         "lon": "35.196862", 
@@ -1505,6 +1626,7 @@
         ]
     }, 
     "Halhul": {
+        "english_name": "Halhul",
         "chinese_name": "哈忽", 
         "lat": "31.579549", 
         "lon": "35.099103", 
@@ -1514,6 +1636,7 @@
         ]
     }, 
     "Hamath": {
+        "english_name": "Hamath",
         "chinese_name": "哈馬", 
         "lat": "35.136204", 
         "lon": "36.749488", 
@@ -1545,6 +1668,7 @@
         ]
     }, 
     "Hammath": {
+        "english_name": "Hammath",
         "chinese_name": "哈末", 
         "lat": "33.125828", 
         "lon": "35.165000", 
@@ -1555,6 +1679,7 @@
         ]
     }, 
     "Hanes": {
+        "english_name": "Hanes",
         "chinese_name": "哈內斯", 
         "lat": "29.085425", 
         "lon": "30.934402", 
@@ -1564,6 +1689,7 @@
         ]
     }, 
     "Hannathon": {
+        "english_name": "Hannathon",
         "chinese_name": "哈拿頓", 
         "lat": "32.916002", 
         "lon": "35.426637", 
@@ -1573,6 +1699,7 @@
         ]
     }, 
     "Harod": {
+        "english_name": "Harod",
         "chinese_name": "哈律", 
         "lat": "32.549638", 
         "lon": "35.355647", 
@@ -1584,6 +1711,7 @@
         ]
     }, 
     "Harosheth-hagoyim": {
+        "english_name": "Harosheth-hagoyim",
         "chinese_name": "夏羅設", 
         "lat": "32.691177", 
         "lon": "35.110039", 
@@ -1595,6 +1723,7 @@
         ]
     }, 
     "Hazar-enan": {
+        "english_name": "Hazar-enan",
         "chinese_name": "哈薩以難", 
         "lat": "34.229499", 
         "lon": "37.240077", 
@@ -1607,6 +1736,7 @@
         ]
     }, 
     "Hazar-shual": {
+        "english_name": "Hazar-shual",
         "chinese_name": "哈薩書亞", 
         "lat": "31.215418", 
         "lon": "34.942986", 
@@ -1619,6 +1749,7 @@
         ]
     }, 
     "Hazeroth": {
+        "english_name": "Hazeroth",
         "chinese_name": "哈洗錄", 
         "lat": "28.916667", 
         "lon": "34.500000", 
@@ -1632,6 +1763,7 @@
         ]
     }, 
     "Hazor": {
+        "english_name": "Hazor",
         "chinese_name": "夏瑣", 
         "lat": "31.833333", 
         "lon": "35.20000", 
@@ -1641,6 +1773,7 @@
         ]
     }, 
     "Helbon": {
+        "english_name": "Helbon",
         "chinese_name": "黑本", 
         "lat": "33.664912", 
         "lon": "36.248576", 
@@ -1650,6 +1783,7 @@
         ]
     }, 
     "Heleph": {
+        "english_name": "Heleph",
         "chinese_name": "希利弗", 
         "lat": "33.134416", 
         "lon": "35.332157", 
@@ -1659,6 +1793,7 @@
         ]
     }, 
     "Helkath": {
+        "english_name": "Helkath",
         "chinese_name": "黑甲", 
         "lat": "32.955448", 
         "lon": "35.211971", 
@@ -1669,6 +1804,7 @@
         ]
     }, 
     "Helkath-hazzurim": {
+        "english_name": "Helkath-hazzurim",
         "chinese_name": "希利甲哈素林", 
         "lat": "31.880126", 
         "lon": "35.280188", 
@@ -1678,6 +1814,7 @@
         ]
     }, 
     "Hena": {
+        "english_name": "Hena",
         "chinese_name": "希拿", 
         "lat": "34.467725", 
         "lon": "41.964955", 
@@ -1689,6 +1826,7 @@
         ]
     }, 
     "Hereth": {
+        "english_name": "Hereth",
         "chinese_name": "哈列", 
         "lat": "31.621492", 
         "lon": "35.029273", 
@@ -1698,6 +1836,7 @@
         ]
     }, 
     "Hethlon": {
+        "english_name": "Hethlon",
         "chinese_name": "希特倫", 
         "lat": "34.737990", 
         "lon": "36.340918", 
@@ -1708,6 +1847,7 @@
         ]
     }, 
     "Hierapolis": {
+        "english_name": "Hierapolis",
         "chinese_name": "希拉波立", 
         "lat": "37.924517", 
         "lon": "29.124525", 
@@ -1717,6 +1857,7 @@
         ]
     }, 
     "Hobah": {
+        "english_name": "Hobah",
         "chinese_name": "何把", 
         "lat": "33.500000", 
         "lon": "36.466667", 
@@ -1726,6 +1867,7 @@
         ]
     }, 
     "Holon": {
+        "english_name": "Holon",
         "chinese_name": "何倫", 
         "lat": "31.583333", 
         "lon": "34.950000", 
@@ -1736,6 +1878,7 @@
         ]
     }, 
     "Horem": {
+        "english_name": "Horem",
         "chinese_name": "和璉", 
         "lat": "33.166667", 
         "lon": "35.433333", 
@@ -1745,6 +1888,7 @@
         ]
     }, 
     "Horonaim": {
+        "english_name": "Horonaim",
         "chinese_name": "何羅念", 
         "lat": "31.288056", 
         "lon": "35.515000", 
@@ -1757,6 +1901,7 @@
         ]
     }, 
     "Hosah": {
+        "english_name": "Hosah",
         "chinese_name": "何薩", 
         "lat": "32.178502", 
         "lon": "35.227580", 
@@ -1766,6 +1911,7 @@
         ]
     }, 
     "Hukkok": {
+        "english_name": "Hukkok",
         "chinese_name": "戶割", 
         "lat": "32.882153", 
         "lon": "35.496694", 
@@ -1775,6 +1921,7 @@
         ]
     }, 
     "Idalah": {
+        "english_name": "Idalah",
         "chinese_name": "以大拉", 
         "lat": "32.733333", 
         "lon": "35.166667", 
@@ -1784,6 +1931,7 @@
         ]
     }, 
     "Irpeel": {
+        "english_name": "Irpeel",
         "chinese_name": "伊利毘勒", 
         "lat": "31.869343", 
         "lon": "35.197712", 
@@ -1793,6 +1941,7 @@
         ]
     }, 
     "Ithlah": {
+        "english_name": "Ithlah",
         "chinese_name": "伊提拉", 
         "lat": "31.823593", 
         "lon": "35.075769", 
@@ -1802,6 +1951,7 @@
         ]
     }, 
     "Jabbok": {
+        "english_name": "Jabbok",
         "chinese_name": "雅博", 
         "lat": "32.193237", 
         "lon": "35.676305", 
@@ -1817,6 +1967,7 @@
         ]
     }, 
     "Jabneel-1": {
+        "english_name": "Jabneel",
         "chinese_name": "雅比聶", 
         "lat": "31.865518", 
         "lon": "34.746856", 
@@ -1826,6 +1977,7 @@
         ]
     }, 
     "Jabneel-2": {
+        "english_name": "Jabneel",
         "chinese_name": "雅比聶", 
         "lat": "32.700000", 
         "lon": "35.500000", 
@@ -1835,6 +1987,7 @@
         ]
     }, 
     "Janim": {
+        "english_name": "Janim",
         "chinese_name": "雅農", 
         "lat": "31.516667", 
         "lon": "35.166667", 
@@ -1844,6 +1997,7 @@
         ]
     }, 
     "Janoah-1": {
+        "english_name": "Janoah",
         "chinese_name": "雅挪哈", 
         "lat": "33.260246", 
         "lon": "35.302915", 
@@ -1854,6 +2008,7 @@
         ]
     }, 
     "Janoah-2": {
+        "english_name": "Janoah",
         "chinese_name": "亞挪", 
         "lat": "32.155895", 
         "lon": "35.361606", 
@@ -1863,6 +2018,7 @@
         ]
     }, 
     "Japhia": {
+        "english_name": "Japhia",
         "chinese_name": "雅非亞", 
         "lat": "32.691633", 
         "lon": "35.274955", 
@@ -1872,6 +2028,7 @@
         ]
     }, 
     "Jehud": {
+        "english_name": "Jehud",
         "chinese_name": "伊胡得", 
         "lat": "32.033636", 
         "lon": "34.889599", 
@@ -1881,6 +2038,7 @@
         ]
     }, 
     "Jerusalem": {
+        "english_name": "Jerusalem",
         "chinese_name": "耶路撒冷", 
         "lat": "31.777444", 
         "lon": "35.234935", 
@@ -1928,6 +2086,7 @@
         ]
     }, 
     "Jeshanah": {
+        "english_name": "Jeshanah",
         "chinese_name": "耶沙拿", 
         "lat": "31.980029", 
         "lon": "35.229709", 
@@ -1937,6 +2096,7 @@
         ]
     }, 
     "Jogbehah": {
+        "english_name": "Jogbehah",
         "chinese_name": "約比哈", 
         "lat": "32.028743", 
         "lon": "35.862887", 
@@ -1947,6 +2107,7 @@
         ]
     }, 
     "Jordan-Valley": {
+        "english_name": "Jordan-Valley",
         "chinese_name": "約但河", 
         "lat": "32.309099", 
         "lon": "35.559900", 
@@ -1957,6 +2118,7 @@
         ]
     }, 
     "Juttah": {
+        "english_name": "Juttah",
         "chinese_name": "淤他", 
         "lat": "31.450000", 
         "lon": "35.083333", 
@@ -1967,6 +2129,7 @@
         ]
     }, 
     "Kain": {
+        "english_name": "Kain",
         "chinese_name": "基尼", 
         "lat": "31.500000", 
         "lon": "35.166667", 
@@ -1977,6 +2140,7 @@
         ]
     }, 
     "Kanah": {
+        "english_name": "Kanah",
         "chinese_name": "加拿", 
         "lat": "32.138219", 
         "lon": "35.038971", 
@@ -1987,6 +2151,7 @@
         ]
     }, 
     "Kedemoth": {
+        "english_name": "Kedemoth",
         "chinese_name": "基底莫", 
         "lat": "31.646073", 
         "lon": "35.894537", 
@@ -1999,6 +2164,7 @@
         ]
     }, 
     "Keilah": {
+        "english_name": "Keilah",
         "chinese_name": "基伊拉", 
         "lat": "31.614175", 
         "lon": "35.002752", 
@@ -2022,6 +2188,7 @@
         ]
     }, 
     "Kenath": {
+        "english_name": "Kenath",
         "chinese_name": "基納", 
         "lat": "32.756919", 
         "lon": "36.616400", 
@@ -2032,6 +2199,7 @@
         ]
     }, 
     "Kibzaim": {
+        "english_name": "Kibzaim",
         "chinese_name": "基伯先", 
         "lat": "31.833333", 
         "lon": "35.300000", 
@@ -2041,6 +2209,7 @@
         ]
     }, 
     "Kidron": {
+        "english_name": "Kidron",
         "chinese_name": "汲淪", 
         "lat": "31.772134", 
         "lon": "35.236596", 
@@ -2058,6 +2227,7 @@
         ]
     }, 
     "Kishion": {
+        "english_name": "Kishion",
         "chinese_name": "基善", 
         "lat": "32.559061", 
         "lon": "35.246206", 
@@ -2068,6 +2238,7 @@
         ]
     }, 
     "Kishon": {
+        "english_name": "Kishon",
         "chinese_name": "基順", 
         "lat": "32.761948", 
         "lon": "35.064096", 
@@ -2081,6 +2252,7 @@
         ]
     }, 
     "Kitron": {
+        "english_name": "Kitron",
         "chinese_name": "基倫", 
         "lat": "32.753141", 
         "lon": "35.279335", 
@@ -2090,6 +2262,7 @@
         ]
     }, 
     "Lahmam": {
+        "english_name": "Lahmam",
         "chinese_name": "拉幔", 
         "lat": "31.566667", 
         "lon": "34.900000", 
@@ -2099,6 +2272,7 @@
         ]
     }, 
     "Laishah": {
+        "english_name": "Laishah",
         "chinese_name": "萊煞", 
         "lat": "31.800000", 
         "lon": "35.250000", 
@@ -2108,6 +2282,7 @@
         ]
     }, 
     "Lasha": {
+        "english_name": "Lasha",
         "chinese_name": "拉沙", 
         "lat": "31.718148", 
         "lon": "35.584826", 
@@ -2117,6 +2292,7 @@
         ]
     }, 
     "Lasharon": {
+        "english_name": "Lasharon",
         "chinese_name": "拉沙崙", 
         "lat": "32.725440", 
         "lon": "35.467002", 
@@ -2126,6 +2302,7 @@
         ]
     }, 
     "Lebonah": {
+        "english_name": "Lebonah",
         "chinese_name": "利波拿", 
         "lat": "32.070770", 
         "lon": "35.239871", 
@@ -2134,7 +2311,28 @@
             "JUG 21:19"
         ]
     }, 
+    "Leshem": {
+        "english_name": "Leshem",
+        "chinese_name": "利善", 
+        "lat": "33.248659",
+        "lon": "35.652483", 
+        "notes": "Now Tel Dan",
+        "verses": [
+            "JOS 19:47"
+        ]
+    }, 
+    "Laish": {
+        "english_name": "Laish",
+        "chinese_name": "拉億", 
+        "lat": "33.248659",
+        "lon": "35.652483", 
+        "notes": "Now Laish",
+        "verses": [
+            "JUG 18:29"
+        ]
+    }, 
     "Lo-debar": {
+        "english_name": "Lo-debar",
         "chinese_name": "羅底巴亞", 
         "lat": "32.662488", 
         "lon": "35.783568", 
@@ -2147,6 +2345,7 @@
         ]
     }, 
     "Maarath": {
+        "english_name": "Maarath",
         "chinese_name": "瑪臘", 
         "lat": "31.621003", 
         "lon": "35.102328", 
@@ -2156,6 +2355,7 @@
         ]
     }, 
     "Madmannah": {
+        "english_name": "Madmannah",
         "chinese_name": "麥瑪拿", 
         "lat": "31.391668", 
         "lon": "34.940502", 
@@ -2166,6 +2366,7 @@
         ]
     }, 
     "Madon": {
+        "english_name": "Madon",
         "chinese_name": "瑪頓", 
         "lat": "32.799879", 
         "lon": "35.459506", 
@@ -2176,6 +2377,7 @@
         ]
     }, 
     "Mahaneh-dan": {
+        "english_name": "Mahaneh-dan",
         "chinese_name": "瑪哈尼但", 
         "lat": "31.758315", 
         "lon": "34.994252", 
@@ -2186,6 +2388,7 @@
         ]
     }, 
     "Makkedah": {
+        "english_name": "Makkedah",
         "chinese_name": "瑪基大", 
         "lat": "31.935117", 
         "lon": "34.781326", 
@@ -2202,6 +2405,7 @@
         ]
     }, 
     "Manahath": {
+        "english_name": "Manahath",
         "chinese_name": "瑪拿轄", 
         "lat": "31.752603", 
         "lon": "35.181972", 
@@ -2211,6 +2415,7 @@
         ]
     }, 
     "Marah": {
+        "english_name": "Marah",
         "chinese_name": "瑪拉", 
         "lat": "29.350000", 
         "lon": "32.933333", 
@@ -2222,6 +2427,7 @@
         ]
     }, 
     "Mareal": {
+        "english_name": "Mareal",
         "chinese_name": "瑪拉拉", 
         "lat": "32.697409", 
         "lon": "35.241789", 
@@ -2231,6 +2437,7 @@
         ]
     }, 
     "Mearah": {
+        "english_name": "Mearah",
         "chinese_name": "米亞拉", 
         "lat": "33.633333", 
         "lon": "35.433333", 
@@ -2240,6 +2447,7 @@
         ]
     }, 
     "Memphis": {
+        "english_name": "Memphis",
         "chinese_name": "埃及", 
         "lat": "29.849632", 
         "lon": "31.253958", 
@@ -2256,6 +2464,7 @@
         ]
     }, 
     "Mephaath": {
+        "english_name": "Mephaath",
         "chinese_name": "米法押", 
         "lat": "31.850000", 
         "lon": "35.933333", 
@@ -2268,6 +2477,7 @@
         ]
     }, 
     "Merom": {
+        "english_name": "Merom",
         "chinese_name": "米倫", 
         "lat": "33.075269", 
         "lon": "35.605480", 
@@ -2278,6 +2488,7 @@
         ]
     }, 
     "Michmethath": {
+        "english_name": "Michmethath",
         "chinese_name": "密米他", 
         "lat": "32.183333", 
         "lon": "35.283333", 
@@ -2288,6 +2499,7 @@
         ]
     }, 
     "Middin": {
+        "english_name": "Middin",
         "chinese_name": "密丁",
         "lat": "31.743894", 
         "lon": "35.401591", 
@@ -2297,6 +2509,7 @@
         ]
     }, 
     "Migdal-el": {
+        "english_name": "Migdal-el",
         "chinese_name": "密大伊勒", 
         "lat": "33.232131", 
         "lon": "35.362942", 
@@ -2306,6 +2519,7 @@
         ]
     }, 
     "Migdal-gad": {
+        "english_name": "Migdal-gad",
         "chinese_name": "麥大迦得", 
         "lat": "31.666667", 
         "lon": "34.583333", 
@@ -2315,6 +2529,7 @@
         ]
     }, 
     "Minnith": {
+        "english_name": "Minnith",
         "chinese_name": "米匿", 
         "lat": "31.750000", 
         "lon": "35.850000", 
@@ -2325,6 +2540,7 @@
         ]
     }, 
     "Misrephoth-maim": {
+        "english_name": "Misrephoth-maim",
         "chinese_name": "米斯利弗瑪音", 
         "lat": "33.118952", 
         "lon": "35.139434", 
@@ -2335,6 +2551,7 @@
         ]
     }, 
     "Moladah": {
+        "english_name": "Moladah",
         "chinese_name": "摩拉大", 
         "lat": "31.162327", 
         "lon": "35.057114", 
@@ -2347,6 +2564,7 @@
         ]
     }, 
     "Mount-Ephron": {
+        "english_name": "Mount-Ephron",
         "chinese_name": "以弗崙", 
         "lat": "31.675746", 
         "lon": "35.042407", 
@@ -2356,6 +2574,7 @@
         ]
     }, 
     "Mount-Halak": {
+        "english_name": "Mount-Halak",
         "chinese_name": "哈拉山", 
         "lat": "30.916667", 
         "lon": "34.833333", 
@@ -2366,6 +2585,7 @@
         ]
     }, 
     "Mount-Hor-1": {
+        "english_name": "Mount-Hor",
         "chinese_name": "何珥", 
         "lat": "30.317396", 
         "lon": "35.407152", 
@@ -2384,6 +2604,7 @@
         ]
     }, 
     "Mount-Hor-2": {
+        "english_name": "Mount-Hor",
         "chinese_name": "何珥", 
         "lat": "35.710069", 
         "lon": "36.188080", 
@@ -2394,6 +2615,7 @@
         ]
     }, 
     "Mount-Seir": {
+        "english_name": "Mount-Seir",
         "chinese_name": "西珥山", 
         "lat": "31.783333", 
         "lon": "34.994000", 
@@ -2403,6 +2625,7 @@
         ]
     }, 
     "Mount-Sinai": {
+        "english_name": "Mount-Sinai",
         "chinese_name": "西奈山", 
         "lat": "28.539722", 
         "lon": "33.973333", 
@@ -2432,6 +2655,7 @@
         ]
     }, 
     "Mozah": {
+        "english_name": "Mozah",
         "chinese_name": "摩撒", 
         "lat": "31.802641", 
         "lon": "35.158376", 
@@ -2441,6 +2665,7 @@
         ]
     }, 
     "Naamah": {
+        "english_name": "Naamah",
         "chinese_name": "拿瑪", 
         "lat": "31.871782", 
         "lon": "34.871894", 
@@ -2450,6 +2675,7 @@
         ]
     }, 
     "Naaran": {
+        "english_name": "Naaran",
         "chinese_name": "拿蘭", 
         "lat": "31.949518", 
         "lon": "35.458730", 
@@ -2459,6 +2685,7 @@
         ]
     }, 
     "Nahalol": {
+        "english_name": "Nahalol",
         "chinese_name": "拿哈拉", 
         "lat": "32.722209", 
         "lon": "35.352820", 
@@ -2468,6 +2695,7 @@
         ]
     }, 
     "Neballat": {
+        "english_name": "Neballat",
         "chinese_name": "尼八拉", 
         "lat": "31.992079", 
         "lon": "34.957563", 
@@ -2477,6 +2705,7 @@
         ]
     }, 
     "Nebo-1": {
+        "english_name": "Nebo",
         "chinese_name": "尼波", 
         "lat": "31.748024", 
         "lon": "35.743257", 
@@ -2492,6 +2721,7 @@
         ]
     }, 
     "Nebo-2": {
+        "english_name": "Nebo",
         "chinese_name": "尼波", 
         "lat": "31.606256", 
         "lon": "35.037417", 
@@ -2503,6 +2733,7 @@
         ]
     }, 
     "Neiel": {
+        "english_name": "Neiel",
         "chinese_name": "尼業", 
         "lat": "32.894254", 
         "lon": "35.221877", 
@@ -2512,6 +2743,7 @@
         ]
     }, 
     "Nephtoah": {
+        "english_name": "Nephtoah",
         "chinese_name": "尼弗多亞", 
         "lat": "31.683036", 
         "lon": "35.167987", 
@@ -2522,6 +2754,7 @@
         ]
     }, 
     "Netophah": {
+        "english_name": "Netophah",
         "chinese_name": "尼陀法", 
         "lat": "31.735465", 
         "lon": "35.220503", 
@@ -2536,6 +2769,7 @@
         ]
     }, 
     "Nezib": {
+        "english_name": "Nezib",
         "chinese_name": "尼悉", 
         "lat": "31.588050", 
         "lon": "34.992389", 
@@ -2545,6 +2779,7 @@
         ]
     }, 
     "Nicopolis": {
+        "english_name": "Nicopolis",
         "chinese_name": "尼哥波立", 
         "lat": "39.024033", 
         "lon": "20.735730", 
@@ -2554,6 +2789,7 @@
         ]
     }, 
     "Nile": {
+        "english_name": "Nile",
         "chinese_name": "尼羅", 
         "lat": "30.092632", 
         "lon": "31.230987", 
@@ -2596,6 +2832,7 @@
         ]
     }, 
     "Nimrim": {
+        "english_name": "Nimrim",
         "chinese_name": "寧林", 
         "lat": "31.133191", 
         "lon": "35.531138", 
@@ -2606,6 +2843,7 @@
         ]
     }, 
     "Nineveh": {
+        "english_name": "Nineveh",
         "chinese_name": "尼尼微", 
         "lat": "36.359410", 
         "lon": "43.152887", 
@@ -2633,6 +2871,7 @@
         ]
     }, 
     "Nob": {
+        "english_name": "Nob",
         "chinese_name": "挪伯", 
         "lat": "31.799605", 
         "lon": "35.232980", 
@@ -2647,6 +2886,7 @@
         ]
     }, 
     "On": {
+        "english_name": "On",
         "chinese_name": "安", 
         "lat": "30.108086", 
         "lon": "31.338220", 
@@ -2659,6 +2899,7 @@
         ]
     }, 
     "Ophni": {
+        "english_name": "Ophni",
         "chinese_name": "俄弗尼", 
         "lat": "31.961989", 
         "lon": "35.215483", 
@@ -2668,6 +2909,7 @@
         ]
     }, 
     "Parah": {
+        "english_name": "Parah",
         "chinese_name": "巴拉", 
         "lat": "31.833333", 
         "lon": "35.300000", 
@@ -2677,6 +2919,7 @@
         ]
     }, 
     "Paran": {
+        "english_name": "Paran",
         "chinese_name": "巴蘭", 
         "lat": "29.151667", 
         "lon": "33.541944", 
@@ -2693,6 +2936,7 @@
         ]
     }, 
     "Patmos": {
+        "english_name": "Patmos",
         "chinese_name": "拔摩", 
         "lat": "37.307520", 
         "lon": "26.548274", 
@@ -2702,6 +2946,7 @@
         ]
     }, 
     "Pethor": {
+        "english_name": "Pethor",
         "chinese_name": "毘奪", 
         "lat": "36.654616", 
         "lon": "38.068879", 
@@ -2712,6 +2957,7 @@
         ]
     }, 
     "Pharpar": {
+        "english_name": "Pharpar",
         "chinese_name": "法珥法", 
         "lat": "33.379601", 
         "lon": "36.306085", 
@@ -2721,6 +2967,7 @@
         ]
     }, 
     "Pi-beseth": {
+        "english_name": "Pi-beseth",
         "chinese_name": "比伯實", 
         "lat": "30.583333", 
         "lon": "31.500000", 
@@ -2730,6 +2977,7 @@
         ]
     }, 
     "Pirathon": {
+        "english_name": "Pirathon",
         "chinese_name": "比拉頓", 
         "lat": "32.286022", 
         "lon": "35.022944", 
@@ -2742,6 +2990,7 @@
         ]
     }, 
     "Raamah": {
+        "english_name": "Raamah",
         "chinese_name": "拉瑪", 
         "lat": "15.68", 
         "lon": "42.78", 
@@ -2751,6 +3000,7 @@
         ]
     }, 
     "Rabbith": {
+        "english_name": "Rabbith",
         "chinese_name": "拉璧", 
         "lat": "32.391416", 
         "lon": "35.377302", 
@@ -2760,6 +3010,7 @@
         ]
     }, 
     "Rakkon": {
+        "english_name": "Rakkon",
         "chinese_name": "拉昆", 
         "lat": "32.132898", 
         "lon": "34.788144", 
@@ -2769,6 +3020,7 @@
         ]
     }, 
     "Ramah-1": {
+        "english_name": "Ramah",
         "chinese_name": "拉瑪", 
         "lat": "33.111078", 
         "lon": "35.310464", 
@@ -2778,6 +3030,7 @@
         ]
     }, 
     "Ramah-2": {
+        "english_name": "Ramah",
         "chinese_name": "拉瑪", 
         "lat": "32.939010", 
         "lon": "35.368123", 
@@ -2787,6 +3040,7 @@
         ]
     }, 
     "Rehoboth": {
+        "english_name": "Rehoboth",
         "chinese_name": "利河伯", 
         "lat": "31.066829", 
         "lon": "34.597830", 
@@ -2796,6 +3050,7 @@
         ]
     }, 
     "Rezeph": {
+        "english_name": "Rezeph",
         "chinese_name": "利色", 
         "lat": "35.950000", 
         "lon": "39.016667", 
@@ -2806,6 +3061,7 @@
         ]
     }, 
     "Riblah": {
+        "english_name": "Riblah",
         "chinese_name": "利比拉", 
         "lat": "34.431703", 
         "lon": "36.545259", 
@@ -2825,6 +3081,7 @@
         ]
     }, 
     "Rimmon": {
+        "english_name": "Rimmon",
         "chinese_name": "臨門磐", 
         "lat": "31.934660", 
         "lon": "35.297063", 
@@ -2836,6 +3093,7 @@
         ]
     }, 
     "Salecah": {
+        "english_name": "Salecah",
         "chinese_name": "撒迦", 
         "lat": "32.493941", 
         "lon": "36.710337", 
@@ -2848,6 +3106,7 @@
         ]
     }, 
     "Salt-Sea": {
+        "english_name": "Salt-Sea",
         "chinese_name": "鹽海", 
         "lat": "31.538593", 
         "lon": "35.482268", 
@@ -2865,6 +3124,7 @@
         ]
     }, 
     "Samos": {
+        "english_name": "Samos",
         "chinese_name": "撒摩", 
         "lat": "37.715172", 
         "lon": "26.934167", 
@@ -2874,6 +3134,7 @@
         ]
     }, 
     "Samothrace": {
+        "english_name": "Samothrace",
         "chinese_name": "撒摩特喇", 
         "lat": "40.467279", 
         "lon": "25.486069", 
@@ -2883,6 +3144,7 @@
         ]
     }, 
     "Secacah": {
+        "english_name": "Secacah",
         "chinese_name": "西迦迦", 
         "lat": "31.766667", 
         "lon": "35.283333", 
@@ -2892,6 +3154,7 @@
         ]
     }, 
     "Secu": {
+        "english_name": "Secu",
         "chinese_name": "西沽", 
         "lat": "31.883333", 
         "lon": "35.200000", 
@@ -2901,6 +3164,7 @@
         ]
     }, 
     "Sephar": {
+        "english_name": "Sephar",
         "chinese_name": "西發", 
         "lat": "14.550219", 
         "lon": "44.392642", 
@@ -2910,6 +3174,7 @@
         ]
     }, 
     "Shaalbim": {
+        "english_name": "Shaalbim",
         "chinese_name": "沙賓", 
         "lat": "31.870364", 
         "lon": "34.981728", 
@@ -2920,6 +3185,7 @@
         ]
     }, 
     "Shaaraim": {
+        "english_name": "Shaaraim",
         "chinese_name": "沙拉音", 
         "lat": "31.7001", 
         "lon": "34.89532", 
@@ -2930,6 +3196,7 @@
         ]
     }, 
     "Shamir": {
+        "english_name": "Shamir",
         "chinese_name": "沙密", 
         "lat": "31.416667", 
         "lon": "34.933333", 
@@ -2939,6 +3206,7 @@
         ]
     }, 
     "Shamir": {
+        "english_name": "Shamir",
         "chinese_name": "沙密", 
         "lat": "32.360470", 
         "lon": "35.250054", 
@@ -2949,6 +3217,7 @@
         ]
     }, 
     "Shaphir": {
+        "english_name": "Shaphir",
         "chinese_name": "沙斐", 
         "lat": "31.743719", 
         "lon": "34.694006", 
@@ -2958,6 +3227,7 @@
         ]
     }, 
     "Sharuhen": {
+        "english_name": "Sharuhen",
         "chinese_name": "沙魯險", 
         "lat": "31.282222", 
         "lon": "34.482500", 
@@ -2967,6 +3237,7 @@
         ]
     }, 
     "Shihor-libnath": {
+        "english_name": "Shihor-libnath",
         "chinese_name": "希曷立納", 
         "lat": "32.538496", 
         "lon": "34.907697", 
@@ -2976,6 +3247,7 @@
         ]
     }, 
     "Shion": {
+        "english_name": "Shion",
         "chinese_name": "示按", 
         "lat": "32.716666", 
         "lon": "35.333334", 
@@ -2985,6 +3257,7 @@
         ]
     }, 
     "Sibmah": {
+        "english_name": "Sibmah",
         "chinese_name": "西比瑪", 
         "lat": "31.815283", 
         "lon": "35.766738", 
@@ -2998,6 +3271,7 @@
         ]
     }, 
     "Sirah": {
+        "english_name": "Sirah",
         "chinese_name": "西拉", 
         "lat": "31.55", 
         "lon": "35.1", 
@@ -3007,6 +3281,7 @@
         ]
     }, 
     "Syene": {
+        "english_name": "Syene",
         "chinese_name": "希尼", 
         "lat": "24.066181", 
         "lon": "32.895862", 
@@ -3018,6 +3293,7 @@
         ]
     }, 
     "Syrtis": {
+        "english_name": "Syrtis",
         "chinese_name": "賽耳底", 
         "lat": "31.766667", 
         "lon": "18.505556", 
@@ -3027,6 +3303,7 @@
         ]
     }, 
     "Taanath-shiloh": {
+        "english_name": "Taanath-shiloh",
         "chinese_name": "他納示羅", 
         "lat": "32.150000", 
         "lon": "35.383333", 
@@ -3036,6 +3313,7 @@
         ]
     }, 
     "Tahpanhes": {
+        "english_name": "Tahpanhes",
         "chinese_name": "答比匿", 
         "lat": "30.860556", 
         "lon": "32.171389", 
@@ -3050,6 +3328,7 @@
         ]
     }, 
     "Tamar": {
+        "english_name": "Tamar",
         "chinese_name": "大馬色", 
         "lat": "31.024923", 
         "lon": "35.064154", 
@@ -3061,6 +3340,7 @@
         ]
     }, 
     "Tema": {
+        "english_name": "Tema",
         "chinese_name": "提瑪", 
         "lat": "27.633172", 
         "lon": "38.554125", 
@@ -3072,6 +3352,7 @@
         ]
     }, 
     "Thebes": {
+        "english_name": "Thebes",
         "chinese_name": "挪", 
         "lat": "25.700025", 
         "lon": "32.639441", 
@@ -3085,6 +3366,7 @@
         ]
     }, 
     "Three-Taverns": {
+        "english_name": "Three-Taverns",
         "chinese_name": "三館", 
         "lat": "41.591320", 
         "lon": "12.828636", 
@@ -3094,6 +3376,7 @@
         ]
     }, 
     "Tigris": {
+        "english_name": "Tigris",
         "chinese_name": "希底結", 
         "lat": "35.983343", 
         "lon": "43.346466", 
@@ -3104,6 +3387,7 @@
         ]
     }, 
     "Timnah-1": {
+        "english_name": "Timnah",
         "chinese_name": "亭拿", 
         "lat": "31.784368", 
         "lon": "34.909680", 
@@ -3121,6 +3405,7 @@
         ]
     }, 
     "Timnah-2": {
+        "english_name": "Timnah",
         "chinese_name": "亭納", 
         "lat": "31.699323", 
         "lon": "35.040359", 
@@ -3130,6 +3415,7 @@
         ]
     }, 
     "Timnath-heres": {
+        "english_name": "Timnath-heres",
         "chinese_name": "亭拿希烈", 
         "lat": "32.121473", 
         "lon": "35.150392", 
@@ -3139,6 +3425,7 @@
         ]
     }, 
     "Tiphsah-1": {
+        "english_name": "Tiphsah",
         "chinese_name": "提弗薩", 
         "lat": "35.847967", 
         "lon": "38.732350", 
@@ -3148,6 +3435,7 @@
         ]
     }, 
     "Tiphsah-2": {
+        "english_name": "Tiphsah",
         "chinese_name": "提斐薩", 
         "lat": "32.166667", 
         "lon": "35.166667", 
@@ -3157,6 +3445,7 @@
         ]
     }, 
     "Tob": {
+        "english_name": "Tob",
         "chinese_name": "陀伯", 
         "lat": "32.561735", 
         "lon": "36.240494", 
@@ -3169,6 +3458,7 @@
         ]
     }, 
     "Tophel": {
+        "english_name": "Tophel",
         "chinese_name": "陀弗", 
         "lat": "30.936991", 
         "lon": "35.616870", 
@@ -3178,6 +3468,7 @@
         ]
     }, 
     "Ulai": {
+        "english_name": "Ulai",
         "chinese_name": "烏萊", 
         "lat": "32.178696", 
         "lon": "48.224890", 
@@ -3188,6 +3479,7 @@
         ]
     }, 
     "Ummah": {
+        "english_name": "Ummah",
         "chinese_name": "烏瑪", 
         "lat": "33.104377", 
         "lon": "35.180623", 
@@ -3197,6 +3489,7 @@
         ]
     }, 
     "Uzal": {
+        "english_name": "Uzal",
         "chinese_name": "烏薩", 
         "lat": "15.354879", 
         "lon": "44.215092", 
@@ -3206,6 +3499,7 @@
         ]
     }, 
     "Uzzen-sheerah": {
+        "english_name": "Uzzen-sheerah",
         "chinese_name": "烏羡舍伊拉", 
         "lat": "31.887821", 
         "lon": "35.045649", 
@@ -3215,6 +3509,7 @@
         ]
     }, 
     "Valley-of-Achor": {
+        "english_name": "Valley-of-Achor",
         "chinese_name": "亞割", 
         "lat": "31.836890", 
         "lon": "35.399737", 
@@ -3228,6 +3523,7 @@
         ]
     }, 
     "Valley-of-Aven": {
+        "english_name": "Valley-of-Aven",
         "chinese_name": "亞文", 
         "lat": "34.006944", 
         "lon": "36.203889", 
@@ -3237,6 +3533,7 @@
         ]
     }, 
     "Valley-of-Beracah": {
+        "english_name": "Valley-of-Beracah",
         "chinese_name": "比拉迦谷", 
         "lat": "31.610650", 
         "lon": "35.165648", 
@@ -3246,6 +3543,7 @@
         ]
     }, 
     "Valley-of-Elah": {
+        "english_name": "Valley-of-Elah",
         "chinese_name": "以拉谷", 
         "lat": "31.690629", 
         "lon": "34.963136", 
@@ -3257,6 +3555,7 @@
         ]
     }, 
     "Valley-of-Hinnom": {
+        "english_name": "Valley-of-Hinnom",
         "chinese_name": "欣嫩", 
         "lat": "31.769079", 
         "lon": "35.227994", 
@@ -3268,6 +3567,7 @@
         ]
     }, 
     "Valley-of-Iphtahel": {
+        "english_name": "Valley-of-Iphtahel",
         "chinese_name": "伊弗他伊勒", 
         "lat": "32.832774", 
         "lon": "35.277225", 
@@ -3278,6 +3578,7 @@
         ]
     }, 
     "Valley-of-Mizpeh": {
+        "english_name": "Valley-of-Mizpeh",
         "chinese_name": "米斯巴", 
         "lat": "33.281770", 
         "lon": "35.573371", 
@@ -3287,6 +3588,7 @@
         ]
     }, 
     "Valley-of-Rephaim": {
+        "english_name": "Valley-of-Rephaim",
         "chinese_name": "利乏音", 
         "lat": "31.756332", 
         "lon": "35.223059", 
@@ -3303,6 +3605,7 @@
         ]
     }, 
     "Valley-of-Salt": {
+        "english_name": "Valley-of-Salt",
         "chinese_name": "鹽谷", 
         "lat": "31.087328", 
         "lon": "35.383740", 
@@ -3316,6 +3619,7 @@
         ]
     }, 
     "Valley-of-Siddim": {
+        "english_name": "Valley-of-Siddim",
         "chinese_name": "西訂", 
         "lat": "31.235341", 
         "lon": "35.517624", 
@@ -3327,6 +3631,7 @@
         ]
     }, 
     "Valley-of-Sorek": {
+        "english_name": "Valley-of-Sorek",
         "chinese_name": "梭烈谷", 
         "lat": "31.825731", 
         "lon": "34.989013", 
@@ -3336,6 +3641,7 @@
         ]
     }, 
     "Valley-of-Zeboim": {
+        "english_name": "Valley-of-Zeboim",
         "chinese_name": "洗波音", 
         "lat": "31.936283", 
         "lon": "35.424836", 
@@ -3345,6 +3651,7 @@
         ]
     }, 
     "Valley-of-Zephathah": {
+        "english_name": "Valley-of-Zephathah",
         "chinese_name": "洗法谷", 
         "lat": "31.615198", 
         "lon": "34.910085", 
@@ -3354,6 +3661,7 @@
         ]
     }, 
     "Yiron": {
+        "english_name": "Yiron",
         "chinese_name": "以利穩", 
         "lat": "33.088748", 
         "lon": "35.414111", 
@@ -3363,6 +3671,7 @@
         ]
     }, 
     "Zanoah-1": {
+        "english_name": "Zanoah",
         "chinese_name": "撒挪亞", 
         "lat": "31.716667", 
         "lon": "35.000000", 
@@ -3374,6 +3683,7 @@
         ]
     }, 
     "Zanoah-2": {
+        "english_name": "Zanoah",
         "chinese_name": "撒挪亞", 
         "lat": "31.366667", 
         "lon": "35.000000", 
@@ -3383,6 +3693,7 @@
         ]
     }, 
     "Zaphon": {
+        "english_name": "Zaphon",
         "chinese_name": "撒分", 
         "lat": "32.237710", 
         "lon": "35.585865", 
@@ -3393,6 +3704,7 @@
         ]
     }, 
     "Zarethan": {
+        "english_name": "Zarethan",
         "chinese_name": "撒拉但", 
         "lat": "32.267821", 
         "lon": "35.576613", 
@@ -3404,6 +3716,7 @@
         ]
     }, 
     "Zedad": {
+        "english_name": "Zedad",
         "chinese_name": "西達達", 
         "lat": "34.312571", 
         "lon": "36.925484", 
@@ -3414,6 +3727,7 @@
         ]
     }, 
     "Zelzah": {
+        "english_name": "Zelzah",
         "chinese_name": "泄撒", 
         "lat": "31.717666", 
         "lon": "35.187019", 
@@ -3423,6 +3737,7 @@
         ]
     }, 
     "Zemaraim": {
+        "english_name": "Zemaraim",
         "chinese_name": "洗瑪臉", 
         "lat": "31.910999", 
         "lon": "35.457280", 
@@ -3432,6 +3747,7 @@
         ]
     }, 
     "Zephath": {
+        "english_name": "Zephath",
         "chinese_name": "洗法", 
         "lat": "30.880918", 
         "lon": "34.630620", 
@@ -3441,6 +3757,7 @@
         ]
     }, 
     "Zered": {
+        "english_name": "Zered",
         "chinese_name": "撒烈溪", 
         "lat": "30.884128", 
         "lon": "35.897633", 
@@ -3451,6 +3768,7 @@
         ]
     }, 
     "Zereth-shahar": {
+        "english_name": "Zereth-shahar",
         "chinese_name": "細列哈沙轄", 
         "lat": "31.616962", 
         "lon": "35.567522", 
@@ -3460,6 +3778,7 @@
         ]
     }, 
     "Ziddim": {
+        "english_name": "Ziddim",
         "chinese_name": "西丁", 
         "lat": "32.814279", 
         "lon": "35.435872", 
@@ -3469,6 +3788,7 @@
         ]
     }, 
     "Zior": {
+        "english_name": "Zior",
         "chinese_name": "洗珥", 
         "lat": "31.589719", 
         "lon": "35.148296", 
@@ -3478,6 +3798,7 @@
         ]
     }, 
     "Ziz": {
+        "english_name": "Ziz",
         "chinese_name": "洗斯", 
         "lat": "31.572903", 
         "lon": "35.406346", 
@@ -3487,6 +3808,7 @@
         ]
     }, 
     "Zophim": {
+        "english_name": "Zophim",
         "chinese_name": "瑣腓", 
         "lat": "31.767811", 
         "lon": "35.725296", 
@@ -3496,6 +3818,7 @@
         ]
     }, 
     "Zorah": {
+        "english_name": "Zorah",
         "chinese_name": "瑣拉", 
         "lat": "31.762141", 
         "lon": "34.969319", 
