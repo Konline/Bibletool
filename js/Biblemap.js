@@ -1,3 +1,5 @@
+var global_data = null;
+
 // Class in charge of biblemap section
 var Biblemap = {
   // Populate the bible places pull down menu and display the map for
@@ -19,12 +21,10 @@ var Biblemap = {
       //   ],
       //   (...other places...)
       // }
-      // We display the <option> tag as "english (chinese)" because we
-      // rely on the space between english and chinese to properly
-      // delimit the english keyword
+      global_data = data;
       for (var place in data) {
-        $("<option value='" + $.toJSON(data[place]) + "'>" +
-          place + " (" + data[place].chinese_name + ")</option>")
+        $("<option value='" + place + "'>" +
+          data[place].english_name + " (" + data[place].chinese_name + ")</option>")
           .appendTo($("#biblemap-select"));
       }
     })
@@ -42,15 +42,16 @@ var Biblemap = {
           if ( fragment == "" ) {
             // if there is no fragment, defaults to the first location
             var option = $("#biblemap-select option:first-child");
-            var english = option[0].text.match(/(\S+)/)[1];
+            var value = global_data[option.val()];
+            var english = value.english_name;
             window.location.hash = english;
           } else {
-            var place = fragment.match(/(\S+)/)[1];
+            var place = fragment;
             // make this place selected
             $("#biblemap-select option").removeAttr('selected');
-            var option = $("#biblemap-select option:contains('" + fragment + " ')");
+            var option = $("#biblemap-select option[value='" + fragment + "']");
             option.attr('selected', 'selected');
-            var value = $.parseJSON(option.val());
+            var value = global_data[option.val()];
             var name = option[0].text;
             var lat = value.lat;
             var lon = value.lon;
@@ -117,8 +118,7 @@ $(document).ready(function() {
   // We use the english name as the keyword
   $("#biblemap-select").change(function() {
     var option = $("#biblemap-select option:selected");
-    var english = option[0].text.match(/(\S+)/)[1];
-    window.location.hash = english;
+    window.location.hash = option.val();
   });
 });
 
