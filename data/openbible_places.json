@@ -74,7 +74,7 @@
             "LUK 3:1"
         ]
     }, 
-    "Achzib 1": {
+    "Achzib": {
         "chinese_name": "亞革悉", 
         "lat": "31.700000", 
         "lon": "35.000000", 
@@ -129,7 +129,7 @@
             "ACT 27:2"
         ]
     }, 
-    "Adriatic Sea": {
+    "Adriatic-Sea": {
         "chinese_name": "亞底亞", 
         "lat": "42.415000", 
         "lon": "16.373500", 
@@ -184,7 +184,7 @@
             "EZR 8:31"
         ]
     }, 
-    "Ain 1": {
+    "Ain-1": {
         "chinese_name": "亞延", 
         "lat": "34.353071", 
         "lon": "36.385705", 
@@ -193,7 +193,7 @@
             "NUM 34:11"
         ]
     }, 
-    "Ain 2": {
+    "Ain-2": {
         "chinese_name": "亞因", 
         "lat": "31.370835", 
         "lon": "34.860665", 
@@ -289,7 +289,7 @@
             "JOS 15:50"
         ]
     }, 
-    "Aphek 1": {
+    "Aphek": {
         "chinese_name": "亞弗", 
         "lat": "34.066067", 
         "lon": "35.865801", 
@@ -390,7 +390,7 @@
             "JER 48:20"
         ]
     }, 
-    "Aroer 2": {
+    "Aroer": {
         "chinese_name": "亞羅珥", 
         "lat": "31.9617", 
         "lon": "35.9115", 
@@ -473,7 +473,7 @@
             "EZE 25:9"
         ]
     }, 
-    "Baalath 1": {
+    "Baalath": {
         "chinese_name": "巴拉", 
         "lat": "31.927451", 
         "lon": "35.055378", 
@@ -583,7 +583,7 @@
             "NEH 7:28"
         ]
     }, 
-    "Beth-dagon 1": {
+    "Beth-dagon-1": {
         "chinese_name": "伯大袞", 
         "lat": "31.908", 
         "lon": "34.775", 
@@ -592,7 +592,7 @@
             "JOS 15:41"
         ]
     }, 
-    "Beth-dagon 2": {
+    "Beth-dagon-2": {
         "chinese_name": "伯大袞", 
         "lat": "32.899561", 
         "lon": "35.107928", 
@@ -681,7 +681,7 @@
             "2SA 10:6"
         ]
     }, 
-    "Beth-shemesh 2": {
+    "Beth-shemesh": {
         "chinese_name": "伯示麥", 
         "lat": "32.406430", 
         "lon": "35.504628", 
@@ -719,7 +719,7 @@
             "NEH 3:16"
         ]
     }, 
-    "Bethlehem 2": {
+    "Bethlehem": {
         "chinese_name": "伯利恆", 
         "lat": "32.735379", 
         "lon": "35.189704", 
@@ -737,7 +737,7 @@
             "JOS 13:26"
         ]
     }, 
-    "Bezek 1": {
+    "Bezek": {
         "chinese_name": "比利洗", 
         "lat": "31.898029", 
         "lon": "34.952878", 
@@ -747,7 +747,7 @@
             "JUG 1:5"
         ]
     }, 
-    "Bozrah 1": {
+    "Bozrah": {
         "chinese_name": "波斯拉", 
         "lat": "30.734691", 
         "lon": "35.606250", 
@@ -762,7 +762,7 @@
             "AMO 1:12"
         ]
     }, 
-    "Brook of Egypt": {
+    "Brook-of-Egypt": {
         "chinese_name": "埃及小河", 
         "lat": "31.032047", 
         "lon": "33.854957", 
@@ -779,7 +779,7 @@
             "EZE 48:28"
         ]
     }, 
-    "Cabul 1": {
+    "Cabul": {
         "chinese_name": "迦步勒", 
         "lat": "32.865661", 
         "lon": "35.211814", 
@@ -955,7 +955,7 @@
             "JOS 15:49"
         ]
     }, 
-    "Debir 2": {
+    "Debir": {
         "chinese_name": "底璧", 
         "lat": "31.816662", 
         "lon": "35.349994", 
@@ -1006,7 +1006,7 @@
             "NUM 33:13"
         ]
     }, 
-    "Dumah 1": {
+    "Dumah": {
         "chinese_name": "度瑪", 
         "lat": "31.438270", 
         "lon": "34.982762", 
@@ -1105,7 +1105,7 @@
             "JOS 15:59"
         ]
     }, 
-    "En-gannim 1": {
+    "En-gannim": {
         "chinese_name": "隱干寧", 
         "lat": "31.750000", 
         "lon": "34.950106", 
@@ -1215,7 +1215,7 @@
             "JUG 18:11"
         ]
     }, 
-    "Etam 1": {
+    "Etam-1": {
         "chinese_name": "以坦", 
         "lat": "31.736294", 
         "lon": "35.054850", 
@@ -1225,7 +1225,7 @@
             "JUG 15:11"
         ]
     }, 
-    "Etam 3": {
+    "Etam-2": {
         "chinese_name": "以坦", 
         "lat": "31.686465", 
         "lon": "35.174740", 
@@ -1288,7 +1288,7 @@
             "REV 16:12"
         ]
     }, 
-    "Forum of Appius": {
+    "Forum-of-Appius": {
         "chinese_name": "亞比烏市", 
         "lat": "41.468706", 
         "lon": "12.993929", 
@@ -1327,7 +1327,7 @@
             "1CH 12:4"
         ]
     }, 
-    "Gedor 1": {
+    "Gedor": {
         "chinese_name": "基突", 
         "lat": "31.633330", 
         "lon": "35.083333", 
@@ -1367,7 +1367,7 @@
             "1KI 16:17"
         ]
     }, 
-    "Gihon 2": {
+    "Gihon": {
         "chinese_name": "基訓", 
         "lat": "31.773116", 
         "lon": "35.237186", 
@@ -1391,7 +1391,7 @@
             "2SA 21:12"
         ]
     }, 
-    "Gilgal 2": {
+    "Gilgal": {
         "chinese_name": "吉甲", 
         "lat": "32.029737", 
         "lon": "35.222604", 
@@ -1420,7 +1420,7 @@
             "2CH 28:18"
         ]
     }, 
-    "Goshen 2": {
+    "Goshen": {
         "chinese_name": "歌珊", 
         "lat": "31.450000", 
         "lon": "34.916667", 
@@ -1631,7 +1631,7 @@
             "DEU 1:1"
         ]
     }, 
-    "Hazor 4": {
+    "Hazor": {
         "chinese_name": "夏瑣", 
         "lat": "31.833333", 
         "lon": "35.20000", 
@@ -1725,7 +1725,7 @@
             "GEN 14:15"
         ]
     }, 
-    "Holon 1": {
+    "Holon": {
         "chinese_name": "何倫", 
         "lat": "31.583333", 
         "lon": "34.950000", 
@@ -1816,7 +1816,7 @@
             "JUG 11:22"
         ]
     }, 
-    "Jabneel 1": {
+    "Jabneel-1": {
         "chinese_name": "雅比聶", 
         "lat": "31.865518", 
         "lon": "34.746856", 
@@ -1825,7 +1825,7 @@
             "JOS 15:11"
         ]
     }, 
-    "Jabneel 2": {
+    "Jabneel-2": {
         "chinese_name": "雅比聶", 
         "lat": "32.700000", 
         "lon": "35.500000", 
@@ -1843,7 +1843,7 @@
             "JOS 15:53"
         ]
     }, 
-    "Janoah 1": {
+    "Janoah-1": {
         "chinese_name": "雅挪哈", 
         "lat": "33.260246", 
         "lon": "35.302915", 
@@ -1853,7 +1853,7 @@
             "JOS 16:7"
         ]
     }, 
-    "Janoah 2": {
+    "Janoah-2": {
         "chinese_name": "亞挪", 
         "lat": "32.155895", 
         "lon": "35.361606", 
@@ -1946,7 +1946,7 @@
             "JUG 8:11"
         ]
     }, 
-    "Jordan Valley": {
+    "Jordan-Valley": {
         "chinese_name": "約但河", 
         "lat": "32.309099", 
         "lon": "35.559900", 
@@ -1976,7 +1976,7 @@
             "JOS 15:57"
         ]
     }, 
-    "Kanah 1": {
+    "Kanah": {
         "chinese_name": "加拿", 
         "lat": "32.138219", 
         "lon": "35.038971", 
@@ -2346,7 +2346,7 @@
             "NEH 11:26"
         ]
     }, 
-    "Mount Ephron": {
+    "Mount-Ephron": {
         "chinese_name": "以弗崙", 
         "lat": "31.675746", 
         "lon": "35.042407", 
@@ -2355,7 +2355,7 @@
             "JOS 15:9"
         ]
     }, 
-    "Mount Halak": {
+    "Mount-Halak": {
         "chinese_name": "哈拉山", 
         "lat": "30.916667", 
         "lon": "34.833333", 
@@ -2365,7 +2365,7 @@
             "JOS 12:7"
         ]
     }, 
-    "Mount Hor 1": {
+    "Mount-Hor-1": {
         "chinese_name": "何珥", 
         "lat": "30.317396", 
         "lon": "35.407152", 
@@ -2383,7 +2383,7 @@
             "DEU 32:50"
         ]
     }, 
-    "Mount Hor 2": {
+    "Mount-Hor-2": {
         "chinese_name": "何珥", 
         "lat": "35.710069", 
         "lon": "36.188080", 
@@ -2393,7 +2393,7 @@
             "NUM 34:8"
         ]
     }, 
-    "Mount Seir 2": {
+    "Mount-Seir": {
         "chinese_name": "西珥山", 
         "lat": "31.783333", 
         "lon": "34.994000", 
@@ -2402,7 +2402,7 @@
             "JOS 15:10"
         ]
     }, 
-    "Mount Sinai": {
+    "Mount-Sinai": {
         "chinese_name": "西奈山", 
         "lat": "28.539722", 
         "lon": "33.973333", 
@@ -2476,7 +2476,7 @@
             "NEH 11:34"
         ]
     }, 
-    "Nebo 1": {
+    "Nebo-1": {
         "chinese_name": "尼波", 
         "lat": "31.748024", 
         "lon": "35.743257", 
@@ -2491,7 +2491,7 @@
             "JER 48:22"
         ]
     }, 
-    "Nebo 2": {
+    "Nebo-2": {
         "chinese_name": "尼波", 
         "lat": "31.606256", 
         "lon": "35.037417", 
@@ -2768,7 +2768,7 @@
             "JOS 19:46"
         ]
     }, 
-    "Ramah 2": {
+    "Ramah-1": {
         "chinese_name": "拉瑪", 
         "lat": "33.111078", 
         "lon": "35.310464", 
@@ -2777,7 +2777,7 @@
             "JOS 19:29"
         ]
     }, 
-    "Ramah 3": {
+    "Ramah-2": {
         "chinese_name": "拉瑪", 
         "lat": "32.939010", 
         "lon": "35.368123", 
@@ -2786,7 +2786,7 @@
             "JOS 19:36"
         ]
     }, 
-    "Rehoboth 1": {
+    "Rehoboth": {
         "chinese_name": "利河伯", 
         "lat": "31.066829", 
         "lon": "34.597830", 
@@ -2805,7 +2805,7 @@
             "ISA 37:12"
         ]
     }, 
-    "Riblah 1": {
+    "Riblah": {
         "chinese_name": "利比拉", 
         "lat": "34.431703", 
         "lon": "36.545259", 
@@ -2824,7 +2824,7 @@
             "EZE 6:14"
         ]
     }, 
-    "Rimmon 1": {
+    "Rimmon": {
         "chinese_name": "臨門磐", 
         "lat": "31.934660", 
         "lon": "35.297063", 
@@ -2847,7 +2847,7 @@
             "1CH 5:11"
         ]
     }, 
-    "Salt Sea": {
+    "Salt-Sea": {
         "chinese_name": "鹽海", 
         "lat": "31.538593", 
         "lon": "35.482268", 
@@ -2919,7 +2919,7 @@
             "1KI 4:9"
         ]
     }, 
-    "Shaaraim 1": {
+    "Shaaraim": {
         "chinese_name": "沙拉音", 
         "lat": "31.7001", 
         "lon": "34.89532", 
@@ -2929,7 +2929,7 @@
             "1SA 17:52"
         ]
     }, 
-    "Shamir 1": {
+    "Shamir": {
         "chinese_name": "沙密", 
         "lat": "31.416667", 
         "lon": "34.933333", 
@@ -2938,7 +2938,7 @@
             "JOS 15:48"
         ]
     }, 
-    "Shamir 2": {
+    "Shamir": {
         "chinese_name": "沙密", 
         "lat": "32.360470", 
         "lon": "35.250054", 
@@ -3049,7 +3049,7 @@
             "JER 46:14"
         ]
     }, 
-    "Tamar 2": {
+    "Tamar": {
         "chinese_name": "大馬色", 
         "lat": "31.024923", 
         "lon": "35.064154", 
@@ -3084,7 +3084,7 @@
             "NAH 3:8"
         ]
     }, 
-    "Three Taverns": {
+    "Three-Taverns": {
         "chinese_name": "三館", 
         "lat": "41.591320", 
         "lon": "12.828636", 
@@ -3103,7 +3103,7 @@
             "DAN 10:4"
         ]
     }, 
-    "Timnah 1": {
+    "Timnah-1": {
         "chinese_name": "亭拿", 
         "lat": "31.784368", 
         "lon": "34.909680", 
@@ -3120,7 +3120,7 @@
             "2CH 28:18"
         ]
     }, 
-    "Timnah 2": {
+    "Timnah-2": {
         "chinese_name": "亭納", 
         "lat": "31.699323", 
         "lon": "35.040359", 
@@ -3138,7 +3138,7 @@
             "JUG 2:9"
         ]
     }, 
-    "Tiphsah 1": {
+    "Tiphsah-1": {
         "chinese_name": "提弗薩", 
         "lat": "35.847967", 
         "lon": "38.732350", 
@@ -3147,7 +3147,7 @@
             "1KI 4:24"
         ]
     }, 
-    "Tiphsah 2": {
+    "Tiphsah-2": {
         "chinese_name": "提斐薩", 
         "lat": "32.166667", 
         "lon": "35.166667", 
@@ -3214,7 +3214,7 @@
             "1CH 7:24"
         ]
     }, 
-    "Valley of Achor": {
+    "Valley-of-Achor": {
         "chinese_name": "亞割", 
         "lat": "31.836890", 
         "lon": "35.399737", 
@@ -3227,7 +3227,7 @@
             "HOS 2:15"
         ]
     }, 
-    "Valley of Aven": {
+    "Valley-of-Aven": {
         "chinese_name": "亞文", 
         "lat": "34.006944", 
         "lon": "36.203889", 
@@ -3236,7 +3236,7 @@
             "AMO 1:5"
         ]
     }, 
-    "Valley of Beracah": {
+    "Valley-of-Beracah": {
         "chinese_name": "比拉迦谷", 
         "lat": "31.610650", 
         "lon": "35.165648", 
@@ -3245,7 +3245,7 @@
             "2CH 20:26"
         ]
     }, 
-    "Valley of Elah": {
+    "Valley-of-Elah": {
         "chinese_name": "以拉谷", 
         "lat": "31.690629", 
         "lon": "34.963136", 
@@ -3256,7 +3256,7 @@
             "1SA 21:9"
         ]
     }, 
-    "Valley of Hinnom": {
+    "Valley-of-Hinnom": {
         "chinese_name": "欣嫩", 
         "lat": "31.769079", 
         "lon": "35.227994", 
@@ -3267,7 +3267,7 @@
             "NEH 11:30"
         ]
     }, 
-    "Valley of Iphtahel": {
+    "Valley-of-Iphtahel": {
         "chinese_name": "伊弗他伊勒", 
         "lat": "32.832774", 
         "lon": "35.277225", 
@@ -3277,7 +3277,7 @@
             "JOS 19:27"
         ]
     }, 
-    "Valley of Mizpeh": {
+    "Valley-of-Mizpeh": {
         "chinese_name": "米斯巴", 
         "lat": "33.281770", 
         "lon": "35.573371", 
@@ -3286,7 +3286,7 @@
             "JOS 11:8"
         ]
     }, 
-    "Valley of Rephaim": {
+    "Valley-of-Rephaim": {
         "chinese_name": "利乏音", 
         "lat": "31.756332", 
         "lon": "35.223059", 
@@ -3302,7 +3302,7 @@
             "ISA 17:5"
         ]
     }, 
-    "Valley of Salt": {
+    "Valley-of-Salt": {
         "chinese_name": "鹽谷", 
         "lat": "31.087328", 
         "lon": "35.383740", 
@@ -3315,7 +3315,7 @@
             "PSM 60:1"
         ]
     }, 
-    "Valley of Siddim": {
+    "Valley-of-Siddim": {
         "chinese_name": "西訂", 
         "lat": "31.235341", 
         "lon": "35.517624", 
@@ -3326,7 +3326,7 @@
             "GEN 14:10"
         ]
     }, 
-    "Valley of Sorek": {
+    "Valley-of-Sorek": {
         "chinese_name": "梭烈谷", 
         "lat": "31.825731", 
         "lon": "34.989013", 
@@ -3335,7 +3335,7 @@
             "JUG 16:4"
         ]
     }, 
-    "Valley of Zeboim": {
+    "Valley-of-Zeboim": {
         "chinese_name": "洗波音", 
         "lat": "31.936283", 
         "lon": "35.424836", 
@@ -3344,7 +3344,7 @@
             "1SA 13:18"
         ]
     }, 
-    "Valley of Zephathah": {
+    "Valley-of-Zephathah": {
         "chinese_name": "洗法谷", 
         "lat": "31.615198", 
         "lon": "34.910085", 
@@ -3362,7 +3362,7 @@
             "JOS 19:38"
         ]
     }, 
-    "Zanoah 1": {
+    "Zanoah-1": {
         "chinese_name": "撒挪亞", 
         "lat": "31.716667", 
         "lon": "35.000000", 
@@ -3373,7 +3373,7 @@
             "NEH 11:30"
         ]
     }, 
-    "Zanoah 2": {
+    "Zanoah-2": {
         "chinese_name": "撒挪亞", 
         "lat": "31.366667", 
         "lon": "35.000000", 
