@@ -89,8 +89,6 @@ CREATE TABLE glossary_verses (
 	end_verse   INTEGER NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(glossary_id) REFERENCES glossary(id)
-		ON DELETE CASCADE ON UPDATE CASCADE,
-	FOREIGN KEY(book, chapter) REFERENCES verses(book, chapter)
 		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
