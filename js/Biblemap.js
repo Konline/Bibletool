@@ -63,38 +63,66 @@ var Biblemap = {
 };
 
 $(document).ready(function() {
-  // Update the place when user changes the select menu
-  $("#biblemap-select").change(function() {
-    var option = $("#biblemap-select option:selected");
-    var value = $.parseJSON(option.val());
-    var name = option[0].text;
-    var lat = value.lat;
-    var lon = value.lon;
-    var notes = value.notes;
-    var verses = value.verses;
-    var link = $.map(verses, function(v, i) {
-      return v.replace(/ /, ":");
-    }).join(";");
-    $("#map_node").remove();
-    // Build a map_node div that looks like this:
-    // <div id="map_node">
-    //   <div class="bible-map-name">Leshem 利善</div>
-    //   <div class="bible-map-notes">Now Tel Dan</div>
-    //   <div class="bible-map-verses">
-    //     <a href="/browse#UCV:JOS:19:47">JOS 19:47</a>
-    //   </div>
-    // </div>
-    $("<div id=map_node></div>").appendTo("#biblemap-body");
-    $("<div class=bible-map-name>" + name + "</div>").appendTo($("#map_node"));
-    $("<div class=bible-map-notes>" + notes + "</div>").appendTo($("#map_node"));
-    $("<div class=bible-map-verses>" + 
-      "<a href=" + webroot + "/browse#UCV:" + link + ">" +
-      verses + "</a></div>").appendTo($("#map_node"));
-    Biblemap.initializeMap(lat, lon);
-  });
   // Load the JSON data from the server
   Biblemap.biblemap(webroot + '/biblemap/index');
+
+  // Update the place when user changes the select menu
+  // We use the english name as the keyword
+  $("#biblemap-select").change(function() {
+    var option = $("#biblemap-select option:selected");
+    var english = option[0].text.match(/(\S+)/)[1];
+    window.location.hash = english;
+  });
+
+  // use URL hash to implement bookmarking
+  $(window).bind( 'hashchange', function(e) {
+    // the URL is the string after the hash mark, called the
+    // 'fragment' below. 
+    var fragment = $.param.fragment();
+    if ( fragment == "" ) {
+      // there is no fragment, do nothing
+      // do not attempt to update the URI here because
+      // the places pull down menu may not have been initialized yet
+    } else {
+      var place = fragment.match(/(\S+)/)[1];
+      console.log(place);
+      /*
+
+        var option = $("#biblemap-select option:selected");
+        var value = $.parseJSON(option.val());
+        var name = option[0].text;
+        var lat = value.lat;
+        var lon = value.lon;
+        var notes = value.notes;
+        var verses = value.verses;
+        var link = $.map(verses, function(v, i) {
+        return v.replace(/ /, ":");
+        }).join(";");
+        $("#map_node").remove();
+        // Build a map_node div that looks like this:
+        // <div id="map_node">
+        //   <div class="bible-map-name">Leshem 利善</div>
+        //   <div class="bible-map-notes">Now Tel Dan</div>
+        //   <div class="bible-map-verses">
+        //     <a href="/browse#UCV:JOS:19:47">JOS 19:47</a>
+        //   </div>
+        // </div>
+        $("<div id=map_node></div>").appendTo("#biblemap-body");
+        $("<div class=bible-map-name>" + name + "</div>").appendTo($("#map_node"));
+        $("<div class=bible-map-notes>" + notes + "</div>").appendTo($("#map_node"));
+        $("<div class=bible-map-verses>" + 
+        "<a href=" + webroot + "/browse#UCV:" + link + ">" +
+        verses + "</a></div>").appendTo($("#map_node"));
+        Biblemap.initializeMap(lat, lon);
+        // unrecognized hash
+        */
+    }
+  });
+
+  // trigger the hashchange by default
+  $(window).trigger( 'hashchange' );
+  
 });
 
 
-                  
+
