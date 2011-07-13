@@ -19,6 +19,9 @@ var Biblemap = {
       //   ],
       //   (...other places...)
       // }
+      // We display the <option> tag as "english (chinese)" because we
+      // rely on the space between english and chinese to properly
+      // delimit the english keyword
       for (var place in data) {
         $("<option value='" + $.toJSON(data[place]) + "'>" +
           place + " (" + data[place].chinese_name + ")</option>")
@@ -33,50 +36,45 @@ var Biblemap = {
         // we bind at this stage because hashchange callback requires
         // a fully populated pull down menu
         $(window).bind( 'hashchange', function(e) {
-          console.log('in hashchange evt...');
           // the URL is the string after the hash mark, called the
           // 'fragment' below. 
           var fragment = $.param.fragment();
           if ( fragment == "" ) {
-            // there is no fragment, do nothing
-            // do not attempt to update the URI here because
-            // the places pull down menu may not have been initialized yet
+            // if there is no fragment, defaults to the first location
+            var option = $("#biblemap-select option:first-child");
+            var english = option[0].text.match(/(\S+)/)[1];
+            window.location.hash = english;
           } else {
             var place = fragment.match(/(\S+)/)[1];
             // make this place selected
             $("#biblemap-select option").removeAttr('selected');
             var option = $("#biblemap-select option:contains('" + fragment + " ')");
-            console.log(option);
-            /*
-
-              var option = $("#biblemap-select option:selected");
-              var value = $.parseJSON(option.val());
-              var name = option[0].text;
-              var lat = value.lat;
-              var lon = value.lon;
-              var notes = value.notes;
-              var verses = value.verses;
-              var link = $.map(verses, function(v, i) {
+            option.attr('selected', 'selected');
+            var value = $.parseJSON(option.val());
+            var name = option[0].text;
+            var lat = value.lat;
+            var lon = value.lon;
+            var notes = value.notes;
+            var verses = value.verses;
+            var link = $.map(verses, function(v, i) {
               return v.replace(/ /, ":");
-              }).join(";");
-              $("#map_node").remove();
-              // Build a map_node div that looks like this:
-              // <div id="map_node">
-              //   <div class="bible-map-name">Leshem 利善</div>
-              //   <div class="bible-map-notes">Now Tel Dan</div>
-              //   <div class="bible-map-verses">
-              //     <a href="/browse#UCV:JOS:19:47">JOS 19:47</a>
-              //   </div>
-              // </div>
-              $("<div id=map_node></div>").appendTo("#biblemap-body");
-              $("<div class=bible-map-name>" + name + "</div>").appendTo($("#map_node"));
-              $("<div class=bible-map-notes>" + notes + "</div>").appendTo($("#map_node"));
-              $("<div class=bible-map-verses>" + 
+            }).join(";");
+            $("#map_node").remove();
+            // Build a map_node div that looks like this:
+            // <div id="map_node">
+            //   <div class="bible-map-name">Leshem 利善</div>
+            //   <div class="bible-map-notes">Now Tel Dan</div>
+            //   <div class="bible-map-verses">
+            //     <a href="/browse#UCV:JOS:19:47">JOS 19:47</a>
+            //   </div>
+            // </div>
+            $("<div id=map_node></div>").appendTo("#biblemap-body");
+            $("<div class=bible-map-name>" + name + "</div>").appendTo($("#map_node"));
+            $("<div class=bible-map-notes>" + notes + "</div>").appendTo($("#map_node"));
+            $("<div class=bible-map-verses>" + 
               "<a href=" + webroot + "/browse#UCV:" + link + ">" +
               verses + "</a></div>").appendTo($("#map_node"));
-              Biblemap.initializeMap(lat, lon);
-              // unrecognized hash
-              */
+            Biblemap.initializeMap(lat, lon);
           }
         });
         
