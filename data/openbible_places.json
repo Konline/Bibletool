@@ -2107,7 +2107,7 @@
         ]
     }, 
     "Jordan-Valley": {
-        "english_name": "Jordan-Valley",
+        "english_name": "Jordan Valley",
         "chinese_name": "約但河", 
         "lat": "32.309099", 
         "lon": "35.559900", 
@@ -2564,7 +2564,7 @@
         ]
     }, 
     "Mount-Ephron": {
-        "english_name": "Mount-Ephron",
+        "english_name": "Mount Ephron",
         "chinese_name": "以弗崙", 
         "lat": "31.675746", 
         "lon": "35.042407", 
@@ -2574,7 +2574,7 @@
         ]
     }, 
     "Mount-Halak": {
-        "english_name": "Mount-Halak",
+        "english_name": "Mount Halak",
         "chinese_name": "哈拉山", 
         "lat": "30.916667", 
         "lon": "34.833333", 
@@ -2585,7 +2585,7 @@
         ]
     }, 
     "Mount-Hor-1": {
-        "english_name": "Mount-Hor",
+        "english_name": "Mount Hor",
         "chinese_name": "何珥", 
         "lat": "30.317396", 
         "lon": "35.407152", 
@@ -2604,7 +2604,7 @@
         ]
     }, 
     "Mount-Hor-2": {
-        "english_name": "Mount-Hor",
+        "english_name": "Mount Hor",
         "chinese_name": "何珥", 
         "lat": "35.710069", 
         "lon": "36.188080", 
@@ -2615,7 +2615,7 @@
         ]
     }, 
     "Mount-Seir": {
-        "english_name": "Mount-Seir",
+        "english_name": "Mount Seir",
         "chinese_name": "西珥山", 
         "lat": "31.783333", 
         "lon": "34.994000", 
@@ -2625,7 +2625,7 @@
         ]
     }, 
     "Mount-Sinai": {
-        "english_name": "Mount-Sinai",
+        "english_name": "Mount Sinai",
         "chinese_name": "西奈山", 
         "lat": "28.539722", 
         "lon": "33.973333", 
@@ -3509,7 +3509,7 @@
         ]
     }, 
     "Valley-of-Achor": {
-        "english_name": "Valley-of-Achor",
+        "english_name": "Valley of Achor",
         "chinese_name": "亞割", 
         "lat": "31.836890", 
         "lon": "35.399737", 
@@ -3523,7 +3523,7 @@
         ]
     }, 
     "Valley-of-Aven": {
-        "english_name": "Valley-of-Aven",
+        "english_name": "Valley of Aven",
         "chinese_name": "亞文", 
         "lat": "34.006944", 
         "lon": "36.203889", 
@@ -3533,7 +3533,7 @@
         ]
     }, 
     "Valley-of-Beracah": {
-        "english_name": "Valley-of-Beracah",
+        "english_name": "Valley of Beracah",
         "chinese_name": "比拉迦谷", 
         "lat": "31.610650", 
         "lon": "35.165648", 
@@ -3543,7 +3543,7 @@
         ]
     }, 
     "Valley-of-Elah": {
-        "english_name": "Valley-of-Elah",
+        "english_name": "Valley of Elah",
         "chinese_name": "以拉谷", 
         "lat": "31.690629", 
         "lon": "34.963136", 
@@ -3555,7 +3555,7 @@
         ]
     }, 
     "Valley-of-Hinnom": {
-        "english_name": "Valley-of-Hinnom",
+        "english_name": "Valley of Hinnom",
         "chinese_name": "欣嫩", 
         "lat": "31.769079", 
         "lon": "35.227994", 
@@ -3567,7 +3567,7 @@
         ]
     }, 
     "Valley-of-Iphtahel": {
-        "english_name": "Valley-of-Iphtahel",
+        "english_name": "Valley of Iphtahel",
         "chinese_name": "伊弗他伊勒", 
         "lat": "32.832774", 
         "lon": "35.277225", 
@@ -3578,7 +3578,7 @@
         ]
     }, 
     "Valley-of-Mizpeh": {
-        "english_name": "Valley-of-Mizpeh",
+        "english_name": "Valley of Mizpeh",
         "chinese_name": "米斯巴", 
         "lat": "33.281770", 
         "lon": "35.573371", 
@@ -3588,7 +3588,7 @@
         ]
     }, 
     "Valley-of-Rephaim": {
-        "english_name": "Valley-of-Rephaim",
+        "english_name": "Valley of Rephaim",
         "chinese_name": "利乏音", 
         "lat": "31.756332", 
         "lon": "35.223059", 
@@ -3605,11 +3605,11 @@
         ]
     }, 
     "Valley-of-Salt": {
-        "english_name": "Valley-of-Salt",
+        "english_name": "Valley of Salt",
         "chinese_name": "鹽谷", 
         "lat": "31.087328", 
         "lon": "35.383740", 
-        "notes": "from nbd", 
+        "notes": "", 
         "verses": [
             "2SA 8:13", 
             "2KI 14:7", 
@@ -3619,7 +3619,7 @@
         ]
     }, 
     "Valley-of-Siddim": {
-        "english_name": "Valley-of-Siddim",
+        "english_name": "Valley of Siddim",
         "chinese_name": "西訂", 
         "lat": "31.235341", 
         "lon": "35.517624", 
@@ -3631,7 +3631,7 @@
         ]
     }, 
     "Valley-of-Sorek": {
-        "english_name": "Valley-of-Sorek",
+        "english_name": "Valley of Sorek",
         "chinese_name": "梭烈谷", 
         "lat": "31.825731", 
         "lon": "34.989013", 
@@ -3641,7 +3641,7 @@
         ]
     }, 
     "Valley-of-Zeboim": {
-        "english_name": "Valley-of-Zeboim",
+        "english_name": "Valley of Zeboim",
         "chinese_name": "洗波音", 
         "lat": "31.936283", 
         "lon": "35.424836", 
@@ -3651,7 +3651,7 @@
         ]
     }, 
     "Valley-of-Zephathah": {
-        "english_name": "Valley-of-Zephathah",
+        "english_name": "Valley of Zephathah",
         "chinese_name": "洗法谷", 
         "lat": "31.615198", 
         "lon": "34.910085", 

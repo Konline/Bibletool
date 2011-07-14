@@ -1,7 +1,8 @@
-var global_data = null;
-
 // Class in charge of biblemap section
 var Biblemap = {
+  // Use this variable to hold JSON data
+  data: null,
+  
   // Populate the bible places pull down menu and display the map for
   // the 1st entry in the pull down menu
   // Parameters:
@@ -21,7 +22,7 @@ var Biblemap = {
       //   ],
       //   (...other places...)
       // }
-      global_data = data;
+      Biblemap.data = data;
       for (var place in data) {
         $("<option value='" + place + "'>" +
           data[place].english_name + " (" + data[place].chinese_name + ")</option>")
@@ -42,7 +43,7 @@ var Biblemap = {
           if ( fragment == "" ) {
             // if there is no fragment, defaults to the first location
             var option = $("#biblemap-select option:first-child");
-            var value = global_data[option.val()];
+            var value = Biblemap.data[option.val()];
             var english = value.english_name;
             window.location.hash = english;
           } else {
@@ -51,7 +52,7 @@ var Biblemap = {
             $("#biblemap-select option").removeAttr('selected');
             var option = $("#biblemap-select option[value='" + fragment + "']");
             option.attr('selected', 'selected');
-            var value = global_data[option.val()];
+            var value = Biblemap.data[option.val()];
             var name = option[0].text;
             var lat = value.lat;
             var lon = value.lon;
