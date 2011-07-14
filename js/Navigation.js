@@ -90,9 +90,15 @@ var Navigation = {
     // This closure simply updates the URL hash to the selected location
     var defaultURLFn = function(id) {
       if ( id == 'book' ) {
-        // changing book reset the chapter
+        // changing book does NOT reset the chapter, unless
+        // the desired chapter is not available, in which case,
+        // defaults to chapter 1
+        var book = Navigation.selectedBook();
+        var chapter = Navigation.selectedChapter();
+        var chapters = chaptersArray[book];
         window.location.hash = Navigation.selectedVersion() +
-          ':' + Navigation.selectedBook() + ':' + '1';
+          ':' + Navigation.selectedBook() + ':' + 
+          ( chapter <= chapters ? chapter : '1');
       } else {
         window.location.hash = Navigation.selectedVersion() +
           ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
