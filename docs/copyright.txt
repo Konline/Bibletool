@@ -6,3 +6,9 @@ are copyrighted under the MIT license, which can be found in mit.txt.
   which is licensed under Creative Commons Attribution. Credits
   go towards OpenBible.info.
 
+- JSCalc2 is downloaded from http://www.dynarch.com/projects/calendar/download/
+  This version is free for non-commercial use
+
+- Anarchy Media Player 2.0 is downloaded from http://an-archos.com/anarchy-media-player
+  Released under GPL license
+
