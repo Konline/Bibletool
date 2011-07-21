@@ -1,0 +1,8 @@
+All Jedaiah Bibletool source code, images and other data not mentioned below
+are copyrighted under the MIT license, which can be found in mit.txt.
+
+- The Bible places data is obtained from:
+  http://www.openbible.info/geo/data/places.txt
+  which is licensed under Creative Commons Attribution. Credits
+  go towards OpenBible.info.
+
