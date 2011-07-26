@@ -4,6 +4,75 @@ var Query = {
   // cannot be changed in the front end
   resultsPerPage: 20,
   
+  // # of pixels to scroll in paginate
+  scrollIncrement: 5,
+
+  // # of milliseconds between scrolling interval
+  scrollInterval: 20,
+
+  // variable to hold the interval handle
+  // this is needed in order to cancel the interval when
+  // the user leaves the prev or next div
+  intervalHandle: null,
+
+  // Center the query-paginate div
+  // so that the chosen page is always shown in the middle
+  centerDiv: function() {
+    var center = parseInt(document.body.clientWidth/2);
+    var current = $("span.query-paginate-current-page");
+    while ( current.offset().left > (center+20) ||
+            current.offset().left < (center-20) ) {
+      if ( current.offset().left > center ) {
+        // shift to the left
+        $("div.query-paginate").each(function(idx,ele) {
+          ele.style.left = (parseInt(ele.style.left) - 5) + 'px';
+        });
+      } else {
+        // shift to the right
+        $("div.query-paginate").each(function(idx,ele) {
+          ele.style.left = (parseInt(ele.style.left) + 5) + 'px';
+        });
+      }
+    }
+  },
+  
+  // scroll the paginate div to the left
+  // This is a recursive function
+  // Parameter:
+  // - increment: # of pixel to scroll
+  nextFn: function(increment) {
+    Query.intervalHandle = setInterval(function() {
+      var queryPaginate = $("div.query-paginate");
+      var left = parseInt(queryPaginate[0].style.left);
+      var width = parseInt(document.body.clientWidth/2);
+      var scrollWidth = parseInt($(".query-paginate span:last").position().left); // use this because of FF
+      // console.log('***nextFn: left = ' + left + ' width = ' + width + ' scrollWidth = ' + scrollWidth + ' offsetWidth = ' + parseInt(queryPaginate[0].offsetWidth) +
+      //            ' clientWidth = ' + parseInt(queryPaginate[0].clientWidth));
+      if ( scrollWidth >= width && left > width - scrollWidth - 120 ) {
+        queryPaginate.each(function(idx, ele) {
+          ele.style.left = (left-increment)+"px";
+        });
+      }
+    }, Query.scrollInterval);
+  },
+
+  // scroll the paginate div to the right
+  // This is a recursive function
+  // Parameter:
+  // - increment: # of pixel to scroll
+  prevFn: function(increment) {
+    Query.intervalHandle = setInterval(function() {
+      var queryPaginate = $("div.query-paginate");
+      var left = parseInt(queryPaginate[0].style.left);
+      // console.log("***prevFn left = " + left);
+      if ( left < 70 ) {
+        queryPaginate.each(function(idx, ele) {
+          ele.style.left = (left+increment)+"px";
+        });
+      }
+    }, Query.scrollInterval);
+  },
+
   // Process the query data and display results to the user
   // Parameters:
   // - data: Parsed JSON data returned from the server
@@ -47,6 +116,7 @@ var Query = {
         "</div>").appendTo(browseTableChapter);
     }
     Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
+    Query.centerDiv();
   },
 
   // Generate the pagination divs
@@ -57,17 +127,15 @@ var Query = {
     var currPage = parseInt(data.page);
     var hits = parseInt(data.hits);
     var totalPages = Math.ceil(hits/Query.resultsPerPage);
-    var queryPaginate = $("<div class='query-paginate'></div>");
+    var queryPaginate = $("<div class='query-paginate' style='left:70px;'></div>");
     var version = Query.selectedVersion();
-    var startPage = Math.max(currPage - 5, 1);
-    var stopPage = Math.min(currPage + 5, totalPages);
+    var startPage = 1;
+    var stopPage = totalPages;
     for (var i=startPage; i<=stopPage; i++) {
       var link = webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) + '&page=' + i;
       var span = $("<span class='query-paginate-" + 
                    (i==currPage ? "current" : "other") +
-                   "-page'>" + (i==stopPage ? i + " (還有" + (totalPages-i) + "頁)" :
-                                i) +
-                   "</span>");
+                   "-page'>" + i + "</span>");
       var anchor = $("<a></a>");
       if ( currPage != i ) {
         anchor.attr('href', link);
@@ -75,7 +143,26 @@ var Query = {
       span.appendTo(anchor);
       anchor.appendTo(queryPaginate);
     }
-    return queryPaginate;
+    // wrap the div into another div to allow scrolling
+    var searchScroller = $("<div class=search-scroller></div>");
+    $("<div class=search-prev></div>")
+      .mouseover(function() {
+        Query.prevFn(Query.scrollIncrement);
+      })
+      .mouseleave(function() {
+        clearInterval(Query.intervalHandle);
+      })
+      .appendTo(searchScroller);
+    $("<div class=search-next></div>")
+      .mouseover(function() {
+        Query.nextFn(Query.scrollIncrement);
+      })
+      .mouseleave(function() {
+        clearInterval(Query.intervalHandle);
+      })
+      .appendTo(searchScroller);
+    queryPaginate.appendTo(searchScroller);
+    return searchScroller;
   },
   
   // Query the pulldown menu and return an array of the selected bible

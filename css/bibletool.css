@@ -182,18 +182,20 @@ div.query-title {
 
 div.query-paginate {
     font-size:80%;
-    width:100%;
     padding:1em;
-    text-align:center;
+    white-space: nowrap;
+    position: relative;
 }
 
 span.query-paginate-current-page {
-    margin:1em;
+    margin:0.5em;
     color:red;
+    font-size: 120%;
+    text-decoration: underline;
 }
 
 span.query-paginate-other-page {
-    margin:1em;
+    margin:0.5em;
 }
 
 table.static-table {
@@ -424,4 +426,30 @@ div.common-copyright {
 
 div.ajax-loader {
     text-align:center;
+}
+
+div.search-scroller {
+    width:50%;
+    overflow: hidden;
+    margin:auto;
+}
+
+div.search-prev {
+    padding: 1em;
+    position: absolute;
+    left: 25%;
+    width: 50px;
+    height: 1em;
+    z-index: 20;
+    background-color: transparent;
+}
+
+div.search-next {
+    padding: 1em;
+    position: absolute;
+    right: 25%;
+    width: 50px;
+    height: 1em;
+    z-index: 20;
+    background-color: transparent;
 }
