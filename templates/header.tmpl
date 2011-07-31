@@ -22,6 +22,11 @@
     <script TYPE="text/javascript" SRC="{$webroot}/js/Interlinear.js"></script>
     {elseif $action == 'query'}
     <script TYPE="text/javascript" SRC="{$webroot}/js/Query.js"></script>
+    {elseif $action == 'calendar'}
+    <link REL="stylesheet" TYPE="text/css" HREF="{$webroot}/css/jquery-ui-1.8.14.custom.css">
+    <script TYPE="text/javascript" SRC="{$webroot}/js/jquery-ui-1.8.14.custom.min.js"></script>
+    <script TYPE="text/javascript" SRC="{$webroot}/js/jquery.ui.datepicker-zh-TW.js"></script>
+    <script TYPE="text/javascript" SRC="{$webroot}/js/Calendar.js"></script>
     {elseif $action == 'glossary'}
     <script TYPE="text/javascript" SRC="{$webroot}/js/Glossary.js"></script>
     {elseif $action == 'biblemap'}
@@ -38,6 +43,7 @@
         <a CLASS="section-navigator-{if $action == 'browse'}current{else}other{/if}" HREF="{$webroot}/browse">經節查詢</a>
         <a CLASS="section-navigator-{if $action == 'interlinear'}current{else}other{/if}" HREF="{$webroot}/interlinear">聖經對照</a>
         <a CLASS="section-navigator-{if $action == 'query'}current{else}other{/if}" HREF="{$webroot}/query">字串查詢</a>
+        <a CLASS="section-navigator-{if $action == 'calendar'}current{else}other{/if}" HREF="{$webroot}/calendar">每日讀經</a>
         <a CLASS="section-navigator-{if $action == 'outline'}current{else}other{/if}" HREF="{$webroot}/outline">聖經綱要</a>
         <a CLASS="section-navigator-{if $action == 'glossary'}current{else}other{/if}" HREF="{$webroot}/glossary">聖經詞彙</a>
         <a CLASS="section-navigator-{if $action == 'gospel'}current{else}other{/if}" HREF="{$webroot}/gospel">四福音書</a>

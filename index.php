@@ -41,6 +41,19 @@ switch ($action)
 		}
 		break;
 
+	case 'calendar':
+		if ($_REQUEST['index']) 
+		{
+			require_once 'Action_Calendar.php';
+			$controller = new Action_Calendar($bible, $smarty);
+			$controller->run();
+		}
+		else
+		{
+			$smarty->display('calendar.tmpl');
+		}
+	        break;
+
 	case 'subjects':
 		if ($_REQUEST['index'])
 		{

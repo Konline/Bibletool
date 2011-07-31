@@ -16,6 +16,9 @@ RewriteRule ^interlinear index.php?action=interlinear [L]
 
 RewriteRule ^query index.php?action=query [L]
 
+RewriteRule ^calendar/index index.php?action=calendar&index=1 [L]
+RewriteRule ^calendar index.php?action=calendar [L]
+
 RewriteRule ^gospel$ index.php?action=gospel [L]
 RewriteRule ^gospel/([^/]+) index.php?action=gospel&page=$1 [L]
 
