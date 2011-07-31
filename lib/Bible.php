@@ -466,10 +466,12 @@ class Bible
 		{
 			case 1:
 				// Invalid range, ignore it
-				continue;
+				return;
 
 			case 2:
-				// $book:$chapter
+				// $book:$chapter:
+				//   GEN:1
+				//     1:1
 				list($book, $chapter) = $parts;
 				$languages = array('UCV');
 				$start = 1;
@@ -477,10 +479,11 @@ class Bible
 				break;
 
 			case 3:
-				// $language:$book:$chapter, or
+				// $language:$book:$chapter:
 				//    UCV:GEN:1
 				//    UCV:  1:1
-				// $book:$chapter:$verses
+				// or,
+				// $book:$chapter:$verses:
 				//    GEN:  1:1
 				//      1:  1:1
 				$valid_languages = array();
@@ -511,9 +514,14 @@ class Bible
 					$languages = array('UCV');
 					$book = $parts[0];
 					$chapter = $parts[1];
-					list($start, $end) = explode('-', $parts[2]);
-					if (!isset($end))
-						$end = $start;
+					if (count(explode('-', $parts[2])) == 2)
+					{
+						list($start, $end) = explode('-', $parts[2]);
+					}
+					else
+					{
+						$start = $end = $parts[2];
+					}
 				}
 				break;
 
@@ -522,9 +530,14 @@ class Bible
 				$languages = explode(',', $parts[0]);
 				$book = $parts[1];
 				$chapter = $parts[2];
-				list($start, $end) = explode('-', $parts[3]);
-				if (!isset($end))
-					$end = $start;
+				if (count(explode('-', $parts[3])) == 2)
+				{
+					list($start, $end) = explode('-', $parts[3]);
+				}
+				else
+				{
+					$start = $end = $parts[3];
+				}
 				break;
 
 			default:
