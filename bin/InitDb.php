@@ -41,11 +41,15 @@ if (isset($options['glossary']) || isset($options['all']))
 	$sql = "DELETE FROM glossary";
 	mysql_query($sql);
 
-	$glossaries = array('glossary.json', 'person_names.json', 'place_names.json');
-	foreach ($glossaries as $file)
+	$glossaries = array(
+		'glossary.json' => 'other',
+		'person_names.json' => 'person',
+		'place_names.json' => 'place'
+	);
+	foreach ($glossaries as $file => $kind)
 	{
 		$filename = dirname(__FILE__) . '/../data/' . $file;
-		LoadGlossary($filename);
+		LoadGlossary($filename, $kind);
 	}
 }
 
@@ -273,7 +277,7 @@ function LoadLanguages($options)
 	}
 }
 
-function LoadGlossary($filename)
+function LoadGlossary($filename, $kind)
 {
 	echo "Parsing $filename\n";
 
@@ -290,7 +294,7 @@ function LoadGlossary($filename)
 			$letter = strtoupper(substr($english, 0, 1));
 			$definition = mysql_real_escape_string($term->definition);
 
-			$sql = "INSERT INTO glossary (strokes, letter, chinese, english, definition) VALUES ('$strokes', '$letter', '$chinese', '$english', '$definition')";
+			$sql = "INSERT INTO glossary (strokes, letter, chinese, english, kind, definition) VALUES ('$strokes', '$letter', '$chinese', '$english', '$kind', '$definition')";
 			if (!mysql_query($sql))
 			{
 				echo "ERROR: Failed to insert glossary: " . mysql_error() . "\n";
