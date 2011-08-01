@@ -453,3 +453,35 @@ div.search-next {
     z-index: 20;
     background-color: transparent;
 }
+
+#calendar-body {
+    width: 80%;
+    padding: 1em;
+}
+
+#calendar {
+    margin: auto;
+    padding: 1em;
+    font-size: 80%;
+}
+
+form.calendar {
+    padding: 1em;
+}
+
+select.calendar-type {
+    width: 20%;
+}
+
+div.calendar-month-name {
+    font-size: 130%;
+    padding: 1em 1em 0.5em 1em;
+}
+
+div.calendar-day a {
+    padding: 1em 1em 0.5em 0.5em;
+}
+
+div.calendar-day span {
+    padding: 1em 0.5em 0.5em 1em;
+}
