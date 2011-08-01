@@ -336,14 +336,14 @@ class Bible
 		if (!is_null($letter))
 		{
 			$sql = sprintf(
-				"SELECT chinese, english FROM glossary WHERE letter='%s'",
+				"SELECT chinese, english, kind FROM glossary WHERE letter='%s'",
 				mysql_real_escape_string($letter)
 			);
 		}
 		elseif (!is_null($stroke))
 		{
 			$sql = sprintf(
-				"SELECT chinese, english FROM glossary WHERE strokes='%s'",
+				"SELECT chinese, english, kind FROM glossary WHERE strokes='%s'",
 				mysql_real_escape_string($stroke)
 			);
 		}
@@ -373,7 +373,7 @@ class Bible
 	{
 		$results = array();
 
-		$sql = sprintf("SELECT id, strokes, chinese, english, definition FROM glossary WHERE chinese='%s'", mysql_real_escape_string($word));
+		$sql = sprintf("SELECT id, strokes, chinese, english, kind, definition FROM glossary WHERE chinese='%s'", mysql_real_escape_string($word));
 		$result = mysql_query($sql);
 		while ($row = mysql_fetch_assoc($result))
 		{
@@ -383,6 +383,7 @@ class Bible
 				'strokes' => $row['strokes'],
 				'chinese' => $row['chinese'],
 				'english' => $row['english'],
+				'kind' => $row['kind'],
 				'definition' => $row['definition'],
 				'notes' => array(),
 				'verses' => array(),
@@ -422,7 +423,7 @@ class Bible
 	public function getGlossaryByRange($book, $chapter, $start_verse, $end_verse)
 	{
 		$sql = sprintf("
-			SELECT g.chinese AS chinese, g.english AS english, v.book, v.chapter, v.start_verse, v.end_verse
+			SELECT g.chinese AS chinese, g.english AS english, g.kind AS kind, v.book, v.chapter, v.start_verse, v.end_verse
 			FROM glossary g INNER JOIN glossary_verses v ON (g.id=v.glossary_id)
 			WHERE v.book='%s' AND v.chapter='%s' AND v.start_verse >= '%s' AND v.end_verse <= '%s'",
 			mysql_real_escape_string($book),

@@ -65,6 +65,7 @@ CREATE TABLE glossary (
 	letter      CHAR(1),
 	chinese     VARCHAR(80),
 	english     VARCHAR(80),
+	kind        ENUM('place', 'person', 'other') DEFAULT 'other',
 	definition  VARCHAR(700),
 	PRIMARY KEY(id),
 	KEY(strokes),
