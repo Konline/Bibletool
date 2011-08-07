@@ -32,7 +32,7 @@
     }, 
     "Abel-meholah": {
         "english_name": "Abel-meholah",
-        "chinese_name": "亞伯米何拉", 
+        "chinese_name": "亞伯米合拉", 
         "lat": "32.356010", 
         "lon": "35.536929", 
         "notes": "", 
@@ -1422,7 +1422,7 @@
     }, 
     "Gederah": {
         "english_name": "Gederah",
-        "chinese_name": "基底拉", 
+        "chinese_name": "基低拉", 
         "lat": "31.823337", 
         "lon": "34.777779", 
         "notes": "", 
@@ -2106,9 +2106,9 @@
             "JUG 8:11"
         ]
     }, 
-    "Jordan-Valley": {
-        "english_name": "Jordan Valley",
-        "chinese_name": "約但河", 
+    "Jordan": {
+        "english_name": "Jordan",
+        "chinese_name": "約但", 
         "lat": "32.309099", 
         "lon": "35.559900", 
         "notes": "", 
@@ -3082,7 +3082,7 @@
     }, 
     "Rimmon": {
         "english_name": "Rimmon",
-        "chinese_name": "臨門磐", 
+        "chinese_name": "臨門", 
         "lat": "31.934660", 
         "lon": "35.297063", 
         "notes": "", 
@@ -3498,8 +3498,8 @@
             "GEN 10:27"
         ]
     }, 
-    "Uzzen-sheerah": {
-        "english_name": "Uzzen-sheerah",
+    "Uzzen-Sherah": {
+        "english_name": "Uzzen-Sherah",
         "chinese_name": "烏羡舍伊拉", 
         "lat": "31.887821", 
         "lon": "35.045649", 
@@ -3532,8 +3532,8 @@
             "AMO 1:5"
         ]
     }, 
-    "Valley-of-Beracah": {
-        "english_name": "Valley of Beracah",
+    "Berachah": {
+        "english_name": "Berachah",
         "chinese_name": "比拉迦谷", 
         "lat": "31.610650", 
         "lon": "35.165648", 
@@ -3542,9 +3542,9 @@
             "2CH 20:26"
         ]
     }, 
-    "Valley-of-Elah": {
-        "english_name": "Valley of Elah",
-        "chinese_name": "以拉谷", 
+    "Elah": {
+        "english_name": "Elah",
+        "chinese_name": "以拉", 
         "lat": "31.690629", 
         "lon": "34.963136", 
         "notes": "", 
@@ -3630,9 +3630,9 @@
             "GEN 14:10"
         ]
     }, 
-    "Valley-of-Sorek": {
-        "english_name": "Valley of Sorek",
-        "chinese_name": "梭烈谷", 
+    "Sorek": {
+        "english_name": "Sorek",
+        "chinese_name": "梭烈", 
         "lat": "31.825731", 
         "lon": "34.989013", 
         "notes": "now Wadi es-Sarar", 
@@ -3650,9 +3650,9 @@
             "1SA 13:18"
         ]
     }, 
-    "Valley-of-Zephathah": {
-        "english_name": "Valley of Zephathah",
-        "chinese_name": "洗法谷", 
+    "Zephath": {
+        "english_name": "Zephath",
+        "chinese_name": "洗法", 
         "lat": "31.615198", 
         "lon": "34.910085", 
         "notes": "", 
@@ -3756,8 +3756,8 @@
             "JUG 1:17"
         ]
     }, 
-    "Zered": {
-        "english_name": "Zered",
+    "Zereda": {
+        "english_name": "Zereda",
         "chinese_name": "撒烈溪", 
         "lat": "30.884128", 
         "lon": "35.897633", 
