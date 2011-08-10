@@ -116,7 +116,9 @@ var Query = {
         "</div>").appendTo(browseTableChapter);
     }
     Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
-    Query.centerDiv();
+    if ( data.hits > 0 ) { 
+      Query.centerDiv();
+    }
   },
 
   // Generate the pagination divs
@@ -200,7 +202,9 @@ $(document).ready(function() {
   $("#query-form").submit(function() {
     var version = Query.selectedVersion();
     var queryTerm = $("input[name='query']").val();
-    window.location.hash = version + '/q=' + encodeURI(queryTerm);
+    if ( queryTerm != "") {
+      window.location.hash = version + '/q=' + encodeURI(queryTerm);
+    }
     // prevent the default behavior of submit by returning false
     return false;
   });
@@ -214,6 +218,9 @@ $(document).ready(function() {
       $(ajaxLoader).appendTo(this);
     })
     .ajaxComplete(function() {
+      $(ajaxLoader).remove();
+    })
+    .ajaxError(function() {
       $(ajaxLoader).remove();
     });
 });
