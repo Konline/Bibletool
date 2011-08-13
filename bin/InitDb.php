@@ -14,6 +14,7 @@ $config = Config::getInstance();
 $long_options = array_keys($LANGUAGES);
 $long_options[] = 'subjects';
 $long_options[] = 'glossary';
+$long_options[] = 'openbible_places';
 $long_options[] = 'all';
 $long_options[] = 'help';
 
@@ -53,6 +54,14 @@ if (isset($options['glossary']) || isset($options['all']))
 	}
 }
 
+if (isset($options['openbible_places']) || isset($options['all']))
+{
+	$sql = "DELETE FROM openbible_places";
+	mysql_query($sql);
+	$filename = dirname(__FILE__) . '/../data/openbible_places.json';
+	LoadOpenBiblePlaces($filename);
+}
+
 if (isset($options['subjects']) || isset($options['all']))
 {
 	$sql = "DELETE FROM subjects";
@@ -88,6 +97,7 @@ InitDb.php: Update database with fresh content
   Other data:
     --subjects
     --glossary
+    --openbible_places
 
   Other flags:
     --all: Initialize all targets
@@ -444,6 +454,64 @@ function ParseVerse($bible, $verse)
 	}
 
 	return array($book, $chapter, $start_verse, $end_verse);
+}
+
+function LoadOpenBiblePlaces($filename)
+{
+	echo "Parsing $filename\n";
+
+	$glossary = json_decode(file_get_contents($filename));
+
+	$bible = Bible::getInstance();
+
+	foreach ($glossary as $name => $data)
+	{
+		$english = mysql_real_escape_string($data->english_name);
+		$chinese = mysql_real_escape_string($data->chinese_name);
+		$lat = mysql_real_escape_string($data->lat);
+		$lon = mysql_real_escape_string($data->lon);
+		$notes = mysql_real_escape_string($data->notes);
+
+		$sql = "INSERT INTO openbible_places (name, lat, lon, notes) VALUES ('$name', '$lat', '$lon', '$notes')";
+		if (!mysql_query($sql))
+		{
+			echo "Failed to insert into openbible_places: " . mysql_error() . "\n";
+			echo "SQL: $sql\n";
+			exit(1);
+		}
+		$openbible_places_id = mysql_insert_id();
+
+		$glossary_id = null;
+
+		// Try to find a matching entry in glossary using Chinese first.
+		$sql = "SELECT id FROM glossary WHERE kind='place' AND chinese='$chinese'";
+		$result = mysql_query($sql);
+		$rows = mysql_num_rows($result);
+		if ($rows == 1)
+		{
+			// Found a unique match, link the glossary item with this openbible place item
+			$row = mysql_fetch_assoc($result);
+			$glossary_id = $row['id'];
+		}
+		else
+		{
+			// Try with English
+			$sql = "SELECT id FROM glossary WHERE kind='place' AND english='$english'";
+			$result = mysql_query($sql);
+			$rows = mysql_num_rows($result);
+			if ($rows == 1)
+			{
+				$row = mysql_fetch_assoc($result);
+				$glossary_id = $row['id'];
+			}
+		}
+
+		if ($glossary_id)
+		{
+			$sql = "UPDATE glossary SET openbible_places_id=$openbible_places_id WHERE id=$glossary_id";
+			mysql_query($sql);
+		}
+	}
 }
 
 function BeginTransaction($db)

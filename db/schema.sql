@@ -6,6 +6,7 @@ DROP TABLE IF EXISTS subjects;
 DROP TABLE IF EXISTS glossary_verses;
 DROP TABLE IF EXISTS glossary_notes;
 DROP TABLE IF EXISTS glossary;
+DROP TABLE IF EXISTS openbible_places;
 DROP TABLE IF EXISTS verses;
 DROP TABLE IF EXISTS chapters;
 DROP TABLE IF EXISTS books;
@@ -59,6 +60,16 @@ CREATE TABLE verses (
 		ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
+CREATE TABLE openbible_places (
+	id          INTEGER AUTO_INCREMENT NOT NULL,
+	name        VARCHAR(20) NOT NULL,
+	lat         VARCHAR(10) NOT NULL,
+	lon         VARCHAR(10) NOT NULL,
+	notes       VARCHAR(120),
+	PRIMARY KEY(id),
+	KEY(name)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
 CREATE TABLE glossary (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
 	strokes     INTEGER NOT NULL,
@@ -67,9 +78,12 @@ CREATE TABLE glossary (
 	english     VARCHAR(80),
 	kind        ENUM('place', 'person', 'other') DEFAULT 'other',
 	definition  VARCHAR(700),
+	openbible_places_id INTEGER,
 	PRIMARY KEY(id),
 	KEY(strokes),
-	KEY(letter)
+	KEY(letter),
+	FOREIGN KEY(openbible_places_id) REFERENCES openbible_places(id)
+		ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 
 CREATE TABLE glossary_notes (
