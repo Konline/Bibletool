@@ -51,7 +51,7 @@ var Browse = {
         footnoteReference.appendTo(footnote);
         anchor.appendTo(footnoteContent);
         if ( openbiblePlaceName != null ) {
-          $('<a href='+webroot+'/biblemap/#'+openbiblePlaceName+'> [地圖]</a>')
+          $('<a href='+webroot+'/biblemap/#'+openbiblePlaceName+'>&nbsp;[地圖]</a>')
             .appendTo(footnoteContent);  
         }
         footnoteContent.appendTo(footnote);
