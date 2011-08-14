@@ -36,6 +36,7 @@ var Browse = {
       for (var i=0; i<data.length; i++) {
         var chinese = data[i].chinese;
         var english = data[i].english;
+        var openbiblePlaceName = data[i].openbible_place_name;
         var book = data[i].book;
         var chapter = data[i].chapter;
         var startVerse = data[i].start_verse;
@@ -49,6 +50,11 @@ var Browse = {
         var footnoteContent = $('<div class=footnote-content></div>')
         footnoteReference.appendTo(footnote);
         anchor.appendTo(footnoteContent);
+        if ( openbiblePlaceName != null ) {
+          $('<a href=' + webroot + '/biblemap/#' + 
+            openbiblePlaceName + '>&nbsp;[地圖]</a>')
+            .appendTo(footnoteContent);  
+        }
         footnoteContent.appendTo(footnote);
       }
       footnote.appendTo($('#browse-body'));
