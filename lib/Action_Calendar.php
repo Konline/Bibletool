@@ -2,7 +2,8 @@
 
 require_once 'Action_Base.php';
 
-/** Subject data
+/**
+ * Subject data
  */
 class Action_Calendar extends Action_Base
 {
@@ -13,7 +14,8 @@ class Action_Calendar extends Action_Base
 		$this->cache_entity = 'subjects';
 	}
 
-	/** Return verses in JSON format
+	/**
+	 * Return verses in JSON format
 	 */
 	public function process()
 	{

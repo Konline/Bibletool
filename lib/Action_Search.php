@@ -2,7 +2,8 @@
 
 require_once 'Action_Base.php';
 
-/** Search bible verses.
+/**
+ * Search bible verses.
  */
 class Action_Search extends Action_Base
 {
@@ -15,7 +16,8 @@ class Action_Search extends Action_Base
 		$this->cache_entity = 'languages';
 	}
 
-	/** Return verses in JSON format
+	/**
+	 * Return verses in JSON format
 	 */
 	public function process()
 	{

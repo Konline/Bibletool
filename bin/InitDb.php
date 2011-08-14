@@ -1,8 +1,10 @@
 <?php
-/* Initialize Bible database from text files
+/**
+ * Initialize Bible database from text files
  */
 
 ini_set('include_path', ini_get('include_path') . ':' . dirname(__FILE__) . '/../lib');
+ini_set('max_execution_time', 0);
 
 require_once 'Config.php';
 require_once 'Bible.php';

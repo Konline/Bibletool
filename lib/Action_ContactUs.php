@@ -2,7 +2,8 @@
 
 require_once 'Action_Base.php';
 
-/** Process contact us form
+/**
+ * Process contact us form
  */
 class Action_ContactUs extends Action_Base
 {

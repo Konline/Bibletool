@@ -31,7 +31,8 @@ class Bible
 		mysql_query('SET NAMES utf-8');
 	}
 
-	/** Return verses given the range
+	/**
+	 * Return verses given the range
 	 * @param $languages: Array, language name (eg. ["UCV", "KJV"])
 	 * @param $book: Integer or String (eg. 1, OR "GEN")
 	 * @param $chapter: Integer, chapter number
@@ -82,7 +83,8 @@ class Bible
 		return $verses;
 	}
 
-	/** Return list of Bible languages
+	/**
+	 * Return list of Bible languages
 	 * @return Array of languages
 	 */
 	public function getLanguages()
@@ -102,7 +104,8 @@ class Bible
 		return $languages;
 	}
 
-	/** Return list of Bible books, given a language
+	/**
+	 * Return list of Bible books, given a language
 	 * @param $language: String, language name (eg. "KJV")
 	 * @return Array of book names
 	 */
@@ -125,7 +128,8 @@ class Bible
 		return $books;
 	}
 
-	/** Return number of chapters, given a book
+	/**
+	 * Return number of chapters, given a book
 	 * @param $book: Integer, book index
 	 * @return Integer, number of chapters
 	 */
@@ -141,7 +145,8 @@ class Bible
 		return $row['cnt'];
 	}
 
-	/** Return book name for the requested language
+	/**
+	 * Return book name for the requested language
 	 * @param $language: String, language name (eg. "KJV")
 	 * @param $book: Integer, book id
 	 * @return Array, (short_name, long_name)
@@ -159,7 +164,8 @@ class Bible
 		return mysql_fetch_assoc($result);
 	}
 
-	/** Return chapter title
+	/**
+	 * Return chapter title
 	 * @param $language: String, language name (eg. "KJV")
 	 * @param $book: Integer, book id
 	 * @param $chapter: Integer, book id
@@ -180,7 +186,8 @@ class Bible
 		return $row['title'];
 	}
 
-	/** Return book index given the short English name (GEN => 1)
+	/**
+	 * Return book index given the short English name (GEN => 1)
 	 * @param $book_name: String
 	 * @return Integer (from 1 to 66)
 	 */
@@ -196,7 +203,8 @@ class Bible
 		return $row['book'];
 	}
 
-	/** Return number of verses in a chapter
+	/**
+	 * Return number of verses in a chapter
 	 * @param $language: String
 	 * @param $book: Integer
 	 * @param $chapter: Integer
@@ -217,7 +225,8 @@ class Bible
 		return $row['cnt'];
 	}
 
-	/** Search bible
+	/**
+	 * Search bible
 	 * @param $language: String, language to search against
 	 * @param $q: String, query to search
 	 * @param $book_filter: (optional) Array of Integer, book ids to limit search on
@@ -299,7 +308,8 @@ class Bible
 		return $verses;
 	}
 
-	/** Return glossary indices
+	/**
+	 * Return glossary indices
 	 * @return Array(Array with strokes, Array with letters)
 	 */
 	public function getGlossaryIndex()
@@ -326,7 +336,8 @@ class Bible
 		return array($strokes, $letters);
 	}
 
-	/** Return list of words matching given stroke/letter
+	/**
+	 * Return list of words matching given stroke/letter
 	 * @param $stroke: Integer, number of strokes
 	 * @param $letter: String, one character English letter
 	 * @return Array of words
@@ -365,7 +376,8 @@ class Bible
 		return $words;
 	}
 
-	/** Return glossary definition given a Chinese word
+	/**
+	 * Return glossary definition given a Chinese word
 	 * @param $word: String
 	 * @return array with word definition
 	 */
@@ -419,7 +431,8 @@ class Bible
 		return $results;
 	}
 
-	/** Get glossary match a given bible range
+	/**
+	 * Get glossary match a given bible range
 	 * @param $book: Integer, book index
 	 * @param $start_verse: Integer, start verse
 	 * @param $end_verse: Integer, end verse
@@ -456,7 +469,8 @@ class Bible
 		return $glossary;
 	}
 
-	/** Parse the various bible range formats supported by retrieve actions
+	/**
+	 * Parse the various bible range formats supported by retrieve actions
 	 * @param $range: String, bible range
 	 * @return Array($languages, $book, $chapter, $start, $end)
 	 *         null in case of error
@@ -556,7 +570,8 @@ class Bible
 		return array($languages, $book, $chapter, $start, $end);
 	}
 
-	/** Return update timestamp of the entity
+	/**
+	 * Return update timestamp of the entity
 	 * @param $entity: String, cache entity
 	 * @return Integer, Unix timestamp
 	 */
@@ -576,7 +591,8 @@ class Bible
 		return 0;
 	}
 
-	/** Helper function to parse a verse and extract any annotations,
+	/**
+	 * Helper function to parse a verse and extract any annotations,
 	 * such as red letter, or subtitles in the verse
 	 * @param $verse: Array, a verse
 	 * @param $language: String, language (eg. 'KJV')

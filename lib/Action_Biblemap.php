@@ -2,7 +2,8 @@
 
 require_once 'Action_Base.php';
 
-/** Biblemap data
+/**
+ * Biblemap data
  */
 class Action_Biblemap extends Action_Base
 {
@@ -13,7 +14,8 @@ class Action_Biblemap extends Action_Base
 		$this->cache_file = dirname(__FILE__) . '/../data/openbible_places.json';
 	}
 
-	/** Return verses in JSON format
+	/**
+	 * Return verses in JSON format
 	 */
 	public function process()
 	{

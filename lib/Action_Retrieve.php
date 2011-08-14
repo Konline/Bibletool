@@ -2,7 +2,8 @@
 
 require_once 'Action_Base.php';
 
-/** Retrieve bible verses.  Supported format:
+/**
+ * Retrieve bible verses.  Supported format:
  * [$languages:]$book:$chapter[:$verses];...
  * 
  * Where:
@@ -20,7 +21,8 @@ class Action_Retrieve extends Action_Base
 		$this->cache_entity = 'languages';
 	}
 
-	/** Return verses in JSON format
+	/**
+	 * Return verses in JSON format
 	 */
 	public function process()
 	{

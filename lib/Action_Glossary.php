@@ -2,7 +2,8 @@
 
 require_once 'Action_Base.php';
 
-/** Glossary data
+/**
+ * Glossary data
  */
 class Action_Glossary extends Action_Base
 {
@@ -13,7 +14,8 @@ class Action_Glossary extends Action_Base
 		$this->cache_entity = 'glossary';
 	}
 
-	/** Return verses in JSON format
+	/**
+	 * Return verses in JSON format
 	 */
 	public function process()
 	{
