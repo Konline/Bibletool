@@ -373,7 +373,9 @@ class Bible
 	{
 		$results = array();
 
-		$sql = sprintf("SELECT id, strokes, chinese, english, kind, definition FROM glossary WHERE chinese='%s'", mysql_real_escape_string($word));
+		$sql = sprintf("SELECT g.id, g.strokes, g.chinese, g.english, g.kind, g.definition, g.openbible_places_id, p.lat, p.lon
+			FROM glossary g LEFT JOIN openbible_places p ON (g.openbible_places_id=p.id)
+			WHERE chinese='%s'", mysql_real_escape_string($word));
 		$result = mysql_query($sql);
 		while ($row = mysql_fetch_assoc($result))
 		{
@@ -385,6 +387,9 @@ class Bible
 				'english' => $row['english'],
 				'kind' => $row['kind'],
 				'definition' => $row['definition'],
+				'openbible_places_id' => $row['openbible_places_id'],
+				'lat' => $row['lat'],
+				'lon' => $row['lon'],
 				'notes' => array(),
 				'verses' => array(),
 			);
@@ -423,8 +428,10 @@ class Bible
 	public function getGlossaryByRange($book, $chapter, $start_verse, $end_verse)
 	{
 		$sql = sprintf("
-			SELECT g.chinese AS chinese, g.english AS english, g.kind AS kind, v.book, v.chapter, v.start_verse, v.end_verse
-			FROM glossary g INNER JOIN glossary_verses v ON (g.id=v.glossary_id)
+			SELECT g.chinese AS chinese, g.english AS english, g.kind AS kind, v.book, v.chapter, v.start_verse, v.end_verse, p.name AS openbible_place_name
+			FROM glossary g
+				INNER JOIN glossary_verses v ON (g.id=v.glossary_id)
+				LEFT JOIN openbible_places p ON (g.openbible_places_id=p.id)
 			WHERE v.book='%s' AND v.chapter='%s' AND v.start_verse >= '%s' AND v.end_verse <= '%s'",
 			mysql_real_escape_string($book),
 			mysql_real_escape_string($chapter),
