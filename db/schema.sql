@@ -1,5 +1,6 @@
 -- Bibletool schema
 
+DROP TABLE IF EXISTS openbible_cross_reference;
 DROP TABLE IF EXISTS cache_versions;
 DROP TABLE IF EXISTS subject_verses;
 DROP TABLE IF EXISTS subjects;
@@ -134,5 +135,17 @@ CREATE TABLE cache_versions (
 	ts          INTEGER NOT NULL,
 	PRIMARY KEY(id),
 	UNIQUE(entity)
+) ENGINE=InnoDb CHARACTER SET=utf8;
+
+CREATE TABLE openbible_cross_reference (
+	id              INTEGER AUTO_INCREMENT NOT NULL,
+	book            INTEGER NOT NULL,
+	chapter         INTEGER NOT NULL,
+	verse           INTEGER NOT NULL,   
+	ref_book        INTEGER NOT NULL,
+	ref_chapter     INTEGER NOT NULL,
+	ref_start_verse INTEGER NOT NULL,
+	ref_end_verse   INTEGER NOT NULL,
+	PRIMARY KEY(id)
 ) ENGINE=InnoDb CHARACTER SET=utf8;
 

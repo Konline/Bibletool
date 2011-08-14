@@ -15,6 +15,7 @@ $long_options = array_keys($LANGUAGES);
 $long_options[] = 'subjects';
 $long_options[] = 'glossary';
 $long_options[] = 'openbible_places';
+$long_options[] = 'openbible_cross_reference';
 $long_options[] = 'all';
 $long_options[] = 'help';
 
@@ -62,6 +63,14 @@ if (isset($options['openbible_places']) || isset($options['all']))
 	LoadOpenBiblePlaces($filename);
 }
 
+if (isset($options['openbible_cross_reference']) || isset($options['all']))
+{
+	$sql = "DELETE FROM openbible_cross_reference";
+	mysql_query($sql);
+	$filename = dirname(__FILE__) . '/../data/cross_reference.txt';
+	LoadOpenBibleCrossReference($filename);
+}
+
 if (isset($options['subjects']) || isset($options['all']))
 {
 	$sql = "DELETE FROM subjects";
@@ -98,6 +107,7 @@ InitDb.php: Update database with fresh content
     --subjects
     --glossary
     --openbible_places
+    --openbible_cross_reference
 
   Other flags:
     --all: Initialize all targets
@@ -512,6 +522,81 @@ function LoadOpenBiblePlaces($filename)
 			mysql_query($sql);
 		}
 	}
+}
+
+function LoadOpenBibleCrossReference($filename)
+{
+	echo "Parsing $filename\n";
+
+	$bible = Bible::getInstance();
+
+	// First pass, get to know the book acronyms
+	$inf = fopen($filename, "r");
+
+	// Discard first line of header
+	$line = fgets($inf);
+
+	$last_book = null;
+	$index = 1;
+	$book_mapping = array();
+
+	while ($line = fgets($inf))
+	{
+		$parts = explode(".", $line);
+		$book = $parts[0];
+		if (is_null($last_book) || $last_book != $book)
+		{
+			$book_mapping[$book] = $index++;
+		}
+		$last_book = $book;
+	}
+
+	// Second pass, parse the data
+	rewind($inf);
+
+	// Discard first line of header
+	$line = fgets($inf);
+	
+	while ($line = fgets($inf))
+	{
+		list($source, $references, $votes) = explode("\t", $line);
+		list($book, $chapter, $verse) = explode(".", $source);
+		if (strpos($references, "-") === FALSE)
+		{
+			// Only one verse
+			list($ref_book, $ref_chapter, $ref_start_verse) = explode(".", $references);
+			$ref_end_verse = $ref_start_verse;
+		}
+		else
+		{
+			// Verse range
+			$references = explode("-", $references);
+			list($ref_book, $ref_chapter, $ref_start_verse) = explode(".", $references[0]);
+			list($ref_book, $ref_chapter, $ref_end_verse) = explode(".", $references[1]);
+		}
+
+		$book = $book_mapping[$book];
+		$ref_book = $book_mapping[$ref_book];
+
+		$sql = sprintf("INSERT INTO openbible_cross_reference (book, chapter, verse, ref_book, ref_chapter, ref_start_verse, ref_end_verse) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
+			mysql_real_escape_string($book),
+			mysql_real_escape_string($chapter),
+			mysql_real_escape_string($verse),
+			mysql_real_escape_string($ref_book),
+			mysql_real_escape_string($ref_chapter),
+			mysql_real_escape_string($ref_start_verse),
+			mysql_real_escape_string($ref_end_verse)
+		);
+
+		if (!mysql_query($sql))
+		{
+			echo "Failed to insert into openbible_places: " . mysql_error() . "\n";
+			echo "SQL: $sql\n";
+			exit(1);
+		}
+	}
+
+	fclose($inf);
 }
 
 function BeginTransaction($db)
