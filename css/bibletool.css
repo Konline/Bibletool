@@ -5,7 +5,7 @@ html {
 }
 
 body a {
-    color:#2583AD;
+    color:#496673;
     text-decoration:none;
 }
 
@@ -20,6 +20,11 @@ body {
     padding:0;
 }
 
+img.logo {
+    margin: 0;
+    padding: 0;
+}
+
 h1 {
     padding:0 0 0.5em ;
     margin:0;
@@ -27,7 +32,7 @@ h1 {
 
 div.page-header {
     color:#555555;
-    background-color:#E4F2FD;
+    background-color:#496673;
     border-bottom-color:#C6D9E9;
     border-bottom-style:solid;
     border-bottom-width:1px;
@@ -65,7 +70,7 @@ a.section-navigator-other:hover {
 
 a.section-navigator-other {
     border-color:#C6D9E9 #C6D9E9 #FFFFFF;
-    color:#2583AD;
+    color:#FFFFFF;
     border-bottom-width:2px;
     font-weight:normal;
     padding-left:6px;
@@ -412,8 +417,8 @@ div.retrieve-audio {
 }
 
 div.common-copyright {
-    color:#555555;
-    background-color:#E4F2FD;
+    color:#FFFFFF;
+    background-color:#496673;
     border-top-color:#C6D9E9;
     border-top-style:solid;
     border-top-width:1px;
