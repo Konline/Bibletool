@@ -96,11 +96,14 @@ Anarchy.Mp3 = {
 	o.parentNode.insertBefore(img, o)
       }}},
   toggle: function(img, url) {
-    if (Anarchy.Mp3.playimg == img) Anarchy.Mp3.destroy()
+    if (Anarchy.Mp3.playimg == img) {
+        Anarchy.Mp3.destroy();
+        $('#browse-chapter-audio-acknowledgment').hide();
+    }
     else {
       if (Anarchy.Mp3.playimg) Anarchy.Mp3.destroy()
       img.src = anarchy_url+'/images/audio_mp3_stop.gif'; Anarchy.Mp3.playimg = img;
-      Anarchy.Mp3.player = document.createElement('span')
+      Anarchy.Mp3.player = document.createElement('span');
       Anarchy.Mp3.player.innerHTML = '<br /><object style="'+mp3playerstyle+'" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"' +
 	'codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"' +
 	'width="290" height="24" id="player" align="middle">' +
@@ -112,7 +115,8 @@ Anarchy.Mp3 = {
 	'quality="high" wmode="transparent" width="290" height="24" name="player"' +
 	'align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"' +
 	' pluginspage="http://www.macromedia.com/go/getflashplayer" /></object><br />'
-      img.parentNode.insertBefore(Anarchy.Mp3.player, img.nextSibling)
+      img.parentNode.insertBefore(Anarchy.Mp3.player, img.nextSibling);
+      $('#browse-chapter-audio-acknowledgment').show();
     }},
   destroy: function() {
     Anarchy.Mp3.playimg.src = anarchy_url+'/images/audio_mp3_play.gif'; Anarchy.Mp3.playimg = null

@@ -95,6 +95,13 @@ div.browse-chapter-audio {
     text-align:center;
 }
 
+#browse-chapter-audio-acknowledgment {
+	font-size:70;
+	text-align:center;
+	padding-top:5px;
+	display:none;
+}
+
 div.browse-toolbar {
     width:90%;
     padding:0.5em;
