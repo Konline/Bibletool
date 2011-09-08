@@ -313,12 +313,13 @@ var Navigation = {
         '<a HREF=' + link + 
         '>Audio version for this chapter</a></div>')
         .appendTo('#browse-body');
-	  if ( version == 'UCV' ) {
-		  // Add acknowledgment, see https://github.com/Konline/Bibletool/issues/93
-		  $('<div id=browse-chapter-audio-acknowledgment>感謝 <a target="_blank" href="http://www.haomuren.org/">好牧人網站</a> 提供有聲聖經</div>').appendTo('#browse-body');
-	  }
-      // trigger anarchy media
-      Anarchy.Mp3.go();
+      if ( version == 'UCV' ) {
+	// Add acknowledgment, see https://github.com/Konline/Bibletool/issues/93
+        Anarchy.Mp3.go('<div id=browse-chapter-audio-acknowledgment>感謝 <a target="_blank" href="http://www.haomuren.org/">好牧人網站</a> 提供有聲聖經</div>');
+      } else {
+	// No need to acknowledge
+        Anarchy.Mp3.go();
+      }
     }
   },
   
