@@ -90,16 +90,15 @@ div.browse-chapter-title {
 }
 
 div.browse-chapter-audio {
-    font-size:70;
+    font-size:80%;
     clear:both;
     text-align:center;
 }
 
 #browse-chapter-audio-acknowledgment {
-	font-size:70;
-	text-align:center;
-	padding-top:5px;
-	display:none;
+    font-size:80%;
+    text-align:center;
+    padding-top:5px;
 }
 
 div.browse-toolbar {
