@@ -82,7 +82,9 @@ if(typeof(Anarchy) == 'undefined') Anarchy = {}
 Anarchy.Mp3 = {
   playimg: null,
   player: null,
-  go: function() {
+  acknowledgement: null,
+  go: function(acknowledgement) {
+    Anarchy.Mp3.acknowledgement = acknowledgement ? acknowledgement : "";
     var all = document.getElementsByTagName('a');
     for (var i = 0, o; o = all[i]; i++) {
       if(o.href.match(/\.mp3$/i) && o.className!="amplink") {
@@ -96,11 +98,13 @@ Anarchy.Mp3 = {
 	o.parentNode.insertBefore(img, o)
       }}},
   toggle: function(img, url) {
-    if (Anarchy.Mp3.playimg == img) Anarchy.Mp3.destroy()
+    if (Anarchy.Mp3.playimg == img) {
+        Anarchy.Mp3.destroy();
+    }
     else {
       if (Anarchy.Mp3.playimg) Anarchy.Mp3.destroy()
       img.src = anarchy_url+'/images/audio_mp3_stop.gif'; Anarchy.Mp3.playimg = img;
-      Anarchy.Mp3.player = document.createElement('span')
+      Anarchy.Mp3.player = document.createElement('span');
       Anarchy.Mp3.player.innerHTML = '<br /><object style="'+mp3playerstyle+'" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"' +
 	'codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"' +
 	'width="290" height="24" id="player" align="middle">' +
@@ -111,8 +115,9 @@ Anarchy.Mp3 = {
 	'<embed style="'+mp3playerstyle+'" src="'+anarchy_url+'/player.swf" flashVars="bg=0x'+playerbg+'&amp;leftbg=0x'+playerleftbg+'&amp;rightbg=0x'+playerrightbg+'&amp;rightbghover=0x'+playerrightbghover+'&amp;lefticon=0x'+playerlefticon+'&amp;righticon=0x'+playerrighticon+'&amp;righticonhover=0x'+playerrighticonhover+'&amp;text=0x'+playertext+'&amp;slider=0x'+playerslider+'&amp;track=0x'+playertrack+'&amp;loader=0x'+playerloader+'&amp;border=0x'+playerborder+'&amp;autostart=yes&amp;loop='+playerloop+'&amp;soundFile='+url+'" '+
 	'quality="high" wmode="transparent" width="290" height="24" name="player"' +
 	'align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash"' +
-	' pluginspage="http://www.macromedia.com/go/getflashplayer" /></object><br />'
-      img.parentNode.insertBefore(Anarchy.Mp3.player, img.nextSibling)
+	' pluginspage="http://www.macromedia.com/go/getflashplayer" /></object><br />' +
+        Anarchy.Mp3.acknowledgement;
+      img.parentNode.insertBefore(Anarchy.Mp3.player, img.nextSibling);
     }},
   destroy: function() {
     Anarchy.Mp3.playimg.src = anarchy_url+'/images/audio_mp3_play.gif'; Anarchy.Mp3.playimg = null
