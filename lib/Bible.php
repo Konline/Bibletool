@@ -28,7 +28,7 @@ class Bible
 	{
 		$this->db = mysql_connect($config->database->host, $config->database->user, $config->database->pass);
 		mysql_select_db($config->database->dbname);
-		mysql_query('SET NAMES utf-8');
+		mysql_query('SET NAMES utf8');
 	}
 
 	/**
