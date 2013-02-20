@@ -2,22 +2,28 @@
 {include file="header.tmpl"}
 
 <div class="page-body">
-  <div CLASS="query-form-standalone">
+  <div class="query-form-standalone">
     <form id="query-form">
-      <div>版本 <select NAME="version" ID="version">
-          <option VALUE="UCV" SELECTED="selected">國語和合本</option>
-          <option VALUE="NCV">中文新譯本</option>
-          <option VALUE="CLV">當代中譯本</option>
-          <option VALUE="LZZ">呂振中譯本</option>
-          <option VALUE="KJV">英文欽定本</option>
-          <option VALUE="UCV_CN">國語和合本（簡體）</option>
-          <option VALUE="NCV_CN">中文新譯本（簡體）</option>
-          <option VALUE="CLV_CN">當代中譯本（簡體）</option>
-          <option VALUE="LZZ_CN">呂振中譯本（簡體）</option>
-        </select>
+      <div>
+        <span class="query-instructions1">經文／字串</span>
+        <span class="query-instructions2">
+          （輸入經文：例如「約 3:16」或關鍵字：例如「耶穌」、「先知」）
+        </span>
       </div>
-      <div>字串 <input TYPE="text" NAME="query">
-        <input TYPE="submit" VALUE="搜索">
+      <div>
+        <input type="text" name="query" size="40">
+        <select name="version" id="version">
+          <option value="UCV" SELECTED="selected">國語和合本</option>
+          <option value="NCV">中文新譯本</option>
+          <option value="CLV">當代中譯本</option>
+          <option value="LZZ">呂振中譯本</option>
+          <option value="KJV">英文欽定本</option>
+          <option value="UCV_CN">國語和合本（簡體）</option>
+          <option value="NCV_CN">中文新譯本（簡體）</option>
+          <option value="CLV_CN">當代中譯本（簡體）</option>
+          <option value="LZZ_CN">呂振中譯本（簡體）</option>
+        </select>
+        <input type="submit" value="搜索">
       </div>
     </form>
   </div>
