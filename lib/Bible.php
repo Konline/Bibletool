@@ -1,6 +1,7 @@
 <?php
 
-/* Model layer to access Bible verses from the database.
+/**
+ * Model layer to access Bible verses from the database.
  * This layer provides read-only access to the Bible.
  */
 
@@ -567,6 +568,11 @@ class Bible
 				return;
 		}
 
+		if (!is_numeric($book))
+		{
+			$book = $this->getBookIndex($book);
+		}
+
 		return array($languages, $book, $chapter, $start, $end);
 	}
 
@@ -589,6 +595,46 @@ class Bible
 			return $row['ts'];
 		}
 		return 0;
+	}
+
+	/**
+	 * Converts any Chinese book name into the 3-letter Bible name.
+	 * For example, converts 「約」or 「約翰福音」to JHN.
+	 */
+	public function convertBookNames($input)
+	{
+		// Get a list of long name to 3-letter Bible name mapping.
+		$sql = "
+			SELECT LOWER(b1.long_name) AS search, b2.short_name AS repl
+			FROM books b1
+			INNER JOIN books b2 ON (b1.book=b2.book)
+			INNER JOIN languages l1 ON (b1.language_id=l1.id)
+			INNER JOIN languages l2 ON (b2.language_id=l2.id AND l2.name='KJV')
+				UNION
+			SELECT LOWER(b1.short_name) AS search, b2.short_name AS repl
+			FROM books b1
+				INNER JOIN books b2 ON (b1.book=b2.book)
+				INNER JOIN languages l1 ON (b1.language_id=l1.id AND l1.name<>'KJV')
+			INNER JOIN languages l2 ON (b2.language_id=l2.id AND l2.name='KJV')
+			ORDER BY LENGTH(search) DESC;
+		";
+
+		$result = mysql_query($sql);
+		if (!$result)
+		{
+			return null;
+		}
+
+		$input = mb_strtolower($input, 'UTF-8');
+
+		while ($row = mysql_fetch_assoc($result))
+		{
+			$search = $row['search'];
+			$repl = $row['repl'];
+			$input = str_replace($search, $repl, $input);
+		}
+
+		return $input;
 	}
 
 	/**

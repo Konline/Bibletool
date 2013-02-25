@@ -88,14 +88,17 @@ var Query = {
     $("input[name='query']").val(queryTerm);
 
     // process query data
-    $("<div class='query-title'>找到 " + data.hits + 
-      " 經節含有\"" + queryTerm + "\" <br>(搜尋時間：" + (Math.round(data.time)/1000) + " 秒)</div>")
-      .appendTo("#query-result");
-    Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
+    if (data.page >= 0) {
+        $("<div class='query-title'>找到 " + data.hits + 
+          " 經節含有「" + queryTerm + "」<br>（搜尋時間：" + (Math.round(data.time)/1000) + " 秒）</div>")
+          .appendTo("#query-result");
+        Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
+    }
+
     var browseTableChapter = $("<div class='browse-table-chapter'></div>");
     browseTableChapter.appendTo("#query-result");
     // display the search results
-    for (var i=0; i<Query.resultsPerPage; i++) {
+    for (var i=0; i < data.verses.length; i++) {
       var result = data.verses[i];
       if (!result) {
         continue;
@@ -115,9 +118,12 @@ var Query = {
         subtitle + content + "</span>" +
         "</div>").appendTo(browseTableChapter);
     }
-    Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
-    if ( data.hits > 0 ) { 
-      Query.centerDiv();
+
+    if (data.page >= 0) {
+        Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
+        if (data.hits > 0) { 
+          Query.centerDiv();
+        }
     }
   },
 
