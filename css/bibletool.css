@@ -86,7 +86,6 @@ div.browse-chapter-title {
     font-size:150%;
     clear:both;
     text-align:center;
-    padding-top:1em;
 }
 
 div.browse-chapter-audio {
@@ -177,7 +176,7 @@ form.query-form {
 }
 
 div.query-form-standalone {
-    padding:1em 1em 0em 1em;
+    padding:0em 1em 0em 1em;
 }
 
 div.query-verse {
@@ -187,7 +186,17 @@ div.query-verse {
 
 div.query-title {
     width:100%;
-    padding:0em 1em;
+    font-size:120%;
+    text-align:center;
+}
+
+span.query-instructions1 {
+    font-size:120%;
+    text-align:center;
+}
+
+span.query-instructions2 {
+    font-size:80%;
     text-align:center;
 }
 
