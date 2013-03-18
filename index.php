@@ -102,7 +102,7 @@ switch ($action)
 		$smarty->display('interlinear.tmpl');
 		break;
 
-        case 'query':
+	case 'query':
 		$smarty->display('query.tmpl');
 		break;
 
