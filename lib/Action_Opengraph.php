@@ -22,7 +22,8 @@ class Action_Opengraph extends Action_Base
 	{
 		$request_uri = $_SERVER["REQUEST_URI"];
 		$new_location = str_replace("/$this->action/", "$this->action/#", $request_uri);
-		$this->smarty->assign("og_url", "http://bibletool.konline.org/$new_location");
+		$this->smarty->assign("new_location", "http://bibletool.konline.org/$new_location");
+		$this->smarty->assign("og_url", "http://bibletool.konline.org{$request_uri}");
 		$range = $this->bible->parseBibleRange($_GET["jsonURL"]);
 		if ($range)
 		{
@@ -31,7 +32,7 @@ class Action_Opengraph extends Action_Base
 			$book_names = $this->bible->getBookNames($language, $book);
 			$chapter_title = $this->bible->getChapterTitle($language, $book, $chapter);
 			$verses = $this->bible->getVerses($language, $book, $chapter, $start, $end);
-			$title = $book_names['long_name'] . $chapter . ":" . $start . "﹣" . $chapter_title;
+			$title = "耶大雅聖經工具：" . $book_names['long_name'] . $chapter . ":" . $start . "﹣" . $chapter_title;
 			$this->smarty->assign("og_title", $title);
 			$snippet = "";
 			foreach ($verses as $verse)
