@@ -114,7 +114,16 @@ switch ($action)
 
 	case 'browse':
 	default:
-		$smarty->assign('action', 'browse'); // for default case
-		$smarty->display('browse.tmpl');
+		if (!empty($_GET["jsonURL"]))
+		{
+			require_once 'Action_Opengraph.php';
+			$controller = new Action_Opengraph($bible, $smarty, 'browse');
+			$controller->run();
+		}
+		else
+		{
+			$smarty->assign('action', 'browse'); // for default case
+			$smarty->display('browse.tmpl');
+		}
 		break;
 }
