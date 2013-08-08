@@ -99,7 +99,16 @@ switch ($action)
 		break;
 
 	case 'interlinear':
-		$smarty->display('interlinear.tmpl');
+		if (!empty($_GET["jsonURL"]))
+		{
+			require_once 'Action_Opengraph.php';
+			$controller = new Action_Opengraph($bible, $smarty, 'interlinear');
+			$controller->run();
+		}
+		else
+		{
+			$smarty->display('interlinear.tmpl');
+		}
 		break;
 
 	case 'query':
