@@ -8,8 +8,10 @@
 <title>{$og_title}</title>
 </head>
 <body>
+{if !$is_facebook}
 <script type='text/javascript'>
     window.location = "{$og_url}"
 </script>
+{/if}
 </body>
 </html>

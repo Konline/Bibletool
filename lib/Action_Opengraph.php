@@ -20,36 +20,38 @@ class Action_Opengraph extends Action_Base
 	 */
 	public function process()
 	{
-        $request_uri = $_SERVER["REQUEST_URI"];
-        $new_location = str_replace("/$this->action/", "$this->action/#", $request_uri);
-        $this->smarty->assign("og_url", "http://bibletool.konline.org/$new_location");
-        $range = $this->bible->parseBibleRange($_GET["jsonURL"]);
-        if ($range)
-        {
+		$request_uri = $_SERVER["REQUEST_URI"];
+		$new_location = str_replace("/$this->action/", "$this->action/#", $request_uri);
+		$this->smarty->assign("og_url", "http://bibletool.konline.org/$new_location");
+		$range = $this->bible->parseBibleRange($_GET["jsonURL"]);
+		if ($range)
+		{
 			list($languages, $book, $chapter, $start, $end) = $range;
-            $language = $languages[0];
-            $book_names = $this->bible->getBookNames($language, $book);
-            $chapter_title = $this->bible->getChapterTitle($language, $book, $chapter);
-            $verses = $this->bible->getVerses($language, $book, $chapter, $start, $end);
-            $title = $book_names['long_name'] . $chapter . ":" . $start . "﹣" . $chapter_title;
+			$language = $languages[0];
+			$book_names = $this->bible->getBookNames($language, $book);
+			$chapter_title = $this->bible->getChapterTitle($language, $book, $chapter);
+			$verses = $this->bible->getVerses($language, $book, $chapter, $start, $end);
+			$title = $book_names['long_name'] . $chapter . ":" . $start . "﹣" . $chapter_title;
 			$this->smarty->assign("og_title", $title);
-            $snippet = "";
-            foreach ($verses as $verse)
-            {
-                $snippet .= strip_tags($verse["content"]);
-                if (mb_strlen($snippet, "UTF-8") > 80)
-                {
-                    break;
-                }
-            }
-            $this->smarty->assign("og_description", $snippet);
-        }
-        else
-        {
+			$snippet = "";
+			foreach ($verses as $verse)
+			{
+				$snippet .= strip_tags($verse["content"]);
+				if (mb_strlen($snippet, "UTF-8") > 80)
+				{
+					break;
+				}
+			}
+			$this->smarty->assign("og_description", $snippet);
+		}
+		else
+		{
 			$this->smarty->assign("og_title", "耶大雅聖經工具");
-            $this->smarty->assign("og_description", "Jedaiah Bibletool by Alber Ko");
-        }
-        $this->smarty->assign("og_image", "http://bibletool.konline.org/images/logo_square.jpg");
-        $this->smarty->display('opengraph.tmpl');
+			$this->smarty->assign("og_description", "Jedaiah Bibletool by Alber Ko");
+		}
+		$this->smarty->assign("og_image", "http://bibletool.konline.org/images/logo_square.jpg");
+		$is_facebook = (strpos($_SERVER["HTTP_USER_AGENT"], "facebookexternalhit") !== FALSE);
+		$this->smarty->assign(is_facebook, $is_facebook);
+		$this->smarty->display('opengraph.tmpl');
 	}
 }
