@@ -62,7 +62,7 @@ var Biblemap = {
               return v.replace(/ /, ":");
             }).join(";");
             $("#map_node").remove();
-            // Build a map_node div that looks like this:
+            // Build a content string that looks like this:
             // <div id="map_node">
             //   <div class="bible-map-name">Leshem 利善</div>
             //   <div class="bible-map-notes">Now Tel Dan</div>
@@ -70,13 +70,15 @@ var Biblemap = {
             //     <a href="/browse#UCV:JOS:19:47">JOS 19:47</a>
             //   </div>
             // </div>
-            $("<div id=map_node></div>").appendTo("#biblemap-body");
-            $("<div class=bible-map-name>" + name + "</div>").appendTo($("#map_node"));
-            $("<div class=bible-map-notes>" + notes + "</div>").appendTo($("#map_node"));
-            $("<div class=bible-map-verses>" + 
-              "<a href=" + webroot + "/browse#UCV:" + link + ">" +
-              verses + "</a></div>").appendTo($("#map_node"));
-            Biblemap.initializeMap(lat, lon);
+            var content =
+                "<div id=map_node>" +
+                "  <div class=bible-map-name>" + name + "</div>" +
+                "  <div class=bible-map-notes>" + notes + "</div>" +
+                "  <div class=bible-map-verses>" + 
+                "    <a href=" + webroot + "/browse#UCV:" + link + ">" + verses + "</a>" +
+                "  </div>" +
+                "</div>";
+            Biblemap.initializeMap(lat, lon, content);
           }
         });
         
@@ -89,25 +91,27 @@ var Biblemap = {
   // Parameters:
   // - lat: float representing the location latitude
   // - lng: float representing the location longitude
-  initializeMap: function (lat, lng) {
-    var map = new google.maps.Map2(document.getElementById('map_canvas'));
-    var latlng = new google.maps.LatLng(lat, lng);
-    var mapNode = document.getElementById('map_node');
-    // Function to create a marker on the map
-    // Parameters:
-    // - latlng: A google.maps.LatLng object containing the place coordinates
-    function createMarker(latlng) {
-      var marker = new GMarker(latlng);
-      GEvent.addListener(marker, 'click', function () {
-        map.openInfoWindow(latlng, mapNode);
-      });
-      return marker;
-    };
-    map.setCenter(latlng, 5);
-    map.setUIToDefault();
-    map.setMapType(G_HYBRID_MAP);
-    map.addOverlay(createMarker(latlng));
-    map.openInfoWindow(latlng, mapNode);
+  initializeMap: function (lat, lng, content) {
+    var coordinate = new google.maps.LatLng(lat, lng);
+    var map = new google.maps.Map(
+        document.getElementById('map_canvas'), {
+            center: coordinate,
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+    );
+    var infowindow = new google.maps.InfoWindow({
+        content: content
+    });
+    var marker = new google.maps.Marker({
+        position: coordinate,
+        map: map
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+        infowindow.open(map, marker);
+    });
+    // Simulate a click on the marker to trigger the infowindow to be shown.
+    google.maps.event.trigger(marker, 'click');
   }
 };
 
