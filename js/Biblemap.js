@@ -96,7 +96,7 @@ var Biblemap = {
     var map = new google.maps.Map(
         document.getElementById('map_canvas'), {
             center: coordinate,
-            zoom: 6,
+            zoom: 8,
             mapTypeId: google.maps.MapTypeId.HYBRID
         }
     );
