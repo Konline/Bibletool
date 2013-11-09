@@ -71,13 +71,13 @@ var Biblemap = {
             //   </div>
             // </div>
             var content =
-		"<div id=map_node>" +
+                "<div id=map_node>" +
                 "  <div class=bible-map-name>" + name + "</div>" +
                 "  <div class=bible-map-notes>" + notes + "</div>" +
                 "  <div class=bible-map-verses>" + 
                 "    <a href=" + webroot + "/browse#UCV:" + link + ">" + verses + "</a>" +
-		"  </div>" +
-	        "</div>";
+                "  </div>" +
+                "</div>";
             Biblemap.initializeMap(lat, lon, content);
           }
         });
