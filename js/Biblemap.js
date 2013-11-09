@@ -70,12 +70,14 @@ var Biblemap = {
             //     <a href="/browse#UCV:JOS:19:47">JOS 19:47</a>
             //   </div>
             // </div>
-            var content = "<div id=map_node></div>" +
-                "<div class=bible-map-name>" + name + "</div>" +
-                "<div class=bible-map-notes>" + notes + "</div>" +
-                "<div class=bible-map-verses>" + 
-                "<a href=" + webroot + "/browse#UCV:" + link + ">" +
-                verses + "</a></div>";
+            var content =
+		"<div id=map_node>" +
+                "  <div class=bible-map-name>" + name + "</div>" +
+                "  <div class=bible-map-notes>" + notes + "</div>" +
+                "  <div class=bible-map-verses>" + 
+                "    <a href=" + webroot + "/browse#UCV:" + link + ">" + verses + "</a>" +
+		"  </div>" +
+	        "</div>";
             Biblemap.initializeMap(lat, lon, content);
           }
         });
