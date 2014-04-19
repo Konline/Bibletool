@@ -37,12 +37,25 @@ div.page-header {
     border-bottom-style:solid;
     border-bottom-width:1px;
     margin:0;
-    padding:0.5em 0 0 0.5em;
 }
 
+@media screen {
+div.page-header {
+    padding:0.5em 0 0 0.5em;
+}
+}
+
+@media handheld {
+div.page-header {
+    padding:0 0.5em 0 0.5em;
+}
+}
+
+@media screen {
 div.page-body {
     min-height:400px;
     padding:1em;
+}
 }
 
 a.section-navigator-current {
@@ -88,10 +101,18 @@ div.browse-chapter-title {
     text-align:center;
 }
 
+@media screen {
 div.browse-chapter-audio {
     font-size:80%;
     clear:both;
     text-align:center;
+}
+}
+
+@media handheld {
+div.browse-chapter-audio {
+    display:none;
+}
 }
 
 #browse-chapter-audio-acknowledgment {
@@ -100,17 +121,28 @@ div.browse-chapter-audio {
     padding-top:5px;
 }
 
+@media screen {
 div.browse-toolbar {
     width:90%;
     padding:0.5em;
 }
+}
 
+@media handheld {
+div.browse-toolbar {
+    width:90%;
+}
+}
+
+@media screen {
 form.browse-form {
     float:left;
     padding-left:11px;
     margin-bottom:0px;
     margin-right:0.5em;
 }
+}
+    pge/adding-left: 1em;
 
 form.browse-form select,input {
     vertical-align:top;
@@ -159,9 +191,25 @@ div.browse-paragraph-verse-subtitle {
 }
 
 img.browse-arrows {
+    border:0;
+}
+
+@media screen {
+img.browse-arrows {
     vertical-align:top;
     height:20px;
-    border:0;
+}
+}
+
+@media handheld {
+img.browse-arrows {
+}
+}
+
+@media handheld {
+.addthis_toolbox {
+    display:none;
+}
 }
 
 div.retrieve-range {
