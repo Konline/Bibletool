@@ -573,6 +573,15 @@ class Bible
 			$book = $this->getBookIndex($book);
 		}
 
+		if (!is_array($languages) ||
+			!is_numeric($book) ||
+			!is_numeric($chapter) ||
+			!is_numeric($start) ||
+			!is_numeric($end)) {
+			// This must have been a parse error.
+			return;
+		}
+
 		return array($languages, $book, $chapter, $start, $end);
 	}
 
