@@ -121,6 +121,10 @@ def NormalizeLine(line):
     line = line.replace('流便', '呂便')
     line = line.replace('西乃', '西奈')
     line = line.replace('姐妹', '姊妹')
+    # Replace '作' -> '做'
+    # TODO(koyao): Remove this replacement once other low-hanging fruit typos
+    # are fixed.
+    line = line.replace('作', '做')
     return '%s\n' % line
 
 
