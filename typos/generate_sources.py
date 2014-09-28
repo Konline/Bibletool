@@ -86,6 +86,8 @@ def NormalizeLine(line):
     line = re.sub(r'【.*】', '', line)
     # Removes '〔註就是相爭的意思〕'
     line = re.sub(r'〔.*〕', '', line)
+    # Replaces '...併入第...' with '見上節'
+    line = re.sub(r'--.*併入第.*節中', '--見上節', line)
     # Removes "God's words tagging'
     line = line.replace("' ", '')
     line = line.replace(" '", '')
@@ -113,6 +115,7 @@ def NormalizeLine(line):
     line = line.replace('啊', '阿')
     line = line.replace('麼', '嗎')
     line = line.replace('罷', '吧')
+    line = line.replace('挂', '掛')
     line = line.replace('姐姐', '姊姊')
     line = line.replace('流便', '呂便')
     line = line.replace('西乃', '西奈')
