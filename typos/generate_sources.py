@@ -115,6 +115,8 @@ def NormalizeLine(line):
     line = line.replace('罷', '吧')
     line = line.replace('姐姐', '姊姊')
     line = line.replace('流便', '呂便')
+    line = line.replace('西乃', '西奈')
+    line = line.replace('姐妹', '姊妹')
     return '%s\n' % line
 
 
