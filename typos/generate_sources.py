@@ -104,6 +104,7 @@ def NormalizeLine(line):
     line = line.replace('『', '')
     line = line.replace('』', '')
     line = line.replace('．', '')
+    line = line.replace('－', '')
     # Normalize a few common words.
     line = line.replace('祂', '他')
     line = line.replace('她', '他')
