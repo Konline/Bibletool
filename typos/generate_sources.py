@@ -106,9 +106,6 @@ def NormalizeLine(line):
     line = line.replace('．', '')
     line = line.replace('－', '')
     # Normalize a few common words.
-    line = line.replace('祂', '他')
-    line = line.replace('她', '他')
-    line = line.replace('牠', '他')
     line = line.replace('裏', '裡')
     line = line.replace('喫', '吃')
     line = line.replace('哪', '那')
@@ -126,6 +123,16 @@ def NormalizeLine(line):
     # TODO(koyao): Remove this replacement once other low-hanging fruit typos
     # are fixed.
     line = line.replace('作', '做')
+    # Replace all pronouns. We'll resolve these later.
+    line = line.replace('我', 'XX')
+    line = line.replace('你', 'XX')
+    line = line.replace('妳', 'XX')
+    line = line.replace('祢', 'XX')
+    line = line.replace('他', 'XX')
+    line = line.replace('祂', 'XX')
+    line = line.replace('她', 'XX')
+    line = line.replace('牠', 'XX')
+    line = line.replace('它', 'XX')
     return '%s\n' % line
 
 
