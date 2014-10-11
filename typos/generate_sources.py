@@ -130,6 +130,7 @@ def NormalizeLine(line):
     # are fixed.
     line = line.replace('作', '做')
     line = line.replace('地', '的')
+    line = line.replace('得', '的')
     # Replace all pronouns. We'll resolve these later.
     line = line.replace('我', 'XX')
     line = line.replace('你', 'XX')
