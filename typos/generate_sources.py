@@ -89,9 +89,9 @@ def NormalizeLine(line):
     # Removes ﹝此包括徒1：23-24﹞
     line = re.sub(r'﹝.*﹞', '', line)
     # Replaces '...併入第...' with '見上節'
-    line = re.sub(r'--.*併入第.*節中', '--見上節', line)
+    line = re.sub(r'.*併入第.*節中', '見上節', line)
     # Replaces 併第24上節中
-    line = re.sub(r'併第.*上節中', '見上節', line)
+    line = re.sub(r'.*併第.*上節中', '見上節', line)
     # Removes "God's words tagging'
     line = line.replace("' ", '')
     line = line.replace(" '", '')
@@ -125,7 +125,6 @@ def NormalizeLine(line):
     line = line.replace('流便', '呂便')
     line = line.replace('西乃', '西奈')
     line = line.replace('姐妹', '姊妹')
-    # Replace '作' -> '做'
     # TODO(koyao): Remove this replacement once other low-hanging fruit typos
     # are fixed.
     line = line.replace('作', '做')
@@ -154,7 +153,8 @@ def main():
                 if line.startswith('"'):
                     line = inf.readline()
                     continue
-                outf.write(NormalizeLine(line))
+                parts = line.split('--')
+                outf.write('%s--%s' % (parts[0], NormalizeLine(parts[1])))
                 line = inf.readline()
 
     # Generate external source.
