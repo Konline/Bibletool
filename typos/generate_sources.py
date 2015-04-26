@@ -88,6 +88,8 @@ def NormalizeLine(line):
     line = re.sub(r'〔.*?〕', '', line)
     # Removes ﹝此包括徒1：23-24﹞
     line = re.sub(r'﹝.*?﹞', '', line)
+    # Removes 《新婦》
+    line = re.sub(r'《.*?》', '', line)
     # Replaces '...併入第...' with '見上節'
     line = re.sub(r'.*併入第.*節中', '見上節', line)
     # Replaces 併第24上節中
