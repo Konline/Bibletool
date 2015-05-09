@@ -127,6 +127,10 @@ def NormalizeLine(line):
     line = line.replace('西乃', '西奈')
     line = line.replace('姐妹', '姊妹')
     line = line.replace('台階', '臺階')
+    line = line.replace('飢荒', '饑荒')
+    line = line.replace('痊愈', '痊癒')
+    line = line.replace('燒毀', '燒燬')
+    line = line.replace('榖', '穀')
     # TODO(koyao): Remove this replacement once other low-hanging fruit typos
     # are fixed.
     line = line.replace('作', '做')
