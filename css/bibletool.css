@@ -238,10 +238,6 @@ div.query-title {
     text-align:center;
 }
 
-span.pagination {
-    font-size:120%;
-
-
 span.query-instructions1 {
     font-size:120%;
     text-align:center;
@@ -250,6 +246,24 @@ span.query-instructions1 {
 span.query-instructions2 {
     font-size:80%;
     text-align:center;
+}
+
+div.query-paginate {
+    font-size:80%;
+    padding:1em;
+    white-space: nowrap;
+    position: relative;
+}
+
+span.query-paginate-current-page {
+    margin:0.5em;
+    color:red;
+    font-size: 120%;
+    text-decoration: underline;
+}
+
+span.query-paginate-other-page {
+    margin:0.5em;
 }
 
 table.static-table {
@@ -482,9 +496,9 @@ div.ajax-loader {
     text-align:center;
 }
 
-div.search-div {
-    width:100px;
-    overflow:hidden;
+div.search-scroller {
+    width:50%;
+    overflow: hidden;
     margin:auto;
 }
 
