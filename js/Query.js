@@ -92,18 +92,20 @@ var Query = {
     }
 
     // Create a pagination pull down menu.
-    var selection = $("<select id=searchPage></select>");
-    for (var page=startPage; page <= totalPages; page++) {
-      var option = selection.append($('<option>', {value: page}).text(page));
+    if (totalPages > 0) {
+      var selection = $("<select id=searchPage></select>");
+      for (var page=startPage; page <= totalPages; page++) {
+        var option = selection.append($('<option>', {value: page}).text(page));
+      }
+      selection.val(currPage);
+      selection.change(function() {
+        var page = $("#searchPage").val();
+        window.location.href =
+  	    webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) +
+ 	    '&page=' + page;
+      });
+      selectionDiv.append(selection);
     }
-    selection.val(currPage);
-    selection.change(function() {
-      var page = $("#searchPage").val();
-      window.location.href =
-	    webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) +
-	    '&page=' + page;
-    });
-    selectionDiv.append(selection);
   
     // Create a next page link.
     if (currPage < totalPages) {
