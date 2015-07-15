@@ -77,7 +77,7 @@ var Query = {
     var version = Query.selectedVersion();
     var startPage = 1;
 
-    var selectionDiv = $("<div class=search-div></div>");
+    var selectionDiv = $("<div style='width:100px; margin:auto;'></div>");
 
     // Create a prev page link.
     if (currPage > 1) {
