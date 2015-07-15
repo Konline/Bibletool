@@ -80,7 +80,7 @@ var Query = {
       var prevPageSpan = $("<span></span>");
       var prevPageLink = $('<a></a>');
       prevPageLink.attr('href',
-        webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) +
+        webroot + '/query#' + version + '/q=' + encodeURI(queryTerm) +
         '&page=' + (currPage - 1));
       prevPageLink.text(' < ');
       prevPageLink.appendTo(prevPageSpan);
@@ -97,7 +97,7 @@ var Query = {
       selection.change(function() {
         var page = $("#searchPage").val();
         window.location.href =
-  	    webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) +
+  	    webroot + '/query#' + version + '/q=' + encodeURI(queryTerm) +
  	    '&page=' + page;
       });
       selectionDiv.append(selection);
@@ -108,7 +108,7 @@ var Query = {
       var nextPageSpan = $("<span></span>");
       var nextPageLink = $('<a></a>');
       nextPageLink.attr('href',
-        webroot + '/query/#' + version + '/q=' + encodeURI(queryTerm) +
+        webroot + '/query#' + version + '/q=' + encodeURI(queryTerm) +
         '&page=' + (currPage + 1));
       nextPageLink.text(' > ');
       nextPageLink.appendTo(nextPageSpan);
