@@ -60,10 +60,6 @@ var Query = {
         subtitle + content + "</span>" +
         "</div>").appendTo(browseTableChapter);
     }
-
-    if (data.page >= 0) {
-        Query.generatePaginateDiv(data, queryTerm).appendTo("#query-result");
-    }
   },
 
   // Generate the pagination divs
