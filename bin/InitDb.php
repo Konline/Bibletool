@@ -618,11 +618,9 @@ function Commit($db)
  */
 function MyGetOpt($short_str, $long_options)
 {
-	global $argv;
-
 	$result = array();
 	$short_options = str_split($short_str);
-	foreach ($argv as $i => $arg)
+	foreach ($_GET as $arg => $value)
 	{
 		$arg = str_replace('-', '', $arg);
 		if (in_array($arg, $short_options) || in_array($arg, $long_options))
