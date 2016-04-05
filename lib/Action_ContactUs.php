@@ -8,7 +8,7 @@ require_once 'Action_Base.php';
 class Action_ContactUs extends Action_Base
 {
 	const SENDER = 'webmaster@konline.org';
-	const RECIPIENT = 'yaoyao@gmail.com,kojung@gmail.com';
+	const RECIPIENT = 'webmaster@konline.org';
 	const SUBJECT = 'Feedback from Bibletool';
 
 	public function __construct($bible, $smarty)
