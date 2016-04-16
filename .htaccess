@@ -1,7 +1,7 @@
 RewriteEngine On
 
 RewriteCond %{HTTP_HOST} konline.org [OR]
-RewriteCond %{HTTP_HOST} bibletool.konline.org [OR]
+RewriteCond %{HTTP_HOST} bibletool.konline.org
 RewriteRule ^$ "http\:\/\/bibletool\.konline\.org\/browse\/" [R=301,L]
 
 RewriteRule ^static/([^/]+) index.php?action=static&page=$1 [L]
