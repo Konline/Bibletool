@@ -10,7 +10,7 @@ $config = Config::getInstance();
 $bible = Bible::getInstance();
 $smarty = new Bible_Smarty($config);
 
-$action = $_REQUEST['action'];
+$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
 $smarty->assign('action', $action);
 
 switch ($action)
