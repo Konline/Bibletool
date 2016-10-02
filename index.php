@@ -29,7 +29,10 @@ switch ($action)
 		break;
 
 	case 'glossary':
-		if ($_REQUEST['index'] || $_REQUEST['stroke'] || $_REQUEST['word'] || $_REQUEST['ranges'])
+		if (isset($_REQUEST['index'])
+			|| isset($_REQUEST['stroke'])
+			|| isset($_REQUEST['word'])
+			|| isset($_REQUEST['ranges']))
 		{
 			require_once 'Action_Glossary.php';
 			$controller = new Action_Glossary($bible, $smarty);
@@ -42,7 +45,7 @@ switch ($action)
 		break;
 
 	case 'calendar':
-		if ($_REQUEST['index']) 
+		if (isset($_REQUEST['index']))
 		{
 			require_once 'Action_Calendar.php';
 			$controller = new Action_Calendar($bible, $smarty);
@@ -55,7 +58,7 @@ switch ($action)
 	        break;
 
 	case 'subjects':
-		if ($_REQUEST['index'])
+		if (isset($_REQUEST['index']))
 		{
 			require_once 'Action_Subjects.php';
 			$controller = new Action_Subjects($bible, $smarty);
@@ -68,7 +71,7 @@ switch ($action)
 		break;
 
 	case 'biblemap':
-		if ($_REQUEST['index'])
+		if (isset($_REQUEST['index']))
 		{
 			require_once 'Action_Biblemap.php';
 			$controller = new Action_Biblemap($bible, $smarty);
