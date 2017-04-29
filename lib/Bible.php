@@ -27,9 +27,10 @@ class Bible
 
 	private function __construct($config)
 	{
-		$this->db = mysql_connect($config->database->host, $config->database->user, $config->database->pass);
-		mysql_select_db($config->database->dbname);
-		mysql_query('SET NAMES utf8');
+		$this->db = mysqli_connect($config->database->host, $config->database->user,
+			$config->database->pass);
+		mysqli_select_db($this->db, $config->database->dbname);
+		mysqli_query($this->db, 'SET NAMES utf8mb4');
 	}
 
 	/**
@@ -47,8 +48,11 @@ class Bible
 		{
 			$languages = array($languages);
 		}
-		$languages = array_map('mysql_real_escape_string', $languages);
-		$languages_str = "'" . implode("','", $languages) . "'";
+		$escaped_languages = array();
+		foreach ($languages as $language) {
+			$escaped_languages[] = mysqli_real_escape_string($this->db, $language);
+		}
+		$languages_str = "'" . implode("','", $escaped_languages) . "'";
 
 		$sql = sprintf("
 			SELECT l.name AS language, b.short_name AS name, v.book AS book, v.chapter AS chapter, v.verse AS verse,
@@ -60,26 +64,26 @@ class Bible
 			ORDER BY v.book, v.chapter, v.verse, v.language_id
 				",
 			$languages_str,
-			mysql_real_escape_string($book),
-			mysql_real_escape_string($chapter),
-			mysql_real_escape_string($start),
-			mysql_real_escape_string($end)
+			mysqli_real_escape_string($this->db, $book),
+			mysqli_real_escape_string($this->db, $chapter),
+			mysqli_real_escape_string($this->db, $start),
+			mysqli_real_escape_string($this->db, $end)
 		);
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 		if (!$result)
 		{
-			echo "ERROR: Bad query: " . mysql_error();
+			echo "ERROR: Bad query: " . mysqli_error($this->db);
 			return array();
 		}
 
 		$verses = array();
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$row = $this->annotateVerse($row, $row['language']);
 			$verses[] = $row;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 		return $verses;
 	}
@@ -94,10 +98,10 @@ class Bible
 			SELECT name, description
 			FROM languages");
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 
 		$languages = array();
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$languages[] = $row;
 		}
@@ -118,10 +122,10 @@ class Bible
 			WHERE l.name='%s'
 			ORDER BY book ASC", $language);
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 
 		$books = array();
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$books[] = $row;
 		}
@@ -141,8 +145,8 @@ class Bible
 			FROM verses
 			WHERE language_id='1' AND book='%s'", $book);
 
-		$result = mysql_query($sql);
-		$row = mysql_fetch_assoc($result);
+		$result = mysqli_query($this->db, $sql);
+		$row = mysqli_fetch_assoc($result);
 		return $row['cnt'];
 	}
 
@@ -158,11 +162,11 @@ class Bible
 			SELECT b.short_name, b.long_name
 			FROM books b INNER JOIN languages l ON (b.language_id=l.id)
 			WHERE l.name='%s' AND b.book='%s'",
-			mysql_real_escape_string($language),
-			mysql_real_escape_string($book)
+			mysqli_real_escape_string($this->db, $language),
+			mysqli_real_escape_string($this->db, $book)
 		);
-		$result = mysql_query($sql);
-		return mysql_fetch_assoc($result);
+		$result = mysqli_query($this->db, $sql);
+		return mysqli_fetch_assoc($result);
 	}
 
 	/**
@@ -178,12 +182,12 @@ class Bible
 			SELECT c.title
 			FROM chapters c INNER JOIN languages l ON (c.language_id=l.id)
 			WHERE l.name='%s' AND c.book='%s' AND c.chapter='%s'",
-			mysql_real_escape_string($language),
-			mysql_real_escape_string($book),
-			mysql_real_escape_string($chapter)
+			mysqli_real_escape_string($this->db, $language),
+			mysqli_real_escape_string($this->db, $book),
+			mysqli_real_escape_string($this->db, $chapter)
 		);
-		$result = mysql_query($sql);
-		$row = mysql_fetch_assoc($result);
+		$result = mysqli_query($this->db, $sql);
+		$row = mysqli_fetch_assoc($result);
 		return $row['title'];
 	}
 
@@ -198,9 +202,9 @@ class Bible
 			SELECT b.book
 			FROM books b INNER JOIN languages l ON (b.language_id=l.id)
 			WHERE l.name='KJV' AND b.short_name='%s'",
-			mysql_real_escape_string($book_name));
-		$result = mysql_query($sql);
-		$row = mysql_fetch_assoc($result);
+			mysqli_real_escape_string($this->db, $book_name));
+		$result = mysqli_query($this->db, $sql);
+		$row = mysqli_fetch_assoc($result);
 		return $row['book'];
 	}
 
@@ -217,12 +221,12 @@ class Bible
 			SELECT COUNT(*) AS cnt
 			FROM verses v INNER JOIN languages l ON (v.language_id=l.id)
 			WHERE l.name='%s' AND v.book='%s' AND v.chapter='%s'",
-			mysql_real_escape_string($language),
-			mysql_real_escape_string($book),
-			mysql_real_escape_string($chapter)
+			mysqli_real_escape_string($this->db, $language),
+			mysqli_real_escape_string($this->db, $book),
+			mysqli_real_escape_string($this->db, $chapter)
 		);
-		$result = mysql_query($sql);
-		$row = mysql_fetch_assoc($result);
+		$result = mysqli_query($this->db, $sql);
+		$row = mysqli_fetch_assoc($result);
 		return $row['cnt'];
 	}
 
@@ -243,7 +247,7 @@ class Bible
 		$book_filter_str = '';
 		if (!empty($book_filter))
 		{
-			$book_filter_str = ' AND v.book IN (' . mysql_real_escape_string(implode(',', $book_filter)) . ')';
+			$book_filter_str = ' AND v.book IN (' . mysqli_real_escape_string($this->db, implode(',', $book_filter)) . ')';
 		}
 
 		$or_list = array();
@@ -256,15 +260,15 @@ class Bible
 				{
 					continue;
 				}
-				$and_list[] = sprintf("v.body LIKE '%%%s%%'", mysql_real_escape_string($term));
+				$and_list[] = sprintf("v.body LIKE '%%%s%%'", mysqli_real_escape_string($this->db, $term));
 			}
 			$and_str = '(' . implode(' AND ', $and_list) . ')';
 			$or_list[] = $and_str;
 		}
 		$q_str = '(' . implode(' OR ', $or_list) . ')';
 
-		$page = mysql_real_escape_string($page);
-		$verses_per_page = mysql_real_escape_string($verses_per_page);
+		$page = mysqli_real_escape_string($this->db, $page);
+		$verses_per_page = mysqli_real_escape_string($this->db, $verses_per_page);
 
 		$t1 = microtime(true);
 
@@ -273,20 +277,20 @@ class Bible
 			FROM verses v
 				INNER JOIN books b ON (v.language_id=b.language_id AND v.book=b.book)
 		   		INNER JOIN languages l ON (v.language_id=l.id)
-			WHERE l.name='%s'", mysql_real_escape_string($language)
+			WHERE l.name='%s'", mysqli_real_escape_string($this->db, $language)
 		);
 		$sql .= " AND $q_str $book_filter_str";
 		$sql .= sprintf(' LIMIT %d, %d', (int)($page-1) * $verses_per_page, $verses_per_page);
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 		if (!$result)
 		{
-			echo "ERROR: Bad query: " . mysql_error();
+			echo "ERROR: Bad query: " . mysqli_error($this->db);
 			return array();
 		}
 
 		// Get total number of hits, disregarding the LIMIT clause
-		$row = mysql_fetch_row(mysql_query('SELECT FOUND_ROWS()'));
+		$row = mysqli_fetch_row(mysqli_query($this->db, 'SELECT FOUND_ROWS()'));
 		$total = $row[0];
 
 		$verses = array(
@@ -296,7 +300,7 @@ class Bible
 			'verses' => array(),
 		);
 
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$row = $this->annotateVerse($row, $language);
 			$verses['verses'][] = $row;
@@ -304,7 +308,7 @@ class Bible
 
 		$verses['time'] = round((microtime(true) - $t1) * 1000, 2);
 
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 		return $verses;
 	}
@@ -316,23 +320,23 @@ class Bible
 	public function getGlossaryIndex()
 	{
 		$sql = "SELECT DISTINCT(strokes) FROM glossary ORDER BY strokes";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 
 		$strokes = array();
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$strokes[] = $row['strokes'];
 		}
 
 		$sql = "SELECT DISTINCT(letter) FROM glossary WHERE letter <> '' ORDER BY letter";
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 
 		$letters = array();
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$letters[] = $row['letter'];
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 		return array($strokes, $letters);
 	}
@@ -349,14 +353,14 @@ class Bible
 		{
 			$sql = sprintf(
 				"SELECT chinese, english, kind FROM glossary WHERE letter='%s'",
-				mysql_real_escape_string($letter)
+				mysqli_real_escape_string($this->db, $letter)
 			);
 		}
 		elseif (!is_null($stroke))
 		{
 			$sql = sprintf(
 				"SELECT chinese, english, kind FROM glossary WHERE strokes='%s'",
-				mysql_real_escape_string($stroke)
+				mysqli_real_escape_string($this->db, $stroke)
 			);
 		}
 		else
@@ -364,15 +368,15 @@ class Bible
 			return;
 		}
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 
 		$words = array();
 
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$words[] = $row;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 		return $words;
 	}
@@ -388,9 +392,9 @@ class Bible
 
 		$sql = sprintf("SELECT g.id, g.strokes, g.chinese, g.english, g.kind, g.definition, g.openbible_places_id, p.lat, p.lon
 			FROM glossary g LEFT JOIN openbible_places p ON (g.openbible_places_id=p.id)
-			WHERE chinese='%s'", mysql_real_escape_string($word));
-		$result = mysql_query($sql);
-		while ($row = mysql_fetch_assoc($result))
+			WHERE chinese='%s'", mysqli_real_escape_string($this->db, $word));
+		$result = mysqli_query($this->db, $sql);
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$id = $row['id'];
 
@@ -407,9 +411,9 @@ class Bible
 				'verses' => array(),
 			);
 
-			$sql = sprintf("SELECT notes FROM glossary_notes WHERE glossary_id='%s'", mysql_real_escape_string($id));
-			$result2 = mysql_query($sql);
-			while ($row2 = mysql_fetch_assoc($result2))
+			$sql = sprintf("SELECT notes FROM glossary_notes WHERE glossary_id='%s'", mysqli_real_escape_string($this->db, $id));
+			$result2 = mysqli_query($this->db, $sql);
+			while ($row2 = mysqli_fetch_assoc($result2))
 			{
 				$definition['notes'][] = $row2['notes'];
 			}
@@ -418,10 +422,10 @@ class Bible
 				SELECT book, chapter, start_verse, end_verse
 				FROM glossary_verses
 				WHERE glossary_id='%s'",
-				mysql_real_escape_string($id)
+				mysqli_real_escape_string($this->db, $id)
 			);
-			$result3 = mysql_query($sql);
-			while ($row3 = mysql_fetch_assoc($result3))
+			$result3 = mysqli_query($this->db, $sql);
+			while ($row3 = mysqli_fetch_assoc($result3))
 			{
 				$definition['verses'][] = array($row3['book'], $row3['chapter'], $row3['start_verse'], $row3['end_verse']);
 			}
@@ -447,25 +451,25 @@ class Bible
 				INNER JOIN glossary_verses v ON (g.id=v.glossary_id)
 				LEFT JOIN openbible_places p ON (g.openbible_places_id=p.id)
 			WHERE v.book='%s' AND v.chapter='%s' AND v.start_verse >= '%s' AND v.end_verse <= '%s'",
-			mysql_real_escape_string($book),
-			mysql_real_escape_string($chapter),
-			mysql_real_escape_string($start_verse),
-			mysql_real_escape_string($end_verse)
+			mysqli_real_escape_string($this->db, $book),
+			mysqli_real_escape_string($this->db, $chapter),
+			mysqli_real_escape_string($this->db, $start_verse),
+			mysqli_real_escape_string($this->db, $end_verse)
 		);
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 		if (!$result)
 		{
-			echo "ERROR: Bad query: " . mysql_error();
+			echo "ERROR: Bad query: " . mysqli_error($this->db);
 			return array();
 		}
 
 		$glossary = array();
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$glossary[] = $row;
 		}
-		mysql_free_result($result);
+		mysqli_free_result($result);
 
 		return $glossary;
 	}
@@ -596,9 +600,9 @@ class Bible
 			return 0;
 
 		$sql = sprintf("SELECT ts FROM cache_versions WHERE entity='%s'",
-			mysql_real_escape_string($entity));
-		$result = mysql_query($sql);
-		$row = mysql_fetch_assoc($result);
+			mysqli_real_escape_string($this->db, $entity));
+		$result = mysqli_query($this->db, $sql);
+		$row = mysqli_fetch_assoc($result);
 		if ($row)
 		{
 			return $row['ts'];
@@ -628,7 +632,7 @@ class Bible
 			ORDER BY LENGTH(search) DESC;
 		";
 
-		$result = mysql_query($sql);
+		$result = mysqli_query($this->db, $sql);
 		if (!$result)
 		{
 			return null;
@@ -636,7 +640,7 @@ class Bible
 
 		$input = mb_strtolower($input, 'UTF-8');
 
-		while ($row = mysql_fetch_assoc($result))
+		while ($row = mysqli_fetch_assoc($result))
 		{
 			$search = $row['search'];
 			$repl = $row['repl'];

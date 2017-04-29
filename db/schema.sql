@@ -18,7 +18,7 @@ CREATE TABLE languages (
 	name        VARCHAR(10) UNIQUE NOT NULL,
 	description VARCHAR(100) NOT NULL,
 	PRIMARY KEY(id)
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE books (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE books (
 	UNIQUE(language_id, book),
 	FOREIGN KEY(language_id) REFERENCES languages(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE chapters (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE chapters (
 	FOREIGN KEY(language_id) REFERENCES languages(id)
 		ON DELETE CASCADE ON UPDATE CASCADE,
 	KEY(language_id, book, chapter)
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE verses (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE verses (
 	book        INTEGER NOT NULL,
 	chapter     INTEGER NOT NULL,
 	verse       INTEGER NOT NULL,
-	subtitle    VARCHAR(80),
+	subtitle    VARCHAR(160),
 	body        VARCHAR(700) NOT NULL,
 	PRIMARY KEY(id),
 	UNIQUE(language_id, book, chapter, verse),
@@ -59,7 +59,7 @@ CREATE TABLE verses (
 		ON DELETE CASCADE ON UPDATE CASCADE,
 	FOREIGN KEY(language_id, book) REFERENCES books(language_id, book)
 		ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE openbible_places (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE openbible_places (
 	notes       VARCHAR(120),
 	PRIMARY KEY(id),
 	KEY(name)
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE glossary (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -85,16 +85,16 @@ CREATE TABLE glossary (
 	KEY(letter),
 	FOREIGN KEY(openbible_places_id) REFERENCES openbible_places(id)
 		ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE glossary_notes (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
 	glossary_id INTEGER NOT NULL,
-	notes       VARCHAR(700) NOT NULL,
+	notes       VARCHAR(4000) NOT NULL,
 	PRIMARY KEY(id),
 	FOREIGN KEY(glossary_id) REFERENCES glossary(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE glossary_verses (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -106,7 +106,7 @@ CREATE TABLE glossary_verses (
 	PRIMARY KEY(id),
 	FOREIGN KEY(glossary_id) REFERENCES glossary(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE subjects (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE subjects (
 	PRIMARY KEY(id),
 	FOREIGN KEY(parent_id) REFERENCES subjects(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE subject_verses (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -127,7 +127,7 @@ CREATE TABLE subject_verses (
 	PRIMARY KEY(id),
 	FOREIGN KEY(subject_id) REFERENCES subjects(id)
 		ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE cache_versions (
 	id          INTEGER AUTO_INCREMENT NOT NULL,
@@ -135,7 +135,7 @@ CREATE TABLE cache_versions (
 	ts          INTEGER NOT NULL,
 	PRIMARY KEY(id),
 	UNIQUE(entity)
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 
 CREATE TABLE openbible_cross_reference (
 	id              INTEGER AUTO_INCREMENT NOT NULL,
@@ -147,5 +147,5 @@ CREATE TABLE openbible_cross_reference (
 	ref_start_verse INTEGER NOT NULL,
 	ref_end_verse   INTEGER NOT NULL,
 	PRIMARY KEY(id)
-) ENGINE=InnoDb CHARACTER SET=utf8;
+) ENGINE=InnoDb CHARACTER SET=utf8mb4;
 

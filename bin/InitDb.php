@@ -33,17 +33,19 @@ $db = GetDatabase($config);
 
 if (isset($options['all']))
 {
-	LoadSchema();
+	LoadSchema($db);
 }
 
 BeginTransaction($db);
+LoadLanguages($db, $options);
+Commit($db);
 
-LoadLanguages($options);
+BeginTransaction($db);
 
 if (isset($options['glossary']) || isset($options['all']))
 {
 	$sql = "DELETE FROM glossary";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 
 	$glossaries = array(
 		'glossary.json' => 'other',
@@ -53,32 +55,32 @@ if (isset($options['glossary']) || isset($options['all']))
 	foreach ($glossaries as $file => $kind)
 	{
 		$filename = dirname(__FILE__) . '/../data/' . $file;
-		LoadGlossary($filename, $kind);
+		LoadGlossary($db, $filename, $kind);
 	}
 }
 
 if (isset($options['openbible_places']) || isset($options['all']))
 {
 	$sql = "DELETE FROM openbible_places";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 	$filename = dirname(__FILE__) . '/../data/openbible_places.json';
-	LoadOpenBiblePlaces($filename);
+	LoadOpenBiblePlaces($db, $filename);
 }
 
 if (isset($options['openbible_cross_reference']) || isset($options['all']))
 {
 	$sql = "DELETE FROM openbible_cross_reference";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 	$filename = dirname(__FILE__) . '/../data/cross_reference.txt';
-	LoadOpenBibleCrossReference($filename);
+	LoadOpenBibleCrossReference($db, $filename);
 }
 
 if (isset($options['subjects']) || isset($options['all']))
 {
 	$sql = "DELETE FROM subjects";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 
-	LoadSubjects();
+	LoadSubjects($db);
 }
 
 Commit($db);
@@ -126,20 +128,22 @@ function GetDatabase($config)
 {
 	// Initialize database
 	echo "Connecting to database...\n";
-	$db = mysql_connect($config->database->host, $config->database->user, $config->database->pass);
+	$db = mysqli_connect($config->database->host, $config->database->user,
+		$config->database->pass);
 	if (!$db)
 	{
 		echo "Failed to connect to database\n";
 		exit(1);
 	}
-	mysql_select_db($config->database->dbname);
+	mysqli_select_db($db, $config->database->dbname);
+	mysqli_query($db, "SET NAMES utf8mb4");
 	return $db;
 }
 
 /**
  * Initialize database by reloading the schema
  */
-function LoadSchema()
+function LoadSchema($db)
 {
 	echo "Initializing schema...\n";
 	$sqls = file_get_contents(dirname(__FILE__) . '/../db/schema.sql');
@@ -149,10 +153,9 @@ function LoadSchema()
 		$sql = trim($sql);
 		if (empty($sql)) continue;
 
-		if (!mysql_query($sql))
+		if (!mysqli_query($db, $sql))
 		{
-			echo "Failed to initialize schema: " . mysql_error() . "\n";
-			echo "SQL: $sql\n";
+			echo "Failed to initialize schema: " . mysqli_error($db) . ". SQL: $sql\n";
 			exit(1);
 		}
 	}
@@ -162,7 +165,7 @@ function LoadSchema()
  * Update language data
  * @param $options: Array, list of command line flag options
  */
-function LoadLanguages($options)
+function LoadLanguages($db, $options)
 {
 	global $LANGUAGES;
 	global $BOOK_NAME_MAPPING;
@@ -192,11 +195,11 @@ function LoadLanguages($options)
 		echo "Parsing $filename\n";
 
 		$sql = "DELETE FROM languages WHERE name='$name'";
-		mysql_query($sql);
+		mysqli_query($db, $sql);
 
 		$sql = "INSERT INTO languages (name, description) VALUES ('$name', '$description')";
-		mysql_query($sql);
-		$language_id = mysql_insert_id();
+		mysqli_query($db, $sql);
+		$language_id = mysqli_insert_id($db);
 
 		// Used to parse each verse
 		$book_no = 0;
@@ -220,7 +223,7 @@ function LoadLanguages($options)
 				$chapter = trim($matches[2]);
 				$verse = trim($matches[3]);
 				$subtitle = '';
-				$body = mysql_real_escape_string(trim($matches[4]));
+				$body = mysqli_real_escape_string($db, trim($matches[4]));
 
 				if ((in_array($name, $bible->chinese_bibles) && preg_match('/(【.*】)/', $body, $match)) ||
 					(in_array($name, $bible->english_bibles) && preg_match('/(< .* >)/', $body, $match)))
@@ -249,24 +252,24 @@ function LoadLanguages($options)
 					}
 
 					$sql = "INSERT INTO books (language_id, book, short_name, long_name) VALUES ('$language_id', '$book_no', '$short_book_name', '$long_book_name')";
-					if (!mysql_query($sql))
+					if (!mysqli_query($db, $sql))
 					{
-						echo "ERROR: Failed to insert books: " . mysql_error() . "\n";
+						echo "ERROR: Failed to insert books: " . mysqli_error($db) . "\n";
 						exit(1);
 					}
 				}
 
 				$sql = "INSERT INTO verses (language_id, book, chapter, verse, subtitle, body) VALUES ('$language_id', '$book_no', '$chapter', '$verse', '$subtitle', '$body')";
-				if (!mysql_query($sql))
+				if (!mysqli_query($db, $sql))
 				{
-					echo "ERROR: Failed to insert verses: " . mysql_error() . "\n";
+					echo "ERROR: Failed to insert verses: " . mysqli_error($db) . ". SQL: $sql\n";
 					exit(1);
 				}
 			}
 			elseif (preg_match('/"(.*)","(.*)",\d+,\d+/', $line, $matches))
 			{
 				$long_book_name = trim($matches[1]);
-				$title = mysql_real_escape_string(trim($matches[2]));
+				$title = mysqli_real_escape_string($db, trim($matches[2]));
 				if ($last_book_name == $long_book_name)
 				{
 					$last_chapter_no++;
@@ -279,9 +282,9 @@ function LoadLanguages($options)
 				}
 
 				$sql = "INSERT INTO chapters (language_id, book, chapter, title) VALUES ('$language_id', '$last_book_no', '$last_chapter_no', '$title')";
-				if (!mysql_query($sql))
+				if (!mysqli_query($db, $sql))
 				{
-					echo "ERROR: Failed to insert chapters: " . mysql_error() . "\n";
+					echo "ERROR: Failed to insert chapters: " . mysqli_error($db) . "\n";
 					exit(1);
 				}
 			}
@@ -295,11 +298,11 @@ function LoadLanguages($options)
 		$sql = "INSERT INTO cache_versions (entity, ts)
 			VALUES ('languages', UNIX_TIMESTAMP())
 			ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
-		mysql_query($sql);
+		mysqli_query($db, $sql);
 	}
 }
 
-function LoadGlossary($filename, $kind)
+function LoadGlossary($db, $filename, $kind)
 {
 	echo "Parsing $filename\n";
 
@@ -311,26 +314,26 @@ function LoadGlossary($filename, $kind)
 	{
 		foreach ($terms as $term)
 		{
-			$chinese = mysql_real_escape_string($term->chinese);
-			$english = mysql_real_escape_string($term->english);
+			$chinese = mysqli_real_escape_string($db, isset($term->chinese) ? $term->chinese : "");
+			$english = mysqli_real_escape_string($db, isset($term->english) ? $term->english : "");
 			$letter = strtoupper(substr($english, 0, 1));
-			$definition = mysql_real_escape_string($term->definition);
+			$definition = mysqli_real_escape_string($db, isset($term->definition) ? $term->definition : "");
 
 			$sql = "INSERT INTO glossary (strokes, letter, chinese, english, kind, definition) VALUES ('$strokes', '$letter', '$chinese', '$english', '$kind', '$definition')";
-			if (!mysql_query($sql))
+			if (!mysqli_query($db, $sql))
 			{
-				echo "ERROR: Failed to insert glossary: " . mysql_error() . "\n";
+				echo "ERROR: Failed to insert glossary: " . mysqli_error($db) . ". SQL: $sql\n";
 				exit(1);
 			}
-			$glossary_id = mysql_insert_id();
+			$glossary_id = mysqli_insert_id($db);
 
 			foreach ($term->notes as $note)
 			{
-				$note = mysql_real_escape_string($note);
+				$note = mysqli_real_escape_string($db, $note);
 				$sql = "INSERT INTO glossary_notes (glossary_id, notes) VALUES ('$glossary_id', '$note')";
-				if (!mysql_query($sql))
+				if (!mysqli_query($db, $sql))
 				{
-					echo "ERROR: Failed to insert glossary_verses: " . mysql_error() . "\n";
+					echo "ERROR: Failed to insert glossary_notes: " . mysqli_error($db) . ". SQL: $sql\n";
 					exit(1);
 				}
 			}
@@ -340,9 +343,9 @@ function LoadGlossary($filename, $kind)
 				list($book, $chapter, $start_verse, $end_verse) = ParseVerse($bible, $verse);
 
 				$sql = "INSERT INTO glossary_verses (glossary_id, book, chapter, start_verse, end_verse) VALUES ('$glossary_id', '$book', '$chapter', '$start_verse', '$end_verse')";
-				if (!mysql_query($sql))
+				if (!mysqli_query($db, $sql))
 				{
-					echo "ERROR: Failed to insert glossary_verses: " . mysql_error() . "\n";
+					echo "ERROR: Failed to insert '$verse' into glossary_verses: " . mysqli_error($db) . ". SQL: $sql\n";
 					exit(1);
 				}
 			}
@@ -353,10 +356,10 @@ function LoadGlossary($filename, $kind)
 	$sql = "INSERT INTO cache_versions (entity, ts)
 		VALUES ('glossary', UNIX_TIMESTAMP())
 		ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 }
 
-function LoadSubjects()
+function LoadSubjects($db)
 {
 	$file = dirname(__FILE__) . '/../data/subjects.json';
 	echo "Parsing $file\n";
@@ -366,14 +369,13 @@ function LoadSubjects()
 	$subjects = json_decode(file_get_contents($file));
 	foreach ($subjects as $topic => $object)
 	{
-		$sql = sprintf("INSERT INTO subjects (name) VALUES ('%s')", mysql_real_escape_string($topic));
-		if (!mysql_query($sql))
+		$sql = sprintf("INSERT INTO subjects (name) VALUES ('%s')", mysqli_real_escape_string($db, $topic));
+		if (!mysqli_query($db, $sql))
 		{
-			echo "Failed to insert subjects: " . mysql_error() . "\n";
-			echo "SQL: $sql\n";
+			echo "Failed to insert subjects: " . mysqli_error($db) . ". SQL: $sql\n";
 			exit(1);
 		}
-		$parent_id = mysql_insert_id();
+		$parent_id = mysqli_insert_id($db);
 
 		if (is_array($object))
 		{
@@ -384,16 +386,15 @@ function LoadSubjects()
 					"INSERT INTO subject_verses (subject_id, book, chapter, start_verse, end_verse)
 					VALUES ('%s', '%s', '%s', '%s', '%s')",
 					$parent_id,
-					mysql_real_escape_string($book),
-					mysql_real_escape_string($chapter),
-					mysql_real_escape_string($start_verse),
-					mysql_real_escape_string($end_verse)
+					mysqli_real_escape_string($db, $book),
+					mysqli_real_escape_string($db, $chapter),
+					mysqli_real_escape_string($db, $start_verse),
+					mysqli_real_escape_string($db, $end_verse)
 				);
 
-				if (!mysql_query($sql))
+				if (!mysqli_query($db, $sql))
 				{
-					echo "Failed to insert subject_verses: " . mysql_error() . "\n";
-					echo "SQL: $sql\n";
+					echo "Failed to insert '$verse' into subject_verses: " . mysqli_error($db) . ". SQL: $sql\n";
 					exit(1);
 				}
 			}
@@ -404,15 +405,14 @@ function LoadSubjects()
 			{
 				$sql = sprintf("INSERT INTO subjects (parent_id, name) VALUES ('%s', '%s')",
 					$parent_id,
-					mysql_real_escape_string($subtopic)
+					mysqli_real_escape_string($db, $subtopic)
 				);
-				if (!mysql_query($sql))
+				if (!mysqli_query($db, $sql))
 				{
-					echo "Failed to insert subtopic: " . mysql_error() . "\n";
-					echo "SQL: $sql\n";
+					echo "Failed to insert subtopic: " . mysqli_error($db) . ". SQL: $sql\n";
 					exit(1);
 				}
-				$parent_id2 = mysql_insert_id();
+				$parent_id2 = mysqli_insert_id($db);
 
 				foreach ($verses as $verse)
 				{
@@ -421,15 +421,14 @@ function LoadSubjects()
 						"INSERT INTO subject_verses (subject_id, book, chapter, start_verse, end_verse)
 						VALUES ('%s', '%s', '%s', '%s', '%s')",
 						$parent_id2,
-						mysql_real_escape_string($book),
-						mysql_real_escape_string($chapter),
-						mysql_real_escape_string($start_verse),
-						mysql_real_escape_string($end_verse)
+						mysqli_real_escape_string($db, $book),
+						mysqli_real_escape_string($db, $chapter),
+						mysqli_real_escape_string($db, $start_verse),
+						mysqli_real_escape_string($db, $end_verse)
 					);
-					if (!mysql_query($sql))
+					if (!mysqli_query($db, $sql))
 					{
-						echo "Failed to insert sub subject_verses: " . mysql_error() . "\n";
-						echo "SQL: $sql\n";
+						echo "Failed to insert '$verse' sub into subject_verses: " . mysqli_error($db) . ". SQL: $sql\n";
 						exit(1);
 					}
 
@@ -442,33 +441,43 @@ function LoadSubjects()
 	$sql = "INSERT INTO cache_versions (entity, ts)
 		VALUES ('subjects', UNIX_TIMESTAMP())
 		ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 }
 
 function ParseVerse($bible, $verse)
 {
-	list($book, $chapter_verse) = explode(' ', $verse);
-	$book = $bible->getBookIndex($book);
+	list($book_name, $chapter_verse) = explode(' ', $verse);
+	$book = $bible->getBookIndex($book_name);
 
-	list($chapter, $verses) = explode(':', $chapter_verse);
+	$chapter_verse_parts = explode(':', $chapter_verse);
 	
-	list($start_verse, $end_verse) = explode('-', $verses);
-	if (empty($start_verse))
+	if (count($chapter_verse_parts) == 1)
 	{
 		// The entire chapter
+		$chapter = $chapter_verse;
 		$start_verse = 1;
 		$end_verse = $bible->getNumVerses('KJV', $book, $chapter);
 	}
-	elseif (empty($end_verse))
+	else
 	{
-		// A single verse
-		$end_verse = $start_verse;
+		$chapter = $chapter_verse_parts[0];
+		$verses = $chapter_verse_parts[1];
+		$verses_parts = explode('-', $verses);
+		if (count($verses_parts) == 1)
+		{
+			// A single verse
+			$start_verse = $end_verse = $verses_parts[0];
+		}
+	   	else {
+			$start_verse = $verses_parts[0];
+			$end_verse = $verses_parts[1];
+		}
 	}
 
 	return array($book, $chapter, $start_verse, $end_verse);
 }
 
-function LoadOpenBiblePlaces($filename)
+function LoadOpenBiblePlaces($db, $filename)
 {
 	echo "Parsing $filename\n";
 
@@ -478,42 +487,41 @@ function LoadOpenBiblePlaces($filename)
 
 	foreach ($glossary as $name => $data)
 	{
-		$english = mysql_real_escape_string($data->english_name);
-		$chinese = mysql_real_escape_string($data->chinese_name);
-		$lat = mysql_real_escape_string($data->lat);
-		$lon = mysql_real_escape_string($data->lon);
-		$notes = mysql_real_escape_string($data->notes);
+		$english = mysqli_real_escape_string($db, $data->english_name);
+		$chinese = mysqli_real_escape_string($db, $data->chinese_name);
+		$lat = mysqli_real_escape_string($db, $data->lat);
+		$lon = mysqli_real_escape_string($db, $data->lon);
+		$notes = mysqli_real_escape_string($db, $data->notes);
 
 		$sql = "INSERT INTO openbible_places (name, lat, lon, notes) VALUES ('$name', '$lat', '$lon', '$notes')";
-		if (!mysql_query($sql))
+		if (!mysqli_query($db, $sql))
 		{
-			echo "Failed to insert into openbible_places: " . mysql_error() . "\n";
-			echo "SQL: $sql\n";
+			echo "Failed to insert into openbible_places: " . mysqli_error($db) . ". SQL: $sql\n";
 			exit(1);
 		}
-		$openbible_places_id = mysql_insert_id();
+		$openbible_places_id = mysqli_insert_id($db);
 
 		$glossary_id = null;
 
 		// Try to find a matching entry in glossary using Chinese first.
 		$sql = "SELECT id FROM glossary WHERE kind='place' AND chinese='$chinese'";
-		$result = mysql_query($sql);
-		$rows = mysql_num_rows($result);
+		$result = mysqli_query($db, $sql);
+		$rows = mysqli_num_rows($result);
 		if ($rows == 1)
 		{
 			// Found a unique match, link the glossary item with this openbible place item
-			$row = mysql_fetch_assoc($result);
+			$row = mysqli_fetch_assoc($result);
 			$glossary_id = $row['id'];
 		}
 		else
 		{
 			// Try with English
 			$sql = "SELECT id FROM glossary WHERE kind='place' AND english='$english'";
-			$result = mysql_query($sql);
-			$rows = mysql_num_rows($result);
+			$result = mysqli_query($db, $sql);
+			$rows = mysqli_num_rows($result);
 			if ($rows == 1)
 			{
-				$row = mysql_fetch_assoc($result);
+				$row = mysqli_fetch_assoc($result);
 				$glossary_id = $row['id'];
 			}
 		}
@@ -521,12 +529,12 @@ function LoadOpenBiblePlaces($filename)
 		if ($glossary_id)
 		{
 			$sql = "UPDATE glossary SET openbible_places_id=$openbible_places_id WHERE id=$glossary_id";
-			mysql_query($sql);
+			mysqli_query($db, $sql);
 		}
 	}
 }
 
-function LoadOpenBibleCrossReference($filename)
+function LoadOpenBibleCrossReference($db, $filename)
 {
 	echo "Parsing $filename\n";
 
@@ -581,19 +589,18 @@ function LoadOpenBibleCrossReference($filename)
 		$ref_book = $book_mapping[$ref_book];
 
 		$sql = sprintf("INSERT INTO openbible_cross_reference (book, chapter, verse, ref_book, ref_chapter, ref_start_verse, ref_end_verse) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s')",
-			mysql_real_escape_string($book),
-			mysql_real_escape_string($chapter),
-			mysql_real_escape_string($verse),
-			mysql_real_escape_string($ref_book),
-			mysql_real_escape_string($ref_chapter),
-			mysql_real_escape_string($ref_start_verse),
-			mysql_real_escape_string($ref_end_verse)
+			mysqli_real_escape_string($db, $book),
+			mysqli_real_escape_string($db, $chapter),
+			mysqli_real_escape_string($db, $verse),
+			mysqli_real_escape_string($db, $ref_book),
+			mysqli_real_escape_string($db, $ref_chapter),
+			mysqli_real_escape_string($db, $ref_start_verse),
+			mysqli_real_escape_string($db, $ref_end_verse)
 		);
 
-		if (!mysql_query($sql))
+		if (!mysqli_query($db, $sql))
 		{
-			echo "Failed to insert into openbible_places: " . mysql_error() . "\n";
-			echo "SQL: $sql\n";
+			echo "Failed to insert into openbible_places: " . mysqli_error($db) . ". SQL: $sql\n";
 			exit(1);
 		}
 	}
@@ -604,13 +611,13 @@ function LoadOpenBibleCrossReference($filename)
 function BeginTransaction($db)
 {
 	$sql = "BEGIN";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 }
 
 function Commit($db)
 {
 	$sql = "COMMIT";
-	mysql_query($sql);
+	mysqli_query($db, $sql);
 }
 
 /**

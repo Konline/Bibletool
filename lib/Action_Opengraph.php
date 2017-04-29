@@ -52,7 +52,7 @@ class Action_Opengraph extends Action_Base
 		}
 		$this->smarty->assign("og_image", "http://bibletool.konline.org/images/logo_square.jpg");
 		$is_facebook = (strpos($_SERVER["HTTP_USER_AGENT"], "facebookexternalhit") !== FALSE);
-		$this->smarty->assign(is_facebook, $is_facebook);
+		$this->smarty->assign("is_facebook", $is_facebook);
 		$this->smarty->display('opengraph.tmpl');
 	}
 }
