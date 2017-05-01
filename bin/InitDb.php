@@ -128,14 +128,15 @@ function GetDatabase($config)
 {
 	// Initialize database
 	echo "Connecting to database...\n";
-	$db = mysqli_connect($config->database->host, $config->database->user,
-		$config->database->pass);
+	$db = mysqli_connect(
+		$config->database->host, $config->database->user,
+		$config->database->pass, $config->database->dbname,
+		$config->database->port);
 	if (!$db)
 	{
-		echo "Failed to connect to database\n";
+		echo "Failed to connect to database: " . mysqli_connect_errno() . "\n";
 		exit(1);
 	}
-	mysqli_select_db($db, $config->database->dbname);
 	mysqli_query($db, "SET NAMES utf8mb4");
 	return $db;
 }

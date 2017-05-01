@@ -27,10 +27,13 @@ class Bible
 
 	private function __construct($config)
 	{
-		$this->db = mysqli_connect($config->database->host, $config->database->user,
-			$config->database->pass);
-		mysqli_select_db($this->db, $config->database->dbname);
+		$this->db = mysqli_connect(
+			$config->database->host, $config->database->user,
+			$config->database->pass,
+			$config->database->dbname,
+			$config->database->port);
 		mysqli_query($this->db, 'SET NAMES utf8mb4');
+
 	}
 
 	/**
