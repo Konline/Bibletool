@@ -41,8 +41,15 @@ var Browse = {
         var chapter = data[i].chapter;
         var startVerse = data[i].start_verse;
         var endVerse = data[i].end_verse;
-        var footnoteReference = $('<div class=footnote-reference>' +
-                                  chapter + ':' + startVerse + '</div>');
+        var footnoteReference;
+        if (endVerse == startVerse) {
+          footnoteReference = $('<div class=footnote-reference>' +
+                                chapter + ':' + startVerse + '</div>');
+        } else {
+          footnoteReference = $('<div class=footnote-reference>' +
+                                chapter + ':' + startVerse + "-" + endVerse +
+                                '</div>');
+        }
         var link = webroot + '/glossary#word/' + encodeURI(chinese);
         var anchor = $('<a href='+link+'>'+chinese+
                        (english ? '('+english+')' : "") +
