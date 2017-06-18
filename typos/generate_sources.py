@@ -86,6 +86,10 @@ def NormalizeLine(line):
     line = re.sub(r'【.*】', '', line)
     # Removes '〔註就是相爭的意思〕'
     line = re.sub(r'〔.*?〕', '', line)
+    # Removes '〔註就是相爭...'
+    line = re.sub(r'〔.*', '', line)
+    # Removes '...相爭的意思〕'
+    line = re.sub(r'.*?〕', '', line)
     # Removes ﹝此包括徒1：23-24﹞
     line = re.sub(r'﹝.*?﹞', '', line)
     # Removes 《新婦》
