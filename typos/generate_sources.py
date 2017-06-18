@@ -166,7 +166,7 @@ def main():
     # Generate external source.
     print 'Generating external source for comparison.'
     with open('UCV_external.txt', 'w') as outf:
-        files = glob.glob('cut/*.htm')
+        files = sorted(glob.glob('cut/*.htm'))
         book = 1
         for file in files:
             line_num = 1
