@@ -45,7 +45,12 @@ class Action_ContactUs extends Action_Base
 		}
 
 		$message = "Message from: $name ($email)\n\nCategory: $category\n\nBody:\n\n$body\n\n";
-		$headers = "From: " . self::SENDER . "\r\n";
+		$headers = array(
+			"From" => self::SENDER,
+			"Content-Transfer-Encoding" => "8bit",
+			"Content-Type" => "text/html; charset=UTF-8",
+			"Reply-To" => "webmaster@konline.org,$email",
+		);
 
 		$this->smarty->display('contactus_thankyou.tmpl');
 
