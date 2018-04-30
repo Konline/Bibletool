@@ -18,5 +18,5 @@ are copyrighted under the MIT license, which can be found in mit.txt.
 
 - Chinese Union Version is in the Public Domain
 
-- UCV Audio Bible is provided courtesty of http://www.haomuren.org/.
+- UCV Audio Bible is provided courtesty of http://www.haomuren.net/.
   Used with written permission.
