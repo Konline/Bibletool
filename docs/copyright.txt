@@ -11,9 +11,6 @@ are copyrighted under the MIT license, which can be found in mit.txt.
   which is licensed under Creative Commons Attribution. Credits go towards
   OpenBible.info
 
-- Anarchy Media Player 2.0 is downloaded from http://an-archos.com/anarchy-media-player
-  Released under GPL license
-
 - King James Bible is in the Public Domain
 
 - Chinese Union Version is in the Public Domain

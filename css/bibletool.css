@@ -101,18 +101,9 @@ div.browse-chapter-title {
     text-align:center;
 }
 
-@media only screen and (min-width : 1224px) {
-div.browse-chapter-audio {
-    font-size:80%;
-    clear:both;
-    text-align:center;
-}
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-div.browse-chapter-audio {
-    display:none;
-}
+#audiobible {
+  margin: 0 auto;
+  display: block;
 }
 
 #browse-chapter-audio-acknowledgment {

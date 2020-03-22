@@ -3,11 +3,11 @@
 // because derived classes should provided specialized functions
 // to make this class useful
 var Navigation = {
-  
+
   // Variable to hold the current style
   // Currently allowed values are: 'table', 'paragraph'
   currentStyle: null,
-  
+
   // Function to call whenever user changes the URL
   // This function should be implemented by derived class
   onChangeFn: null,
@@ -35,7 +35,7 @@ var Navigation = {
       return [["UCV"], 1, 1];
     } else if ( tokens.length == 2) {
       // GEN:1 or 1:1
-      var book = isNaN(tokens[0]) ? 
+      var book = isNaN(tokens[0]) ?
         book2ENabbrev.findIndex(tokens[0]) : parseInt(tokens[0]);
       var chapter = parseInt(tokens[1]);
       return [["UCV"], book, chapter];
@@ -47,15 +47,15 @@ var Navigation = {
       //    GEN:  1:1
       //      1:  1:1
       if ( !isNaN(tokens[0]) ||
-           (isNaN(tokens[0]) && 
+           (isNaN(tokens[0]) &&
             book2ENabbrev.findIndex(tokens[0]) != "")) {
-        var book = isNaN(tokens[0]) ? 
+        var book = isNaN(tokens[0]) ?
           book2ENabbrev.findIndex(tokens[0]) : parseInt(tokens[0]);
         var chapter = parseInt(tokens[1]);
         return [["UCV"], book, chapter];
       } else {
         var versions = tokens[0].split(',');
-        var book = isNaN(tokens[1]) ? 
+        var book = isNaN(tokens[1]) ?
           book2ENabbrev.findIndex(tokens[1]) : parseInt(tokens[1]);
         var chapter = parseInt(tokens[2]);
         return [versions, book, chapter];
@@ -63,28 +63,28 @@ var Navigation = {
     } else if ( tokens.length == 4 ) {
       // language:book:chapter:verses
       if ( !isNaN(tokens[0]) ||
-           (isNaN(tokens[0]) && 
+           (isNaN(tokens[0]) &&
             book2ENabbrev.findIndex(tokens[0]) != "")) {
-        var book = isNaN(tokens[0]) ? 
+        var book = isNaN(tokens[0]) ?
           book2ENabbrev.findIndex(tokens[0]) : parseInt(tokens[0]);
         var chapter = parseInt(tokens[1]);
         return [["UCV"], book, chapter];
       } else {
         var versions = tokens[0].split(',');
-        var book = isNaN(tokens[1]) ? 
+        var book = isNaN(tokens[1]) ?
           book2ENabbrev.findIndex(tokens[1]) : parseInt(tokens[1]);
         var chapter = parseInt(tokens[2]);
         return [versions, book, chapter];
-      } 
+      }
     } else {
       // invalid URL, default to UCV:1:1
       return [["UCV"], 1, 1];
     }
   },
-  
+
   // Initialization function. Every derived class should call this
   // function to perform common stuff, such as initializing UI widgets
-  // with callbacks. Nothing is passed to nor returned from this fn. 
+  // with callbacks. Nothing is passed to nor returned from this fn.
   init: function() {
     // Build a closure so that we can use it multiple times later
     // This closure simply updates the URL hash to the selected location
@@ -97,14 +97,14 @@ var Navigation = {
         var chapter = Navigation.selectedChapter();
         var chapters = chaptersArray[book];
         window.location.hash = Navigation.selectedVersion() +
-          ':' + Navigation.selectedBook() + ':' + 
+          ':' + Navigation.selectedBook() + ':' +
           ( chapter <= chapters ? chapter : '1');
       } else {
         window.location.hash = Navigation.selectedVersion() +
           ':' + Navigation.selectedBook() + ':' + Navigation.selectedChapter();
       }
     };
-    
+
     // use URL hash to implement Ajax bookmarking
     $(window).bind( 'hashchange', function(e) {
       // the URL is the string after the hash mark, called the
@@ -123,7 +123,7 @@ var Navigation = {
     $("#version").change(function(){defaultURLFn('version')});
     $("#book").change(function(){defaultURLFn('book')});
     $("#chapter").change(function(){defaultURLFn('chapter')});
-    
+
     // arrow keys
     $("#up-arrow").click(function(){Navigation.upArrow()});
     $("#left-arrow").click(function(){Navigation.leftArrow()});
@@ -131,13 +131,13 @@ var Navigation = {
     $("#down-arrow").click(function(){Navigation.downArrow()});
     $("#paragraph-style").click(function(){Navigation.paragraphStyle()});
     $("#table-style").click(function(){Navigation.tableStyle()});
-    
+
     // toggle red image
     $("#toggle").click(function(){Navigation.toggleRedDiv()});
-    
+
     // enable keybinding
     document.onkeypress = Navigation.keybinding;
-    
+
     // trigger the hashchange by default
     $(window).trigger( 'hashchange' );
   },
@@ -159,7 +159,7 @@ var Navigation = {
       };
     };
   },
-  
+
   // Toggle the red text by toggling the CSS property
   // as well as swapping the "R" button image
   toggleRedDiv: function() {
@@ -233,11 +233,17 @@ var Navigation = {
   // Parameters:
   // - url: String representing the JSON url we get fetching
   getCurrentStyleFn: function(url) {
-    return url.match(/;/) ? Navigation.rangeStyleFn :
-      url.split(":").length > 3 ? Navigation.rangeStyleFn :
-      Navigation.currentStyle == 'table' ? Navigation.tableStyleFn :
-      Navigation.currentStyle == 'paragraph' ? Navigation.paragraphStyleFn :
+    if (url.match(/;/)) {
+      return Navigation.rangeStyleFn;
+    } else if (url.split(":").length > 4) {
+      return Navigation.rangeStyleFn;
+    } else if (Navigation.currentStyle == 'table') {
+      return Navigation.tableStyleFn;
+    } else if (Navigation.currentStyle == 'paragraph') {
+      return Navigation.paragraphStyleFn;
+    } else {
       console.log("Unsupported style: " + Navigation.currentStyle);
+    }
   },
 
   // Print range data in table style
@@ -258,23 +264,23 @@ var Navigation = {
       // Put the chapter body into browse-body
       var browseTable = $("<div class=retrieve-range></div>");
       browseTable.appendTo('#browse-body');
-      
+
       // Put each verse into browseTable
       $.each(data[i].verses, function(idx, verse) {
         var book = verse.book;
         var chapter = verse.chapter;
         var name = verse.name;
         var number = verse.verse;
-        var verseHeader = '<span class="browse-table-verse-header">' + 
-          "<a href=" + webroot + "/browse#UCV:" + book + ":" + 
+        var verseHeader = '<span class="browse-table-verse-header">' +
+          "<a href=" + webroot + "/browse#UCV:" + book + ":" +
           chapter + ">" + name + " " + chapter + ":" + number + "</a>" +
           "</span>";
-        var verseSubtitle = verse.subtitle ? 
-          '<span class="browse-table-verse-subtitle">' + 
+        var verseSubtitle = verse.subtitle ?
+          '<span class="browse-table-verse-subtitle">' +
           verse.subtitle + '</span>' : '';
-        var verseContent = '<span class="browse-table-verse-content">' + 
+        var verseContent = '<span class="browse-table-verse-content">' +
           verseSubtitle + ' ' + verse.content + '</span>';
-        $('<div class="browse-table-verse">' + verseHeader + 
+        $('<div class="browse-table-verse">' + verseHeader +
           verseContent + '</div>').appendTo(browseTable);
       });
     }
@@ -302,37 +308,35 @@ var Navigation = {
       return re.exec(pad + val)[0];
     }
 
-    // Currently only UCV and KJV versions have audio bible
+    // Currently only UCV and KJV versions have audio bible.
     if ( version == 'UCV' || version == 'KJV') {
-      var link = 'http://konline.org/bibletool/audiobible/' +
-        version + "/" + 
-        padleft(book, '0', 2) + '_' + 
+      var link = 'https://konline.org/bibletool/audiobible/' +
+        version + "/" +
+        padleft(book, '0', 2) + '_' +
         book2ENabbrev[book] + '_' +
         padleft(chapter, '0', 3) + '.mp3';
-      $('<div CLASS=browse-chapter-audio>' +
-        '<a HREF=' + link + 
-        '>Audio version for this chapter</a></div>')
-        .appendTo('#browse-body');
+      $('<audio controls id=audiobible controlsList="nodownload">' +
+        '<source src=' + link + '>' +
+        '</audio>').appendTo('#browse-body');
       if ( version == 'UCV' ) {
         // Add acknowledgment, see https://github.com/Konline/Bibletool/issues/93
-        Anarchy.Mp3.go('<div id=browse-chapter-audio-acknowledgment>感謝 <a target="_blank" href="http://www.haomuren.net/">好牧人網站</a> 提供有聲聖經</div>');
-      } else {
-        // No need to acknowledge
-        Anarchy.Mp3.go();
+        $('<div id=browse-chapter-audio-acknowledgment>感謝 ' +
+          '<a target="_blank" href="http://www.haomuren.net/">好牧人網站</a> ' +
+          '提供有聲聖經</div>').appendTo('#browse-body');
       }
     }
   },
-  
+
   // Print data in table style
   // Parameters:
   // - data: Parsed JSON data structure
   tableStyleFn: function(data) {
     // get the first entry from data
     var data = data[0];
-    
+
     // get the chapter number from the first verse
     var chapterNo = data.verses[0].chapter;
-    
+
     // Add the chapter header
     $("<div class=browse-chapter-title>" +
       data.book + " 第 " + chapterNo + " 章" +
@@ -353,14 +357,14 @@ var Navigation = {
     //   <span class="browse-table-verse-subtitle">【　神創造天地】</span> 起初　神創造天地。</span>
     // </div>
     $.each(data.verses, function(idx, verse) {
-      var verseHeader = '<span class="browse-table-verse-header">' + 
+      var verseHeader = '<span class="browse-table-verse-header">' +
         verse.name + ' ' + verse.chapter + ':' + verse.verse + "</span>";
-      var verseSubtitle = verse.subtitle ? 
-        '<span class="browse-table-verse-subtitle">' + verse.subtitle + 
+      var verseSubtitle = verse.subtitle ?
+        '<span class="browse-table-verse-subtitle">' + verse.subtitle +
         '</span>' : '';
-      var verseContent = '<span class="browse-table-verse-content">' + 
+      var verseContent = '<span class="browse-table-verse-content">' +
         verseSubtitle + ' ' + verse.content + '</span>';
-      $('<div class="browse-table-verse">' + verseHeader + 
+      $('<div class="browse-table-verse">' + verseHeader +
         verseContent + '</div>').appendTo(browseTable);
     });
   },
@@ -369,10 +373,10 @@ var Navigation = {
   paragraphStyleFn: function(data) {
     // get the first entry from data
     var data = data[0];
-    
+
     // get the chapter number from the first verse
     var chapterNo = data.verses[0].chapter;
-    
+
     // Add the chapter header
     $("<div class=browse-chapter-title>" +
       data.book + " 第 " + chapterNo + " 章" +
@@ -392,9 +396,9 @@ var Navigation = {
     // <span class="browse-paragraph-verse-content">起初　神創造天地。</span>
     $.each(data.verses, function(idx, verse) {
       var verseSubtitle = verse.subtitle ?
-        '<div class="browse-paragraph-verse-subtitle">' + 
+        '<div class="browse-paragraph-verse-subtitle">' +
         verse.subtitle + '</div>' : '';
-      var verseNumber = '<span class=' + 
+      var verseNumber = '<span class=' +
         (verse.subtitle ? 'browse-paragraph-1stverse-number' :
          'browse-paragraph-verse-number') +
         '>' + verse.verse + '</span>';
@@ -477,4 +481,3 @@ var Navigation = {
     $(window).trigger( 'hashchange' );
   },
 };
-
