@@ -101,6 +101,7 @@ div.browse-chapter-title {
     text-align:center;
 }
 
+@media only screen and (min-width : 1224px) {
 #audiobible {
   margin: 0 auto;
   display: block;
@@ -111,6 +112,18 @@ div.browse-chapter-title {
     text-align:center;
     padding-top:5px;
 }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+#audiobible {
+  display:none;
+}
+
+#browse-chapter-audio-acknowledgment {
+  display:none;
+}
+}
+
 
 @media only screen and (min-width : 1224px) {
 div.browse-toolbar {
