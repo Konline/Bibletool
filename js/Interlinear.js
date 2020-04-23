@@ -39,6 +39,7 @@ var Interlinear = {
       // get the number of versions and verses for easier iteration
       var numOfVersions = data.length;
       var numOfVerses = data[0].verses.length;
+      var startVerse = parseInt(data[0].verses[0].verse);
       
       // get the book name and chapter number from the first verse
       var bookName = data[0].book;
@@ -57,7 +58,7 @@ var Interlinear = {
       interlinearTable.appendTo('#interlinear-body');
 
       // Put each verse into interlinearTable
-      for (var verse=0; verse<numOfVerses; verse++) {
+      for (var verse=0; verse <= numOfVerses; verse++) {
         // Each verse is implemented as a table row, that looks like
         // this:
         // <tr class="interlinear-verse">
@@ -67,7 +68,7 @@ var Interlinear = {
         //   </td>
         // </tr>
         var interlinearVerseNumber = '<td class="interlinear-verse-number">' + 
-          chapterNo + ':' + (verse+1) + "</td>";
+          chapterNo + ':' + (startVerse+verse) + "</td>";
         var interlinearVerseGroup = '<td class="interlinear-verse-group">';
         for (var version=0; version<numOfVersions; version++) {
           interlinearVerseGroup += '<span class="interlinear-version">[' +
