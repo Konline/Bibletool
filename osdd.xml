@@ -2,5 +2,5 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
  <ShortName>Search Bible</ShortName>
  <Description>Search Jedaiah Bibletool</Description>
- <Url type="text/html" method="get" template="http://bibletool.konline.org/query#UCV/q={searchTerms}"/>
+ <Url type="text/html" method="get" template="https://bibletool.konline.org/query#UCV/q={searchTerms}"/>
 </OpenSearchDescription>

@@ -22,8 +22,8 @@ class Action_Opengraph extends Action_Base
 	{
 		$request_uri = $_SERVER["REQUEST_URI"];
 		$new_location = str_replace("/$this->action/", "$this->action/#", $request_uri);
-		$this->smarty->assign("new_location", "http://bibletool.konline.org/$new_location");
-		$this->smarty->assign("og_url", "http://bibletool.konline.org{$request_uri}");
+		$this->smarty->assign("new_location", "https://bibletool.konline.org/$new_location");
+		$this->smarty->assign("og_url", "https://bibletool.konline.org{$request_uri}");
 		$range = $this->bible->parseBibleRange($_GET["jsonURL"]);
 		if ($range)
 		{
@@ -50,7 +50,7 @@ class Action_Opengraph extends Action_Base
 			$this->smarty->assign("og_title", "耶大雅聖經工具");
 			$this->smarty->assign("og_description", "Jedaiah Bibletool by Alber Ko");
 		}
-		$this->smarty->assign("og_image", "http://bibletool.konline.org/images/logo_square.jpg");
+		$this->smarty->assign("og_image", "https://bibletool.konline.org/images/logo_square.jpg");
 		$is_facebook = (strpos($_SERVER["HTTP_USER_AGENT"], "facebookexternalhit") !== FALSE);
 		$this->smarty->assign("is_facebook", $is_facebook);
 		$this->smarty->display('opengraph.tmpl');
