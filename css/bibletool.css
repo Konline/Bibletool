@@ -550,12 +550,8 @@ div.calendar-month-name {
     padding: 1em 1em 0.5em 1em;
 }
 
-div.calendar-day a {
-    padding: 1em 1em 0.5em 0.5em;
-}
-
-div.calendar-day span {
-    padding: 1em 0.5em 0.5em 1em;
+div.calendar-day {
+    padding: 0.25em 0em 0.25em 0em;
 }
 
 div#share-widget {

@@ -115,7 +115,7 @@ var Calendar = {
         
         var anchor = '<a href=' + url + '>' + humanUrl + '</a>';
         $("<div class=calendar-day>" + 
-          "<span>" + j + "</span>" + 
+          "<span>" + j + "：</span>" +
           anchor + "</div>")
           .appendTo($("#calendar-schedule"));
       }
