@@ -7,7 +7,7 @@ require_once 'Action_Base.php';
  */
 class Action_ContactUs extends Action_Base
 {
-	const SENDER = 'webmaster@konline.org';
+	const SENDER = 'koyao@konline.org';
 	const RECIPIENT = 'webmaster@konline.org';
 	const SUBJECT = 'Feedback from Bibletool';
 
