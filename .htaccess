@@ -3,7 +3,7 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^konline.org [OR]
 RewriteCond %{HTTP_HOST} ^www.konline.org [OR]
 RewriteCond %{HTTP_HOST} ^bibletool.konline.org
-RewriteRule ^$ "http\:\/\/bibletool\.konline\.org\/browse\/" [R=301,L]
+RewriteRule ^$ "https\:\/\/bibletool\.konline\.org\/browse\/" [R=301,L]
 
 RewriteRule ^static/([^/]+) index.php?action=static&page=$1 [L]
 
@@ -32,10 +32,10 @@ RewriteRule ^biblemap index.php?action=biblemap [L]
 
 RewriteRule ^retrieve/(.*) index.php?action=retrieve&ranges=$1 [L]
 
-RewriteRule ^search/([^/]+)/q=(.*)&page=(.*) index.php?action=search&language=$1&q=$2&page=$3 [L]
-RewriteRule ^search/([^/]+)/([^/]+)/q=(.*)&page=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3&page=$4 [L]
-RewriteRule ^search/([^/]+)/q=(.*) index.php?action=search&language=$1&q=$2 [L]
-RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3 [L]
+RewriteRule ^search/([^/]+)/q=(.*)&page=(.*) index.php?action=search&language=$1&q=$2&page=$3 "[L,QSA,B= ?,BNP]"
+RewriteRule ^search/([^/]+)/([^/]+)/q=(.*)&page=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3&page=$4 "[L,QSA,B= ?,BNP]"
+RewriteRule ^search/([^/]+)/q=(.*) index.php?action=search&language=$1&q=$2 "[L,QSA,B= ?,BNP]"
+RewriteRule ^search/([^/]+)/([^/]+)/q=(.*) index.php?action=search&language=$1&book_filter=$2&q=$3 "[L,QSA,B= ?,BNP]"
 
 RewriteRule ^glossary/index index.php?action=glossary&index=1 [L]
 RewriteRule ^glossary/stroke/([^/]+) index.php?action=glossary&stroke=$1 [L]
