@@ -15,7 +15,7 @@ class Bible
 	public $english_bibles = array('KJV');
 	public $chinese_bibles = array('UCV', 'UCV_CN', 'CLV', 'CLV_CN', 'NCV', 'NCV_CN', 'LZZ', 'LZZ_CN');
 
-	public function getInstance()
+	public static function getInstance()
 	{
 		if (!self::$instance)
 		{
