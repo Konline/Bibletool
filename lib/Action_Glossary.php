@@ -19,8 +19,8 @@ class Action_Glossary extends Action_Base
 	 */
 	public function process()
 	{
-		$stroke = $_REQUEST['stroke'];
-		$word = $_REQUEST['word'];
+		$stroke = array_key_exists('stroke', $_REQUEST) ? $_REQUEST['stroke'] : null;
+		$word = array_key_exists('word', $_REQUEST) ? $_REQUEST['word'] : null;
 		$ranges = isset($_REQUEST['ranges']) ? explode(';', $_REQUEST['ranges']) : array();
 		$results = array();
 
