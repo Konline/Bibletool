@@ -310,7 +310,7 @@ var Navigation = {
 
     // Currently only UCV and KJV versions have audio bible.
     if ( version == 'UCV' || version == 'KJV') {
-      var link = 'https://konline.org/bibletool/audiobible/' +
+      var link = 'https://bibletool.konline.org/audiobible/' +
         version + "/" +
         padleft(book, '0', 2) + '_' +
         book2ENabbrev[book] + '_' +
