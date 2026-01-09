@@ -36,14 +36,13 @@ if (isset($options['all']))
 	LoadSchema($db);
 }
 
-BeginTransaction($db);
 LoadLanguages($db, $options);
-Commit($db);
 
-BeginTransaction($db);
 
 if (isset($options['glossary']) || isset($options['all']))
 {
+	BeginTransaction($db);
+
 	$sql = "DELETE FROM glossary";
 	mysqli_query($db, $sql);
 
@@ -57,33 +56,46 @@ if (isset($options['glossary']) || isset($options['all']))
 		$filename = dirname(__FILE__) . '/../data/' . $file;
 		LoadGlossary($db, $filename, $kind);
 	}
+
+	Commit($db);
 }
 
 if (isset($options['openbible_places']) || isset($options['all']))
 {
+	BeginTransaction($db);
+
 	$sql = "DELETE FROM openbible_places";
 	mysqli_query($db, $sql);
 	$filename = dirname(__FILE__) . '/../data/openbible_places.json';
 	LoadOpenBiblePlaces($db, $filename);
+
+	Commit($db);
 }
 
 if (isset($options['openbible_cross_reference']) || isset($options['all']))
 {
+	BeginTransaction($db);
+
 	$sql = "DELETE FROM openbible_cross_reference";
 	mysqli_query($db, $sql);
 	$filename = dirname(__FILE__) . '/../data/cross_reference.txt';
 	LoadOpenBibleCrossReference($db, $filename);
+
+	Commit($db);
 }
 
 if (isset($options['subjects']) || isset($options['all']))
 {
+	BeginTransaction($db);
+
 	$sql = "DELETE FROM subjects";
 	mysqli_query($db, $sql);
 
 	LoadSubjects($db);
+
+	Commit($db);
 }
 
-Commit($db);
 
 echo "Done\n\n";
 
@@ -195,6 +207,8 @@ function LoadLanguages($db, $options)
 
 		echo "Parsing $filename\n";
 
+		BeginTransaction($db);
+
 		$sql = "DELETE FROM languages WHERE name='$name'";
 		mysqli_query($db, $sql);
 
@@ -290,6 +304,9 @@ function LoadLanguages($db, $options)
 				}
 			}
 		}
+
+		Commit($db);
+
 		fclose($inf);
 	}
 
@@ -301,6 +318,7 @@ function LoadLanguages($db, $options)
 			ON DUPLICATE KEY UPDATE ts = UNIX_TIMESTAMP()";
 		mysqli_query($db, $sql);
 	}
+
 }
 
 function LoadGlossary($db, $filename, $kind)
