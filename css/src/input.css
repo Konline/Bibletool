@@ -4,28 +4,42 @@
 
 @variant dark (&:where(.dark, .dark *));
 
-/* Root HTML and Body Page Backgrounds */
-html, body {
-  background-color: #fefce8 !important;
-  color: #1e293b;
-}
+@layer base {
+  /* Root HTML and Body Page Backgrounds */
+  html, body {
+    background-color: #fefce8 !important;
+    color: #1e293b;
+  }
 
-html.dark, body.dark, .dark body, html.dark body {
-  background-color: #020617 !important;
-  color: #f1f5f9 !important;
-}
+  html.dark, body.dark, .dark body, html.dark body {
+    background-color: #020617 !important;
+    color: #f1f5f9 !important;
+  }
 
-.dark select, .dark input[type="text"] {
-  background-color: #1e293b !important;
-  color: #f1f5f9 !important;
-  border-color: #334155 !important;
-}
+  .dark select, .dark input[type="text"] {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+    border-color: #334155 !important;
+  }
 
+  .dark option {
+    background-color: #1e293b !important;
+    color: #f1f5f9 !important;
+  }
 
+  /* Base Link Resets */
+  body a {
+    color: #953d00;
+    text-decoration: none;
+  }
 
-.dark option {
-  background-color: #1e293b !important;
-  color: #f1f5f9 !important;
+  .dark body a {
+    color: #fbbf24;
+  }
+
+  body a:hover {
+    color: #d97706;
+  }
 }
 
 /* Ensure Header links maintain high-contrast colors over legacy body a rules */
@@ -244,18 +258,25 @@ span.interlinear-version {
   @apply inline-block ml-2 align-middle;
 }
 
-/* Legacy Base Resets & Layout Compatibility */
-body a {
-  color: #953d00;
-  text-decoration: none;
+/* Outline & Static Page Content Styling */
+.page-body h1 {
+  @apply text-xl sm:text-2xl font-bold text-amber-950 dark:text-amber-300 my-4 text-center pb-2 border-b border-amber-200/60 dark:border-slate-800;
 }
 
-.dark body a {
-  color: #fbbf24;
+.page-body p {
+  @apply my-2 text-slate-800 dark:text-slate-200 leading-relaxed;
 }
 
-body a:hover {
-  color: #d97706;
+.page-body table {
+  @apply my-4 w-full border-collapse border border-amber-200/80 dark:border-slate-700 bg-white dark:bg-slate-800/60 rounded-lg overflow-hidden shadow-sm;
+}
+
+.page-body td, .page-body th {
+  @apply p-2.5 sm:p-3 border border-amber-200/80 dark:border-slate-700 text-slate-800 dark:text-slate-200 text-sm sm:text-base;
+}
+
+.page-body hr {
+  @apply my-6 border-amber-200/80 dark:border-slate-800;
 }
 
 div.page-body {
