@@ -1,12 +1,17 @@
 {assign var='title' value='聖經地圖'}
 {include file="header.tmpl"}
 
-<div class="page-body" id="biblemap-body">
-  <form>
-    <select name="biblemap" id="biblemap-select">
-    </select>
-  </form>
-  <div ID="map_canvas"></div></div>
+<div class="page-body space-y-4" id="biblemap-body">
+  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 shadow-sm flex items-center space-x-3">
+    <label for="biblemap-select" class="font-bold text-slate-800 dark:text-slate-200 text-sm sm:text-base">選擇地圖景點：</label>
+    <form class="inline">
+      <select name="biblemap" id="biblemap-select" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none shadow-sm transition-all">
+      </select>
+    </form>
+  </div>
+  <div class="bg-white dark:bg-slate-900 border border-amber-200/60 dark:border-slate-800 rounded-xl p-2 shadow-sm overflow-hidden">
+    <div id="map_canvas" class="w-full h-[550px] rounded-lg"></div>
+  </div>
 </div>
 
 <script type="text/javascript"
@@ -14,3 +19,4 @@
 </script>
 
 {include file="footer.tmpl"}
+

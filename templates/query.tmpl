@@ -1,19 +1,19 @@
 {assign var='title' value='字串查詢'}
 {include file="header.tmpl"}
 
-<div class="page-body">
-  <div class="query-form-standalone">
-    <form id="query-form">
-      <div>
-        <span class="query-instructions1">經文／字串</span>
-        <span class="query-instructions2">
-          （輸入經文：例如「約 3:16」或關鍵字：例如「耶穌」、「先知」）
-        </span>
+<div class="page-body space-y-6">
+  <div class="query-form-standalone bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-5 sm:p-6 shadow-sm">
+    <form id="query-form" class="space-y-4">
+      <div class="space-y-1">
+        <label for="query-input" class="block font-bold text-amber-950 dark:text-amber-300 text-lg">經文／字串查詢</label>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400">
+          （可輸入經文出處，如「約 3:16」、「John 3:16」或關鍵字，如「耶穌」、「先知」）
+        </p>
       </div>
-      <div>
-        <input type="text" name="query" size="40">
-        <select name="version" id="version">
-          <option value="UCV" SELECTED="selected">國語和合本</option>
+      <div class="flex flex-wrap items-center gap-3">
+        <input type="text" id="query-input" name="query" placeholder="請輸入查詢關鍵字..." class="flex-1 min-w-[240px] bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-4 py-2.5 text-base focus:ring-2 focus:ring-amber-500 outline-none shadow-sm transition-all">
+        <select name="version" id="version" class="bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2.5 text-base focus:ring-2 focus:ring-amber-500 outline-none shadow-sm transition-all">
+          <option value="UCV" selected="selected">國語和合本</option>
           <option value="NCV">中文新譯本</option>
           <option value="CLV">當代中譯本</option>
           <option value="LZZ">呂振中譯本</option>
@@ -23,10 +23,15 @@
           <option value="CLV_CN">當代中譯本（簡體）</option>
           <option value="LZZ_CN">呂振中譯本（簡體）</option>
         </select>
-        <input type="submit" value="搜索">
+        <button type="submit" class="bg-amber-800 hover:bg-amber-900 active:bg-amber-950 text-white font-medium px-6 py-2.5 rounded-lg shadow transition-colors flex items-center justify-center space-x-1">
+          <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <span>搜尋</span>
+        </button>
       </div>
     </form>
   </div>
-  <div id="query-result"></div>
+  <div id="query-result" class="bg-white dark:bg-slate-900 border border-amber-200/60 dark:border-slate-800 rounded-xl p-5 shadow-sm min-h-[120px]"></div>
 </div>
+
 {include file="footer.tmpl"}
+

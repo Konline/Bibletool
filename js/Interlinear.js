@@ -58,7 +58,8 @@ var Interlinear = {
       interlinearTable.appendTo('#interlinear-body');
 
       // Put each verse into interlinearTable
-      for (var verse=0; verse <= numOfVerses; verse++) {
+      for (var verse=0; verse < numOfVerses; verse++) {
+
         // Each verse is implemented as a table row, that looks like
         // this:
         // <tr class="interlinear-verse">

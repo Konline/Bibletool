@@ -1,17 +1,22 @@
 {assign var='title' value='聖經詞彙'}
 {include file="header.tmpl"}
-<div class="page-body" id="glossary-body">
-  <table class="glossary-index-anchors">
-    <tr>
-      <td id="by-stroke">
-        <div>以筆畫查詢</div>
-      </td>
-      <td id="by-alpha">
-        <div>以字母查詢</div>
-      </td>
-    </tr>
-  </table>
-  <div id="glossary-index-header" class="glossary-index-header"></div>
-  <table id="glossary-index-table" class="glossary-index-table"></table>
+<div class="page-body space-y-6" id="glossary-body">
+  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 sm:p-5 shadow-sm">
+    <table class="glossary-index-anchors w-full">
+      <tr>
+        <td id="by-stroke" class="p-2 cursor-pointer text-center">
+          <div class="bg-white dark:bg-slate-800 border border-amber-300 dark:border-slate-700 hover:bg-amber-50 dark:hover:bg-slate-700/80 rounded-lg py-2.5 px-4 font-semibold text-slate-800 dark:text-slate-100 shadow-sm transition-all">以筆畫查詢</div>
+        </td>
+        <td id="by-alpha" class="p-2 cursor-pointer text-center">
+          <div class="bg-white dark:bg-slate-800 border border-amber-300 dark:border-slate-700 hover:bg-amber-50 dark:hover:bg-slate-700/80 rounded-lg py-2.5 px-4 font-semibold text-slate-800 dark:text-slate-100 shadow-sm transition-all">以字母查詢</div>
+        </td>
+      </tr>
+    </table>
+    <div id="glossary-index-header" class="glossary-index-header mt-4 pt-3 border-t border-amber-200 dark:border-slate-800 text-sm font-medium"></div>
+    <div class="overflow-x-auto mt-4">
+      <table id="glossary-index-table" class="glossary-index-table w-full"></table>
+    </div>
+  </div>
 </div>
 {include file="footer.tmpl"}
+

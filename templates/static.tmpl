@@ -6,25 +6,26 @@
 	{assign var='title' value='參考資料'}
 {/if}
 {include file="header.tmpl"}
-<table CLASS="static-table">
-  <tr CLASS="static-table-row">
-    <td CLASS="static-section-index">
-      <ul>
-        <li {if $page == 'about'}CLASS="static-page-current"{/if}>
-          <a HREF="{$webroot}/static/about">緣由</a>
-        </li>
-        <li {if $page == 'thanks'}CLASS="static-page-current"{/if}>
-          <a HREF="{$webroot}/static/thanks">感謝</a>
-        </li>
-        <li {if $page == 'references'}CLASS="static-page-current"{/if}>
-          <a HREF="{$webroot}/static/references">參考資料</a>
-       </li>
-      </ul>
-    </td>
-    <td CLASS="static-content">
 
-	{include file="static/$page.tmpl"}
-    </td>
-  </tr>
-</table>
+<div class="page-body grid grid-cols-1 md:grid-cols-4 gap-6">
+  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 shadow-sm md:col-span-1 h-fit">
+    <h3 class="font-bold text-amber-950 dark:text-amber-300 mb-3 text-base border-b border-amber-200 dark:border-slate-800 pb-2">關於此專案</h3>
+    <ul class="space-y-1 text-sm">
+      <li>
+        <a class="block px-3 py-2 rounded-lg transition-colors {if $page == 'about'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/static/about">緣由</a>
+      </li>
+      <li>
+        <a class="block px-3 py-2 rounded-lg transition-colors {if $page == 'thanks'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/static/thanks">感謝</a>
+      </li>
+      <li>
+        <a class="block px-3 py-2 rounded-lg transition-colors {if $page == 'references'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/static/references">參考資料</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-6 sm:p-8 shadow-sm md:col-span-3 leading-relaxed">
+    {include file="static/$page.tmpl"}
+  </div>
+</div>
+
 {include file="footer.tmpl"}

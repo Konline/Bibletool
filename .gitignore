@@ -6,3 +6,4 @@ stubs
 audiobible/*/*.mp3
 error_log
 favicon.ico
+node_modules/

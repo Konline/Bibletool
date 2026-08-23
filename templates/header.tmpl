@@ -1,55 +1,130 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-          "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="zh-TW">
   <head>
-    <meta NAME="description" CONTENT="Jedaiah Bibletool by Alber Ko">
-    <meta NAME="keywords" CONTENT="Bible, Bible Tool, Bible Study, Chinese Bible, Alber Ko, 葛家祥, 耶大雅, 聖經, 聖經詞彙, 聖經工具, 四福音書, 中文聖經, King James, Bible Topics">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link HREF="{$webroot}/images/favicon.ico" REL="icon" TYPE="image/x-icon">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jedaiah Bibletool by Alber Ko">
+    <meta name="keywords" content="Bible, Bible Tool, Bible Study, Chinese Bible, Alber Ko, 葛家祥, 耶大雅, 聖經, 聖經詞彙, 聖經工具, 四福音書, 中文聖經, King James, Bible Topics">
+    <link rel="icon" type="image/x-icon" href="{$webroot}/images/favicon.ico">
     <link type="application/opensearchdescription+xml" rel="search" href="https://bibletool.konline.org/osdd.xml"/>
     <title>耶大雅聖經工具 | {$title}</title>
-    <link REL="stylesheet" TYPE="text/css" HREF="{$webroot}/css/bibletool.css">
-    <script TYPE="text/javascript" SRC="{$webroot}/js/jquery.min.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/jquery.ba-bbq.min.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/json.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/application.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/bibletool.js"></script>
+
+    <!-- Tailwind CSS Output Styles -->
+    <link rel="stylesheet" type="text/css" href="{$webroot}/css/dist/style.css">
+
+    <script type="text/javascript" src="{$webroot}/js/jquery.min.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/jquery.ba-bbq.min.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/json.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/application.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/bibletool.js"></script>
     {if $action == 'browse'}
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Navigation.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Browse.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Navigation.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Browse.js"></script>
     {elseif $action == 'interlinear'}
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Navigation.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Interlinear.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Navigation.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Interlinear.js"></script>
     {elseif $action == 'query'}
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Query.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Query.js"></script>
     {elseif $action == 'calendar'}
-    <link REL="stylesheet" TYPE="text/css" HREF="{$webroot}/css/jquery-ui-1.8.14.custom.css">
-    <script TYPE="text/javascript" SRC="{$webroot}/js/jquery-ui-1.8.14.custom.min.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/jquery.ui.datepicker-zh-TW.js"></script>
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Calendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="{$webroot}/css/jquery-ui-1.8.14.custom.css">
+    <script type="text/javascript" src="{$webroot}/js/jquery-ui-1.8.14.custom.min.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/jquery.ui.datepicker-zh-TW.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Calendar.js"></script>
     {elseif $action == 'glossary'}
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Glossary.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Glossary.js"></script>
     {elseif $action == 'biblemap'}
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Biblemap.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Biblemap.js"></script>
     {elseif $action == 'subjects'}
-    <script TYPE="text/javascript" SRC="{$webroot}/js/Subjects.js"></script>
+    <script type="text/javascript" src="{$webroot}/js/Subjects.js"></script>
     {/if}
+
+    <script>
+      (function() {
+        var isDark = localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.addEventListener('DOMContentLoaded', function() {
+            if (document.body) document.body.classList.add('dark');
+          });
+        }
+      })();
+
+      function toggleDarkMode() {
+        var isDark = document.documentElement.classList.contains('dark');
+        if (isDark) {
+          document.documentElement.classList.remove('dark');
+          if (document.body) document.body.classList.remove('dark');
+          localStorage.setItem('theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          if (document.body) document.body.classList.add('dark');
+          localStorage.setItem('theme', 'dark');
+        }
+      }
+    </script>
   </head>
-  <body>
-    <div CLASS="page-header">
-      <img src={$webroot}/images/logo_brown.gif class=logo>
-      <div CLASS="section-navigator">
-        <a CLASS="section-navigator-{if $action == 'static'}current{else}other{/if}" HREF="{$webroot}/static/about">緣由</a>
-        <a CLASS="section-navigator-{if $action == 'browse'}current{else}other{/if}" HREF="{$webroot}/browse">經節查詢</a>
-        <a CLASS="section-navigator-{if $action == 'interlinear'}current{else}other{/if}" HREF="{$webroot}/interlinear">聖經對照</a>
-        <a CLASS="section-navigator-{if $action == 'query'}current{else}other{/if}" HREF="{$webroot}/query">字串查詢</a>
-        <a CLASS="section-navigator-{if $action == 'calendar'}current{else}other{/if}" HREF="{$webroot}/calendar">每日讀經</a>
-        <a CLASS="section-navigator-{if $action == 'outline'}current{else}other{/if}" HREF="{$webroot}/outline">聖經綱要</a>
-        <a CLASS="section-navigator-{if $action == 'glossary'}current{else}other{/if}" HREF="{$webroot}/glossary">聖經詞彙</a>
-        <a CLASS="section-navigator-{if $action == 'gospel'}current{else}other{/if}" HREF="{$webroot}/gospel">四福音書</a>
-        <a CLASS="section-navigator-{if $action == 'biblemap'}current{else}other{/if}" HREF="{$webroot}/biblemap">聖經地圖</a>
-        <a CLASS="section-navigator-{if $action == 'subjects'}current{else}other{/if}" HREF="{$webroot}/subjects">聖經主題</a>
-        <a CLASS="section-navigator-{if $action == 'contactus'}current{else}other{/if}" HREF="{$webroot}/contactus">聯絡我們</a>
+  <body class="text-slate-800 dark:text-slate-100 min-h-screen flex flex-col antialiased selection:bg-amber-200 dark:selection:bg-amber-900">
+
+
+
+    <header class="bg-gradient-to-r from-amber-900 via-amber-800 to-amber-950 dark:from-slate-900 dark:via-slate-900 dark:to-amber-950 text-white shadow-lg sticky top-0 z-50 border-b border-amber-700/50 dark:border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-3">
+            <a href="{$webroot}/browse" class="flex items-center space-x-2.5 group">
+              <img src="{$webroot}/images/logo_icon.png" alt="耶大雅聖經工具 Logo" class="h-9 w-auto filter drop-shadow-sm group-hover:scale-105 transition-transform duration-200">
+              <span class="font-bold text-lg tracking-wide text-amber-100 group-hover:text-white transition-colors">耶大雅聖經工具</span>
+            </a>
+          </div>
+
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden lg:flex items-center space-x-1 text-sm font-medium">
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'static'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/static/about">緣由</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'browse'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/browse">經節查詢</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'interlinear'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/interlinear">聖經對照</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'query'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/query">字串查詢</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'calendar'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/calendar">每日讀經</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'outline'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/outline">聖經綱要</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'glossary'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/glossary">聖經詞彙</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'gospel'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/gospel">四福音書</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'biblemap'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/biblemap">聖經地圖</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'subjects'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/subjects">聖經主題</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'contactus'}bg-amber-700 text-white shadow-inner font-semibold{else}text-amber-100 hover:bg-amber-800/70 hover:text-white{/if}" href="{$webroot}/contactus">聯絡我們</a>
+          </nav>
+
+          <div class="flex items-center space-x-2">
+            <!-- Dark Mode Toggle Button -->
+            <button id="dark-mode-toggle" type="button" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode" class="p-2 rounded-full text-amber-200 hover:text-white hover:bg-amber-800/60 focus:outline-none transition-colors">
+
+              <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+              <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
+
+
+            <!-- Mobile Menu Toggle Button -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open Mobile Menu" class="lg:hidden p-2 rounded-md text-amber-200 hover:text-white hover:bg-amber-800/60 focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden pb-4 pt-2 border-t border-amber-700/50">
+          <div class="grid grid-cols-2 gap-1 text-sm font-medium">
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'static'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/static/about">緣由</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'browse'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/browse">經節查詢</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'interlinear'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/interlinear">聖經對照</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'query'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/query">字串查詢</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'calendar'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/calendar">每日讀經</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'outline'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/outline">聖經綱要</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'glossary'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/glossary">聖經詞彙</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'gospel'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/gospel">四福音書</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'biblemap'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/biblemap">聖經地圖</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'subjects'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/subjects">聖經主題</a>
+            <a class="px-3 py-2 rounded-md transition-colors {if $action == 'contactus'}bg-amber-700 text-white{else}text-amber-100 hover:bg-amber-800/70{/if}" href="{$webroot}/contactus">聯絡我們</a>
+          </div>
+        </div>
       </div>
-    </div>
+    </header>
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+

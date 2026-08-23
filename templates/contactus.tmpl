@@ -1,14 +1,20 @@
 {assign var='title' value='聯絡我們'}
 {include file="header.tmpl"}
 
-<div id="contactus-body"></div>
+<div class="page-body max-w-2xl mx-auto space-y-6">
+  <div id="contactus-body" class="bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-6 sm:p-8 shadow-sm"></div>
 
-<script TYPE="text/javascript"> 
+  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 text-center text-sm text-slate-700 dark:text-slate-300">
+    耶大雅聖經工具原始碼可從 <a href="https://github.com/Konline/Bibletool" target="_blank" rel="noopener noreferrer" class="font-medium text-amber-800 dark:text-amber-400 hover:underline">GitHub</a> 自由下載與貢獻。
+  </div>
+</div>
+
+<script type="text/javascript"> 
 // <![CDATA[
 var categories = new Array('錯字糾正', '增加功能', '其它');
 var newdiv = document.createElement('div');
 var container = document.getElementById('contactus-body');
-newdiv.innerHTML = '<div id="error_message"><font color=red>{$error_message}</font></div><div class="contactus-form"> <form action="{$webroot}/contactus/posting" method="POST"> <table> <tr><th class="contactus-form">您的姓名：</th><td class="contactus-form"><input type="input" name="name" value="{$name}"></input><i><princ> (eg. John Doe)</princ></i></td></tr> <tr><th class="contactus-form">電子郵件：</th><td class="contactus-form"><input type="input" name="email" value="{$email}"></input><i><princ> (eg. test@example.com)</princ></i></td></tr> <tr><th class="contactus-form">回應主題：</th><td class="contactus-form"><select name="category" id="contactus_select"></select></td></tr> <tr><th valign="top" class="contactus-form">內容：</th><td class="contactus-form"><textarea rows="10" cols="40" name="body">{$body}</textarea></td></tr> <tr><td colspan="3" align="center"><input type="submit" value="寄出！"></input></td></tr> </table> </form> </div>';
+newdiv.innerHTML = '<div id="error_message" class="text-red-500 mb-4 font-medium">{$error_message}</div><div class="contactus-form"><form action="{$webroot}/contactus/posting" method="POST" class="space-y-5"><div class="space-y-1.5"><label class="block font-semibold text-slate-800 dark:text-slate-200">您的姓名：</label><input type="text" name="name" value="{$name}" class="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none transition-all" placeholder="例如：John Doe"></div><div class="space-y-1.5"><label class="block font-semibold text-slate-800 dark:text-slate-200">電子郵件：</label><input type="email" name="email" value="{$email}" class="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none transition-all" placeholder="例如：test@example.com"></div><div class="space-y-1.5"><label class="block font-semibold text-slate-800 dark:text-slate-200">回應主題：</label><select name="category" id="contactus_select" class="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none transition-all"></select></div><div class="space-y-1.5"><label class="block font-semibold text-slate-800 dark:text-slate-200">內容：</label><textarea rows="6" name="body" class="w-full bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none transition-all" placeholder="請詳細說明您的寶貴意見...">{$body}</textarea></div><div class="pt-2 text-center"><button type="submit" class="bg-amber-800 hover:bg-amber-900 active:bg-amber-950 text-white font-medium px-8 py-2.5 rounded-lg shadow transition-colors">寄出！</button></div></form></div>';
 container.appendChild(newdiv);
 var select = document.getElementById('contactus_select');
 for (var i = 0; i < categories.length; i = i + 1) {
@@ -24,6 +30,5 @@ for (var i = 0; i < categories.length; i = i + 1) {
 // ]]>
 </script>
 
-<p style="padding-left: 20px;">耶大雅聖經工具原始檔可從 <a href="https://github.com/Konline/Bibletool">Github</a> 自由下載。</p>
-
 {include file="footer.tmpl"}
+

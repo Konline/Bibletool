@@ -1,80 +1,85 @@
 {assign var='title' value='聖經綱要'}
 {include file="header.tmpl"}
-<table CLASS="static-table">
-  <tr CLASS="static-table-row">
-    <td CLASS="static-section-index">
-      <ul>
-        <li {if $page=='GEN'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/GEN">創世記</a></li>
-        <li {if $page=='EXO'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/EXO">出埃及記</a></li>
-        <li {if $page=='LEV'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/LEV">利未記</a></li>
-        <li {if $page=='NUM'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/NUM">民數記</a></li>
-        <li {if $page=='DET'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/DET">申命記</a></li>
-        <li {if $page=='JOS'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JOS">約書亞記</a></li>
-        <li {if $page=='JDG'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JDG">士師記</a></li>
-        <li {if $page=='RUT'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/RUT">路得記</a></li>
-        <li {if $page=='SA1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/SA1">撒母耳記上</a></li>
-        <li {if $page=='SA2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/SA2">撒母耳記下</a></li>
-        <li {if $page=='KI1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/KI1">列王紀上</a></li>
-        <li {if $page=='KI2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/KI2">列王紀下</a></li>
-        <li {if $page=='CH1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/CH1">歷代志上</a></li>
-        <li {if $page=='CH2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/CH2">歷代志下</a></li>
-        <li {if $page=='EZR'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/EZR">以斯拉記</a></li>
-        <li {if $page=='NEH'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/NEH">尼希米記</a></li>
-        <li {if $page=='EST'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/EST">以斯帖記</a></li>
-        <li {if $page=='JOB'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JOB">約伯記</a></li>
-        <li {if $page=='PSA'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/PSA">詩篇</a></li>
-        <li {if $page=='PRV'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/PRV">箴言</a></li>
-        <li {if $page=='ECC'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/ECC">傳道書</a></li>
-        <li {if $page=='SOS'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/SOS">雅歌</a></li>
-        <li {if $page=='ISA'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/ISA">以賽亞書</a></li>
-        <li {if $page=='JER'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JER">耶利米書</a></li>
-        <li {if $page=='LAM'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/LAM">耶利米哀歌</a></li>
-        <li {if $page=='EZE'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/EZE">以西結書</a></li>
-        <li {if $page=='DAN'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/DAN">但以理書</a></li>
-        <li {if $page=='HOS'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/HOS">何西阿書</a></li>
-        <li {if $page=='JOE'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JOE">約珥書</a></li>
-        <li {if $page=='AMS'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/AMS">阿摩司書</a></li>
-        <li {if $page=='OBA'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/OBA">俄巴底亞書</a></li>
-        <li {if $page=='JNH'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JNH">約拿書</a></li>
-        <li {if $page=='MIC'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/MIC">彌迦書</a></li>
-        <li {if $page=='NAH'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/NAH">那鴻書</a></li>
-        <li {if $page=='HAB'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/HAB">哈巴谷書</a></li>
-        <li {if $page=='ZEP'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/ZEP">西番雅書</a></li>
-        <li {if $page=='HAG'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/HAG">哈該書</a></li>
-        <li {if $page=='ZEC'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/ZEC">撒迦利亞書</a></li>
-        <li {if $page=='MAL'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/MAL">瑪拉基書</a></li>
-        <li {if $page=='MAT'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/MAT">馬太福音</a></li>
-        <li {if $page=='MAK'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/MAK">馬可福音</a></li>
-        <li {if $page=='LUK'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/LUK">路加福音</a></li>
-        <li {if $page=='JHN'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JHN">約翰福音</a></li>
-        <li {if $page=='ACT'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/ACT">使徒行傳</a></li>
-        <li {if $page=='ROM'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/ROM">羅馬人書</a></li>
-        <li {if $page=='CO1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/CO1">哥林多前書</a></li>
-        <li {if $page=='CO2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/CO2">哥林多後書</a></li>
-        <li {if $page=='GAL'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/GAL">加拉太書</a></li>
-        <li {if $page=='EPH'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/EPH">以弗所書</a></li>
-        <li {if $page=='PHP'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/PHP">腓立比書</a></li>
-        <li {if $page=='COL'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/COL">歌羅西書</a></li>
-        <li {if $page=='TH1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/TH1">帖撒羅尼迦前書</a></li>
-        <li {if $page=='TH2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/TH2">帖撒羅尼迦後書</a></li>
-        <li {if $page=='TI1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/TI1">提摩太前書</a></li>
-        <li {if $page=='TI2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/TI2">提摩太後書</a></li>
-        <li {if $page=='TIT'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/TIT">提多書</a></li>
-        <li {if $page=='PHM'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/PHM">腓利門書</a></li>
-        <li {if $page=='HEB'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/HEB">希伯來書</a></li>
-        <li {if $page=='JAS'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JAS">雅各書</a></li>
-        <li {if $page=='PE1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/PE1">彼得前書</a></li>
-        <li {if $page=='PE2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/PE2">彼得後書</a></li>
-        <li {if $page=='JN1'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JN1">約翰一書</a></li>
-        <li {if $page=='JN2'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JN2">約翰二書</a></li>
-        <li {if $page=='JN3'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JN3">約翰三書</a></li>
-        <li {if $page=='JUD'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/JUD">猶大書</a></li>
-        <li {if $page=='REV'}CLASS="static-page-current"{/if}><a HREF="{$webroot}/outline/REV">啟示錄</a></li>
-      </ul>
-    </td>
-    <td CLASS="static-content">
-      {include file="outline/$page.tmpl"}
-    </td>
-  </tr>
-</table>
+
+<div class="page-body grid grid-cols-1 md:grid-cols-4 gap-6">
+  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 shadow-sm md:col-span-1 h-[70vh] overflow-y-auto">
+    <h3 class="font-bold text-amber-950 dark:text-amber-300 mb-3 text-base border-b border-amber-200 dark:border-slate-800 pb-2 sticky top-0 bg-amber-100/90 dark:bg-slate-900 py-1">聖經各卷綱要</h3>
+    <ul class="space-y-1 text-sm">
+      <li class="font-semibold text-amber-900 dark:text-amber-400 pt-1 pb-0.5 px-2 text-xs">舊約聖經</li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='GEN'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/GEN">創世記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='EXO'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/EXO">出埃及記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='LEV'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/LEV">利未記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='NUM'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/NUM">民數記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='DET'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/DET">申命記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JOS'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JOS">約書亞記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JDG'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JDG">士師記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='RUT'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/RUT">路得記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='SA1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/SA1">撒母耳記上</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='SA2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/SA2">撒母耳記下</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='KI1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/KI1">列王紀上</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='KI2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/KI2">列王紀下</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='CH1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/CH1">歷代志上</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='CH2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/CH2">歷代志下</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='EZR'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/EZR">以斯拉記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='NEH'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/NEH">尼希米記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='EST'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/EST">以斯帖記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JOB'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JOB">約伯記</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='PSA'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/PSA">詩篇</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='PRV'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/PRV">箴言</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='ECC'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/ECC">傳道書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='SOS'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/SOS">雅歌</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='ISA'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/ISA">以賽亞書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JER'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JER">耶利米書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='LAM'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/LAM">耶利米哀歌</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='EZE'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/EZE">以西結書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='DAN'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/DAN">但以理書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='HOS'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/HOS">何西阿書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JOE'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JOE">約珥書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='AMS'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/AMS">阿摩司書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='OBA'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/OBA">俄巴底亞書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JNH'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JNH">約拿書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='MIC'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/MIC">彌迦書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='NAH'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/NAH">那鴻書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='HAB'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/HAB">哈巴谷書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='ZEP'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/ZEP">西番雅書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='HAG'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/HAG">哈該書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='ZEC'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/ZEC">撒迦利亞書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='MAL'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/MAL">瑪拉基書</a></li>
+      <li class="font-semibold text-amber-900 dark:text-amber-400 pt-3 pb-0.5 px-2 text-xs">新約聖經</li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='MAT'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/MAT">馬太福音</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='MAK'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/MAK">馬可福音</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='LUK'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/LUK">路加福音</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JHN'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JHN">約翰福音</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='ACT'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/ACT">使徒行傳</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='ROM'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/ROM">羅馬人書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='CO1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/CO1">哥林多前書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='CO2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/CO2">哥林多後書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='GAL'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/GAL">加拉太書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='EPH'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/EPH">以弗所書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='PHP'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/PHP">腓立比書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='COL'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/COL">歌羅西書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='TH1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/TH1">帖撒羅尼迦前書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='TH2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/TH2">帖撒羅尼迦後書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='TI1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/TI1">提摩太前書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='TI2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/TI2">提摩太後書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='TIT'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/TIT">提多書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='PHM'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/PHM">腓利門書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='HEB'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/HEB">希伯來書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JAS'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JAS">雅各書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='PE1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/PE1">彼得前書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='PE2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/PE2">彼得後書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JN1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JN1">約翰一書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JN2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JN2">約翰二書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JN3'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JN3">約翰三書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='JUD'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/JUD">猶大書</a></li>
+      <li><a class="block px-3 py-1.5 rounded-md transition-colors {if $page=='REV'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/outline/REV">啟示錄</a></li>
+    </ul>
+  </div>
+
+  <div class="bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-6 sm:p-8 shadow-sm md:col-span-3 leading-relaxed">
+    {include file="outline/$page.tmpl"}
+  </div>
+</div>
+
 {include file="footer.tmpl"}
+

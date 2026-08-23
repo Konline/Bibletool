@@ -1,21 +1,23 @@
 {assign var='title' value='四福音書'}
 {include file="header.tmpl"}
-<div id="gospel-left">
-  <ul>
-  <li {if $page=='GDNS-SC1'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC1">降生受浸前事蹟</a></li>
-  <li {if $page=='GDNS-SC2'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC2">傳道前之預備工作</a></li>
-  <li {if $page=='GDNS-SC3'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC3">第一年之傳道工作</a></li>
-  <li {if $page=='GDNS-SC4'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC4">第二年之傳道工作</a></li>
-  <li {if $page=='GDNS-SC5'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC5">第三年之傳道工作</a></li>
-  <li {if $page=='GDNS-SC6'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC6">受難前一週之事跡</a></li>
-  <li {if $page=='GDNS-SC7'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC7">耶穌基督復活升天</a></li>
-  <li {if $page=='GDNS-SC8'}CLASS="static-page-current"{/if}><a href="{$webroot}/gospel/GDNS-SC8">附錄</a></li>
-  </ul>
-</div>
+<div class="page-body grid grid-cols-1 md:grid-cols-4 gap-6">
+  <div id="gospel-left" class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 shadow-sm md:col-span-1 h-fit">
+    <h3 class="font-bold text-amber-950 dark:text-amber-300 mb-3 text-base border-b border-amber-200 dark:border-slate-800 pb-2">四福音書合參</h3>
+    <ul class="space-y-1 text-sm">
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC1'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC1">降生受浸前事蹟</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC2'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC2">傳道前之預備工作</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC3'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC3">第一年之傳道工作</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC4'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC4">第二年之傳道工作</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC5'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC5">第三年之傳道工作</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC6'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC6">受難前一週之事跡</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC7'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC7">耶穌基督復活升天</a></li>
+      <li><a class="block px-3 py-2 rounded-lg transition-colors {if $page=='GDNS-SC8'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/gospel/GDNS-SC8">附錄</a></li>
+    </ul>
+  </div>
 
-<div id="gospel-body">
-
-{include file="gospel/$page.tmpl"}
-
+  <div id="gospel-body" class="bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-6 shadow-sm md:col-span-3">
+    {include file="gospel/$page.tmpl"}
+  </div>
 </div>
 {include file="footer.tmpl"}
+

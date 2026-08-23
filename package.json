@@ -1,0 +1,14 @@
+{
+  "name": "bibletool",
+  "version": "1.0.0",
+  "description": "Jedaiah Bible Tool - HTML5 & Tailwind CSS UI Modernization",
+  "main": "index.php",
+  "scripts": {
+    "build:css": "npx @tailwindcss/cli -i ./css/src/input.css -o ./css/dist/style.css --minify",
+    "dev:css": "npx @tailwindcss/cli -i ./css/src/input.css -o ./css/dist/style.css --watch"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}

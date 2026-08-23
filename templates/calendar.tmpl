@@ -1,12 +1,15 @@
 {assign var='title' value='每日讀經'}
 {include file="header.tmpl"}
-<div class="page-body" id="calendar-body">
-  <form class="calendar">
-    讀經表：
-    <select name="calendar-type" class="calendar-type">
-    </select>
-  </form>
-  <div id="calendar"></div>
-  <div id="calendar-schedule"></div>
+<div class="page-body space-y-6" id="calendar-body">
+  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-5 shadow-sm flex flex-wrap items-center justify-between gap-4">
+    <form class="calendar flex items-center space-x-3">
+      <label for="calendar-type" class="font-bold text-slate-800 dark:text-slate-200">讀經進度表：</label>
+      <select name="calendar-type" id="calendar-type" class="calendar-type bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 border border-amber-300 dark:border-slate-700 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-amber-500 outline-none shadow-sm transition-all">
+      </select>
+    </form>
+    <div id="calendar" class="inline-block bg-white dark:bg-slate-800 p-2 rounded-lg border border-amber-200 dark:border-slate-700 shadow-sm"></div>
+  </div>
+  <div id="calendar-schedule" class="bg-white dark:bg-slate-900 border border-amber-200/60 dark:border-slate-800 rounded-xl p-6 shadow-sm min-h-[200px]"></div>
 </div>
 {include file="footer.tmpl"}
+

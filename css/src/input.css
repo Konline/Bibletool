@@ -1,0 +1,622 @@
+@import "tailwindcss";
+@source "../../**/*.tmpl";
+@source "../../**/*.js";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Root HTML and Body Page Backgrounds */
+html, body {
+  background-color: #fefce8 !important;
+  color: #1e293b;
+}
+
+html.dark, body.dark, .dark body, html.dark body {
+  background-color: #020617 !important;
+  color: #f1f5f9 !important;
+}
+
+.dark select, .dark input[type="text"] {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+
+
+.dark option {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+/* Ensure Header links maintain high-contrast colors over legacy body a rules */
+header a {
+  color: inherit;
+}
+
+header nav a.text-white, header div a.text-white {
+  color: #ffffff !important;
+}
+
+header nav a.text-amber-100, header div a.text-amber-100 {
+  color: #fef3c6 !important;
+}
+
+header nav a:hover, header div a:hover {
+  color: #ffffff !important;
+}
+
+/* Chapter Title Header */
+div.browse-chapter-title {
+  @apply font-bold text-xl sm:text-2xl text-amber-950 text-center py-4 my-2 border-b border-amber-200/80;
+}
+
+.dark div.browse-chapter-title {
+  color: #fcd34d !important;
+  border-color: #334155 !important;
+}
+
+/* Main Scripture Reading Containers */
+div.browse-table-chapter, div.browse-paragraph-chapter {
+  @apply bg-white border border-amber-200/80 rounded-xl p-4 sm:p-6 shadow-sm my-4 text-slate-800;
+}
+
+.dark div.browse-table-chapter, .dark div.browse-paragraph-chapter {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #f1f5f9 !important;
+}
+
+/* Verse Rows */
+div.browse-table-verse {
+  @apply py-2 px-3 border-b border-amber-100/80 hover:bg-amber-50/60 rounded-md transition-colors duration-150 leading-relaxed text-base sm:text-lg flex flex-wrap items-baseline;
+}
+
+.dark div.browse-table-verse {
+  border-color: #1e293b !important;
+}
+
+.dark div.browse-table-verse:hover {
+  background-color: #1e293b !important;
+}
+
+/* Verse Reference Link (e.g. 創 1:1) */
+span.browse-table-verse-header {
+  @apply font-semibold text-amber-800 pr-3 select-none flex-shrink-0;
+}
+
+.dark span.browse-table-verse-header {
+  color: #fbbf24 !important;
+}
+
+span.browse-table-verse-header a {
+  color: #953d00 !important;
+  text-decoration: none;
+}
+
+.dark span.browse-table-verse-header a {
+  color: #fbbf24 !important;
+}
+
+span.browse-table-verse-header a:hover {
+  text-decoration: underline;
+}
+
+/* Verse Text Content */
+span.browse-table-verse-content {
+  @apply text-slate-800 flex-1;
+}
+
+.dark span.browse-table-verse-content {
+  color: #f1f5f9 !important;
+}
+
+/* Verse Subtitles (e.g. 【 神創造天地】) */
+span.browse-table-verse-subtitle {
+  @apply font-bold text-amber-950 pr-1 block sm:inline my-1 sm:my-0;
+}
+
+.dark span.browse-table-verse-subtitle {
+  color: #fcd34d !important;
+}
+
+/* Red Letter Words of Christ */
+span.browse-verse-red {
+  color: #dc2626 !important;
+}
+
+.dark span.browse-verse-red {
+  color: #f87171 !important;
+}
+
+/* Footnotes & Glossary Notes */
+div.footnote {
+  @apply bg-amber-50/80 border border-amber-200/80 rounded-xl p-4 my-4 text-xs sm:text-sm text-slate-700 shadow-sm space-y-2;
+}
+
+.dark div.footnote {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+  color: #cbd5e1 !important;
+}
+
+div.footnote-reference {
+  @apply font-bold text-amber-800 mr-2 inline-block;
+}
+
+.dark div.footnote-reference {
+  color: #fbbf24 !important;
+}
+
+div.footnote-content {
+  @apply inline-block mr-4;
+}
+
+div.footnote-content a {
+  color: #78350f !important;
+  text-decoration: underline;
+}
+
+.dark div.footnote-content a {
+  color: #fcd34d !important;
+}
+
+/* Interlinear Parallel Translation Tables */
+table.interlinear-table {
+  @apply w-full border-collapse my-4 bg-white border border-amber-200/80 rounded-xl shadow-sm overflow-hidden;
+}
+
+.dark table.interlinear-table {
+  background-color: #0f172a !important;
+  border-color: #1e293b !important;
+}
+
+tr.interlinear-verse {
+  @apply border-b border-amber-100 hover:bg-amber-50/50 transition-colors;
+}
+
+.dark tr.interlinear-verse {
+  border-color: #1e293b !important;
+}
+
+.dark tr.interlinear-verse:hover {
+  background-color: #1e293b !important;
+}
+
+td.interlinear-verse-number {
+  @apply p-3 font-semibold text-amber-800 align-top text-sm select-none border-r border-amber-100 bg-amber-50/30;
+}
+
+.dark td.interlinear-verse-number {
+  color: #fbbf24 !important;
+  border-color: #1e293b !important;
+  background-color: #020617 !important;
+}
+
+td.interlinear-verse-group {
+  @apply p-3 align-top text-slate-800 text-base leading-relaxed;
+}
+
+.dark td.interlinear-verse-group {
+  color: #f1f5f9 !important;
+}
+
+div.interlinear-versions {
+  @apply my-3 text-center space-x-2;
+}
+
+span.interlinear-version {
+  @apply font-semibold text-xs text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-200;
+}
+
+.dark span.interlinear-version {
+  color: #fbbf24 !important;
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+/* Audio Player */
+#audiobible {
+  @apply mx-auto my-4 max-w-md w-full shadow-md rounded-lg border border-amber-300;
+}
+
+.dark #audiobible {
+  border-color: #334155 !important;
+}
+
+#browse-chapter-audio-acknowledgment {
+  @apply text-xs text-center text-slate-500 mt-1 mb-4;
+}
+
+.dark #browse-chapter-audio-acknowledgment {
+  color: #94a3b8 !important;
+}
+
+#browse-chapter-audio-acknowledgment a {
+  color: #953d00 !important;
+}
+
+.dark #browse-chapter-audio-acknowledgment a {
+  color: #fbbf24 !important;
+}
+
+/* Ajax Loader */
+.ajax-loader {
+  @apply inline-block ml-2 align-middle;
+}
+
+/* Legacy Base Resets & Layout Compatibility */
+body a {
+  color: #953d00;
+  text-decoration: none;
+}
+
+.dark body a {
+  color: #fbbf24;
+}
+
+body a:hover {
+  color: #d97706;
+}
+
+div.page-body {
+  min-height: 400px;
+}
+
+/* Section Navigation Tabs */
+div.section-navigator {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em;
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+a.section-navigator-current {
+  @apply bg-amber-700 text-white font-semibold rounded-t px-3 py-1.5 text-sm text-center border-b-2 border-amber-800;
+}
+
+a.section-navigator-other {
+  @apply text-slate-700 dark:text-slate-300 hover:text-amber-800 dark:hover:text-amber-300 rounded-t px-3 py-1.5 text-sm text-center;
+}
+
+/* Paragraph Format Verse Numbers */
+span.browse-paragraph-verse-number {
+  font-size: 75%;
+  padding-left: 0.5em;
+  vertical-align: super;
+  @apply text-amber-800 dark:text-amber-400 font-semibold;
+}
+
+span.browse-paragraph-1stverse-number {
+  font-size: 75%;
+  vertical-align: super;
+  padding-left: 1.5em;
+  @apply text-amber-800 dark:text-amber-400 font-semibold;
+}
+
+div.browse-paragraph-verse-subtitle {
+  @apply font-bold text-amber-950 dark:text-amber-300 pt-3 pb-1 text-base sm:text-lg;
+}
+
+/* Navigation Arrow Icons */
+img.browse-arrows {
+  border: 0;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 768px) {
+  img.browse-arrows {
+    height: 20px;
+    width: 20px;
+  }
+}
+
+/* Retrieve Range Separator */
+div.retrieve-range {
+  padding: 0.5em 0;
+  border-bottom: 1px dashed #d97706;
+}
+
+.dark div.retrieve-range {
+  border-color: #334155;
+}
+
+/* Query Form & Results */
+div.query-verse {
+  border-top: 1px dashed #f59e0b;
+  padding: 0.75em 0.5em;
+}
+
+.dark div.query-verse {
+  border-color: #334155;
+}
+
+div.query-title {
+  width: 100%;
+  font-size: 1.125rem;
+  text-align: center;
+  font-weight: 600;
+  padding: 0.75em 0;
+  @apply text-amber-950 dark:text-amber-200;
+}
+
+span.query-instructions1 {
+  font-size: 110%;
+  text-align: center;
+}
+
+span.query-instructions2 {
+  font-size: 85%;
+  text-align: center;
+}
+
+div.query-paginate {
+  font-size: 90%;
+  padding: 1em;
+  white-space: nowrap;
+  position: relative;
+}
+
+span.query-paginate-current-page {
+  margin: 0.5em;
+  font-weight: bold;
+  text-decoration: underline;
+  @apply text-amber-800 dark:text-amber-400;
+}
+
+span.query-paginate-other-page {
+  margin: 0.5em;
+}
+
+/* Static Pages */
+table.static-table {
+  border: 0;
+  height: 100%;
+}
+
+tr.static-table-row {
+  padding: 1em 1em 1em 2em;
+  vertical-align: top;
+}
+
+div.static h1 {
+  text-align: center;
+  padding: 0.5em;
+  @apply font-bold text-2xl text-amber-950 dark:text-amber-200;
+}
+
+td.static-content {
+  padding: 1em 2em;
+  width: 80%;
+  border-left: 1px solid #fcd34d;
+}
+
+.dark td.static-content {
+  border-color: #334155;
+}
+
+td.static-section-index {
+  width: 18%;
+}
+
+td.static-section-index ul {
+  margin: 0;
+  padding: 1em 1em 1em 2em;
+  font-size: 90%;
+  list-style: none;
+}
+
+li.static-page-current a {
+  @apply text-amber-700 dark:text-amber-400 font-bold;
+}
+
+/* Glossary Page & Popups */
+table.glossary-index-anchors {
+  padding: 1em 2em;
+  width: 100%;
+  border-bottom: 1px solid #fcd34d;
+}
+
+.dark table.glossary-index-anchors {
+  border-color: #334155;
+}
+
+table.glossary-index-anchors a {
+  padding: 0.25em;
+}
+
+table.glossary-index-anchors td {
+  width: 50%;
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+div.glossary-index-header {
+  padding: 1em;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  @apply text-amber-950 dark:text-amber-200;
+}
+
+table.glossary-index-table {
+  padding: 0 2em 1em 2em;
+  width: 100%;
+}
+
+table.glossary-index-table td {
+  width: 50%;
+}
+
+div.glossary {
+  @apply bg-amber-50/80 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-5 my-4 shadow-sm space-y-2;
+}
+
+div.glossary-name {
+  @apply text-xl font-bold text-amber-950 dark:text-amber-300 pb-2 border-b border-amber-200/60 dark:border-slate-800;
+}
+
+div.glossary-definition {
+  @apply py-3 text-base text-slate-800 dark:text-slate-100 leading-relaxed;
+}
+
+div.glossary-notes {
+  @apply text-sm text-slate-600 dark:text-slate-400 pt-2 border-t border-amber-200/60 dark:border-slate-800;
+}
+
+img.footnote-icon {
+  padding: 0 0.25em 0 0;
+  border: 0;
+  height: 20px;
+}
+
+/* Gospel Harmony */
+#gospel-left {
+  float: left;
+  padding: 1em;
+  width: 20%;
+}
+
+#gospel-left ul {
+  list-style: none;
+}
+
+#gospel-body {
+  float: left;
+  width: 80%;
+  padding: 1em;
+}
+
+/* Bible Map */
+#map_canvas {
+  text-align: center;
+  padding: 1em;
+  width: 100%;
+  max-width: 800px;
+  height: 550px;
+  margin: 0 auto;
+}
+
+div.biblemap-toolbar {
+  padding: 0 0 1em 0;
+}
+
+div.bible-map-notes {
+  font-size: 80%;
+}
+
+div.bible-map-verses {
+  font-size: 75%;
+}
+
+/* Contact Us, Subjects, Maintenance & Audio */
+th.contactus-form {
+  text-align: right;
+}
+
+div.contactus-form {
+  padding: 1.5em;
+}
+
+div.subject {
+  @apply bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 my-2 shadow-sm;
+  width: 48%;
+  float: left;
+  margin: 1%;
+}
+
+div.subject-title {
+  @apply font-bold text-amber-950 dark:text-amber-300 text-lg mb-2;
+}
+
+div.subject-subtitles {
+  @apply bg-amber-50/50 dark:bg-slate-800/50 p-3 rounded-lg border border-amber-100 dark:border-slate-700;
+}
+
+div.subject-subtitle {
+  font-size: 85%;
+  display: inline-block;
+  padding: 0.25em 0.5em;
+}
+
+div.maintenance {
+  text-align: center;
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 2em;
+}
+
+div.retrieve-audio {
+  font-size: 75%;
+  display: inline;
+}
+
+div.common-copyright {
+  @apply bg-amber-950/90 dark:bg-slate-900 text-amber-200/80 dark:text-slate-400 py-4 text-xs text-center border-t border-amber-800/40 dark:border-slate-800 mt-6;
+}
+
+/* Search Scroller */
+div.search-scroller {
+  width: 50%;
+  overflow: hidden;
+  margin: auto;
+}
+
+div.search-prev {
+  padding: 1em;
+  position: absolute;
+  left: 25%;
+  width: 50px;
+  height: 1em;
+  z-index: 20;
+  background-color: transparent;
+}
+
+div.search-next {
+  padding: 1em;
+  position: absolute;
+  right: 25%;
+  width: 50px;
+  height: 1em;
+  z-index: 20;
+  background-color: transparent;
+}
+
+/* Calendar Schedule */
+#calendar-body {
+  width: 100%;
+}
+
+#calendar {
+  margin: auto;
+  padding: 0.5em;
+  font-size: 85%;
+}
+
+form.calendar {
+  padding: 0.5em;
+}
+
+select.calendar-type {
+  width: auto;
+}
+
+div.calendar-month-name {
+  @apply font-bold text-lg text-amber-950 dark:text-amber-300 pt-4 pb-2 border-b border-amber-200/60 dark:border-slate-800 mt-2;
+}
+
+div.calendar-day {
+  @apply py-1.5 px-2 text-sm sm:text-base border-b border-amber-100/60 dark:border-slate-800/60 hover:bg-amber-50/60 dark:hover:bg-slate-800/60 rounded transition-colors;
+}
+
+div#share-widget {
+  padding: 1em 1em 0 0;
+  float: right;
+  width: 250px;
+}
+
