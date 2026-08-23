@@ -497,20 +497,48 @@ img.footnote-icon {
 }
 
 /* Gospel Harmony */
-#gospel-left {
-  float: left;
-  padding: 1em;
-  width: 20%;
-}
-
 #gospel-left ul {
   list-style: none;
 }
 
+h1.gospel {
+  @apply text-xl sm:text-2xl font-bold text-amber-950 dark:text-amber-300 text-center my-3 pb-2 border-b border-amber-200/60 dark:border-slate-800;
+}
+
+h2.gospel {
+  @apply text-lg sm:text-xl font-semibold text-amber-900 dark:text-amber-400 text-center my-2;
+}
+
+h3.gospel {
+  @apply text-base sm:text-lg font-medium text-amber-800 dark:text-amber-400/90 text-center my-2;
+}
+
 #gospel-body {
-  float: left;
-  width: 80%;
-  padding: 1em;
+  @apply min-w-0 overflow-x-auto;
+}
+
+#gospel-body table.gospel, table.gospel {
+  @apply w-full border-collapse border border-amber-200/80 dark:border-slate-700 bg-white dark:bg-slate-900 rounded-lg overflow-hidden my-4 shadow-sm text-sm sm:text-base;
+}
+
+#gospel-body th.gospel, th.gospel {
+  @apply bg-amber-100/70 dark:bg-slate-800 text-amber-950 dark:text-amber-300 font-bold p-2.5 sm:p-3 text-left border border-amber-200/80 dark:border-slate-700;
+}
+
+#gospel-body td.gospel, td.gospel {
+  @apply p-2.5 sm:p-3 border border-amber-200/80 dark:border-slate-700 text-slate-800 dark:text-slate-200 align-top;
+}
+
+#gospel-body tr.gospel:nth-child(even), tr.gospel:nth-child(even) {
+  @apply bg-amber-50/40 dark:bg-slate-800/30;
+}
+
+#gospel-body tr.gospel:hover, tr.gospel:hover {
+  @apply bg-amber-100/40 dark:bg-slate-800/60 transition-colors;
+}
+
+#gospel-body a {
+  @apply text-amber-800 dark:text-amber-400 font-medium hover:underline;
 }
 
 /* Bible Map */

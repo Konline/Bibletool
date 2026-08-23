@@ -11,7 +11,8 @@ class Bible_Smarty extends Smarty
 		$this->setTemplateDir("{$root}/{$c->templates_dir}");
 		$this->setCompileDir("{$root}/{$c->compiler_dir}");
 		$this->setCacheDir("{$root}/{$c->cache_dir}");
-		$this->setConfigDir("${root}/{$c->config_dir}");
+		$this->setConfigDir("{$root}/{$c->config_dir}");
+		$this->addPluginsDir("{$root}/lib/Smarty/plugins");
 		$this->assign('webroot', $c->webroot);
 	}
 }
