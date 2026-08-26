@@ -95,7 +95,7 @@ div.browse-table-verse {
 
 /* Verse Reference Link (e.g. 創 1:1) */
 span.browse-table-verse-header {
-  @apply font-semibold text-amber-800 pr-3 select-none flex-shrink-0;
+  @apply font-semibold text-amber-800 pr-3 flex-shrink-0;
 }
 
 .dark span.browse-table-verse-header {
@@ -197,7 +197,7 @@ tr.interlinear-verse {
 }
 
 td.interlinear-verse-number {
-  @apply p-3 font-semibold text-amber-800 align-top text-sm select-none border-r border-amber-100 bg-amber-50/30;
+  @apply p-3 font-semibold text-amber-800 align-top text-sm border-r border-amber-100 bg-amber-50/30;
 }
 
 .dark td.interlinear-verse-number {
