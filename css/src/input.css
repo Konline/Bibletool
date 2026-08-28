@@ -394,46 +394,151 @@ span.query-paginate-other-page {
   margin: 0.5em;
 }
 
-/* Static Pages */
-table.static-table {
-  border: 0;
-  height: 100%;
+/* ==========================================================================
+   Static Pages & Rich Prose Content Styling
+   ========================================================================== */
+
+.static-prose-container {
+  @apply text-slate-800 dark:text-slate-200;
 }
 
-tr.static-table-row {
-  padding: 1em 1em 1em 2em;
-  vertical-align: top;
+.static-header-banner {
+  @apply pb-6 mb-8 border-b border-amber-200/80 dark:border-slate-800 text-center sm:text-left;
 }
 
-div.static h1 {
-  text-align: center;
-  padding: 0.5em;
-  @apply font-bold text-2xl text-amber-950 dark:text-amber-200;
+.static-badge {
+  @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 dark:bg-amber-950/70 dark:text-amber-300 dark:border dark:border-amber-800/60 mb-3;
 }
 
-td.static-content {
-  padding: 1em 2em;
-  width: 80%;
-  border-left: 1px solid #fcd34d;
+.static-header-title {
+  @apply text-2xl sm:text-3xl font-extrabold text-amber-950 dark:text-amber-200 tracking-tight mb-2;
 }
 
-.dark td.static-content {
-  border-color: #334155;
+.static-header-subtitle {
+  @apply text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed;
 }
 
-td.static-section-index {
-  width: 18%;
+/* Story Narrative Cards (About Page) */
+.story-section {
+  @apply relative mb-8 p-5 sm:p-7 rounded-2xl bg-gradient-to-b from-amber-50/60 to-white dark:from-slate-800/40 dark:to-slate-900 border border-amber-200/70 dark:border-slate-800/90 shadow-sm transition-all;
 }
 
-td.static-section-index ul {
-  margin: 0;
-  padding: 1em 1em 1em 2em;
-  font-size: 90%;
-  list-style: none;
+.story-section-header {
+  @apply flex items-center gap-3 mb-4 pb-3 border-b border-amber-200/50 dark:border-slate-800;
 }
 
-li.static-page-current a {
-  @apply text-amber-700 dark:text-amber-400 font-bold;
+.story-section-number {
+  @apply flex items-center justify-center w-8 h-8 rounded-xl bg-amber-700 text-white dark:bg-amber-600 text-sm font-bold shadow-sm flex-shrink-0;
+}
+
+.story-section-title {
+  @apply text-lg sm:text-xl font-bold text-amber-950 dark:text-amber-200;
+}
+
+.story-paragraph {
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed sm:leading-loose text-base sm:text-lg mb-4 last:mb-0;
+}
+
+/* Quote Callout Box */
+.story-quote-box {
+  @apply my-5 p-4 sm:p-5 rounded-xl bg-amber-100/50 dark:bg-slate-800/80 border-l-4 border-amber-600 dark:border-amber-400 text-slate-800 dark:text-slate-200 italic shadow-sm leading-relaxed;
+}
+
+/* Prayer Callout Box */
+.prayer-box {
+  @apply my-5 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-amber-100/70 via-amber-50/50 to-amber-100/40 dark:from-slate-800/90 dark:via-slate-800/50 dark:to-slate-800/90 border border-amber-300/80 dark:border-amber-700/50 shadow-md;
+}
+
+.prayer-box-header {
+  @apply flex items-center gap-2 text-amber-900 dark:text-amber-300 font-bold text-sm sm:text-base mb-3 pb-2 border-b border-amber-200 dark:border-slate-700;
+}
+
+.prayer-box-content {
+  @apply text-slate-800 dark:text-slate-200 text-base sm:text-lg leading-relaxed italic font-serif;
+}
+
+/* Scripture Promise Box */
+.scripture-box {
+  @apply my-5 p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-amber-600 to-amber-800 text-white shadow-lg shadow-amber-900/15 relative overflow-hidden;
+}
+
+.scripture-box-title {
+  @apply text-xs sm:text-sm font-semibold uppercase tracking-wider text-amber-200 mb-1 flex items-center gap-1.5;
+}
+
+.scripture-box-verse {
+  @apply text-lg sm:text-2xl font-extrabold tracking-wide text-amber-50 my-2 leading-snug;
+}
+
+.scripture-box-ref {
+  @apply text-sm sm:text-base text-amber-200/90 font-medium text-right mt-1;
+}
+
+/* Author Signature Card */
+.author-signature-card {
+  @apply mt-8 p-6 rounded-2xl bg-gradient-to-r from-amber-100/80 to-amber-50/80 dark:from-slate-800 dark:to-slate-900 border border-amber-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm;
+}
+
+/* Thank You Acknowledgement Cards (Thanks Page) */
+.thanks-grid {
+  @apply grid grid-cols-1 gap-4 sm:gap-5;
+}
+
+.thanks-card {
+  @apply p-5 sm:p-6 rounded-2xl bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 shadow-sm hover:border-amber-400 dark:hover:border-amber-700 transition-all;
+}
+
+.thanks-card-header {
+  @apply flex flex-wrap items-center justify-between gap-2 mb-3 pb-2.5 border-b border-amber-100 dark:border-slate-800;
+}
+
+.thanks-name-wrap {
+  @apply flex items-center gap-3;
+}
+
+.thanks-number {
+  @apply flex items-center justify-center w-7 h-7 rounded-lg bg-amber-100 dark:bg-slate-800 text-amber-900 dark:text-amber-300 font-bold text-xs flex-shrink-0;
+}
+
+.thanks-name {
+  @apply font-bold text-lg text-amber-950 dark:text-amber-200;
+}
+
+.thanks-role {
+  @apply text-xs px-2.5 py-1 rounded-full bg-amber-50 dark:bg-slate-800 text-amber-800 dark:text-amber-400 border border-amber-200/60 dark:border-slate-700;
+}
+
+.thanks-text {
+  @apply text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base;
+}
+
+/* References Sections (References Page) */
+.ref-category {
+  @apply mb-8 p-5 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 shadow-sm;
+}
+
+.ref-category-header {
+  @apply flex items-center gap-3 mb-5 pb-3 border-b border-amber-200/60 dark:border-slate-800;
+}
+
+.ref-category-title {
+  @apply text-lg sm:text-xl font-bold text-amber-950 dark:text-amber-200 flex items-center gap-2;
+}
+
+.ref-grid {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-3;
+}
+
+.ref-item {
+  @apply flex items-start gap-3 p-3 rounded-xl bg-amber-50/50 dark:bg-slate-800/60 border border-amber-200/40 dark:border-slate-700/60 text-slate-800 dark:text-slate-200 text-sm leading-snug hover:bg-amber-100/50 dark:hover:bg-slate-800 transition-colors;
+}
+
+.ref-item-num {
+  @apply flex items-center justify-center w-5 h-5 rounded-full bg-amber-200/80 dark:bg-slate-700 text-amber-900 dark:text-amber-300 text-xs font-semibold flex-shrink-0 mt-0.5;
+}
+
+.ref-link-card {
+  @apply flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 rounded-xl bg-amber-50/70 dark:bg-slate-800/70 border border-amber-200/60 dark:border-slate-700;
 }
 
 /* Glossary Page & Popups */

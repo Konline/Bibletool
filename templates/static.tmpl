@@ -7,25 +7,33 @@
 {/if}
 {include file="header.tmpl"}
 
-<div class="page-body grid grid-cols-1 md:grid-cols-4 gap-6">
-  <div class="bg-amber-100/60 dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-4 shadow-sm md:col-span-1 h-fit">
-    <h3 class="font-bold text-amber-950 dark:text-amber-300 mb-3 text-base border-b border-amber-200 dark:border-slate-800 pb-2">關於此專案</h3>
-    <ul class="space-y-1 text-sm">
-      <li>
-        <a class="block px-3 py-2 rounded-lg transition-colors {if $page == 'about'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/static/about">緣由</a>
-      </li>
-      <li>
-        <a class="block px-3 py-2 rounded-lg transition-colors {if $page == 'thanks'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/static/thanks">感謝</a>
-      </li>
-      <li>
-        <a class="block px-3 py-2 rounded-lg transition-colors {if $page == 'references'}bg-amber-800 text-white font-medium{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800{/if}" href="{$webroot}/static/references">參考資料</a>
-      </li>
-    </ul>
-  </div>
+<div class="page-body grid grid-cols-1 lg:grid-cols-12 gap-6 items-start my-2">
+  <!-- Sidebar Navigation -->
+  <aside class="lg:col-span-3 bg-amber-100/50 dark:bg-slate-900/90 backdrop-blur-sm border border-amber-200/80 dark:border-slate-800 rounded-2xl p-5 shadow-sm sticky top-4">
+    <div class="flex items-center gap-2 mb-4 pb-3 border-b border-amber-200/60 dark:border-slate-800">
+      <div class="w-1.5 h-4 bg-amber-600 rounded-full"></div>
+      <h3 class="font-bold text-amber-950 dark:text-amber-200 text-sm tracking-wide">關於此專案</h3>
+    </div>
+    <nav class="space-y-1.5 text-sm font-medium">
+      <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all {if $page == 'about'}bg-gradient-to-r from-amber-700 to-amber-800 text-white shadow-sm shadow-amber-900/10 font-semibold{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800 hover:text-amber-900 dark:hover:text-amber-300{/if}" href="{$webroot}/static/about">
+        <svg class="w-4 h-4 {if $page == 'about'}text-amber-200{else}text-amber-600 dark:text-amber-400{/if}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+        <span>緣由</span>
+      </a>
+      <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all {if $page == 'thanks'}bg-gradient-to-r from-amber-700 to-amber-800 text-white shadow-sm shadow-amber-900/10 font-semibold{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800 hover:text-amber-900 dark:hover:text-amber-300{/if}" href="{$webroot}/static/thanks">
+        <svg class="w-4 h-4 {if $page == 'thanks'}text-amber-200{else}text-amber-600 dark:text-amber-400{/if}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+        <span>感謝</span>
+      </a>
+      <a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all {if $page == 'references'}bg-gradient-to-r from-amber-700 to-amber-800 text-white shadow-sm shadow-amber-900/10 font-semibold{else}text-slate-700 dark:text-slate-300 hover:bg-amber-200/60 dark:hover:bg-slate-800 hover:text-amber-900 dark:hover:text-amber-300{/if}" href="{$webroot}/static/references">
+        <svg class="w-4 h-4 {if $page == 'references'}text-amber-200{else}text-amber-600 dark:text-amber-400{/if}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+        <span>參考資料</span>
+      </a>
+    </nav>
+  </aside>
 
-  <div class="bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-xl p-6 sm:p-8 shadow-sm md:col-span-3 leading-relaxed">
+  <!-- Main Content Container -->
+  <main class="lg:col-span-9 bg-white dark:bg-slate-900 border border-amber-200/80 dark:border-slate-800 rounded-2xl p-6 sm:p-10 shadow-sm leading-relaxed static-prose-container">
     {include file="static/$page.tmpl"}
-  </div>
+  </main>
 </div>
 
 {include file="footer.tmpl"}
